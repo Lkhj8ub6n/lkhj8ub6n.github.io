@@ -371,3 +371,21 @@ footer {
 }
 
 
+
+
+/* دعم اللغة العربية */
+[dir="rtl"], .rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.rtl h1, .rtl h2, .rtl h3, .rtl h4, .rtl h5 {
+  text-align: right;
+}
+
+.rtl p {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+
