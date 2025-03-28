@@ -3,25 +3,37 @@ layout: default
 ---
 
 <div class="container">
-	<div class="row">
-		<div class="col-md-3 text-left">
-			{% if page.previous %}<h5><a href="{{ page.previous.url }}" title="Previous blog
-: {{ page.previous.title }}"><i class="fa fa-previous fa-lg"></i> Previous</a></h5>{% endif %}
-		</div>
-		<div class="col-md-6 text-center">
-			<h5><a href="/blog
-" title="Back to blog
- index"><i class="fa fa-home fa-lg"></i> Back to blog
-</a></h5>
-		</div>
-		<div class="col-md-3 text-right">
-			{% if page.next %}<h5><a href="{{ page.next.url }}" title="Next blog
-: {{ page.next.title }}"><i class="fa fa-next fa-lg"></i> Next</a></h5>{% endif %}
-		</div>
-	</div>
-	<div class="post">
-		<h4>{{ page.date | date: "%Y-%m-%d" }}</h4>
-		<h2>{{ page.title }}</h2>
-		<p>{{ content }}</p>
-	</div>
+  <div class="row">
+    <div class="col-md-3 text-left">
+      {% if page.previous %}
+        <h5>
+          <a href="{{ page.previous.url }}" title="Previous blog: {{ page.previous.title }}">
+            <i class="fa fa-previous fa-lg"></i> Previous
+          </a>
+        </h5>
+      {% endif %}
+    </div>
+    <div class="col-md-6 text-center">
+      <h5>
+        <a href="/blog" title="Back to blog index">
+          <i class="fa fa-home fa-lg"></i> Back to blog
+        </a>
+      </h5>
+    </div>
+    <div class="col-md-3 text-right">
+      {% if page.next %}
+        <h5>
+          <a href="{{ page.next.url }}" title="Next blog: {{ page.next.title }}">
+            <i class="fa fa-next fa-lg"></i> Next
+          </a>
+        </h5>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="post" {% if page.lang == "ar" %}dir="rtl" style="text-align: right; font-size: 18px;"{% endif %}>
+    <h4>{{ page.date | date: "%Y-%m-%d" }}</h4>
+    <h2 {% if page.lang == "ar" %}dir="rtl" style="text-align: right;"{% endif %}>{{ page.title }}</h2>
+    {{ content }}
+  </div>
 </div>
