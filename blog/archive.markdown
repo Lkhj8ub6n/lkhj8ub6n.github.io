@@ -1,6 +1,6 @@
 ---
 layout: std
-title: Enter the void - blog
+title: blog
  archive
 ---
 
