@@ -849,3 +849,22 @@ section #title .credits.right {
     display: none;
   }
 }
+
+
+/* دعم اللغة العربية في المقالات */
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.rtl h1, .rtl h2, .rtl h3, .rtl h4, .rtl h5, .rtl h6 {
+  text-align: right;
+}
+
+.rtl p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #f0e7d5; /* نفس لون النص الأصلي */
+}
+
+
