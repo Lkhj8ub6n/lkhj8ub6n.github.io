@@ -3,7 +3,9 @@ layout: post
 title: "تجربة النشر باللغة العربية"
 date: 2025-03-28
 is_post: true
+lang: ar
 ---
+
 
 <div class="rtl">
 
