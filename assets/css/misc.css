@@ -240,16 +240,16 @@ h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
   }
 }
 
-.download-device-title {
+.CV-device-title {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
 }
-.download-device-title h4 {
+.CV-device-title h4 {
   margin-top: 2rem;
 }
 
-.inline-download-links {
+.inline-CV-links {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -257,18 +257,18 @@ h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
   padding: 0;
   border-bottom: 1px solid #ddd;
 }
-.inline-download-links:last-of-type {
+.inline-CV-links:last-of-type {
   border-bottom: none;
 }
-.inline-download-links li {
+.inline-CV-links li {
   margin-right: 1.5em;
   margin-bottom: 2rem;
 }
-.inline-download-links .label-warning {
+.inline-CV-links .label-warning {
   background-color: #fdf6e3;
   color: #535353;
 }
-.inline-download-links .label-default {
+.inline-CV-links .label-default {
   background-color: #ddd;
   color: #535353;
 }
@@ -287,7 +287,7 @@ h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
   hr {
     border-top: 1px solid #888;
   }
-  .inline-download-links, .tab-bar {
+  .inline-CV-links, .tab-bar {
     border-bottom: 1px solid #888;
   }
   .tab-bar li {
@@ -327,14 +327,14 @@ h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
   .nav li:hover {
     background-color: #222;
   }
-  .inline-download-links .label-default, .inline-download-links .label-warning {
+  .inline-CV-links .label-default, .inline-CV-links .label-warning {
     background-color: inherit;
   }
-  .inline-download-links .label-default {
+  .inline-CV-links .label-default {
     border: 1px solid;
     color: #009fff;
   }
-  .inline-download-links .label-warning {
+  .inline-CV-links .label-warning {
     border: 1px solid;
     color: #ffd804;
   }

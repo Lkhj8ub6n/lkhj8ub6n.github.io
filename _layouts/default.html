@@ -25,7 +25,8 @@
 		<link rel="stylesheet" href="/assets/css/misc.css">
 		<link href='/assets/css/font-ubuntu.css' rel='stylesheet' type='text/css'>
 		{% if site.snow == 1 %}<link rel="stylesheet" type="text/css" href="/assets/css/snow.css" />{% endif %}
-		<link rel="alternate" type="application/atom+xml" title="Void Linux News feed" href="/atom.xml" />
+		<link rel="alternate" type="application/atom+xml" title="Void Linux blog
+ feed" href="/atom.xml" />
 		<script src="/assets/js/jquery.min.js"></script>
 		<script src="/assets/js/bootstrap.min.js"></script>
 		<script src="/assets/js/tabbar.js"></script>
@@ -44,17 +45,13 @@
 				<div class="collapse navbar-collapse" id="void-collapsed-navbar">
 					<ul class="nav navbar-left navbar-nav">
 						<li><a href="/">Home</a></li>
-						<li><a href="/news/">News</a></li>
-						<li><a href="/download/">Download</a></li>
-						<li><a href="/packages/">Packages</a></li>
-						<li><a href="/acknowledgments/">Acknowledgments</a></li>
+						<li><a href="/blog
+/">Blog</a></li>
+						<li><a href="/CV/">CV</a></li>
+						<li><a href="/projects/">Projects</a></li>
+						<li><a href="/contact/">Contact</a></li>
 					</ul>
-					<ul class="nav navbar-right navbar-nav">
-						<li><a href="https://docs.voidlinux.org">Documentation</a></li>
-						<li><a href="https://man.voidlinux.org/">Manual Pages</a></li>
-						<li><a href="https://xmirror.voidlinux.org/">Mirrors</a></li>
-						<li><a href="https://github.com/void-linux">GitHub</a></li>
-					</ul>
+					
 				</div>
 			</div>
 		</nav>
@@ -64,10 +61,10 @@
 			<div class="container col-md-8 col-md-offset-2">
 				<hr>
 				<footer class="footer">
-					<p class="text-center">Copyright {{ site.time | date: "%Y" }} <a href="https://github.com/orgs/void-linux/people">VoidLinux contributors</a></p>
-					<p class="text-center">Copyright 2008-2018 <a href="https://gitlab.com/xtraeme">Juan RP</a> and contributors</p>
-					<p class="text-center">Linux&#174; is a registered trademark of Linus Torvalds (<a href="https://www.linuxfoundation.org/programs/legal/trademark/attribution">info</a>)</p>
-				</footer>
+					<p class="text-center">&copy; {{ site.time | date: "%Y" }} Yazeid. All rights reserved.</p>
+					<p class="text-center">Built with <a href="https://jekyllrb.com/">Jekyll</a>, inspired by <a href="https://voidlinux.org">Void Linux</a></p>
+				  </footer>
+				  
 			</div>
 		</div>
 	</body>

@@ -36,7 +36,7 @@
     let form;
     let params;
 
-    let packages = [];
+    let projects = [];
 
     // Functions
 
@@ -80,8 +80,8 @@
         query.addClass("loading");
         $.getJSON(uri("/v1/query/" + arch, { q: q }))
             .done((data) => {
-                packages = data.data || [];
-                showPackages(packages, false, q);
+                projects = data.data || [];
+                showprojects(projects, false, q);
             })
             .always(() => { query.removeClass("loading"); });
         history.replaceState(null, null, "?arch=" + arch + "&q=" + q);
@@ -100,28 +100,28 @@
 
     function transformPackageForPackageCell(p) {
         let ghSlug = p.name.replace(/-(?:32bit|dbg)$/, "");
-        p.anchor = "<a href=\"https://github.com/void-linux/void-packages/tree/master/srcpkgs/"
+        p.anchor = "<a href=\"https://github.com/void-linux/void-projects/tree/master/srcpkgs/"
             + ghSlug + "\" target=\"_blank\" title=\"View on GitHub\">" + p.name + "</a>";
         p.filename_size = typeof(p.filename_size) == 'number' ? formatSize(p.filename_size) : p.filename_size;
         return p;
     }
 
-    function showPackages(packages, showAll, searchQuery = '') {
-        packages = packages || [];
-        var packagesExactMatch = getPackagesExactMatch(packages, searchQuery);
-        const tooMany = !showAll && packages.length > maxResults;
+    function showprojects(projects, showAll, searchQuery = '') {
+        projects = projects || [];
+        var projectsExactMatch = getprojectsExactMatch(projects, searchQuery);
+        const tooMany = !showAll && projects.length > maxResults;
         if (tooMany) {
-            packages = packages.slice(0, maxResults);
+            projects = projects.slice(0, maxResults);
         }
 
         table.children().remove();
-        if (packages.length == 0) {
+        if (projects.length == 0) {
             table.append(noResultsNotice());
             return;
         }
         table.append(
             header,
-            packages.map((p) => {
+            projects.map((p) => {
                 return packageCell(transformPackageForPackageCell(p), "<td>");
             })
         );
@@ -130,9 +130,9 @@
             table.append(tooManyNotice());
         }
 
-        if (packagesExactMatch.length >= 1) {
+        if (projectsExactMatch.length >= 1) {
             $('#voidSearch_result tr:first').after(
-                packagesExactMatch.map((p) => {
+                projectsExactMatch.map((p) => {
                     return packageCell(
                         transformPackageForPackageCell(p),
                         "<td class='exact'>"
@@ -143,16 +143,16 @@
 
     }
 
-    function getPackagesExactMatch(packages, searchQuery) {
+    function getprojectsExactMatch(projects, searchQuery) {
         if (searchQuery.trim() === "") {
             return [];
         }
-        packages = packages || [];
-        if (packages.length <= 1) {
+        projects = projects || [];
+        if (projects.length <= 1) {
             return [];
         }
         searchQuery = searchQuery.trim().toLowerCase();
-        return packages.filter(p => p.name.toLowerCase() === searchQuery);
+        return projects.filter(p => p.name.toLowerCase() === searchQuery);
     }
 
     function setArchitectures(archNames) {
@@ -202,7 +202,7 @@
             .addClass("toomany")
             .attr("colspan", packageColumns.length)
             .text("Too many results (over " + maxResults + "). ")
-            .append($("<a>").text("Show all.").click(() => showPackages(packages, true)))
+            .append($("<a>").text("Show all.").click(() => showprojects(projects, true)))
         );
     }
 

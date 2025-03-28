@@ -52,3 +52,45 @@ pre code {
 	word-wrap: normal;
 	white-space: pre;
 }
+
+
+
+.hover-image-container {
+  position: relative;
+  width: fit-content;
+  margin: 40px auto;
+  transform: translateY(-50px); /* رفع الصورة للأعلى */
+}
+
+.hover-image-container img {
+  width: 200px;                /* الحجم الحقيقي للصور */
+  height: 200px;
+  border-radius: 50%;          /* شكل دائري */
+  object-fit: contain;         /* عرض الصورة بدون تمدد */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* ظل ناعم دائري */
+  transition: opacity 0.4s ease-in-out, transform 0.3s ease-in-out;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hover-image-container .img1 {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hover-image-container .img2 {
+  opacity: 0;
+  z-index: 2;
+}
+
+.hover-image-container:hover .img1 {
+  opacity: 0;
+  transform: scale(1.05);  /* Zoom خفيف عند التحويل */
+}
+
+.hover-image-container:hover .img2 {
+  opacity: 1;
+  transform: scale(1.05);
+}
+

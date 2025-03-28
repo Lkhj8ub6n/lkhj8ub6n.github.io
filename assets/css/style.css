@@ -41,10 +41,12 @@ nav,header,article h1,article h2,article h3 {
 body,#links ul,#social ul {
 	margin:0;
 }
-#navwrap,#navpost,#navxbps,#navnews,#voidwrap,article,article h1,article h2,article h3,.video,#davoid,#xtraemewrap {
+#navwrap,#navpost,#navxbps,#navblog
+,#voidwrap,article,article h1,article h2,article h3,.video,#davoid,#xtraemewrap {
 	margin:0 auto;
 }
-#voidwrap,article h1,article h2,article h3,.daxdate,#readprevnews,.video,.postarticle,#findpkg form,#donations,footer {
+#voidwrap,article h1,article h2,article h3,.daxdate,#readprevblog
+,.video,.postarticle,#findpkg form,#donations,footer {
 	text-align:center;
 }
 .fa,#title h1 {
@@ -62,10 +64,12 @@ nav,#xtraemewrap,.daxdate,pre,p code,ul li code,#findpkg input {
 article,#xtraemewrap {
 	line-height:30px;
 }
-#title h1,#readprevnews,.postarticle h2 {
+#title h1,#readprevblog
+,.postarticle h2 {
 	padding-top:20px;
 }
-#navwrap,#navpost,#navxbps,#navnews {
+#navwrap,#navpost,#navxbps,#navblog
+ {
 	line-height:24px;
 }
 nav a,p code {
@@ -103,7 +107,8 @@ nav {
 #navxbps,#voidwrap {
 	max-width:800px;
 }
-#navnews {
+#navblog
+ {
 	max-width:440px;
 }
 #social {
@@ -209,7 +214,8 @@ blockquote p {
 	font-style:italic;
 	padding-left:10px;
 }
-#readprevnews a i,.rssdev a i {
+#readprevblog
+ a i,.rssdev a i {
 	font-size:1em;
 	vertical-align:-8%;
 }
@@ -282,7 +288,8 @@ footer {
 	nav {
 		padding:10px 14px;
 	}
-	#navwrap,#navpost,#navxbps,#navnews {
+	#navwrap,#navpost,#navxbps,#navblog
+ {
 		text-align:center;
 	}
 	#social {
