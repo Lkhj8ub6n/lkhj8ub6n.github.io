@@ -16,3 +16,9 @@ title: My Projects
 <div class="coming-soon">
   Coming Soon
 </div>
+
+<div id="muslim-project">
+  <h2>Muslim AI Project</h2>
+  <p>This project uses AI to assist with cultural or Islamic data processing...</p>
+</div>
+
