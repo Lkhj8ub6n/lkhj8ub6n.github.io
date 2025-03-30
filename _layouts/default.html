@@ -1,89 +1,71 @@
+You said:
 <!DOCTYPE html>
 <html lang="en" prefix="og: https://ogp.me/ns# article: http://ogp.me/ns/article#">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ page.title }}</title>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{{ page.title }}</title>
 
-  <meta property="og:title" content="{{ page.title }}">
-  {% if page.is_post %}
-  <meta property="og:description" content="{{ page.excerpt | strip_html | normalize_whitespace }}">
-  <meta property="og:type" content="article">
-  <meta property="article:published_time" content="{{ page.date | date: "%Y-%m-%d" }}">
-  {% else %}
-  <meta property="og:description" content="{{ site.name }}">
-  {% endif %}
-  <meta property="og:site_name" content="Void Linux">
-  <meta property="og:image:url" content="/assets/img/voidlogo.png">
-  <meta property="og:image:alt" content="Void Linux Logo">
-  <meta name="theme-color" content="#478061">
+		<meta property="og:title" content="{{ page.title }}">
+		{% if page.is_post %}
+		<meta property="og:description" content="{{ page.excerpt | strip_html | normalize_whitespace }}">
+		<meta property="og:type" content="article">
+		<meta property="article:published_time" content="{{ page.date | date: "%Y-%m-%d" }}">
+		{% else %}
+		<meta property="og:description" content="{{ site.name }}">
+		{% endif %}
+		<meta property="og:site_name" content="Void Linux">
+		<meta property="og:image:url" content="/assets/img/voidlogo.png">
+		<meta property="og:image:alt" content="Void Linux Logo">
+		<meta name="theme-color" content="#478061">
 
-  <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
-  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/assets/css/screen.css">
-  <link rel="stylesheet" href="/assets/css/misc.css">
-  <link href='/assets/css/font-ubuntu.css' rel='stylesheet' type='text/css'>
-  {% if site.snow == 1 %}
-  <link rel="stylesheet" type="text/css" href="/assets/css/snow.css" />
-  {% endif %}
-  <link rel="alternate" type="application/atom+xml" title="Void Linux blog feed" href="/atom.xml" />
-  <script src="/assets/js/jquery.min.js"></script>
-  <script src="/assets/js/bootstrap.min.js"></script>
-  <script src="/assets/js/tabbar.js"></script>
-</head>
-
-<body role="document">
- <nav class="navbar navbar-default navbar-inverse navbar-sticky" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#void-collapsed-navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-
-    <div class="collapse navbar-collapse" id="void-collapsed-navbar">
-    <ul class="nav navbar-nav navbar-left">
-  <li><a href="/">Home</a></li>
-  <li><a href="/blog/">Blog</a></li>
-  <li><a href="/CV/">CV</a></li>
-</ul>
-
-<!-- الصورة داخل الشريط على نفس السطر -->
-<ul class="nav navbar-nav navbar-center"
-    style="position: absolute; left: 50%; transform: translateX(-50%); top: -30px;">
-  <li>
-    <a href="/projects/#muslim-project" title="Muslim AI Project">
-      <img src="/assets/img/muslim.png" alt="Muslim Project"
-        style="height: 36px; width: auto; max-width: 150px; filter: brightness(0) invert(1); vertical-align: middle;">
-    </a>
-  </li>
-</ul>
-
-
-
-<ul class="nav navbar-nav navbar-right">
-  <li><a href="/projects/">Projects</a></li>
-  <li><a href="/contact/">Contact</a></li>
-</ul>
-
-    </div>
-  </div>
-</nav>
-
-
-  <div class="container">
-    {{ content }}
-    {% if site.snow == 1 %}{% include snow.html %}{% endif %}
-    <div class="container col-md-8 col-md-offset-2">
-      <hr>
-      <footer class="footer">
-        <p class="text-center">&copy; {{ site.time | date: "%Y" }} Yazeid. All rights reserved.</p>
-      </footer>
-    </div>
-  </div>
-</body>
+		<link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+		<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/assets/css/screen.css">
+		<link rel="stylesheet" href="/assets/css/misc.css">
+		<link href='/assets/css/font-ubuntu.css' rel='stylesheet' type='text/css'>
+		{% if site.snow == 1 %}<link rel="stylesheet" type="text/css" href="/assets/css/snow.css" />{% endif %}
+		<link rel="alternate" type="application/atom+xml" title="Void Linux blog
+ feed" href="/atom.xml" />
+		<script src="/assets/js/jquery.min.js"></script>
+		<script src="/assets/js/bootstrap.min.js"></script>
+		<script src="/assets/js/tabbar.js"></script>
+	</head>
+	<body role="document">
+		<nav class="navbar navbar-default navbar-inverse navbar-sticky" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#void-collapsed-navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="void-collapsed-navbar">
+					<ul class="nav navbar-left navbar-nav">
+						<li><a href="/">Home</a></li>
+						<li><a href="/blog
+/">Blog</a></li>
+						<li><a href="/CV/">CV</a></li>
+						<li><a href="/projects/">Projects</a></li>
+						<li><a href="/contact/">Contact</a></li>
+					</ul>
+					
+				</div>
+			</div>
+		</nav>
+		<div class="container">
+			{{ content }}
+			{% if site.snow == 1 %}{% include snow.html %}{% endif %}
+			<div class="container col-md-8 col-md-offset-2">
+				<hr>
+				<footer class="footer">
+					<p class="text-center">&copy; {{ site.time | date: "%Y" }} Yazeid. All rights reserved.</p>
+				  </footer>
+				  
+			</div>
+		</div>
+	</body>
 </html>
