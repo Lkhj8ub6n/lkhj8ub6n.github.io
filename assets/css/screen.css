@@ -64,7 +64,7 @@ pre code {
 .hover-image-container img {
   width: 200px;
   height: 200px;
-  border-radius: 50%;
+ 
   object-fit: cover; /* مهم لتغطية الإطار بدون فراغ أبيض */
   background-color: transparent; /* تأكيد على الشفافية */
   box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
