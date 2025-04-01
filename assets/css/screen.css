@@ -57,16 +57,15 @@ pre code {
   position: relative;
   width: fit-content;
   margin: 40px auto;
-  transform: translateY(-50px);
+  transform: translateY(-50px); /* رفع الصورة للأعلى */
 }
 
 .hover-image-container img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  object-fit: cover; /* مهم لتغطية الإطار بدون فراغ أبيض */
-  background-color: transparent; /* تأكيد على الشفافية */
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+  object-fit: contain;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* ظل أخضر */
   transition: opacity 0.4s ease-in-out, transform 0.3s ease-in-out;
   position: absolute;
   top: 0;
@@ -85,14 +84,14 @@ pre code {
 
 .hover-image-container:hover .img1 {
   opacity: 0;
-  transform: scale(1.05);
+  transform: scale(1.05);  /* Zoom خفيف عند التحويل */
 }
 
 .hover-image-container:hover .img2 {
   opacity: 1;
   transform: scale(1.05);
 }
-
+	
 /* دعم اللغة العربية */
 [dir="rtl"], .rtl {
   direction: rtl;
