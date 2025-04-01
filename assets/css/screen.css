@@ -68,7 +68,7 @@ pre code {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* ظل ناعم دائري */
   transition: opacity 0.4s ease-in-out, transform 0.3s ease-in-out;
   position: absolute;
-  top: 0;
+  top: 10;
   left: 0;
 }
 
