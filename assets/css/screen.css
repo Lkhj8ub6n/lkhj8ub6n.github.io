@@ -63,12 +63,12 @@ pre code {
 .hover-image-container img {
   width: 200px;                /* الحجم الحقيقي للصور */
   height: 200px;
-  border-radius: 50%;          /* شكل دائري */
+  border-radius: 40%;          /* شكل دائري */
   object-fit: contain;         /* عرض الصورة بدون تمدد */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* ظل ناعم دائري */
   transition: opacity 0.4s ease-in-out, transform 0.3s ease-in-out;
   position: absolute;
-  top: 10;
+  top: 0;
   left: 0;
 }
 
