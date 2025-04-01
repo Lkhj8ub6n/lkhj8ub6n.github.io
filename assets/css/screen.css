@@ -57,13 +57,13 @@ pre code {
   position: relative;
   width: fit-content;
   margin: 40px auto;
-  transform: translateY(-50px); /* رفع الصورة للأعلى */
+  transform: translateY(-70px); /* رفع الصورة للأعلى */
 }
 
 .hover-image-container img {
   width: 200px;                /* الحجم الحقيقي للصور */
   height: 200px;
-  border-radius: 40%;          /* شكل دائري */
+  border-radius: 50%;          /* شكل دائري */
   object-fit: contain;         /* عرض الصورة بدون تمدد */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* ظل ناعم دائري */
   transition: opacity 0.4s ease-in-out, transform 0.3s ease-in-out;
