@@ -18,7 +18,7 @@ I'm a computer science student with strong interest in Linux systems, open-sourc
 - Ongoing academic projects related to AI and system design
 
 ### Contact
-- Email: [yazeidhdeab@gmail.com](mailto:yazeidhdeab@gmail.com)
+- Email: [Yazeid@ieee.org](mailto:Yazeid@ieee.org)
 - GitHub: [github.com/Lkhj8ub6n](https://github.com/Lkhj8ub6n)
 
 ### Download
