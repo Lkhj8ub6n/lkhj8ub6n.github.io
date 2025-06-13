@@ -1,12 +1,8 @@
-
-
----
-layout: default
-title: الفصل الأول - أهمية المنظمات
-permalink: /entrepreneurship/chapter1/
----
-
-
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الفصل الأول - أهمية المنظمات ومتطلبات إدارتها</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -278,6 +274,7 @@ permalink: /entrepreneurship/chapter1/
             display: flex;
             gap: 15px;
             margin-top: 15px;
+            flex-wrap: wrap;
         }
 
         .tf-btn {
@@ -289,6 +286,7 @@ permalink: /entrepreneurship/chapter1/
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: bold;
+            min-width: 80px;
         }
 
         .tf-btn:hover {
@@ -327,7 +325,7 @@ permalink: /entrepreneurship/chapter1/
             font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
-            margin: 0 10px;
+            margin: 5px 10px;
             transition: all 0.3s ease;
         }
 
@@ -385,27 +383,195 @@ permalink: /entrepreneurship/chapter1/
             color: white;
         }
         
+        /* تحسينات للموبايل */
         @media (max-width: 768px) {
-            .content-wrapper {
-                padding: 20px;
+            body {
+                padding: 10px 0;
             }
             
-            .tab-content {
-                padding: 25px;
+            .main-container {
+                margin: 0 10px;
+                border-radius: 15px;
             }
             
-            .question-item, .quiz-container {
-                padding: 20px;
+            .header {
+                padding: 30px 20px;
             }
             
             .header h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+            
+            .header p {
+                font-size: 1rem;
             }
             
             .back-btn {
                 position: static;
                 margin-bottom: 20px;
                 display: inline-block;
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .content-wrapper {
+                padding: 20px;
+            }
+            
+            .tab-content {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .nav-tabs {
+                padding: 5px;
+                border-radius: 10px;
+            }
+            
+            .nav-tabs .nav-link {
+                padding: 12px 15px;
+                margin: 2px;
+                font-size: 0.9rem;
+            }
+            
+            .question-item, .quiz-container {
+                padding: 20px;
+                border-radius: 10px;
+            }
+            
+            .quiz-question {
+                padding: 20px;
+            }
+            
+            .quiz-question h5 {
+                font-size: 1rem;
+                line-height: 1.4;
+            }
+            
+            .quiz-option {
+                padding: 12px;
+                margin: 8px 0;
+            }
+            
+            .quiz-option label {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+            
+            .true-false-question {
+                padding: 20px;
+            }
+            
+            .true-false-buttons {
+                justify-content: center;
+            }
+            
+            .tf-btn {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .quiz-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+                margin: 5px;
+                display: block;
+                width: 100%;
+                max-width: 200px;
+            }
+            
+            .quiz-controls {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .score-display {
+                font-size: 1.5rem;
+            }
+            
+            .grade-message {
+                font-size: 1.1rem;
+            }
+            
+            .summary-content h3 {
+                font-size: 1.3rem;
+                padding: 12px 15px;
+            }
+            
+            .summary-content h4 {
+                font-size: 1.1rem;
+            }
+            
+            .summary-content p, .summary-content li {
+                font-size: 1rem;
+            }
+            
+            .highlight-box {
+                padding: 20px;
+                margin: 20px 0;
+            }
+            
+            .highlight-box h5 {
+                font-size: 1.2rem;
+            }
+            
+            .print-btn {
+                bottom: 20px;
+                left: 20px;
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* تحسينات للشاشات الصغيرة جداً */
+        @media (max-width: 480px) {
+            .main-container {
+                margin: 0 5px;
+                border-radius: 10px;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .content-wrapper {
+                padding: 15px;
+            }
+            
+            .tab-content {
+                padding: 15px;
+            }
+            
+            .nav-tabs .nav-link {
+                padding: 10px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
+            .quiz-option label {
+                font-size: 0.8rem;
+            }
+            
+            .tf-btn {
+                padding: 6px 15px;
+                font-size: 0.8rem;
+                min-width: 70px;
             }
         }
         
@@ -421,7 +587,8 @@ permalink: /entrepreneurship/chapter1/
             }
         }
     </style>
-
+</head>
+<body>
     <div class="container-fluid">
         <div class="main-container">
             <div class="header">
@@ -1526,4 +1693,5 @@ permalink: /entrepreneurship/chapter1/
             document.getElementById('quizResults').style.display = 'none';
         }
     </script>
-
+</body>
+</html>
