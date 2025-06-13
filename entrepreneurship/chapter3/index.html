@@ -1,0 +1,1346 @@
+---
+layout: default
+title: الفصل الثالث - الصفات الأساسية للرياديين
+permalink: /entrepreneurship/chapter3/
+---
+
+
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفصل الثالث - الصفات الأساسية للرياديين</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #295340 0%, #222222 100%);
+            min-height: 100vh;
+            direction: rtl;
+            margin: 0;
+            padding: 20px 0;
+        }
+        
+        .main-container {
+            background: #deddeb;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            margin: 0 auto;
+            max-width: 1200px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #295340 0%, #222222 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .content-wrapper {
+            padding: 40px;
+        }
+        
+        .nav-tabs {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 30px;
+            border: none;
+        }
+        
+        .nav-tabs .nav-link {
+            color: #295340;
+            font-weight: bold;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-tabs .nav-link.active {
+            background: #295340;
+            color: white;
+        }
+        
+        .nav-tabs .nav-link:hover {
+            background: rgba(41, 83, 64, 0.1);
+            color: #295340;
+        }
+        
+        .tab-content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            color: #295340;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #deddeb;
+        }
+        
+        .summary-content h3 {
+            color: #295340;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            background: rgba(41, 83, 64, 0.1);
+            border-radius: 10px;
+            border-right: 5px solid #295340;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .summary-content h4 {
+            color: #222222;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding-right: 15px;
+            border-right: 3px solid #295340;
+        }
+        
+        .summary-content p, .summary-content li {
+            color: #222222;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .summary-content ul, .summary-content ol {
+            margin-right: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .summary-content strong {
+            color: #295340;
+            font-weight: bold;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(41, 83, 64, 0.1) 0%, rgba(222, 221, 235, 0.3) 100%);
+            border: 2px solid rgba(41, 83, 64, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .highlight-box h5 {
+            color: #295340;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .question-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-right: 5px solid #295340;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .question-title {
+            color: #295340;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            background: rgba(41, 83, 64, 0.1);
+            border-radius: 10px;
+        }
+        
+        .question-answer {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 15px;
+            border-right: 3px solid #295340;
+        }
+        
+        .answer-title {
+            color: #295340;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .quiz-question {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-right: 4px solid #295340;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .quiz-question h5 {
+            color: #295340;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .quiz-option {
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .quiz-option:hover {
+            background: rgba(41, 83, 64, 0.1);
+            border-color: #295340;
+        }
+
+        .quiz-option input[type="radio"] {
+            margin-left: 10px;
+        }
+
+        .quiz-option.correct {
+            background: rgba(40, 167, 69, 0.2);
+            border-color: #28a745;
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(220, 53, 69, 0.2);
+            border-color: #dc3545;
+        }
+
+        .true-false-question {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-right: 4px solid #295340;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .true-false-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .tf-btn {
+            padding: 10px 25px;
+            border: 2px solid #295340;
+            background: white;
+            color: #295340;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .tf-btn:hover {
+            background: #295340;
+            color: white;
+        }
+
+        .tf-btn.selected {
+            background: #295340;
+            color: white;
+        }
+
+        .tf-btn.correct {
+            background: #28a745;
+            border-color: #28a745;
+            color: white;
+        }
+
+        .tf-btn.incorrect {
+            background: #dc3545;
+            border-color: #dc3545;
+            color: white;
+        }
+
+        .quiz-controls {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .quiz-btn {
+            background: linear-gradient(135deg, #295340 0%, #222222 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .quiz-results {
+            background: linear-gradient(135deg, rgba(41, 83, 64, 0.1) 0%, rgba(222, 221, 235, 0.3) 100%);
+            border: 2px solid #295340;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .score-display {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #295340;
+            margin-bottom: 15px;
+        }
+
+        .grade-message {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .grade-a { color: #28a745; }
+        .grade-b { color: #007bff; }
+        .grade-c { color: #ffc107; }
+        .grade-d { color: #fd7e14; }
+        .grade-f { color: #dc3545; }
+        
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: linear-gradient(135deg, #295340 0%, #222222 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .print-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .content-wrapper {
+                padding: 20px;
+            }
+            
+            .tab-content {
+                padding: 25px;
+            }
+            
+            .question-item, .quiz-container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .back-btn {
+                position: static;
+                margin-bottom: 20px;
+                display: inline-block;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white !important;
+            }
+            .main-container {
+                box-shadow: none !important;
+            }
+            .nav-tabs, .print-btn, .back-btn, .quiz-controls {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="main-container">
+            <div class="header">
+                <a href="/entrepreneurship/" class="back-btn">
+                    <i class="fas fa-arrow-right"></i> العودة للرئيسية
+                </a>
+                <h1><i class="fas fa-user-tie"></i> الفصل الثالث</h1>
+                <p>الصفات الأساسية للرياديين</p>
+            </div>
+            
+            <div class="content-wrapper">
+                <ul class="nav nav-tabs" id="contentTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="summary-tab" data-bs-toggle="tab" data-bs-target="#summary" type="button" role="tab">
+                            <i class="fas fa-book"></i> الملخص
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="questions-tab" data-bs-toggle="tab" data-bs-target="#questions" type="button" role="tab">
+                            <i class="fas fa-edit"></i> الأسئلة المقالية
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="quiz-tab" data-bs-toggle="tab" data-bs-target="#quiz" type="button" role="tab">
+                            <i class="fas fa-question-circle"></i> الاختبار
+                        </button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content" id="contentTabContent">
+                    <!-- Summary Tab -->
+                    <div class="tab-pane fade show active" id="summary" role="tabpanel">
+                        <h2 class="section-title">
+                            <i class="fas fa-book-open"></i>
+                            ملخص الفصل الثالث
+                        </h2>
+                        
+                        <div class="summary-content">
+                            <h3>مقدمة الفصل</h3>
+                            
+                            <div class="highlight-box">
+                                <h5>تعريف الشخص الريادي</h5>
+                                <p><strong>الشخص الريادي هو الذي يبذل الجهد في التفكير في احتياجات ورغبات ومشاكل البشر/المنظمات/الدول ويحاول إيجاد طرق وسبل لتلبية تلك الاحتياجات بطرق أفضل من خلال منتجات أفضل أو عمل أي شيء أفضل من ذي قبل.</strong></p>
+                            </div>
+                            
+                            <h4>الخصائص الأساسية للريادي</h4>
+                            <ul>
+                                <li><strong>القدرة الابتكارية:</strong> تحويل الأفكار الإبداعية الجديدة إلى أعمال ناجحة مربحة اقتصادياً</li>
+                                <li><strong>الميول نحو المخاطرة المحسوبة</strong> المرافقة لعملية تطبيق الفكرة</li>
+                                <li><strong>الاستثمار الكامل:</strong> إعطاء الفكرة كل ما يلزم من وقت وجهد ومال</li>
+                            </ul>
+                            
+                            <h4>السؤال المحوري</h4>
+                            <p><strong>ما الذي يدفع رواد الأعمال إلى العمل الريادي رغم المخاطر وحالات عدم التأكد؟</strong></p>
+                            
+                            <h3>الأسباب الرئيسية للتوجه الريادي</h3>
+                            
+                            <div class="highlight-box">
+                                <h5>الدوافع الثلاثة الأساسية</h5>
+                                
+                                <h4>1. أن تكون صاحب قرار ومستقل بالعمل (Be Your Own Boss)</h4>
+                                <ul>
+                                    <li><strong>الاستقلالية في اتخاذ القرارات</strong></li>
+                                    <li><strong>عدم التبعية للآخرين</strong></li>
+                                    <li><strong>حرية في تحديد مسار العمل</strong></li>
+                                </ul>
+                                
+                                <h4>2. تطبيق أفكارهم الخاصة بالطريقة الخاصة (Pursue Your Own Ideas)</h4>
+                                <ul>
+                                    <li><strong>تحويل الأفكار الشخصية إلى واقع</strong></li>
+                                    <li><strong>الإبداع والابتكار الشخصي</strong></li>
+                                    <li><strong>التعبير عن الرؤية الذاتية</strong></li>
+                                </ul>
+                                
+                                <h4>3. تحقيق أرباح فوق المتوسط وبشكل كبير نسبياً (Pursue Financial Rewards)</h4>
+                                <ul>
+                                    <li><strong>عوائد مالية عالية</strong></li>
+                                    <li><strong>بناء ثروة شخصية</strong></li>
+                                    <li><strong>تحقيق الاستقلال المالي</strong></li>
+                                </ul>
+                            </div>
+                            
+                            <h3>أولاً: دور الرياديين في التنمية</h3>
+                            
+                            <h4>تصنيف رجال الأعمال (حسب Röpke استناداً إلى Schumpeter)</h4>
+                            
+                            <h4>1. رجل الأعمال الروتيني (Routine)</h4>
+                            <ul>
+                                <li><strong>المهام:</strong> روتينية ومألوفة ومعروفة سابقاً</li>
+                                <li><strong>الأسلوب:</strong> يعمل بتكرار ممل (مثال: البقالة)</li>
+                                <li><strong>التأثير على التنمية:</strong> <strong>لا يؤثر</strong> في التنمية الاقتصادية</li>
+                                <li><strong>الخصائص:</strong> يواصل الأنشطة المألوفة دون تغيير</li>
+                            </ul>
+                            
+                            <h4>2. رجل الأعمال المرابح/القناص (Arbitrageur)</h4>
+                            <ul>
+                                <li><strong>آلية العمل:</strong> يستفيد من <strong>فروق الأسعار</strong> بين الأسواق المختلفة</li>
+                                <li><strong>المفهوم:</strong> عند إدخال ابتكار جديد يحدث عدم توازن في الأسواق</li>
+                                <li><strong>الاستراتيجية:</strong> نقل المنتجات الأرخص إلى الأسواق الأخرى</li>
+                                <li><strong>الدور:</strong> ينشر الابتكار ويجني الأرباح</li>
+                                <li><strong>التأثير على التنمية:</strong> يعزز التنمية <strong>بمقدار قليل نسبياً</strong></li>
+                                <li><strong>العلاقة:</strong> الشخص الريادي يؤمن العمل لرجل الأعمال المرابح</li>
+                            </ul>
+                            
+                            <h4>3. رجل الأعمال الريادي المبتكر (Entrepreneur/Innovator)</h4>
+                            <ul>
+                                <li><strong>الصفة المميزة:</strong> التدمير الخلاق (Creative Destruction)</li>
+                                <li><strong>جوهر الوظيفة:</strong> اكتشاف فرص جديدة وتطبيقها بنجاح وربحية</li>
+                            </ul>
+                            
+                            <p><strong>المهام الأساسية:</strong></p>
+                            <ul>
+                                <li><strong>إعادة تجميع</strong> عناصر الإنتاج الموجودة (توليفة جديدة)</li>
+                                <li><strong>إدخال عمليات إنتاج جديدة</strong> أو تطوير القائم</li>
+                                <li><strong>تطوير منتجات جديدة</strong> أو تطوير القائم</li>
+                                <li><strong>تطوير نماذج أعمال جديدة</strong></li>
+                                <li><strong>تطوير أعمال ذات طابع اجتماعي</strong> لحل مشاكل اجتماعية</li>
+                            </ul>
+                            
+                            <h4>4. رجل الأعمال المطوّر لذاته (Evolver)</h4>
+                            <ul>
+                                <li><strong>التحذير:</strong> الإيرادات من العمل الابتكاري <strong>ستنخفض بمرور الوقت</strong> إذا لم يطور الريادي من قدراته</li>
+                            </ul>
+                            
+                            <p><strong>الخصائص:</strong></p>
+                            <ul>
+                                <li>القدرة والرغبة العاليتان على <strong>التعلّم</strong></li>
+                                <li><strong>تطوير القدرات والمهارات</strong> بشكل مستقل</li>
+                                <li><strong>التماشي مع المتغيرات البيئية</strong> سريعة التغيير</li>
+                                <li><strong>النشاط:</strong> يمكنه أن يكون نشيطاً على <strong>جميع المستويات</strong></li>
+                                <li><strong>التأثير على التنمية:</strong> يساهم بشكل <strong>أساسي وعظيم والأكبر</strong> في التنمية الاقتصادية</li>
+                            </ul>
+                            
+                            <h3>ثانياً: خصائص الرياديين الرئيسية</h3>
+                            
+                            <div class="highlight-box">
+                                <h5>الصفات الأربع الأساسية للريادي الناجح</h5>
+                                
+                                <h4>1. الشغف والرغبة الشديدة للأعمال (Passion for Business)</h4>
+                                <ul>
+                                    <li><strong>التعريف:</strong> الصفة الأولى التي يتقاسمها رواد الأعمال الناجحون</li>
+                                    <li><strong>المظاهر:</strong> الدافعية والرغبة في إنشاء الأعمال</li>
+                                    <li><strong>التطبيق:</strong> سواء كان مبني على فكرة إبداعية جديدة أو في إطار منظمة قائمة</li>
+                                    <li><strong>الأهمية:</strong> يوفر الطاقة والمثابرة للتغلب على الصعاب</li>
+                                </ul>
+                                
+                                <h4>2. التركيز على العملاء والمنتج (Product/Customer Focus)</h4>
+                                <ul>
+                                    <li><strong>القدرة:</strong> التركيز على المنتج والعميل بوضوح</li>
+                                    <li><strong>مثال عملي - Steve Jobs (Apple):</strong> <em>"يعد الكمبيوتر الأداة الأكثر بروزاً التي بنيناها على الإطلاق... ولكن أهم شيء هو وضعها بين أيدي أكبر عدد ممكن من الأشخاص"</em></li>
+                                    <li><strong>الفهم:</strong> أهمية <strong>العنصرين الأساسيين</strong> في أي عمل تجاري: <strong>المنتج الجيد</strong> و <strong>العميل الذي يريد شراءه</strong></li>
+                                </ul>
+                                
+                                <h4>3. المثابرة واستمرار على الرغم من الفشل (Tenacity Despite Failure)</h4>
+                                <ul>
+                                    <li><strong>السبب:</strong> رجال الأعمال يحاولون شيئاً جديداً، لذلك <strong>معدل الفشل مرتفع طبيعياً</strong></li>
+                                    <li><strong>المتطلبات:</strong> تطوير فكرة عمل جديدة، تجارب لعدة <strong>توليفات مختلفة</strong>، إعادة التجربة قبل تحقيق النجاح</li>
+                                    <li><strong>التحديات:</strong> النكسات والفشل والعقبات غير المتوقعة</li>
+                                    <li><strong>الاختبار الأساسي:</strong> قدرتهم على <strong>المثابرة والاستمرار</strong> بالرغم من الإخفاقات والصعاب وحالات عدم التأكد والغموض</li>
+                                </ul>
+                                
+                                <h4>4. القدرة على التنفيذ - الذكاء التنفيذي (Execution Intelligence)</h4>
+                                <ul>
+                                    <li><strong>التعريف:</strong> القدرة على تحويل <strong>الأفكار الإبداعية القابلة للتطبيق</strong> إلى أعمال حقيقية على أرض الواقع</li>
+                                    <li><strong>الأهمية:</strong> <strong>العامل الذي يحدد</strong> ما إذا كانت الشركة الناشئة سوف تنجح أم لا</li>
+                                </ul>
+                                
+                                <div class="highlight-box">
+                                    <h5>مقولات مهمة:</h5>
+                                    <ul>
+                                        <li><strong>مقولة صينية قديمة:</strong> <em>"فتح مشروع تجاري أمر سهل للغاية، لكن القدرة على إبقائه مفتوحاً هو عمل شاق"</em></li>
+                                        <li><strong>Jeff Bezos (Amazon):</strong> <em>"الأفكار سهلة لكن التنفيذ صعب"</em></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <h3>صفات إضافية تميّز الرياديين الناجحين</h3>
+                            
+                            <h4>1. الإبداع (Creativity)</h4>
+                            <ul>
+                                <li>تبدأ ريادة الأعمال <strong>بفكرة إبداعية</strong></li>
+                                <li>البحث دوماً عن <strong>أفكار جديدة وطرق أفضل</strong> للقيام بالأمور</li>
+                            </ul>
+                            
+                            <h4>2. الحماس والدافعية (Enthusiasm & Motivation)</h4>
+                            <div class="highlight-box">
+                                <h5>مقولة Steve Jobs:</h5>
+                                <p><em>"أنا مقتنع كل الاقتناع أن ما يفصل بين رواد الأعمال الناجحين وغير الناجحين هو المثابرة الخالصة"</em></p>
+                            </div>
+                            <ul>
+                                <li>استعداد لقضاء <strong>ساعات طويلة وبذل جهد كبير</strong></li>
+                                <li>الشغف بالأفكار يدفع للتضحية</li>
+                            </ul>
+                            
+                            <h4>3. التفاؤل (Optimism)</h4>
+                            <ul>
+                                <li><strong>النظرة الإيجابية:</strong> رؤية النصف الممتلئ من الكأس</li>
+                                <li><strong>التركيز على الجانب المشرق</strong> والحلم على الدوام</li>
+                                <li><strong>السعي لجعل العالم مكاناً أفضل</strong> للعيش</li>
+                            </ul>
+                            
+                            <h4>4. التركيز على المستقبل (Future Focus)</h4>
+                            <ul>
+                                <li><strong>المعرفة الواضحة</strong> لما يريد تحقيقه</li>
+                                <li><strong>وضع أهداف ذكية محددة</strong></li>
+                                <li><strong>فعل كل ما يلزم</strong> لتحقيق هذه الأهداف</li>
+                                <li><strong>الرؤية القوية</strong> كدافع للمضي قدماً</li>
+                            </ul>
+                            
+                            <h4>5. الإقناع (Persuasion)</h4>
+                            <ul>
+                                <li><strong>معرفة عالم الأعمال جيداً</strong></li>
+                                <li><strong>القدرة على جعل الآخرين ينصتون</strong></li>
+                                <li><strong>أهمية خاصة في بداية المسيرة الريادية</strong></li>
+                                <li><strong>إقناع الآخرين بالأفكار الكبيرة</strong> غير الاعتيادية</li>
+                            </ul>
+                            
+                            <h4>6. المرونة (Flexibility)</h4>
+                            <ul>
+                                <li><strong>العمل وحيداً</strong> في بداية المسيرة</li>
+                                <li><strong>تسلّم عدة مهام:</strong> رئيس العمل والسكرتير والمحاسب</li>
+                                <li><strong>التكيف مع المواقف غير الاعتيادية</strong></li>
+                            </ul>
+                            
+                            <h4>7. الدهاء وسعة الحيلة (Resourcefulness)</h4>
+                            <ul>
+                                <li><strong>مواجهة التحديات بقوة</strong></li>
+                                <li><strong>العثور على حلول للمشكلات</strong></li>
+                                <li><strong>الاستفادة من كل ما يملكون</strong> (مال، وقت، جهد)</li>
+                                <li><strong>العمل وفق خطة محكمة</strong> لهدف محدد</li>
+                            </ul>
+                            
+                            <h4>8. روح المغامرة (Risk-Taking Spirit)</h4>
+                            <div class="highlight-box">
+                                <h5>مقولة Mark Zuckerberg (Facebook):</h5>
+                                <p><em>"في عالم يشهد الكثير من التغييرات تكمن المخاطرة الأكبر في عدم خوض أي مخاطرة"</em></p>
+                            </div>
+                            <ul>
+                                <li><strong>إدراك ضرورة خوض المخاطر</strong> لتحقيق النجاح</li>
+                                <li><strong>عدم الخوف من المخاطرة</strong> لكن دون استهانة بها</li>
+                                <li><strong>التخطيط الجيد للمجهول</strong></li>
+                                <li><strong>اتخاذ أفضل القرارات</strong> (المخاطرة المحسوبة)</li>
+                            </ul>
+                            
+                            <h4>9. الحزم (Decisiveness)</h4>
+                            <ul>
+                                <li><strong>عدم التأخير والتأجيل</strong> في عالم الأعمال</li>
+                                <li><strong>معرفة ما يجب فعله</strong></li>
+                                <li><strong>عدم التردد في اتخاذ القرارات</strong></li>
+                                <li><strong>قنص الفرص</strong> وعدم السماح لها بالإفلات</li>
+                                <li><strong>إنجاز الواجبات أولاً بأول</strong></li>
+                            </ul>
+                            
+                            <h3>خصائص إضافية لرجل الأعمال (حسب Timmons 1989)</h3>
+                            
+                            <h4>الخصائص الـ14 المهيمنة للرياديين الناجحين:</h4>
+                            <ol>
+                                <li><strong>الدافعية والطاقة</strong></li>
+                                <li><strong>الثقة بالنفس</strong></li>
+                                <li><strong>المشاركة طويلة الأمد</strong></li>
+                                <li><strong>الاستمرار في حل المشكلات</strong></li>
+                                <li><strong>تحديد الأهداف</strong></li>
+                                <li><strong>الرغبة في الحصول على تغذية راجعة فورية</strong></li>
+                                <li><strong>التعامل مع الغموض وعدم اليقين</strong></li>
+                            </ol>
+                            
+                            <h3>ثالثاً: مهارات ووظائف الرياديين</h3>
+                            
+                            <h4>مهارات الأشخاص الرياديين</h4>
+                            
+                            <h4>الشخصية والكفاءات المطلوبة</h4>
+                            <p><strong>بناء الشخصية الخمس الكبرى (Big Five):</strong></p>
+                            <ul>
+                                <li>الانفتاح</li>
+                                <li>الضمير</li>
+                                <li>الانبساطية</li>
+                                <li>الود</li>
+                                <li>الاستقرار العاطفي</li>
+                            </ul>
+                            
+                            <h4>أبعاد الشخصية الرئيسية:</h4>
+                            <ul>
+                                <li><strong>موضع التحكم الداخلي</strong></li>
+                                <li><strong>الإبداع</strong></li>
+                                <li><strong>الاستقلالية</strong></li>
+                                <li><strong>الاستباقية</strong></li>
+                                <li><strong>حل المشكلات</strong></li>
+                            </ul>
+                            
+                            <div class="highlight-box">
+                                <h5>المهارات الشاملة في الريادة</h5>
+                                
+                                <h4>1. المهارات التقنية (Technical Skills)</h4>
+                                <ul>
+                                    <li><strong>الكتابة</strong></li>
+                                    <li><strong>مراقبة وتحليل البيئة</strong></li>
+                                    <li><strong>إدارة الأعمال التقنية</strong></li>
+                                    <li><strong>مهارات التعامل مع التكنولوجيا</strong></li>
+                                    <li><strong>التسويق والمبيعات</strong></li>
+                                    <li><strong>المهارات المالية</strong></li>
+                                    <li><strong>المهارات المحاسبية</strong></li>
+                                </ul>
+                                
+                                <h4>2. المهارات الإدارية (Administrative Skills)</h4>
+                                <ul>
+                                    <li><strong>وضع الأهداف والتخطيط</strong></li>
+                                    <li><strong>صنع القرار</strong></li>
+                                    <li><strong>إدارة العلاقات الإنسانية</strong></li>
+                                    <li><strong>الاتصال اللفظي</strong></li>
+                                    <li><strong>التوجيه والقيادة وإدارة الحوار</strong></li>
+                                    <li><strong>الإدارة والتنظيم</strong></li>
+                                    <li><strong>الرقابة وتقييم الأداء</strong></li>
+                                </ul>
+                                
+                                <h4>3. المهارات الشخصية (Personal Skills)</h4>
+                                <ul>
+                                    <li><strong>عمق السيطرة الداخلية</strong></li>
+                                    <li><strong>أخذ المخاطرة</strong></li>
+                                    <li><strong>الإبداع والابتكار</strong></li>
+                                    <li><strong>القدرة على التغيير</strong></li>
+                                    <li><strong>المثابرة والعمل الجاد</strong></li>
+                                    <li><strong>الرؤية القيادية</strong></li>
+                                    <li><strong>بناء العلاقات الشخصية</strong></li>
+                                    <li><strong>الإصغاء والاستماع</strong></li>
+                                    <li><strong>القدرة على التنظيم</strong></li>
+                                    <li><strong>بناء الشبكات والتدريب</strong></li>
+                                    <li><strong>القدرة على التفاوض الفعّال</strong></li>
+                                    <li><strong>العمل ضمن فريق</strong></li>
+                                    <li><strong>نمط الإدارة</strong></li>
+                                    <li><strong>تقديم المشروع وطرح المنتج</strong></li>
+                                    <li><strong>تنظيم وإدارة النمو</strong></li>
+                                </ul>
+                            </div>
+                            
+                            <h3>وظائف الأشخاص الرياديين</h3>
+                            
+                            <h4>الأنشطة المحددة للريادي:</h4>
+                            <ol>
+                                <li><strong>إدراك وتحديد فرص أعمال</strong></li>
+                                <li><strong>اختيار الشكل القانوني والموقع التجاري</strong></li>
+                                <li><strong>تحديد واختيار وشراء الموارد الرئيسية</strong></li>
+                                <li><strong>الابتكار</strong></li>
+                                <li><strong>تحمل المخاطر</strong></li>
+                                <li><strong>إدارة المشاريع الجارية</strong></li>
+                            </ol>
+                            
+                            <h3>رابعاً: رائد الأعمال الداخلي (Intrapreneur)</h3>
+                            
+                            <div class="highlight-box">
+                                <h5>تعريف رائد الأعمال الداخلي</h5>
+                                <p><strong>مدير أو عالم أو باحث يعمل داخل منظمة قائمة حيث يترتب عليه ملاحظة فرص تحسين المنتج أو العمليات وهو مسؤول عن إدارة عملية التطوير والتحسين بالمنظمة.</strong></p>
+                            </div>
+                            
+                            <h4>الفرق بين الريادي والريادي الداخلي</h4>
+                            
+                            <h4>الريادي التقليدي:</h4>
+                            <ul>
+                                <li>يؤدي أدوار <strong>وحدة مستقلة وبشكل شخصي</strong></li>
+                                <li>لتحقيق <strong>مكاسب اقتصادية خاصة</strong></li>
+                                <li><strong>يتحمل المخاطر</strong> الكاملة</li>
+                            </ul>
+                            
+                            <h4>الريادي الداخلي:</h4>
+                            <ul>
+                                <li>يؤدي نفس الأدوار لكن <strong>داخل منظمة قائمة</strong></li>
+                                <li>بهدف <strong>تعزيز قدرتها التنافسية والربحية</strong></li>
+                                <li><strong>لا يتحمل مخاطر</strong> بدء عمل جديد</li>
+                                <li>يطبق <strong>مهارات ريادة الأعمال والرؤية والتفكير المستقبلي</strong></li>
+                            </ul>
+                            
+                            <h4>مزايا رائد الأعمال الداخلي</h4>
+                            <ul>
+                                <li><strong>تكوين أفكار ومنتجات وأهداف عمل جديدة</strong></li>
+                                <li><strong>دون تحمل المخاطر</strong> التي تأتي مع بدء عمل تجاري جديد</li>
+                                <li><strong>الاستفادة من موارد المنظمة</strong> الموجودة</li>
+                                <li><strong>الأمان الوظيفي</strong> مع الإبداع والابتكار</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Questions Tab -->
+                    <div class="tab-pane fade" id="questions" role="tabpanel">
+                        <h2 class="section-title">
+                            <i class="fas fa-edit"></i>
+                            الأسئلة المقالية
+                        </h2>
+                        
+                        <div class="question-item">
+                            <div class="question-title">أ. اشرح الدوافع الرئيسية لأن تصبح ريادي</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <h4>الأسباب الثلاثة الرئيسية:</h4>
+                                <ol>
+                                    <li><strong>أن تكون صاحب قرار ومستقل بالعمل (Be your own Boss)</strong></li>
+                                    <li><strong>تطبيق أفكارهم الخاصة بالطريقة الخاصة (Pursue your own Ideas)</strong></li>
+                                    <li><strong>تحقيق أرباح فوق المتوسط وبشكل كبير نسبياً (Pursue financial rewards)</strong></li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">ب. اذكر مع الشرح البسيط أنواع رجال الأعمال</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <h4>حسب تصنيف Röpke:</h4>
+                                <ol>
+                                    <li><strong>رجل الأعمال الروتيني (Routine):</strong> يقوم بمهام روتينية ومألوفة، لا يؤثر في التنمية الاقتصادية</li>
+                                    <li><strong>رجل الأعمال المرابح/القناص (Arbitrageur):</strong> يستفيد من فروق الأسعار بين الأسواق، يساهم قليلاً في التنمية</li>
+                                    <li><strong>رجل الأعمال الريادي المبتكر (Entrepreneur/Innovator):</strong> يقوم بالتدمير الخلاق ويطبق توليفات جديدة</li>
+                                    <li><strong>رجل الأعمال المطوّر لذاته (Evolver):</strong> يطور قدراته ومهاراته باستمرار، يساهم بشكل أساسي في التنمية</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">ج. عدد صفات وخصائص الأشخاص الرياديين</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <h4>الصفات الأربع الرئيسية:</h4>
+                                <ol>
+                                    <li><strong>الشغف والرغبة الشديدة للأعمال (Passion for Business)</strong></li>
+                                    <li><strong>التركيز على العملاء والمنتج (Product/Customer Focus)</strong></li>
+                                    <li><strong>المثابرة رغم الفشل (Tenacity Despite Failure)</strong></li>
+                                    <li><strong>القدرة على التنفيذ (Execution Intelligence)</strong></li>
+                                </ol>
+                                
+                                <h4>صفات إضافية:</h4>
+                                <ul>
+                                    <li>الإبداع</li>
+                                    <li>الحماس والدافعية</li>
+                                    <li>التفاؤل</li>
+                                    <li>التركيز على المستقبل</li>
+                                    <li>الإقناع</li>
+                                    <li>المرونة</li>
+                                    <li>الدهاء وسعة الحيلة</li>
+                                    <li>روح المغامرة</li>
+                                    <li>الحزم</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">د. عدد مع الشرح البسيط المهارات الأساسية الأربعة للأشخاص الرياديين</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <ol>
+                                    <li><strong>المهارات التقنية (Technical Skills):</strong> القدرة على استخدام معرفة تخصصية لأداء مهام محددة</li>
+                                    <li><strong>المهارات الإنسانية (Human Skills):</strong> العمل والتواصل مع الآخرين بشكل جيد ومتفاعل</li>
+                                    <li><strong>مهارات الإدراك الشمولي (Conceptual Skills):</strong> رؤية المواقف من جميع جوانبها وحل المشاكل</li>
+                                    <li><strong>المهارات الإدارية:</strong> التخطيط والتنظيم والقيادة والرقابة</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">هـ. عدد المهارات الثلاث للأشخاص الرياديين</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <ol>
+                                    <li><strong>المهارات التقنية:</strong> الكتابة، مراقبة البيئة، التكنولوجيا</li>
+                                    <li><strong>المهارات الإدارية:</strong> التسويق، الإدارة، التفاوض</li>
+                                    <li><strong>المهارات الشخصية:</strong> المخاطرة، الإبداع، المثابرة، الرؤية القيادية</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">و. عدد مع الشرح البسيط وظائف الأشخاص الرياديين</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <ol>
+                                    <li><strong>إدراك وتحديد فرص أعمال:</strong> البحث عن الفرص في السوق</li>
+                                    <li><strong>اختيار الشكل القانوني والموقع التجاري:</strong> تحديد هيكل المشروع</li>
+                                    <li><strong>تحديد واختيار وشراء الموارد الرئيسية:</strong> الحصول على المدخلات المطلوبة</li>
+                                    <li><strong>الابتكار:</strong> تطبيق الأفكار الجديدة</li>
+                                    <li><strong>تحمل المخاطر:</strong> قبول عدم اليقين المرتبط بالمشروع</li>
+                                    <li><strong>إدارة المشاريع الجارية:</strong> التشغيل اليومي للمشروع</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">ز. عرف رائد الأعمال الداخلي</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <p><strong>رائد الأعمال الداخلي (Intrapreneur):</strong> مدير أو عالم أو باحث يعمل داخل منظمة قائمة، يلاحظ فرص تحسين المنتج أو العمليات ويدير عملية التطوير والتحسين، يطبق مهارات ريادة الأعمال داخل حدود العمل الذي يعمل فيه دون تحمل مخاطر بدء عمل جديد.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quiz Tab -->
+                    <div class="tab-pane fade" id="quiz" role="tabpanel">
+                        <h2 class="section-title">
+                            <i class="fas fa-question-circle"></i>
+                            اختبار الفصل الثالث
+                        </h2>
+                        
+                        <div class="quiz-container">
+                            <h3><i class="fas fa-list-ol"></i> أسئلة الاختيار من متعدد</h3>
+                            
+                            <div class="quiz-question">
+                                <h5>1. أي من التالي ليس من الأسباب الرئيسية التي تجعل الأشخاص يقدمون على العمل الريادي:</h5>
+                                <div class="quiz-option" data-option="a">
+                                    <input type="radio" name="q1" value="a" id="q1a">
+                                    <label for="q1a">أن يكونوا أصحاب القرار ومستقلين بالعمل</label>
+                                </div>
+                                <div class="quiz-option" data-option="b">
+                                    <input type="radio" name="q1" value="b" id="q1b">
+                                    <label for="q1b">أن يكتسبوا الشهرة الاجتماعية</label>
+                                </div>
+                                <div class="quiz-option" data-option="c">
+                                    <input type="radio" name="q1" value="c" id="q1c">
+                                    <label for="q1c">تطبيق أفكارهم الخاصة بالطريقة التي يرونها مناسبة</label>
+                                </div>
+                                <div class="quiz-option" data-option="d">
+                                    <input type="radio" name="q1" value="d" id="q1d">
+                                    <label for="q1d">تحقيق أرباح فوق المتوسط وبشكل كبير نسبياً</label>
+                                </div>
+                            </div>
+
+                            <div class="quiz-question">
+                                <h5>2. أي من التالي ليس من أنواع رجال الأعمال نسبة إلى التأثير في العملية التنموية:</h5>
+                                <div class="quiz-option" data-option="a">
+                                    <input type="radio" name="q2" value="a" id="q2a">
+                                    <label for="q2a">رجل الأعمال الروتيني</label>
+                                </div>
+                                <div class="quiz-option" data-option="b">
+                                    <input type="radio" name="q2" value="b" id="q2b">
+                                    <label for="q2b">رجل الأعمال المرابح/القناص</label>
+                                </div>
+                                <div class="quiz-option" data-option="c">
+                                    <input type="radio" name="q2" value="c" id="q2c">
+                                    <label for="q2c">رجل الأعمال الريادي المبتكر</label>
+                                </div>
+                                <div class="quiz-option" data-option="d">
+                                    <input type="radio" name="q2" value="d" id="q2d">
+                                    <label for="q2d">رجل الأعمال المطوّر للمجتمع</label>
+                                </div>
+                            </div>
+
+                            <div class="quiz-question">
+                                <h5>3. ليس من أهم الصفات والخصائص التي يتمتع بها الأشخاص الرياديون:</h5>
+                                <div class="quiz-option" data-option="a">
+                                    <input type="radio" name="q3" value="a" id="q3a">
+                                    <label for="q3a">الشغف والرغبة الشديدة للأعمال</label>
+                                </div>
+                                <div class="quiz-option" data-option="b">
+                                    <input type="radio" name="q3" value="b" id="q3b">
+                                    <label for="q3b">التركيز على العملاء والمنتج</label>
+                                </div>
+                                <div class="quiz-option" data-option="c">
+                                    <input type="radio" name="q3" value="c" id="q3c">
+                                    <label for="q3c">القدرة على التنفيذ (الذكاء التنفيذي)</label>
+                                </div>
+                                <div class="quiz-option" data-option="d">
+                                    <input type="radio" name="q3" value="d" id="q3d">
+                                    <label for="q3d">التركيز على الإنتاج السريع والجودة العالية</label>
+                                </div>
+                            </div>
+
+                            <div class="quiz-question">
+                                <h5>4. أي من التالية ليست من وظائف الأشخاص الرياديين:</h5>
+                                <div class="quiz-option" data-option="a">
+                                    <input type="radio" name="q4" value="a" id="q4a">
+                                    <label for="q4a">إدراك وتحديد فرص أعمال</label>
+                                </div>
+                                <div class="quiz-option" data-option="b">
+                                    <input type="radio" name="q4" value="b" id="q4b">
+                                    <label for="q4b">اختيار الشكل القانوني والموقع التجاري</label>
+                                </div>
+                                <div class="quiz-option" data-option="c">
+                                    <input type="radio" name="q4" value="c" id="q4c">
+                                    <label for="q4c">تحديد واختيار وبيع الموارد الرئيسية</label>
+                                </div>
+                                <div class="quiz-option" data-option="d">
+                                    <input type="radio" name="q4" value="d" id="q4d">
+                                    <label for="q4d">الابتكار</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-container">
+                            <h3><i class="fas fa-check-square"></i> أسئلة صح وخطأ</h3>
+                            
+                            <div class="true-false-question">
+                                <h5>1. الشخص الريادي هو الذي يبذل الجهد في التفكير في احتياجات ورغبات البشر ويحاول إيجاد طرق وسبل لتلبية تلك الاحتياجات بطرق أفضل.</h5>
+                                <div class="true-false-buttons">
+                                    <button class="tf-btn" data-answer="true" data-question="tf1">صح</button>
+                                    <button class="tf-btn" data-answer="false" data-question="tf1">خطأ</button>
+                                </div>
+                            </div>
+
+                            <div class="true-false-question">
+                                <h5>2. إن الصفة والسمة الأولى التي يتقاسمها رواد الأعمال الناجحون هي الشغف والدافعية والرغبة في إنشاء الأعمال.</h5>
+                                <div class="true-false-buttons">
+                                    <button class="tf-btn" data-answer="true" data-question="tf2">صح</button>
+                                    <button class="tf-btn" data-answer="false" data-question="tf2">خطأ</button>
+                                </div>
+                            </div>
+
+                            <div class="true-false-question">
+                                <h5>3. لا تعتبر القدرة على تحويل الأفكار الإبداعية القابلة للتطبيق إلى أعمال حقيقية على أرض الواقع السمة الأساسية التي يجب على رواد الأعمال الناجحين التحلي بها.</h5>
+                                <div class="true-false-buttons">
+                                    <button class="tf-btn" data-answer="true" data-question="tf3">صح</button>
+                                    <button class="tf-btn" data-answer="false" data-question="tf3">خطأ</button>
+                                </div>
+                            </div>
+
+                            <div class="true-false-question">
+                                <h5>4. يعتبر رجل الأعمال الداخلي Intrapreneur بمثابة مدير أو عالم أو باحث يعمل داخل منظمة قائمة.</h5>
+                                <div class="true-false-buttons">
+                                    <button class="tf-btn" data-answer="true" data-question="tf4">صح</button>
+                                    <button class="tf-btn" data-answer="false" data-question="tf4">خطأ</button>
+                                </div>
+                            </div>
+
+                            <div class="true-false-question">
+                                <h5>5. الشخص الريادي يتمتع بصفات ريادية موروثة فقط.</h5>
+                                <div class="true-false-buttons">
+                                    <button class="tf-btn" data-answer="true" data-question="tf5">صح</button>
+                                    <button class="tf-btn" data-answer="false" data-question="tf5">خطأ</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-controls">
+                            <button class="quiz-btn" onclick="checkAnswers()">
+                                <i class="fas fa-check"></i> فحص الإجابات
+                            </button>
+                            <button class="quiz-btn" onclick="resetQuiz()">
+                                <i class="fas fa-redo"></i> إعادة المحاولة
+                            </button>
+                        </div>
+
+                        <div id="quizResults" class="quiz-results" style="display: none;">
+                            <div class="score-display">
+                                <span id="scoreText">النتيجة: 0/9</span>
+                            </div>
+                            <div class="grade-message">
+                                <span id="gradeText">قم بالإجابة على جميع الأسئلة</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Print Button -->
+    <button class="print-btn" onclick="window.print()">
+        <i class="fas fa-print"></i> طباعة
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Quiz functionality
+        const mcqAnswers = {
+            q1: 'b',
+            q2: 'd', 
+            q3: 'd',
+            q4: 'c'
+        };
+
+        const tfAnswers = {
+            tf1: true,
+            tf2: true,
+            tf3: false,
+            tf4: true,
+            tf5: false
+        };
+
+        let selectedTFAnswers = {};
+
+        // Handle true/false questions
+        document.querySelectorAll('.tf-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const question = this.dataset.question;
+                const answer = this.dataset.answer === 'true';
+                
+                // Remove selection from other button
+                document.querySelectorAll(`[data-question="${question}"]`).forEach(b => {
+                    b.classList.remove('selected');
+                });
+                
+                // Add selection to clicked button
+                this.classList.add('selected');
+                selectedTFAnswers[question] = answer;
+            });
+        });
+
+        function checkAnswers() {
+            let score = 0;
+            let totalQuestions = 9;
+
+            // Check MCQ answers
+            Object.keys(mcqAnswers).forEach(questionId => {
+                const selectedOption = document.querySelector(`input[name="${questionId}"]:checked`);
+                const questionContainer = document.querySelector(`input[name="${questionId}"]`).closest('.quiz-question');
+                
+                // Remove previous styling
+                questionContainer.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('correct', 'incorrect');
+                });
+
+                if (selectedOption) {
+                    const selectedValue = selectedOption.value;
+                    const correctAnswer = mcqAnswers[questionId];
+                    
+                    if (selectedValue === correctAnswer) {
+                        score++;
+                        selectedOption.closest('.quiz-option').classList.add('correct');
+                    } else {
+                        selectedOption.closest('.quiz-option').classList.add('incorrect');
+                        // Show correct answer
+                        questionContainer.querySelector(`[data-option="${correctAnswer}"]`).classList.add('correct');
+                    }
+                }
+            });
+
+            // Check True/False answers
+            Object.keys(tfAnswers).forEach(questionId => {
+                const questionContainer = document.querySelector(`[data-question="${questionId}"]`).closest('.true-false-question');
+                const buttons = questionContainer.querySelectorAll('.tf-btn');
+                
+                // Remove previous styling
+                buttons.forEach(btn => {
+                    btn.classList.remove('correct', 'incorrect');
+                });
+
+                if (selectedTFAnswers.hasOwnProperty(questionId)) {
+                    const selectedAnswer = selectedTFAnswers[questionId];
+                    const correctAnswer = tfAnswers[questionId];
+                    
+                    if (selectedAnswer === correctAnswer) {
+                        score++;
+                        buttons.forEach(btn => {
+                            if ((btn.dataset.answer === 'true') === correctAnswer) {
+                                btn.classList.add('correct');
+                            }
+                        });
+                    } else {
+                        buttons.forEach(btn => {
+                            if ((btn.dataset.answer === 'true') === selectedAnswer) {
+                                btn.classList.add('incorrect');
+                            } else if ((btn.dataset.answer === 'true') === correctAnswer) {
+                                btn.classList.add('correct');
+                            }
+                        });
+                    }
+                } else {
+                    // Show correct answer if not answered
+                    buttons.forEach(btn => {
+                        if ((btn.dataset.answer === 'true') === tfAnswers[questionId]) {
+                            btn.classList.add('correct');
+                        }
+                    });
+                }
+            });
+
+            // Calculate percentage and grade
+            const percentage = Math.round((score / totalQuestions) * 100);
+            let grade, gradeClass;
+            
+            if (percentage >= 90) {
+                grade = 'ممتاز';
+                gradeClass = 'grade-a';
+            } else if (percentage >= 80) {
+                grade = 'جيد جداً';
+                gradeClass = 'grade-b';
+            } else if (percentage >= 70) {
+                grade = 'جيد';
+                gradeClass = 'grade-c';
+            } else if (percentage >= 60) {
+                grade = 'مقبول';
+                gradeClass = 'grade-d';
+            } else {
+                grade = 'راسب';
+                gradeClass = 'grade-f';
+            }
+
+            // Show results
+            document.getElementById('scoreText').textContent = `النتيجة: ${score}/${totalQuestions} (${percentage}%)`;
+            document.getElementById('gradeText').textContent = grade;
+            document.getElementById('gradeText').className = `grade-message ${gradeClass}`;
+            document.getElementById('quizResults').style.display = 'block';
+
+            // Scroll to results
+            document.getElementById('quizResults').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetQuiz() {
+            // Reset MCQ answers
+            document.querySelectorAll('input[type="radio"]').forEach(input => {
+                input.checked = false;
+            });
+
+            // Reset True/False answers
+            document.querySelectorAll('.tf-btn').forEach(btn => {
+                btn.classList.remove('selected', 'correct', 'incorrect');
+            });
+
+            // Reset MCQ styling
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+            });
+
+            // Reset selected answers
+            selectedTFAnswers = {};
+
+            // Hide results
+            document.getElementById('quizResults').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

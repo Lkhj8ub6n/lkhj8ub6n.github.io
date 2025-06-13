@@ -1,0 +1,1333 @@
+---
+layout: default
+title: الفصل الثاني - الأداء الابتكاري
+permalink: /entrepreneurship/chapter2/
+---
+
+
+
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفصل الثاني - الأداء الابتكاري ومتطلباته</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #295340 0%, #222222 100%);
+            min-height: 100vh;
+            direction: rtl;
+            margin: 0;
+            padding: 20px 0;
+        }
+        
+        .main-container {
+            background: #deddeb;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            margin: 0 auto;
+            max-width: 1200px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #295340 0%, #222222 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            margin: 0;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .content-wrapper {
+            padding: 40px;
+        }
+        
+        .nav-tabs {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 30px;
+            border: none;
+        }
+        
+        .nav-tabs .nav-link {
+            color: #295340;
+            font-weight: bold;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-tabs .nav-link.active {
+            background: #295340;
+            color: white;
+        }
+        
+        .nav-tabs .nav-link:hover {
+            background: rgba(41, 83, 64, 0.1);
+            color: #295340;
+        }
+        
+        .tab-content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            color: #295340;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #deddeb;
+        }
+        
+        .summary-content h3 {
+            color: #295340;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            background: rgba(41, 83, 64, 0.1);
+            border-radius: 10px;
+            border-right: 5px solid #295340;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .summary-content h4 {
+            color: #222222;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding-right: 15px;
+            border-right: 3px solid #295340;
+        }
+        
+        .summary-content p, .summary-content li {
+            color: #222222;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .summary-content ul, .summary-content ol {
+            margin-right: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .summary-content strong {
+            color: #295340;
+            font-weight: bold;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(41, 83, 64, 0.1) 0%, rgba(222, 221, 235, 0.3) 100%);
+            border: 2px solid rgba(41, 83, 64, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .highlight-box h5 {
+            color: #295340;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .question-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-right: 5px solid #295340;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .question-title {
+            color: #295340;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            background: rgba(41, 83, 64, 0.1);
+            border-radius: 10px;
+        }
+        
+        .question-answer {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 15px;
+            border-right: 3px solid #295340;
+        }
+        
+        .answer-title {
+            color: #295340;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .quiz-question {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-right: 4px solid #295340;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .quiz-question h5 {
+            color: #295340;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .quiz-option {
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .quiz-option:hover {
+            background: rgba(41, 83, 64, 0.1);
+            border-color: #295340;
+        }
+
+        .quiz-option input[type="radio"] {
+            margin-left: 10px;
+        }
+
+        .quiz-option.correct {
+            background: rgba(40, 167, 69, 0.2);
+            border-color: #28a745;
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(220, 53, 69, 0.2);
+            border-color: #dc3545;
+        }
+
+        .true-false-question {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-right: 4px solid #295340;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .true-false-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .tf-btn {
+            padding: 10px 25px;
+            border: 2px solid #295340;
+            background: white;
+            color: #295340;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .tf-btn:hover {
+            background: #295340;
+            color: white;
+        }
+
+        .tf-btn.selected {
+            background: #295340;
+            color: white;
+        }
+
+        .tf-btn.correct {
+            background: #28a745;
+            border-color: #28a745;
+            color: white;
+        }
+
+        .tf-btn.incorrect {
+            background: #dc3545;
+            border-color: #dc3545;
+            color: white;
+        }
+
+        .quiz-controls {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .quiz-btn {
+            background: linear-gradient(135deg, #295340 0%, #222222 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .quiz-results {
+            background: linear-gradient(135deg, rgba(41, 83, 64, 0.1) 0%, rgba(222, 221, 235, 0.3) 100%);
+            border: 2px solid #295340;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .score-display {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #295340;
+            margin-bottom: 15px;
+        }
+
+        .grade-message {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .grade-a { color: #28a745; }
+        .grade-b { color: #007bff; }
+        .grade-c { color: #ffc107; }
+        .grade-d { color: #fd7e14; }
+        .grade-f { color: #dc3545; }
+        
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: linear-gradient(135deg, #295340 0%, #222222 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .print-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .content-wrapper {
+                padding: 20px;
+            }
+            
+            .tab-content {
+                padding: 25px;
+            }
+            
+            .question-item, .quiz-container {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .back-btn {
+                position: static;
+                margin-bottom: 20px;
+                display: inline-block;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white !important;
+            }
+            .main-container {
+                box-shadow: none !important;
+            }
+            .nav-tabs, .print-btn, .back-btn, .quiz-controls {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="main-container">
+            <div class="header">
+                <a href="/entrepreneurship/" class="back-btn">
+                    <i class="fas fa-arrow-right"></i> العودة للرئيسية
+                </a>
+                <h1><i class="fas fa-rocket"></i> الفصل الثاني</h1>
+                <p>الأداء الابتكاري ومتطلباته</p>
+            </div>
+            
+            <div class="content-wrapper">
+                <ul class="nav nav-tabs" id="contentTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="summary-tab" data-bs-toggle="tab" data-bs-target="#summary" type="button" role="tab">
+                            <i class="fas fa-book"></i> الملخص
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="questions-tab" data-bs-toggle="tab" data-bs-target="#questions" type="button" role="tab">
+                            <i class="fas fa-edit"></i> الأسئلة المقالية
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="quiz-tab" data-bs-toggle="tab" data-bs-target="#quiz" type="button" role="tab">
+                            <i class="fas fa-question-circle"></i> الاختبار
+                        </button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content" id="contentTabContent">
+                    <!-- Summary Tab -->
+                    <div class="tab-pane fade show active" id="summary" role="tabpanel">
+                        <h2 class="section-title">
+                            <i class="fas fa-book-open"></i>
+                            ملخص الفصل الثاني
+                        </h2>
+                        
+                        <div class="summary-content">
+                            <h3>مقدمة الفصل</h3>
+                            
+                            <h4>تطور الفكر الابتكاري عبر التاريخ</h4>
+                            <ul>
+                                <li>لكل العلوم الاقتصادية والإدارية <strong>تاريخ وسلسلة من التطورات</strong> عبر الزمن</li>
+                                <li>الأداء الإبداعي الابتكاري والريادي <strong>تطوّر وتغيّر</strong> مع مرور الزمن</li>
+                                <li>تطوّرت معه <strong>النظريات</strong> التي تحاول تفسير العمل الريادي</li>
+                                <li><strong>الحاجة أم الاختراع</strong> - الابتكارات تعكس الحاجة في كل حقبة</li>
+                            </ul>
+                            
+                            <h4>محاور الدراسة</h4>
+                            <ul>
+                                <li>الحقب الزمنية الخمسة وكيفية بناء الثروة في كل حقبة</li>
+                                <li>الابتكارات السائدة في كل حقبة</li>
+                                <li>نظرية التنمية الاقتصادية لـ <strong>Schumpeter</strong></li>
+                            </ul>
+                            
+                            <h3>أولاً: تطوّر الأداء الابتكاري</h3>
+                            
+                            <div class="highlight-box">
+                                <h5>الحقب الزمنية الخمسة لتطور الأداء البشري</h5>
+                                
+                                <h4>1. العصر البدائي</h4>
+                                <ul>
+                                    <li><strong>بناء الثروة:</strong> القدرة على <strong>الصيد وتأمين القوت اليومي</strong></li>
+                                    <li><strong>الابتكارات:</strong> محصورة في <strong>ابتكار أدوات صيد مختلفة</strong></li>
+                                    <li><strong>القدرات العقلية:</strong> محدودة ومتماشية مع طبيعة العصر</li>
+                                </ul>
+                                
+                                <h4>2. العصر الزراعي</h4>
+                                <ul>
+                                    <li><strong>بناء الثروة:</strong> القدرة على <strong>زراعة الأرض واستغلالها</strong></li>
+                                    <li><strong>التطور الاجتماعي:</strong> ارتباط الإنسان بالأرض وبداية تشكيل المدن</li>
+                                    <li><strong>الابتكارات:</strong> محصورة على <strong>الأدوات الزراعية مثل المحراث</strong></li>
+                                </ul>
+                                
+                                <h4>3. العصر التجاري</h4>
+                                <ul>
+                                    <li><strong>بناء الثروة:</strong> القدرة على <strong>إنتاج سلع وخدمات والاتجار بها</strong></li>
+                                    <li><strong>التطور التجاري:</strong> تبادل السلع مع التجمعات السكانية (المقايضة)</li>
+                                    <li><strong>الابتكارات:</strong> استحداث <strong>النقود لتفادي المقايضة المضنية</strong></li>
+                                </ul>
+                                
+                                <h4>4. العصر الصناعي</h4>
+                                <ul>
+                                    <li><strong>بناء الثروة:</strong> امتلاك <strong>عناصر الإنتاج</strong> (الأرض، العمل، رأس المال)</li>
+                                    <li><strong>التطور الصناعي:</strong> القدرة على توظيف عناصر الإنتاج في العملية الإنتاجية</li>
+                                    <li><strong>الابتكارات:</strong> <strong>الآلة البخارية</strong> كمثال رئيسي</li>
+                                </ul>
+                                
+                                <h4>5. عصر المعلومات (العصر الحالي)</h4>
+                                <ul>
+                                    <li><strong>بناء الثروة:</strong> امتلاك <strong>المعلومات والمعرفة</strong></li>
+                                    <li><strong>القدرات المطلوبة:</strong> إنتاج واستخدام ونشر وتطوير وإدارة المعرفة بكفاءة عالية</li>
+                                    <li><strong>الابتكارات:</strong> <strong>التكنولوجيا الحديثة</strong> والثورة الرقمية</li>
+                                </ul>
+                            </div>
+                            
+                            <h3>ثانياً: متطلبات ريادة الأعمال</h3>
+                            
+                            <h4>مقدمة - المعجزة الكورية</h4>
+                            <ul>
+                                <li>في الخمسينيات: كوريا الجنوبية كانت <strong>دولة فقيرة</strong></li>
+                                <li>مستوى المعيشة أقل من معظم بلدان أمريكا اللاتينية</li>
+                                <li><strong>التحول الإيجابي:</strong> تطور سريع وتنافس مع الدول الصناعية</li>
+                                <li><strong>السؤال:</strong> ما أسباب هذه المعجزة الاقتصادية؟</li>
+                            </ul>
+                            
+                            <h3>نظرية التنمية الاقتصادية (Schumpeter)</h3>
+                            
+                            <h4>العالم النمساوي Josef Alois Schumpeter (1883-1950)</h4>
+                            <p><strong>نظرية التنمية الاقتصادية</strong> حصدت القبول الأكبر بين العلماء لتفسير الأعمال الريادية الابتكارية</p>
+                            
+                            <div class="highlight-box">
+                                <h5>الركائز الأربع للنظرية</h5>
+                                <ol>
+                                    <li><strong>الابتكار كمحرك للتنمية</strong></li>
+                                    <li><strong>الريادي مطبّق الابتكارات</strong></li>
+                                    <li><strong>التمويل كوقود للابتكار</strong></li>
+                                    <li><strong>توليفة جديدة للعناصر المتاحة</strong></li>
+                                </ol>
+                            </div>
+                            
+                            <h4>1. الابتكار كمحرك للتنمية (Innovation as Engine for Development)</h4>
+                            <ul>
+                                <li><strong>الابتكار:</strong> عملية تطبيق الأفكار الإبداعية</li>
+                                <li><strong>محرك التنمية الاقتصادية</strong> للبلدان المتقدمة والنامية</li>
+                                <li><strong>شرط أساسي:</strong> للتقدم وتأمين الوضع في السوق المحلي والدولي</li>
+                                <li><strong>للبلدان النامية:</strong> شرط للانضمام للسوق العالمية والمشاركة في العولمة</li>
+                                <li><strong>التنمية والابتكار:</strong> مترابطان وغير قابلين للفصل</li>
+                            </ul>
+                            
+                            <h4>2. الريادي مطبّق الابتكارات (Entrepreneur Implements Innovations)</h4>
+                            
+                            <p><strong>وصف Schumpeter للريادي:</strong></p>
+                            <ul>
+                                <li>شخص <strong>"ديناميكي"</strong> وبطل النشاط الابتكاري</li>
+                                <li><strong>مهمة متعددة التخصصات</strong> ومحفوفة بالمخاطر</li>
+                                <li><strong>ليس شخصاً عادياً</strong> - يتطلب قدرات خاصة</li>
+                            </ul>
+                            
+                            <p><strong>مهام الشخص الريادي:</strong></p>
+                            <ul>
+                                <li>تطبيق وتنفيذ <strong>مجموعات وتوليفات جديدة</strong></li>
+                                <li><strong>لا يقبل ظروف العمل</strong> كعوامل معطاة مسبقاً</li>
+                                <li><strong>يؤثر عليها بشكل منتظم</strong> بهدف التحسين والتطوير</li>
+                                <li><strong>وضع الأفكار موضع التنفيذ</strong></li>
+                            </ul>
+                            
+                            <h4>3. التمويل كوقود للابتكار (Financing as Fuel for Innovation)</h4>
+                            <ul>
+                                <li><strong>الشرط المالي:</strong> عنصر مهم ورئيسي لتسهيل عملية الابتكار</li>
+                                <li><strong>بدون تمويل:</strong> لا يمكن للأفكار الإبداعية أن ترى النور</li>
+                            </ul>
+                            
+                            <p><strong>نوع التمويل المطلوب:</strong></p>
+                            <ul>
+                                <li>ليس تمويلاً بيروقراطياً</li>
+                                <li><strong>أنظمة تمويل ريادية مرنة</strong></li>
+                                <li>لا تهاب المخاطرة</li>
+                                <li>ترغب بالتجارب والنجاح والتميز</li>
+                                <li>تساعد على فتح أسواق جديدة</li>
+                            </ul>
+                            
+                            <h4>4. توليفة جديدة للعناصر المتاحة (New Combination of Available Resources)</h4>
+                            
+                            <p><strong>المفهوم الأساسي:</strong></p>
+                            <ul>
+                                <li><strong>لا نحتاج لاختراع العجلة من جديد</strong></li>
+                                <li>نحتاج لاستخدام العجلة <strong>بشكل جديد</strong></li>
+                                <li>إعادة تشكيلة العناصر الإنتاجية المتاحة <strong>بشكل مبتكر</strong></li>
+                            </ul>
+                            
+                            <div class="highlight-box">
+                                <h5>مثال عملي - تاكسي Uber:</h5>
+                                <ul>
+                                    <li><strong>الهدف:</strong> نفس التاكسي القديم (نقل الركاب)</li>
+                                    <li><strong>المكونات القديمة:</strong> سيارة + سائق + GPS + تطبيق + إنترنت + دفع إلكتروني + تتبع</li>
+                                    <li><strong>الجديد:</strong> وضع هذه المكونات <strong>بتشكيلة جديدة</strong></li>
+                                    <li><strong>النتيجة:</strong> نموذج عمل جديد أثبت كفاءته وفاعليته</li>
+                                </ul>
+                            </div>
+                            
+                            <h3>التدمير الخلاق (Creative Destruction)</h3>
+                            
+                            <h4>تعريف المفهوم</h4>
+                            <ul>
+                                <li><strong>أول ظهور:</strong> عام 1934 في كتاب Schumpeter "نظرية التنمية الاقتصادية"</li>
+                                <li><strong>المعنى:</strong> تطوير منتجات وتقنيات جديدة تجعل القديمة <strong>تفقد قيمتها وتصبح بالية</strong></li>
+                            </ul>
+                            
+                            <h4>آلية التدمير الخلاق</h4>
+                            <ol>
+                                <li><strong>المنتجات الجديدة</strong> أفضل وأكثر كفاءة وفاعلية</li>
+                                <li><strong>المنتجات القديمة</strong> أقل كفاءة وفاعلية وأسعار مرتفعة</li>
+                                <li><strong>انخفاض الطلب</strong> على المنتجات القديمة</li>
+                                <li><strong>زيادة الطلب</strong> على المنتجات الجديدة</li>
+                                <li><strong>تحفيز النشاط الاقتصادي</strong> والتنمية</li>
+                                <li><strong>النهوض بالاقتصاد</strong> درجة إلى أعلى</li>
+                            </ol>
+                            
+                            <h4>أمثلة على التدمير الخلاق</h4>
+                            <ul>
+                                <li>الآلة الطابعة</li>
+                                <li>الكمبيوتر</li>
+                                <li>سيارات الاحتراق التام</li>
+                                <li>السيارات الكهربائية</li>
+                            </ul>
+                            
+                            <h3>ثالثاً: علوم ذات علاقة بريادة الأعمال</h3>
+                            
+                            <h4>طبيعة ظاهرة الريادة</h4>
+                            <ul>
+                                <li><strong>ليست ظاهرة أحادية البعد</strong> أو مستقلة</li>
+                                <li><strong>ظاهرة متعددة الأوجه</strong> والارتباطات والأبعاد</li>
+                                <li>تأخذ بالاعتبار <strong>الأبعاد الاقتصادية والاجتماعية والثقافية</strong></li>
+                                <li><strong>نظرة شمولية واسعة</strong> غير محصورة بإطار معين</li>
+                            </ul>
+                            
+                            <h4>العلوم المرتبطة بريادة الأعمال</h4>
+                            
+                            <h4>1. علم الاقتصاد</h4>
+                            <ul>
+                                <li><strong>العلاقة:</strong> تحديد حالات <strong>الطلب والعرض</strong> على السلع والخدمات</li>
+                                <li><strong>خلق طلب وعرض جديدين</strong> لم يكن لهما أثر قبل العمل الريادي</li>
+                                <li><strong>دراسة حالات التوازن</strong> في الأسواق</li>
+                                <li><strong>فجوات سلعية وسعرية</strong> (فرص المرابحين)</li>
+                                <li><strong>دور الريادة</strong> في النمو والتنمية الاقتصادية</li>
+                            </ul>
+                            
+                            <h4>2. علم النفس</h4>
+                            <ul>
+                                <li><strong>دراسة الصفات الشخصية والنفسية والسلوكية</strong> للرياديين</li>
+                                <li><strong>الموروث والمكتسب</strong> من الصفات الريادية</li>
+                                <li><strong>دور البيئة</strong> في اكتساب المهارات الريادية</li>
+                                <li><strong>تأثير الدافعية والحفز</strong> لممارسة الأعمال الريادية</li>
+                            </ul>
+                            
+                            <h4>3. علم الاجتماع</h4>
+                            <ul>
+                                <li><strong>العلاقات والتفاعلات الاجتماعية</strong> بين الرياديين والآخرين</li>
+                                <li><strong>طبيعة المجتمع</strong> الذي يعيش فيه الريادي</li>
+                                <li><strong>تأثير العلاقات والمجتمع</strong> على الأشخاص الرياديين</li>
+                            </ul>
+                            
+                            <h4>4. الإدارة الاستراتيجية</h4>
+                            <ul>
+                                <li><strong>دراسة وتحليل البيئة الخارجية</strong> لتحديد الفرص والتحديات</li>
+                                <li><strong>خلق ثروة للمنظمة</strong> من خلال استغلال الفرص</li>
+                                <li><strong>دور الرياديين</strong> في صياغة الاستراتيجيات وتحديد أهداف المنظمة</li>
+                            </ul>
+                            
+                            <h4>5. علم التسويق</h4>
+                            <ul>
+                                <li><strong>دخول أو استكشاف الأسواق الجديدة</strong> (محلية، إقليمية، دولية)</li>
+                                <li><strong>استغلال الفرص السوقية</strong> المختلفة</li>
+                                <li><strong>خلق منافع جديدة</strong> بجميع أشكالها</li>
+                                <li><strong>التعرف على أنماط وسلوكيات وحاجات المستهلكين</strong></li>
+                            </ul>
+                            
+                            <h4>6. علم الإنسان</h4>
+                            <ul>
+                                <li><strong>دراسة السلوك البشري والإنساني</strong></li>
+                                <li><strong>العلاقات بين الشعوب والحضارات</strong></li>
+                                <li><strong>اكتساب ثقافة الريادة</strong> وممارستها عبر الحقب الزمنية</li>
+                            </ul>
+                            
+                            <h4>7. علم التاريخ</h4>
+                            <ul>
+                                <li><strong>تتبع تطور ظاهرة الريادة</strong> كظاهرة بحثية وعلمية</li>
+                                <li><strong>دراسة الفترات الزمنية السابقة</strong> وتطور المفهوم الريادي</li>
+                            </ul>
+                            
+                            <h3>رابعاً: أهم الابتكارات</h3>
+                            
+                            <h4>تأثير الابتكارات على حياتنا</h4>
+                            <ol>
+                                <li><strong>توسع الفكر الإنساني</strong> وإمكاناته الإبداعية والتعبيرية</li>
+                                <li><strong>جزء لا يتجزأ</strong> من البنية التحتية للعالم الحديث</li>
+                                <li><strong>مكنت الثورة الصناعية</strong> وموجاتها المتتالية</li>
+                                <li><strong>إطالة عمر البشر</strong> وتحسين نوعية الحياة</li>
+                                <li><strong>التواصل اللحظي</strong> المرئي والمسموع</li>
+                                <li><strong>تطوير الحركة البدنية</strong> للأشخاص والبضائع</li>
+                            </ol>
+                            
+                            <div class="highlight-box">
+                                <h5>أهم 10 ابتكارات في التاريخ (حسب مجلة The Atlantic):</h5>
+                                <ol>
+                                    <li><strong>المطبعة</strong> (1430)</li>
+                                    <li><strong>الكهرباء</strong> (أواخر القرن التاسع عشر)</li>
+                                    <li><strong>البنسلين</strong> (1928)</li>
+                                    <li><strong>إلكترونيات أشباه الموصلات</strong> (منتصف القرن العشرين)</li>
+                                    <li><strong>العدسات البصرية</strong> (القرن الثالث عشر)</li>
+                                    <li><strong>الورق</strong> (القرن الثاني)</li>
+                                    <li><strong>محرك الاحتراق الداخلي</strong> (أواخر القرن التاسع عشر)</li>
+                                    <li><strong>التطعيم</strong> (1796)</li>
+                                    <li><strong>الإنترنت</strong> (1960)</li>
+                                    <li><strong>محرك البخار</strong> (1712)</li>
+                                </ol>
+                            </div>
+                            
+                            <h4>ابتكارات أخرى مهمة:</h4>
+                            <ul>
+                                <li><strong>تثبيت النيتروجين</strong> (1918) - مهم للزراعة</li>
+                                <li><strong>أنظمة الصرف الصحي</strong> (منتصف القرن التاسع عشر)</li>
+                                <li><strong>التبريد</strong> (1850)</li>
+                                <li><strong>البارود</strong> (القرن العاشر)</li>
+                                <li><strong>الطائرة</strong> (1903)</li>
+                                <li><strong>الكمبيوتر الشخصي</strong> (1970)</li>
+                                <li><strong>السيارة</strong> (أواخر القرن التاسع عشر)</li>
+                                <li><strong>الهاتف</strong> (1876)</li>
+                                <li><strong>الراديو</strong> (1906)</li>
+                                <li><strong>التلفزيون</strong> (أوائل القرن العشرين)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Questions Tab -->
+                    <div class="tab-pane fade" id="questions" role="tabpanel">
+                        <h2 class="section-title">
+                            <i class="fas fa-edit"></i>
+                            الأسئلة المقالية
+                        </h2>
+                        
+                        <div class="question-item">
+                            <div class="question-title">أ. اشرح تسلسل تطوّر الأداء الابتكاري والمفهوم الريادي واذكر أهم العوامل التي تلعب دوراً أساسياً في ذلك التطوّر</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <h4>الحقب الزمنية الخمس:</h4>
+                                <ol>
+                                    <li><strong>العصر البدائي:</strong> الثروة تبنى على القدرة على الصيد، الابتكارات في أدوات الصيد</li>
+                                    <li><strong>العصر الزراعي:</strong> الثروة تبنى على زراعة الأرض، الابتكارات في الأدوات الزراعية</li>
+                                    <li><strong>العصر التجاري:</strong> الثروة تبنى على إنتاج وتبادل السلع، ابتكار النقود</li>
+                                    <li><strong>العصر الصناعي:</strong> الثروة تبنى على امتلاك عناصر الإنتاج، ابتكار الآلة البخارية</li>
+                                    <li><strong>عصر المعلومات:</strong> الثروة تبنى على امتلاك المعلومات والمعرفة، التكنولوجيا الحديثة</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">ب. اشرح وبشكل مختصر أهم مبادئ وأسس نظرية التنمية الاقتصادية</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <h4>نظرية Schumpeter تركز على:</h4>
+                                <ol>
+                                    <li><strong>الابتكار كمحرك للتنمية:</strong> تطبيق الأفكار الإبداعية</li>
+                                    <li><strong>الريادي كمطبق للابتكارات:</strong> الشخص الديناميكي الذي ينفذ التوليفات الجديدة</li>
+                                    <li><strong>التمويل كوقود:</strong> الحاجة لأنظمة تمويل مرنة وريادية</li>
+                                    <li><strong>التوليفات الجديدة:</strong> إعادة تشكيل العناصر المتاحة بطرق مبتكرة</li>
+                                    <li><strong>التدمير الخلاق:</strong> استبدال القديم بالجديد الأكثر كفاءة</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">ج. اشرح معنى الابتكار كمحرك للتنمية الاقتصادية</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <p>الابتكارات التقنية والعلمية تعتبر محرك التنمية الاقتصادية لأنها:</p>
+                                <ul>
+                                    <li>شرط أساسي للتقدم وتأمين الوضع في السوق</li>
+                                    <li>تساعد البلدان النامية للانضمام للسوق العالمية</li>
+                                    <li>تحفز النشاط الاقتصادي والنمو</li>
+                                    <li>تخلق منتجات وخدمات أكثر كفاءة</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">د. اشرح مقولة أن الشخص الريادي هو المطبق للابتكارات</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <p>الريادي حسب Schumpeter:</p>
+                                <ul>
+                                    <li>شخص ديناميكي وبطل النشاط الابتكاري</li>
+                                    <li>يطبق التوليفات الجديدة للعناصر الإنتاجية</li>
+                                    <li>لا يقبل ظروف العمل كمعطيات ثابتة</li>
+                                    <li>يؤثر على الظروف بشكل منتظم للتحسين والتطوير</li>
+                                    <li>يحول الأفكار الإبداعية إلى واقع عملي</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">هـ. اشرح حقيقة أن التمويل يعتبر كوقود للتنمية الاقتصادية</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <ul>
+                                    <li>بدون تمويل لا يمكن للأفكار الإبداعية أن ترى النور</li>
+                                    <li>الحاجة لأنظمة تمويل ريادية مرنة</li>
+                                    <li>التمويل يجب ألا يكون بيروقراطياً</li>
+                                    <li>الحاجة لأنظمة تمويل لا تهاب المخاطرة</li>
+                                    <li>التمويل يساعد على فتح أسواق جديدة</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">و. اشرح مصطلح التدمير الخلاق</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <h4>التدمير الخلاق (Creative Destruction):</h4>
+                                <ul>
+                                    <li>عملية استبدال المنتجات والتقنيات القديمة بأخرى جديدة أكثر كفاءة</li>
+                                    <li>المنتجات الجديدة تجعل القديمة تفقد قيمتها وتصبح بالية</li>
+                                    <li>ينخفض الطلب على المنتجات القديمة ويزداد على الجديدة</li>
+                                    <li>يحفز النشاط الاقتصادي والتنمية</li>
+                                    <li>أمثلة: الآلة الطابعة، الكمبيوتر، السيارات الكهربائية</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">ز. اشرح مفهوم إيجاد مجموعات وتوليفات جديدة كعمل ريادي بالشكل الأكبر</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <ul>
+                                    <li>لا نحتاج لاختراع العجلة من جديد</li>
+                                    <li>نحتاج لاستخدام العناصر المتاحة بشكل جديد</li>
+                                    <li>مثال Uber: سيارة + سائق + GPS + تطبيق + دفع إلكتروني</li>
+                                    <li>كل العناصر موجودة مسبقاً لكن التشكيلة جديدة</li>
+                                    <li>ينتج نموذج عمل جديد أكثر كفاءة</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">ح. وضح علاقة ريادة الأعمال بالعلوم الأخرى</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <ol>
+                                    <li><strong>علم الاقتصاد:</strong> العلاقة بين العرض والطلب، التوازن في الأسواق، النمو الاقتصادي</li>
+                                    <li><strong>علم النفس:</strong> الصفات الشخصية والسلوكية للرياديين، الدافعية</li>
+                                    <li><strong>علم الاجتماع:</strong> العلاقات والتفاعلات الاجتماعية، تأثير المجتمع</li>
+                                    <li><strong>الإدارة الاستراتيجية:</strong> تحليل البيئة، صياغة الاستراتيجيات</li>
+                                    <li><strong>علم التسويق:</strong> استكشاف الأسواق الجديدة، سلوك المستهلكين</li>
+                                    <li><strong>علم الإنسان:</strong> السلوك البشري، اكتساب ثقافة الريادة</li>
+                                    <li><strong>علم التاريخ:</strong> تتبع تطور ظاهرة الريادة عبر الزمن</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quiz Tab -->
+                    <div class="tab-pane fade" id="quiz" role="tabpanel">
+                        <h2 class="section-title">
+                            <i class="fas fa-question-circle"></i>
+                            اختبار الفصل الثاني
+                        </h2>
+                        
+                        <div class="quiz-container">
+                            <h3><i class="fas fa-list-ol"></i> أسئلة الاختيار من متعدد</h3>
+                            
+                            <div class="quiz-question">
+                                <h5>1. أي من العصور التالية لا يعتبر من العصور التي تظهر تطور الأداء الابتكاري:</h5>
+                                <div class="quiz-option" data-option="a">
+                                    <input type="radio" name="q1" value="a" id="q1a">
+                                    <label for="q1a">العصر البدائي</label>
+                                </div>
+                                <div class="quiz-option" data-option="b">
+                                    <input type="radio" name="q1" value="b" id="q1b">
+                                    <label for="q1b">العصر الحجري</label>
+                                </div>
+                                <div class="quiz-option" data-option="c">
+                                    <input type="radio" name="q1" value="c" id="q1c">
+                                    <label for="q1c">العصر الزراعي</label>
+                                </div>
+                                <div class="quiz-option" data-option="d">
+                                    <input type="radio" name="q1" value="d" id="q1d">
+                                    <label for="q1d">العصر التجاري</label>
+                                </div>
+                            </div>
+
+                            <div class="quiz-question">
+                                <h5>2. أي من الآتية لا يعتبر من التوليفات الجديدة من عناصر الإنتاج المتاحة كعمل ريادي:</h5>
+                                <div class="quiz-option" data-option="a">
+                                    <input type="radio" name="q2" value="a" id="q2a">
+                                    <label for="q2a">منتج جديد - إدخال منتج جديد أو تحسين وتطوير منتج قديم</label>
+                                </div>
+                                <div class="quiz-option" data-option="b">
+                                    <input type="radio" name="q2" value="b" id="q2b">
+                                    <label for="q2b">طريق وأسلوب عمل جديد - طريقة إنتاج جديدة أو عملية إنتاج جديدة</label>
+                                </div>
+                                <div class="quiz-option" data-option="c">
+                                    <input type="radio" name="q2" value="c" id="q2c">
+                                    <label for="q2c">فتح مصدر جديد للتوظيف</label>
+                                </div>
+                                <div class="quiz-option" data-option="d">
+                                    <input type="radio" name="q2" value="d" id="q2d">
+                                    <label for="q2d">فتح أسواق جديدة: الدخول إلى أسواق جديدة</label>
+                                </div>
+                            </div>
+
+                            <div class="quiz-question">
+                                <h5>3. إن عملية التدمير الخلاق يمكن أن تشمل العديد من الأمور ماعدا:</h5>
+                                <div class="quiz-option" data-option="a">
+                                    <input type="radio" name="q3" value="a" id="q3a">
+                                    <label for="q3a">الشكل القانوني للشركة</label>
+                                </div>
+                                <div class="quiz-option" data-option="b">
+                                    <input type="radio" name="q3" value="b" id="q3b">
+                                    <label for="q3b">المنتجات</label>
+                                </div>
+                                <div class="quiz-option" data-option="c">
+                                    <input type="radio" name="q3" value="c" id="q3c">
+                                    <label for="q3c">التقنيات</label>
+                                </div>
+                                <div class="quiz-option" data-option="d">
+                                    <input type="radio" name="q3" value="d" id="q3d">
+                                    <label for="q3d">استراتيجيات تسعير جديدة</label>
+                                </div>
+                            </div>
+
+                            <div class="quiz-question">
+                                <h5>4. أي من التالية لا يعتبر من عناصر أو أبعاد البيئة الريادية المشجعة في المجتمع:</h5>
+                                <div class="quiz-option" data-option="a">
+                                    <input type="radio" name="q4" value="a" id="q4a">
+                                    <label for="q4a">السياسات والإجراءات الحكومية</label>
+                                </div>
+                                <div class="quiz-option" data-option="b">
+                                    <input type="radio" name="q4" value="b" id="q4b">
+                                    <label for="q4b">الدعم المعنوي</label>
+                                </div>
+                                <div class="quiz-option" data-option="c">
+                                    <input type="radio" name="q4" value="c" id="q4c">
+                                    <label for="q4c">الظروف الاجتماعية والاقتصادية</label>
+                                </div>
+                                <div class="quiz-option" data-option="d">
+                                    <input type="radio" name="q4" value="d" id="q4d">
+                                    <label for="q4d">المهارات الريادية والإدارية</label>
+                                </div>
+                            </div>
+
+                            <div class="quiz-question">
+                                <h5>5. أي من التالية ليس من العلوم ذات العلاقة بريادة الأعمال:</h5>
+                                <div class="quiz-option" data-option="a">
+                                    <input type="radio" name="q5" value="a" id="q5a">
+                                    <label for="q5a">علم الحيوان</label>
+                                </div>
+                                <div class="quiz-option" data-option="b">
+                                    <input type="radio" name="q5" value="b" id="q5b">
+                                    <label for="q5b">علم الاقتصاد</label>
+                                </div>
+                                <div class="quiz-option" data-option="c">
+                                    <input type="radio" name="q5" value="c" id="q5c">
+                                    <label for="q5c">علم النفس</label>
+                                </div>
+                                <div class="quiz-option" data-option="d">
+                                    <input type="radio" name="q5" value="d" id="q5d">
+                                    <label for="q5d">علم الاجتماع</label>
+                                </div>
+                            </div>
+
+                            <div class="quiz-question">
+                                <h5>6. التالية هي من أهم تأثيرات الابتكارات على حياتنا ما عدا:</h5>
+                                <div class="quiz-option" data-option="a">
+                                    <input type="radio" name="q6" value="a" id="q6a">
+                                    <label for="q6a">توسع الابتكارات الفكر الإنساني وإمكاناته الإبداعية والتعبيرية</label>
+                                </div>
+                                <div class="quiz-option" data-option="b">
+                                    <input type="radio" name="q6" value="b" id="q6b">
+                                    <label for="q6b">استطاعت الابتكارات من زيادة حجم البشر</label>
+                                </div>
+                                <div class="quiz-option" data-option="c">
+                                    <input type="radio" name="q6" value="c" id="q6c">
+                                    <label for="q6c">تعتبر الابتكارات جزء لا يتجزأ من البنية التحتية المادية والتشغيلية للعالم الحديث</label>
+                                </div>
+                                <div class="quiz-option" data-option="d">
+                                    <input type="radio" name="q6" value="d" id="q6d">
+                                    <label for="q6d">مكنت الابتكارات الثورة الصناعية وموجاتها المتتالية</label>
+                                </div>
+                            </div>
+
+                            <div class="quiz-question">
+                                <h5>7. بنظر Schumpeter، أي من التالية ليس من العوامل الرئيسية المهمة في الأعمال الريادية:</h5>
+                                <div class="quiz-option" data-option="a">
+                                    <input type="radio" name="q7" value="a" id="q7a">
+                                    <label for="q7a">الشخص الريادي</label>
+                                </div>
+                                <div class="quiz-option" data-option="b">
+                                    <input type="radio" name="q7" value="b" id="q7b">
+                                    <label for="q7b">الابتكار</label>
+                                </div>
+                                <div class="quiz-option" data-option="c">
+                                    <input type="radio" name="q7" value="c" id="q7c">
+                                    <label for="q7c">الإبداع</label>
+                                </div>
+                                <div class="quiz-option" data-option="d">
+                                    <input type="radio" name="q7" value="d" id="q7d">
+                                    <label for="q7d">التمويل</label>
+                                </div>
+                            </div>
+
+                            <div class="quiz-question">
+                                <h5>8. يستشهد Schumpeter بخمس حالات مختلفة للابتكارات، أي من التالية ليس من أنواع الابتكارات:</h5>
+                                <div class="quiz-option" data-option="a">
+                                    <input type="radio" name="q8" value="a" id="q8a">
+                                    <label for="q8a">فتح فروع جديدة لمشروعك</label>
+                                </div>
+                                <div class="quiz-option" data-option="b">
+                                    <input type="radio" name="q8" value="b" id="q8b">
+                                    <label for="q8b">منتج جديد</label>
+                                </div>
+                                <div class="quiz-option" data-option="c">
+                                    <input type="radio" name="q8" value="c" id="q8c">
+                                    <label for="q8c">طريق وأسلوب عمل جديد</label>
+                                </div>
+                                <div class="quiz-option" data-option="d">
+                                    <input type="radio" name="q8" value="d" id="q8d">
+                                    <label for="q8d">فتح أسواق جديدة</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-container">
+                            <h3><i class="fas fa-check-square"></i> أسئلة صح وخطأ</h3>
+                            
+                            <div class="true-false-question">
+                                <h5>1. في حقبة العصر البدائي كانت الثروة تبنى بناءً على القدرة على التجارة وكانت الابتكارات تتركز على أدوات تساعد بالتجارة.</h5>
+                                <div class="true-false-buttons">
+                                    <button class="tf-btn" data-answer="true" data-question="tf1">صح</button>
+                                    <button class="tf-btn" data-answer="false" data-question="tf1">خطأ</button>
+                                </div>
+                            </div>
+
+                            <div class="true-false-question">
+                                <h5>2. في نظرية التنمية الاقتصادية يتم التأكيد على دور الابتكار كمحرك للتنمية الاقتصادية ودور رائد الأعمال كحامل وناقل ومطبّق للابتكار.</h5>
+                                <div class="true-false-buttons">
+                                    <button class="tf-btn" data-answer="true" data-question="tf2">صح</button>
+                                    <button class="tf-btn" data-answer="false" data-question="tf2">خطأ</button>
+                                </div>
+                            </div>
+
+                            <div class="true-false-question">
+                                <h5>3. تعتبر الشركات القديمة الكبيرة من أهم مصادر التدمير الخلاق لأنها بالعادة تبدأ بأعمالها مستهدفة تحسين ما هو متاح من منتجات وتقنيات.</h5>
+                                <div class="true-false-buttons">
+                                    <button class="tf-btn" data-answer="true" data-question="tf3">صح</button>
+                                    <button class="tf-btn" data-answer="false" data-question="tf3">خطأ</button>
+                                </div>
+                            </div>
+
+                            <div class="true-false-question">
+                                <h5>4. تظهر علاقة الريادة مع علم النفس من خلال دراسة الصفات الشخصية والنفسية والسلوكية للرياديين الموروث منها والمكتسب.</h5>
+                                <div class="true-false-buttons">
+                                    <button class="tf-btn" data-answer="true" data-question="tf4">صح</button>
+                                    <button class="tf-btn" data-answer="false" data-question="tf4">خطأ</button>
+                                </div>
+                            </div>
+                            <div class="true-false-question">
+    <h5>5. الصفات الريادية في الأفراد لها أساس وراثي وأساس مكتسب.</h5>
+    <div class="true-false-buttons">
+        <button class="tf-btn" data-answer="true" data-question="tf5">صح</button>
+        <button class="tf-btn" data-answer="false" data-question="tf5">خطأ</button>
+    </div>
+</div>
+
+<div class="true-false-question">
+    <h5>6. تظهر علاقة الريادة مع علم النفس من خلال دراسة الصفات الشخصية والنفسية والسلوكية للرياديين الموروث منها والمكتسب ودور البيئة التي يعيش فيها وتأثيرها على اكتسابه لتلك المهارات الريادية وتأثير الدافعية والحفز لديه لممارسة الأعمال الريادية.</h5>
+    <div class="true-false-buttons">
+        <button class="tf-btn" data-answer="true" data-question="tf6">صح</button>
+        <button class="tf-btn" data-answer="false" data-question="tf6">خطأ</button>
+    </div>
+</div>
+
+<div class="true-false-question">
+    <h5>7. تظهر العلاقة بين الريادة وعلم التاريخ من خلال تتبع تطور ظاهرة الريادة كظاهرة بحثية وعلمية في فترات زمنية سابقة.</h5>
+    <div class="true-false-buttons">
+        <button class="tf-btn" data-answer="true" data-question="tf7">صح</button>
+        <button class="tf-btn" data-answer="false" data-question="tf7">خطأ</button>
+    </div>
+</div>
+
+<div class="true-false-question">
+    <h5>8. من أهمية الابتكارات هو أن الابتكارات سمحت للبشر بالتواصل بشكل عام.</h5>
+    <div class="true-false-buttons">
+        <button class="tf-btn" data-answer="true" data-question="tf8">صح</button>
+        <button class="tf-btn" data-answer="false" data-question="tf8">خطأ</button>
+    </div>
+</div>
+
+                        </div>
+
+                        <div class="quiz-controls">
+                            <button class="quiz-btn" onclick="checkAnswers()">
+                                <i class="fas fa-check"></i> فحص الإجابات
+                            </button>
+                            <button class="quiz-btn" onclick="resetQuiz()">
+                                <i class="fas fa-redo"></i> إعادة المحاولة
+                            </button>
+                        </div>
+
+                        <div id="quizResults" class="quiz-results" style="display: none;">
+                            <div class="score-display">
+                                <span id="scoreText">النتيجة: 0/8</span>
+                            </div>
+                            <div class="grade-message">
+                                <span id="gradeText">قم بالإجابة على جميع الأسئلة</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Quiz functionality
+        const mcqAnswers = {
+            q1: 'b',
+            q2: 'a', 
+            q3: 'c',
+            q4: 'a'
+        };
+
+        const tfAnswers = {
+    tf1: false,
+    tf2: true,
+    tf3: false,
+    tf4: true,
+    tf5: true,
+    tf6: true,
+    tf7: true,
+    tf8: true
+};
+
+
+        let selectedTFAnswers = {};
+
+        // Handle true/false questions
+        document.querySelectorAll('.tf-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const question = this.dataset.question;
+                const answer = this.dataset.answer === 'true';
+                
+                // Remove selection from other button
+                document.querySelectorAll(`[data-question="${question}"]`).forEach(b => {
+                    b.classList.remove('selected');
+                });
+                
+                // Add selection to clicked button
+                this.classList.add('selected');
+                selectedTFAnswers[question] = answer;
+            });
+        });
+
+        function checkAnswers() {
+            let score = 0;
+            let totalQuestions = 16;
+
+            // Check MCQ answers
+            Object.keys(mcqAnswers).forEach(questionId => {
+                const selectedOption = document.querySelector(`input[name="${questionId}"]:checked`);
+                const questionContainer = document.querySelector(`input[name="${questionId}"]`).closest('.quiz-question');
+                
+                // Remove previous styling
+                questionContainer.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('correct', 'incorrect');
+                });
+
+                if (selectedOption) {
+                    const selectedValue = selectedOption.value;
+                    const correctAnswer = mcqAnswers[questionId];
+                    
+                    if (selectedValue === correctAnswer) {
+                        score++;
+                        selectedOption.closest('.quiz-option').classList.add('correct');
+                    } else {
+                        selectedOption.closest('.quiz-option').classList.add('incorrect');
+                        // Show correct answer
+                        questionContainer.querySelector(`[data-option="${correctAnswer}"]`).classList.add('correct');
+                    }
+                }
+            });
+
+            // Check True/False answers
+            Object.keys(tfAnswers).forEach(questionId => {
+                const questionContainer = document.querySelector(`[data-question="${questionId}"]`).closest('.true-false-question');
+                const buttons = questionContainer.querySelectorAll('.tf-btn');
+                
+                // Remove previous styling
+                buttons.forEach(btn => {
+                    btn.classList.remove('correct', 'incorrect');
+                });
+
+                if (selectedTFAnswers.hasOwnProperty(questionId)) {
+                    const selectedAnswer = selectedTFAnswers[questionId];
+                    const correctAnswer = tfAnswers[questionId];
+                    
+                    if (selectedAnswer === correctAnswer) {
+                        score++;
+                        buttons.forEach(btn => {
+                            if ((btn.dataset.answer === 'true') === correctAnswer) {
+                                btn.classList.add('correct');
+                            }
+                        });
+                    } else {
+                        buttons.forEach(btn => {
+                            if ((btn.dataset.answer === 'true') === selectedAnswer) {
+                                btn.classList.add('incorrect');
+                            } else if ((btn.dataset.answer === 'true') === correctAnswer) {
+                                btn.classList.add('correct');
+                            }
+                        });
+                    }
+                } else {
+                    // Show correct answer if not answered
+                    buttons.forEach(btn => {
+                        if ((btn.dataset.answer === 'true') === tfAnswers[questionId]) {
+                            btn.classList.add('correct');
+                        }
+                    });
+                }
+            });
+
+            // Calculate percentage and grade
+            const percentage = Math.round((score / totalQuestions) * 100);
+            let grade, gradeClass;
+            
+            if (percentage >= 90) {
+                grade = 'ممتاز';
+                gradeClass = 'grade-a';
+            } else if (percentage >= 80) {
+                grade = 'جيد جداً';
+                gradeClass = 'grade-b';
+            } else if (percentage >= 70) {
+                grade = 'جيد';
+                gradeClass = 'grade-c';
+            } else if (percentage >= 60) {
+                grade = 'مقبول';
+                gradeClass = 'grade-d';
+            } else {
+                grade = 'راسب';
+                gradeClass = 'grade-f';
+            }
+
+            // Show results
+            document.getElementById('scoreText').textContent = `النتيجة: ${score}/${totalQuestions} (${percentage}%)`;
+            document.getElementById('gradeText').textContent = grade;
+            document.getElementById('gradeText').className = `grade-message ${gradeClass}`;
+            document.getElementById('quizResults').style.display = 'block';
+
+            // Scroll to results
+            document.getElementById('quizResults').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetQuiz() {
+            // Reset MCQ answers
+            document.querySelectorAll('input[type="radio"]').forEach(input => {
+                input.checked = false;
+            });
+
+            // Reset True/False answers
+            document.querySelectorAll('.tf-btn').forEach(btn => {
+                btn.classList.remove('selected', 'correct', 'incorrect');
+            });
+
+            // Reset MCQ styling
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+            });
+
+            // Reset selected answers
+            selectedTFAnswers = {};
+
+            // Hide results
+            document.getElementById('quizResults').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

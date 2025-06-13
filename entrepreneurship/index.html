@@ -1,0 +1,381 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+layout: default
+title: ريادة الأعمال والابتكار
+permalink: /entrepreneurship/
+---
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ريادة الأعمال والابتكار</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #295340 0%, #222222 100%);
+            min-height: 100vh;
+            direction: rtl;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .main-container {
+            background: #deddeb;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            margin: 20px auto;
+            max-width: 1200px;
+            overflow: hidden;
+            min-height: calc(100vh - 40px);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #295340 0%, #222222 100%);
+            color: white;
+            padding: 50px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            margin: 0;
+            opacity: 0.95;
+            font-size: 1.3rem;
+        }
+        
+        .chapters-grid {
+            padding: 60px 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .chapter-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(41, 83, 64, 0.15);
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .chapter-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, #295340 0%, #222222 100%);
+        }
+        
+        .chapter-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(41, 83, 64, 0.25);
+            border-color: #295340;
+        }
+        
+        .chapter-icon {
+            font-size: 4rem;
+            color: #295340;
+            margin-bottom: 25px;
+            display: block;
+        }
+        
+        .chapter-title {
+            color: #222222;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+        
+        .chapter-description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+        
+        .chapter-btn {
+            background: linear-gradient(135deg, #295340 0%, #222222 100%);
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(41, 83, 64, 0.3);
+        }
+        
+        .chapter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(41, 83, 64, 0.4);
+            color: white;
+        }
+        
+        .intro-section {
+            background: white;
+            margin: 0 40px 40px 40px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(41, 83, 64, 0.1);
+            text-align: center;
+        }
+        
+        .intro-section h2 {
+            color: #295340;
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .intro-section p {
+            color: #222222;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0 0 0;
+        }
+        
+        .feature-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border-right: 4px solid #295340;
+        }
+        
+        .feature-item i {
+            color: #295340;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .feature-item h4 {
+            color: #222222;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        
+        .feature-item p {
+            color: #666;
+            font-size: 0.95rem;
+            margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .main-container {
+                margin: 10px;
+                min-height: calc(100vh - 20px);
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .chapters-grid {
+                padding: 40px 20px;
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .chapter-card {
+                padding: 30px;
+            }
+            
+            .intro-section {
+                margin: 0 20px 30px 20px;
+                padding: 30px;
+            }
+            
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="main-container">
+            <div class="header">
+                <h1><i class="fas fa-lightbulb"></i> ريادة الأعمال والابتكار</h1>
+                <p>دليل شامل للمفاهيم الأساسية والتطبيق العملي في ريادة الأعمال</p>
+            </div>
+            
+            <div class="intro-section">
+                <h2>مرحباً بك في رحلة ريادة الأعمال</h2>
+                <p>
+                    اكتشف عالم ريادة الأعمال والابتكار من خلال دراسة شاملة للمفاهيم الأساسية، 
+                    الصفات الريادية، والتطبيقات العملية. كل فصل يحتوي على ملخص مفصل واختبارات تفاعلية 
+                    لمساعدتك على فهم وتطبيق المفاهيم بشكل عملي.
+                </p>
+                
+                <div class="features-list">
+                    <div class="feature-item">
+                        <i class="fas fa-book"></i>
+                        <h4>ملخصات شاملة</h4>
+                        <p>ملخصات مفصلة لكل فصل مع النقاط الرئيسية</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-question-circle"></i>
+                        <h4>أسئلة مقالية</h4>
+                        <p>أسئلة شاملة مع إجابات نموذجية لكل فصل</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>تطبيق عملي</h4>
+                        <p>أمثلة وحالات دراسية من الواقع العملي</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chapters-grid">
+                <div class="chapter-card">
+                    <i class="fas fa-building chapter-icon"></i>
+                    <h3 class="chapter-title">الفصل الأول: أهمية المنظمات ومتطلبات إدارتها</h3>
+                    <p class="chapter-description">
+                        تعرف على مفهوم المنظمات وأنواعها، أهميتها للمجتمع، ووظائفها الأساسية. 
+                        اكتشف أدوار ومهارات المديرين في بيئة العمل الحديثة.
+                    </p>
+                    <a href="/entrepreneurship/chapter1/" class="chapter-btn">
+                        <i class="fas fa-arrow-left"></i> ادخل للفصل
+                    </a>
+                </div>
+                
+                <div class="chapter-card">
+                    <i class="fas fa-rocket chapter-icon"></i>
+                    <h3 class="chapter-title">الفصل الثاني: الأداء الابتكاري ومتطلباته</h3>
+                    <p class="chapter-description">
+                        اكتشف تطور الأداء الابتكاري عبر التاريخ، نظرية التنمية الاقتصادية، 
+                        ومفهوم التدمير الخلاق في عالم الأعمال.
+                    </p>
+                    <a href="/entrepreneurship/chapter2/" class="chapter-btn">
+                        <i class="fas fa-arrow-left"></i> ادخل للفصل
+                    </a>
+                </div>
+                
+                <div class="chapter-card">
+                    <i class="fas fa-user-tie chapter-icon"></i>
+                    <h3 class="chapter-title">الفصل الثالث: الصفات الأساسية للرياديين</h3>
+                    <p class="chapter-description">
+                        تعلم عن الصفات والمهارات الأساسية للرياديين، أنواع رجال الأعمال، 
+                        ومفهوم رائد الأعمال الداخلي.
+                    </p>
+                    <a href="/entrepreneurship/chapter3/" class="chapter-btn">
+                        <i class="fas fa-arrow-left"></i> ادخل للفصل
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
