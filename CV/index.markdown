@@ -12,8 +12,8 @@ title: My CV
 <style>
   /* Style for temporary hidden message */
   .temporary-message {
-    background-color: #ffeb3b; /* Light yellow background */
-    color: #333; /* Dark text for readability */
+    background-color: #295340; /* Dark green background */
+    color: #fff; /* White text for contrast */
     padding: 20px;
     border-radius: 5px;
     font-size: 1.2em;
@@ -24,7 +24,7 @@ title: My CV
   }
 
   .temporary-message:hover {
-    background-color: #ff9800; /* Darker yellow on hover */
+    background-color: #1e3c34; /* Darker green on hover */
     cursor: pointer;
   }
 </style>
