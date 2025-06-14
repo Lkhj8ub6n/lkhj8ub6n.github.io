@@ -8,9 +8,9 @@ title: Contact
   <p>If you'd like to get in touch, feel free to reach out through any of the following methods:</p>
 
   <ul>
-    <li><strong>Email:</strong> <a href="mailto:yazeidhdeab@gmail.com">yazeidhdeab@gmail.com</a></li>
+    <li><strong>Email:</strong> <a href="mailto:yazeidhdeab@gmail.com">Yazeid@ieee.org</a></li>
     <li><strong>GitHub:</strong> <a href="https://github.com/Lkhj8ub6n" target="_blank">Lkhj8ub6n</a></li>
-    <li><strong>LinkedIn:</strong> <em>(optional, add your link here)</em></li>
+    <li><strong>LinkedIn:</strong> <em>bit.ly/3FN8QiH</em></li>
     <li><strong>Location:</strong> Jordan</li>
   </ul>
 
