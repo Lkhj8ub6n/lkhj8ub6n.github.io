@@ -9,7 +9,7 @@ title: Contact
 
   <ul>
     <li><strong>Email:</strong> <a href="mailto:yazeidhdeab@gmail.com">Yazeid@ieee.org</a></li>
-    <li><strong>GitHub:</strong> <a href="https://github.com/Lkhj8ub6n" target="_blank">Lkhj8ub6n</a></li>
+    <li><strong>GitHub:</strong> <a href="bit.ly/3FN8QiH" target="_blank">yazeid.ln</a></li>
     <li><strong>LinkedIn:</strong> <em>bit.ly/3FN8QiH</em></li>
     <li><strong>Location:</strong> Jordan</li>
   </ul>
