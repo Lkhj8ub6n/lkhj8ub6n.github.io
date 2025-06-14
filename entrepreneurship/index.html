@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ريادة الأعمال والابتكار</title>
+    <title>الفصل الرابع - الإبداع والابتكار</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -17,207 +16,404 @@
             min-height: 100vh;
             direction: rtl;
             margin: 0;
-            padding: 0;
+            padding: 20px 0;
         }
         
         .main-container {
-            background: #deddeb;
+            background: #f8f9fa;
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            margin: 20px auto;
+            margin: 0 auto;
             max-width: 1200px;
             overflow: hidden;
-            min-height: calc(100vh - 40px);
         }
         
         .header {
             background: linear-gradient(135deg, #295340 0%, #222222 100%);
             color: white;
-            padding: 50px;
+            padding: 40px;
             text-align: center;
+            position: relative;
+        }
+        
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+            color: white;
+            transform: translateY(-2px);
         }
         
         .header h1 {
             margin: 0;
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             font-weight: bold;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
         }
         
         .header p {
             margin: 0;
-            opacity: 0.95;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+        
+        .content-wrapper {
+            padding: 40px;
+        }
+        
+        .nav-tabs {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 10px;
+            margin-bottom: 30px;
+            border: none;
+        }
+        
+        .nav-tabs .nav-link {
+            color: #295340;
+            font-weight: bold;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-tabs .nav-link.active {
+            background: #295340;
+            color: white;
+        }
+        
+        .nav-tabs .nav-link:hover {
+            background: rgba(41, 83, 64, 0.1);
+            color: #295340;
+        }
+        
+        .tab-content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            color: #295340;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #deddeb;
+        }
+        
+        .summary-content h3 {
+            color: #295340;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            background: rgba(41, 83, 64, 0.1);
+            border-radius: 10px;
+            border-right: 5px solid #295340;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .summary-content h4 {
+            color: #222222;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            padding-right: 15px;
+            border-right: 3px solid #295340;
+        }
+        
+        .summary-content p, .summary-content li {
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .summary-content ul, .summary-content ol {
+            margin-right: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .summary-content strong {
+            color: #295340;
+            font-weight: bold;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(41, 83, 64, 0.1) 0%, rgba(222, 221, 235, 0.3) 100%);
+            border: 2px solid rgba(41, 83, 64, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .highlight-box h5 {
+            color: #295340;
+            font-weight: bold;
+            margin-bottom: 15px;
             font-size: 1.3rem;
         }
         
-        .chapters-grid {
-            padding: 60px 40px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
+        .question-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-right: 5px solid #295340;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         
-        .chapter-card {
+        .question-title {
+            color: #295340;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding: 15px 20px;
+            background: rgba(41, 83, 64, 0.1);
+            border-radius: 10px;
+        }
+        
+        .question-answer {
             background: white;
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(41, 83, 64, 0.15);
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 15px;
+            border-right: 3px solid #295340;
+        }
+        
+        .answer-title {
+            color: #295340;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Quiz Styles */
+        .quiz-container {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .quiz-question {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-right: 4px solid #295340;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .quiz-question h5 {
+            color: #295340;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .quiz-option {
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
             transition: all 0.3s ease;
-            border: 3px solid transparent;
-            position: relative;
-            overflow: hidden;
+            border: 2px solid transparent;
         }
-        
-        .chapter-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(135deg, #295340 0%, #222222 100%);
-        }
-        
-        .chapter-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(41, 83, 64, 0.25);
+
+        .quiz-option:hover {
+            background: rgba(41, 83, 64, 0.1);
             border-color: #295340;
         }
-        
-        .chapter-icon {
-            font-size: 4rem;
-            color: #295340;
-            margin-bottom: 25px;
-            display: block;
+
+        .quiz-option input[type="radio"] {
+            margin-left: 10px;
         }
-        
-        .chapter-title {
-            color: #222222;
-            font-size: 1.8rem;
-            font-weight: bold;
+
+        .quiz-option.correct {
+            background: rgba(40, 167, 69, 0.2);
+            border-color: #28a745;
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(220, 53, 69, 0.2);
+            border-color: #dc3545;
+        }
+
+        .true-false-question {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
             margin-bottom: 20px;
-            line-height: 1.4;
+            border-right: 4px solid #295340;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-        
-        .chapter-description {
-            color: #666;
-            margin-bottom: 30px;
-            line-height: 1.6;
-            font-size: 1.1rem;
+
+        .true-false-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
         }
-        
-        .chapter-btn {
+
+        .tf-btn {
+            padding: 10px 25px;
+            border: 2px solid #295340;
+            background: white;
+            color: #295340;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .tf-btn:hover {
+            background: #295340;
+            color: white;
+        }
+
+        .tf-btn.selected {
+            background: #295340;
+            color: white;
+        }
+
+        .tf-btn.correct {
+            background: #28a745;
+            border-color: #28a745;
+            color: white;
+        }
+
+        .tf-btn.incorrect {
+            background: #dc3545;
+            border-color: #dc3545;
+            color: white;
+        }
+
+        .quiz-controls {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .quiz-btn {
             background: linear-gradient(135deg, #295340 0%, #222222 100%);
             color: white;
             border: none;
-            padding: 15px 35px;
-            border-radius: 50px;
+            padding: 15px 30px;
+            border-radius: 25px;
             font-size: 1.1rem;
             font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
+            cursor: pointer;
+            margin: 0 10px;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(41, 83, 64, 0.3);
+        }
+
+        .quiz-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .quiz-results {
+            background: linear-gradient(135deg, rgba(41, 83, 64, 0.1) 0%, rgba(222, 221, 235, 0.3) 100%);
+            border: 2px solid #295340;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .score-display {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #295340;
+            margin-bottom: 15px;
+        }
+
+        .grade-message {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .grade-a { color: #28a745; }
+        .grade-b { color: #007bff; }
+        .grade-c { color: #ffc107; }
+        .grade-d { color: #fd7e14; }
+        .grade-f { color: #dc3545; }
+        
+        .print-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: linear-gradient(135deg, #295340 0%, #222222 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 15px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
         }
         
-        .chapter-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(41, 83, 64, 0.4);
+        .print-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
             color: white;
         }
         
-        .intro-section {
-            background: white;
-            margin: 0 40px 40px 40px;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(41, 83, 64, 0.1);
-            text-align: center;
-        }
-        
-        .intro-section h2 {
-            color: #295340;
-            font-size: 2.2rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        
-        .intro-section p {
-            color: #222222;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .features-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 40px 0 0 0;
-        }
-        
-        .feature-item {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            border-right: 4px solid #295340;
-        }
-        
-        .feature-item i {
-            color: #295340;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-        
-        .feature-item h4 {
-            color: #222222;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        
-        .feature-item p {
-            color: #666;
-            font-size: 0.95rem;
-            margin: 0;
-        }
-        
         @media (max-width: 768px) {
-            .main-container {
-                margin: 10px;
-                min-height: calc(100vh - 20px);
+            .content-wrapper {
+                padding: 20px;
             }
             
-            .header {
-                padding: 30px 20px;
+            .tab-content {
+                padding: 25px;
+            }
+            
+            .question-item, .quiz-container {
+                padding: 20px;
             }
             
             .header h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             
-            .chapters-grid {
-                padding: 40px 20px;
-                grid-template-columns: 1fr;
-                gap: 30px;
+            .back-btn {
+                position: static;
+                margin-bottom: 20px;
+                display: inline-block;
             }
-            
-            .chapter-card {
-                padding: 30px;
+        }
+        
+        @media print {
+            body {
+                background: white !important;
             }
-            
-            .intro-section {
-                margin: 0 20px 30px 20px;
-                padding: 30px;
+            .main-container {
+                box-shadow: none !important;
             }
-            
-            .features-list {
-                grid-template-columns: 1fr;
+            .nav-tabs, .print-btn, .back-btn, .quiz-controls {
+                display: none !important;
             }
         }
     </style>
@@ -226,77 +422,1167 @@
     <div class="container-fluid">
         <div class="main-container">
             <div class="header">
-                <h1><i class="fas fa-lightbulb"></i> ريادة الأعمال والابتكار</h1>
-                <p>دليل شامل للمفاهيم الأساسية والتطبيق العملي في ريادة الأعمال</p>
+                <a href="/entrepreneurship/" class="back-btn">
+                    <i class="fas fa-arrow-right"></i> العودة للرئيسية
+                </a>
+                <h1><i class="fas fa-lightbulb"></i> الفصل الرابع</h1>
+                <p>الإبداع والابتكار - من الفكرة إلى التطبيق</p>
             </div>
             
-            <div class="intro-section">
-                <h2>مرحباً بك في رحلة ريادة الأعمال</h2>
-                <p>
-                    اكتشف عالم ريادة الأعمال والابتكار من خلال دراسة شاملة للمفاهيم الأساسية، 
-                    الصفات الريادية، والتطبيقات العملية. كل فصل يحتوي على ملخص مفصل واختبارات تفاعلية 
-                    لمساعدتك على فهم وتطبيق المفاهيم بشكل عملي.
-                </p>
+            <div class="content-wrapper">
+                <ul class="nav nav-tabs" id="contentTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="summary-tab" data-bs-toggle="tab" data-bs-target="#summary" type="button" role="tab">
+                            <i class="fas fa-book"></i> الملخص
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="questions-tab" data-bs-toggle="tab" data-bs-target="#questions" type="button" role="tab">
+                            <i class="fas fa-edit"></i> الأسئلة المقالية
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="quiz-tab" data-bs-toggle="tab" data-bs-target="#quiz" type="button" role="tab">
+                            <i class="fas fa-question-circle"></i> الاختبار
+                        </button>
+                    </li>
+                </ul>
                 
-                <div class="features-list">
-                    <div class="feature-item">
-                        <i class="fas fa-book"></i>
-                        <h4>ملخصات شاملة</h4>
-                        <p>ملخصات مفصلة لكل فصل مع النقاط الرئيسية</p>
+                <div class="tab-content" id="contentTabContent">
+                    <!-- Summary Tab -->
+                    <div class="tab-pane fade show active" id="summary" role="tabpanel">
+                        <h2 class="section-title">
+                            <i class="fas fa-book-open"></i>
+                            ملخص الفصل الرابع: الإبداع والابتكار
+                        </h2>
+                        
+                        <div class="summary-content">
+                            <div class="highlight-box">
+                                <h5>مقدمة</h5>
+                                <p>الإبداع والابتكار يشكلان الأساس الجوهري للريادة والأعمال، حيث يُعتبران المحرك الرئيسي للنمو الاقتصادي والتطور المجتمعي. يُعرف الإبداع كقدرة على توليد أفكار جديدة ومفيدة، بينما الابتكار هو تطبيق هذه الأفكار في الواقع العملي.</p>
+                            </div>
+
+                            <h3>1. مفهوم الإبداع (Creativity)</h3>
+
+                            <h4>تعريف الإبداع</h4>
+                            <ul>
+                                <li><strong>التعريف:</strong> القدرة على توليد أفكار جديدة مفيدة وقابلة للتطبيق الواقعي بأساليب حل المشاكل</li>
+                                <li><strong>الخصائص:</strong> تتطلب تفكيراً خارج الصندوق واستكشاف حلول غير تقليدية</li>
+                                <li><strong>الأهمية:</strong> يُعتبر نقطة البداية لكافة العمليات الريادية والابتكارية</li>
+                            </ul>
+
+                            <h4>مصادر الإبداع</h4>
+
+                            <div class="highlight-box">
+                                <h5>1. المصادر العامة</h5>
+                                <ul>
+                                    <li><strong>الموارد البشرية:</strong> المهندسون المختصون والخبراء في مختلف المجالات</li>
+                                    <li><strong>الموارد المعرفية:</strong> الجامعات والمراكز البحثية والمختبرات</li>
+                                    <li><strong>قواعد البيانات:</strong> ISI, Scopus, Ebsco, EconLit وغيرها من المصادر الأكاديمية</li>
+                                    <li><strong>شبكات التواصل:</strong> الاتصالات المهنية والعلاقات الأكاديمية</li>
+                                </ul>
+
+                                <h5>2. المصادر القطاعية</h5>
+                                <ul>
+                                    <li>العلاقات بين الموظفين والعملاء داخل نفس المؤسسة</li>
+                                    <li>احتمالية ظهور أفكار إبداعية من خلال التفاعل المستمر</li>
+                                    <li>المعرفة المتراكمة داخل القطاع الواحد</li>
+                                </ul>
+
+                                <h5>3. مصادر البيئة العامة</h5>
+                                <ul>
+                                    <li><strong>التغيرات الديموغرافية:</strong> تحليل التركيبة السكانية وتغيراتها</li>
+                                    <li><strong>التغيرات الثقافية:</strong> فهم التطورات في القيم والعادات المجتمعية</li>
+                                    <li><strong>المعرفة الجديدة:</strong> مواكبة التطورات العلمية والتكنولوجية الحديثة</li>
+                                </ul>
+                            </div>
+
+                            <h3>2. العملية الإبداعية (Creativity Processes)</h3>
+
+                            <h4>المراحل الخمس للعملية الإبداعية</h4>
+
+                            <ol>
+                                <li><strong>التحضير (Preparation):</strong> جمع المعلومات والبيانات ذات الصلة بالمشكلة، الدراسة المعمقة للموضوع من جوانب متعددة</li>
+                                <li><strong>الحضانة (Incubation):</strong> مرحلة التفكير اللاواعي ومعالجة المعلومات ذهنياً، السماح للعقل الباطن بمعالجة المعطيات</li>
+                                <li><strong>الإلهام والفهم العميق (Insight):</strong> لحظة "يوريكا" أو الكشف عن الحل، ظهور الفكرة بشكل مفاجئ وواضح</li>
+                                <li><strong>التقييم (Evaluation):</strong> فحص وتقييم الأفكار المُولّدة، التأكد من صحة وجدوى الحلول المقترحة</li>
+                                <li><strong>التنفيذ النهائي (Final Implementation):</strong> تطبيق الفكرة الإبداعية في الواقع، التطوير والتحسين المستمر</li>
+                            </ol>
+
+                            <h3>3. مفهوم الابتكار (Innovation)</h3>
+
+                            <div class="highlight-box">
+                                <h5>تعريف الابتكار</h5>
+                                <p>الابتكار هو تطبيق الأفكار الإبداعية الجديدة بهدف تحقيق فائدة عملية واقتصادية، ويتضمن استخدام واستثمار هذه الأفكار تجارياً.</p>
+                            </div>
+
+                            <h4>أنواع الابتكار</h4>
+
+                            <ol>
+                                <li><strong>ابتكار المنتج (Product Innovation):</strong> تطوير منتجات أو خدمات جديدة، تحسين المنتجات الموجودة</li>
+                                <li><strong>ابتكار العمليات (Process Innovation):</strong> تطوير طرق إنتاج جديدة أو محسّنة، تحسين كفاءة العمليات التشغيلية</li>
+                                <li><strong>ابتكار نموذج الأعمال (Business Model Innovation):</strong> إعادة تصميم الطرق التي تولد بها الشركة الإيرادات</li>
+                                <li><strong>الابتكار الاجتماعي (Social Innovation):</strong> حلول جديدة لتلبية احتياجات اجتماعية محددة</li>
+                            </ol>
+
+                            <h3>4. البيئة الضرورية للعملية الابتكارية</h3>
+
+                            <h4>متطلبات البيئة الداعمة</h4>
+                            <ul>
+                                <li><strong>القيادة الداعمة:</strong> التزام الإدارة العليا بثقافة الابتكار</li>
+                                <li><strong>الهيكل التنظيمي المرن:</strong> بيئة تنظيمية تشجع على التجريب</li>
+                                <li><strong>الموارد الكافية:</strong> توفير الإمكانيات المالية والبشرية</li>
+                                <li><strong>ثقافة تقبل المخاطر:</strong> قبول إمكانية الفشل كجزء من التعلم</li>
+                            </ul>
+
+                            <h3>5. مراكز الريادة والابتكار</h3>
+
+                            <h4>أنواع المراكز</h4>
+
+                            <ol>
+                                <li><strong>مراكز الريادة والابتكار:</strong> بيئة داعمة لرواد الأعمال والمبتكرين، توفير الإرشاد والتوجيه المهني</li>
+                                <li><strong>حاضنات الأعمال:</strong> بيئة محمية لنمو الشركات الناشئة، توفير الخدمات الاستشارية والدعم التقني</li>
+                                <li><strong>مراكز الابتكار:</strong> بيئة شاملة للابتكار والتطوير، ربط مختلف الجهات الفاعلة في النظام البيئي</li>
+                            </ol>
+
+                            <h3>6. عملية الابتكار (Innovation Process)</h3>
+
+                            <div class="highlight-box">
+                                <h5>المراحل الخمس لعملية الابتكار</h5>
+
+                                <ol>
+                                    <li><strong>التصور (Imagining):</strong> تحديد التحديات والفرص، تصور حلول إبداعية محتملة</li>
+                                    <li><strong>التصميم (Designing):</strong> وضع النماذج الأولية، تطوير المفاهيم بشكل أكثر تفصيلاً</li>
+                                    <li><strong>التجريب (Experimenting):</strong> اختبار الأفكار في بيئة محكومة، إجراء التجارب والاختبارات</li>
+                                    <li><strong>التقييم (Assessing):</strong> تحليل النتائج والبيانات، تقييم الجدوى التجارية والتقنية</li>
+                                    <li><strong>التوسع (Scaling):</strong> تطبيق الحلول على نطاق أوسع، التسويق والانتشار التجاري</li>
+                                </ol>
+                            </div>
+
+                            <h3>7. معوقات الابتكار</h3>
+
+                            <h4>المعوقات الداخلية</h4>
+                            <ul>
+                                <li><strong>المقاومة التنظيمية:</strong> رفض التغيير من قبل الموظفين</li>
+                                <li><strong>نقص الموارد:</strong> عدم توفر التمويل أو المهارات اللازمة</li>
+                                <li><strong>القيادة التقليدية:</strong> عدم دعم الإدارة للمبادرات الجديدة</li>
+                            </ul>
+
+                            <h4>المعوقات الخارجية</h4>
+                            <ul>
+                                <li><strong>البيئة التنظيمية:</strong> القوانين واللوائح المقيدة</li>
+                                <li><strong>المنافسة الشديدة:</strong> ضغوط السوق والمنافسين</li>
+                                <li><strong>نقص المعلومات:</strong> عدم توفر بيانات كافية عن السوق</li>
+                            </ul>
+
+                            <h3>8. مفهوم ريادة الأعمال (Entrepreneurship)</h3>
+
+                            <div class="highlight-box">
+                                <h5>التعريف الشامل</h5>
+                                <p>ريادة الأعمال هي عملية تحديد واستغلال الفرص لخلق قيمة من خلال الموارد المتاحة، وتتضمن المبادرة والابتكار وتحمل المخاطر المحسوبة.</p>
+                            </div>
+
+                            <h4>خصائص رائد الأعمال</h4>
+                            <ul>
+                                <li><strong>الرؤية الاستراتيجية:</strong> القدرة على رؤية الفرص المستقبلية</li>
+                                <li><strong>تحمل المخاطر:</strong> الاستعداد لاتخاذ قرارات في ظل عدم اليقين</li>
+                                <li><strong>القيادة:</strong> القدرة على إلهام وتوجيه الآخرين</li>
+                                <li><strong>المثابرة:</strong> الصبر والاستمرارية في مواجهة التحديات</li>
+                            </ul>
+
+                            <h3>9. عوامل نجاح ريادة الأعمال التنظيمية</h3>
+
+                            <ol>
+                                <li><strong>التزام القيادة العليا:</strong> دعم الإدارة العليا للمبادرات الريادية</li>
+                                <li><strong>المرونة الهيكلية:</strong> هياكل تنظيمية مرنة وقابلة للتكيف</li>
+                                <li><strong>استقلالية فرق العمل:</strong> منح الفرق حرية اتخاذ القرارات</li>
+                                <li><strong>التحفيز للمخاطرة:</strong> قبول احتمالية الفشل كجزء من التعلم</li>
+                                <li><strong>النظام الرقابي المناسب:</strong> أنظمة متابعة مرنة وداعمة</li>
+                            </ol>
+
+                            <h3>10. آثار ريادة الأعمال</h3>
+
+                            <h4>الآثار الاقتصادية</h4>
+                            <ul>
+                                <li><strong>خلق فرص العمل:</strong> توليد وظائف جديدة ومتنوعة</li>
+                                <li><strong>النمو الاقتصادي:</strong> زيادة الناتج المحلي الإجمالي</li>
+                                <li><strong>الابتكار التكنولوجي:</strong> تطوير تقنيات وحلول جديدة</li>
+                            </ul>
+
+                            <h4>الآثار الاجتماعية</h4>
+                            <ul>
+                                <li><strong>تقليل الهجرة:</strong> من الريف إلى المدن</li>
+                                <li><strong>تخفيض معدلات الجريمة:</strong> توفير بدائل اقتصادية شرعية</li>
+                                <li><strong>تحسين مستوى المعيشة:</strong> رفع مستوى الدخل والرفاهية</li>
+                                <li><strong>تمكين المرأة:</strong> زيادة مشاركة المرأة في سوق العمل</li>
+                            </ul>
+
+                            <h4>الآثار السلبية على رائد الأعمال</h4>
+                            <ul>
+                                <li><strong>العزلة:</strong> قضاء وقت طويل في العمل على حساب الحياة الاجتماعية</li>
+                                <li><strong>الضغط النفسي:</strong> تحمل مسؤوليات كبيرة وضغوط متعددة</li>
+                                <li><strong>عدم الاستقرار المالي:</strong> تقلبات في الدخل وعدم ضمان النجاح</li>
+                                <li><strong>التضحية العائلية:</strong> تأثير على العلاقات الأسرية والشخصية</li>
+                            </ul>
+
+                            <div class="highlight-box">
+                                <h5>الخلاصة</h5>
+                                <p>الإبداع والابتكار يمثلان ركيزتين أساسيتين لريادة الأعمال الناجحة. فهم هذه العمليات وإدارتها بفعالية أمر حيوي لنجاح أي مشروع ريادي. البيئة الداعمة والثقافة التنظيمية المناسبة تلعب دوراً محورياً في تعزيز القدرات الإبداعية والابتكارية للأفراد والمنظمات.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature-item">
-                        <i class="fas fa-question-circle"></i>
-                        <h4>أسئلة مقالية</h4>
-                        <p>أسئلة شاملة مع إجابات نموذجية لكل فصل</p>
+                    
+                    <!-- Questions Tab -->
+                    <div class="tab-pane fade" id="questions" role="tabpanel">
+                        <h2 class="section-title">
+                            <i class="fas fa-edit"></i>
+                            الأسئلة المقالية
+                        </h2>
+                        
+                        <div class="question-item">
+                            <div class="question-title">أ. عرف الإبداع والابتكار</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <h4>الإبداع (Creativity):</h4>
+                                <ul>
+                                    <li>الإتيان بأفكار جديدة غير مسبوقة قابلة للتطبيق الصناعي بربحية بالأسواق</li>
+                                    <li>القدرة على رؤية ما لا يراه الآخرون واكتشاف فرصة سوقية</li>
+                                </ul>
+                                
+                                <h4>الابتكار (Innovation):</h4>
+                                <ul>
+                                    <li>تطبيق الأفكار الإبداعية الجديدة غير المسبوقة بربحية بالأسواق</li>
+                                    <li>استغلال واستخدام الفرصة السوقية</li>
+                                    <li>المحاولة الأولى لوضع الاختراع موضع التنفيذ</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">ب. عدد جميع مصادر الإبداع بالتفصيل مع الشرح البسيط</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <h4>المصادر العامة:</h4>
+                                <ul>
+                                    <li>المستهلكين (معرفتهم العملية بالمنتج)</li>
+                                    <li>المسوقين وأعضاء القنوات التوزيعية</li>
+                                    <li>الاتصالات الشخصية والرسمية</li>
+                                    <li>قراءة الصحف والمجلات والأوراق البحثية</li>
+                                    <li>مشاهدة المعارض والأسواق التجارية</li>
+                                    <li>ملاحظة حاجات ورغبات الزبائن</li>
+                                </ul>
+                                
+                                <h4>مصادر القطاع:</h4>
+                                <ul>
+                                    <li>المصادر غير المتوقعة (احتمالية غير محسوبة)</li>
+                                    <li>عدم التوافق (التناقض بين الواقع وما يجب أن يكون)</li>
+                                    <li>الحاجة (عدم وجود شيء نحن بحاجته)</li>
+                                    <li>التغيرات في الصناعة أو هيكل السوق</li>
+                                </ul>
+                                
+                                <h4>مصادر البيئة العامة:</h4>
+                                <ul>
+                                    <li>التغيرات السكانية (الديموغرافية)</li>
+                                    <li>التغير في الإدراك (أنماط الحياة الجديدة)</li>
+                                    <li>المعرفة الجديدة (التقدم العلمي والعملي)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">ج. اشرح العملية الإبداعية</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <h4>المراحل الخمس:</h4>
+                                <ol>
+                                    <li><strong>التجهيز (Preparation):</strong> الخلفية والخبرة والمعرفة التي يجلبها رجل الأعمال</li>
+                                    <li><strong>الحضانة (Incubation):</strong> الوقت الذي ينظر فيه الشخص للفكرة أو المشكلة بعمق</li>
+                                    <li><strong>التبصر والفهم العميق (Insight):</strong> اللحظة التي يتم رؤية الحل أو ظهور الفكرة (يوريكا)</li>
+                                    <li><strong>التقييم (Evaluation):</strong> فحص وتحليل الفكرة للتأكد من صحتها</li>
+                                    <li><strong>الإعداد النهائي (Final Preparation):</strong> وضع الفكرة في شكلها النهائي وكتابة خطة العمل</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">د. اشرح أهمية الابتكار للاقتصاد</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <ul>
+                                    <li>محرك للتنمية الاقتصادية</li>
+                                    <li>شرط أساسي للتقدم وتأمين الوضع في السوق</li>
+                                    <li>يساعد البلدان النامية للانضمام للسوق العالمية</li>
+                                    <li>يجبر الشركات على التكيف مع البيئة المتغيرة</li>
+                                    <li>يخلق منتجات وخدمات أكثر كفاءة</li>
+                                    <li>يحفز النشاط الاقتصادي والنمو</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">هـ. عدد مع الشرح البسيط أنواع الابتكار</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <ol>
+                                    <li><strong>ابتكار المنتج (Product Innovation):</strong> تطوير وتسويق منتجات جديدة لم تكن مدرجة سابقاً</li>
+                                    <li><strong>ابتكار العمليات (Process Innovation):</strong> تحسين أو تجديد عمليات الشركة والإجراءات التكنولوجية</li>
+                                    <li><strong>نموذج عمل جديد (New Business Model Innovation):</strong> عمل الأمور القائمة بأساليب جديدة ومبتكرة</li>
+                                    <li><strong>الابتكار الاجتماعي (Social Innovation):</strong> طرق جديدة لتحقيق أشكال تنظيمية وأنماط حياة جديدة</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">و. اشرح أهمية البيئة المساعدة والمساندة للعملية الابتكارية</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <h4>مكونات البنية التحتية الداعمة:</h4>
+                                <ul>
+                                    <li>وجود مناهج تعليمية في مراحل التعليم المختلفة</li>
+                                    <li>نظام غير بيروقراطي لتسجيل الأفكار وحماية الملكية الفكرية</li>
+                                    <li>نظام تمويل ملائم للريادة ويقبل المخاطرة</li>
+                                    <li>مخرجات تعليمية قوية</li>
+                                    <li>تكنولوجيا متطوّرة ومتاحة</li>
+                                    <li>حاضنات أعمال ومراكز ريادة وابتكار</li>
+                                    <li>مراكز بحثية متطوّرة ومستقلة</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">ز. اشرح مفهوم الريادة</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <p><strong>ريادة الأعمال:</strong> عملية خلق نوع جديد من المنظمات أو تطوير منشأة قائمة بأسلوب ابتكاري ومستحدث، مع الأخذ بعين الاعتبار المخاطر والعوائد المحتملة، وتحويل الأفكار العظيمة إلى واقع يحقق الأرباح المادية والمعنوية.</p>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">ح. عدد عوامل نجاح الأعمال الريادية</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <ol>
+                                    <li><strong>التزام الإدارة العليا (Top Management Commitment)</strong></li>
+                                    <li><strong>مرونة الهيكل التنظيمي (Structure Flexibility)</strong></li>
+                                    <li><strong>استقلالية الفريق المكلف بتنفيذ الفكرة (Team Work Independency)</strong></li>
+                                    <li><strong>التحفيز للمخاطرة (Risk Taking)</strong></li>
+                                    <li><strong>نظام رقابي ملائم (Appropriate Control System)</strong></li>
+                                    <li><strong>التكامل الريادي بالمشروع (Integrating Entrepreneurship)</strong></li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="question-item">
+                            <div class="question-title">ط. عدد آثار الأعمال الريادية</div>
+                            <div class="question-answer">
+                                <div class="answer-title">
+                                    <i class="fas fa-check-circle"></i>
+                                    الإجابة:
+                                </div>
+                                
+                                <h4>الآثار الاقتصادية:</h4>
+                                <ul>
+                                    <li><strong>على المستوى الفردي:</strong> إشباع حاجات الريادي ومردود مالي كبير</li>
+                                    <li><strong>على المستوى التنظيمي:</strong> تغيير نمط وثقافة المنظمة وزيادة الكفاءة</li>
+                                    <li><strong>على مستوى الدولة:</strong> خلق فرص العمل والقضاء على الفقر والبطالة</li>
+                                </ul>
+                                
+                                <h4>الآثار الاجتماعية:</h4>
+                                <ul>
+                                    <li>خفض الهجرة من الأرياف إلى المدن</li>
+                                    <li>خفض معدلات الجريمة</li>
+                                    <li>تحسين مستوى المعيشة</li>
+                                    <li>المساهمة في تشغيل النساء</li>
+                                    <li>عدالة التنمية الاجتماعية وتوزيع الثروة</li>
+                                </ul>
+                                
+                                <h4>الآثار السلبية على الشخص الريادي:</h4>
+                                <ul>
+                                    <li>عدم استقرار الدخل</li>
+                                    <li>المخاطرة وإمكانية خسارة الاستثمار</li>
+                                    <li>التضحية بالوقت والصحة والأهل</li>
+                                    <li>ضغط العمل والمسؤولية الكاملة</li>
+                                    <li>القلق المستمر</li>
+                                    <li>غياب الامتيازات الوظيفية</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature-item">
-                        <i class="fas fa-chart-line"></i>
-                        <h4>تطبيق عملي</h4>
-                        <p>أمثلة وحالات دراسية من الواقع العملي</p>
+                    
+                    <!-- Quiz Tab -->
+                    <div class="tab-pane fade" id="quiz" role="tabpanel">
+                        <h2 class="section-title">
+                            <i class="fas fa-question-circle"></i>
+                            اختبار الفصل الرابع
+                        </h2>
+                        
+                        <!-- أسئلة الاختبار من متعدد -->
+                        <h3><i class="fas fa-list"></i> أسئلة الاختبار من متعدد</h3>
+
+                        <div class="quiz-question">
+                            <h5>1. أي من التالية ليس من مكونات تعريف الإبداع:</h5>
+                            <div class="quiz-option" data-option="a">
+                                <input type="radio" name="q1" value="a" id="q1a">
+                                <label for="q1a">الإتيان بأفكار جديدة غير مسبوقة</label>
+                            </div>
+                            <div class="quiz-option" data-option="b">
+                                <input type="radio" name="q1" value="b" id="q1b">
+                                <label for="q1b">أفكار تكنولوجية</label>
+                            </div>
+                            <div class="quiz-option" data-option="c">
+                                <input type="radio" name="q1" value="c" id="q1c">
+                                <label for="q1c">أفكار قابلة للتطبيق الصناعي</label>
+                            </div>
+                            <div class="quiz-option" data-option="d">
+                                <input type="radio" name="q1" value="d" id="q1d">
+                                <label for="q1d">أفكار مربحة</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h5>2. أي من التالية ليس من مكونات تعريف الإبداع:</h5>
+                            <div class="quiz-option" data-option="a">
+                                <input type="radio" name="q2" value="a" id="q2a">
+                                <label for="q2a">الإبداع هو إنتاج سلع جديدة</label>
+                            </div>
+                            <div class="quiz-option" data-option="b">
+                                <input type="radio" name="q2" value="b" id="q2b">
+                                <label for="q2b">الإبداع هو القدرة على رؤية ما لا يراه الآخرون</label>
+                            </div>
+                            <div class="quiz-option" data-option="c">
+                                <input type="radio" name="q2" value="c" id="q2c">
+                                <label for="q2c">الإبداع هو اكتشاف فرصة سوقية</label>
+                            </div>
+                            <div class="quiz-option" data-option="d">
+                                <input type="radio" name="q2" value="d" id="q2d">
+                                <label for="q2d">الإبداع هو اكتشاف طلب لا يوجد له عرض كاف</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h5>3. أي من التالية ليس من مصادر الإبداع العامة:</h5>
+                            <div class="quiz-option" data-option="a">
+                                <input type="radio" name="q3" value="a" id="q3a">
+                                <label for="q3a">الاتصالات الشخصية والرسمية</label>
+                            </div>
+                            <div class="quiz-option" data-option="b">
+                                <input type="radio" name="q3" value="b" id="q3b">
+                                <label for="q3b">قراءة الصحف والمجلات والأوراق البحثية المنشورة</label>
+                            </div>
+                            <div class="quiz-option" data-option="c">
+                                <input type="radio" name="q3" value="c" id="q3c">
+                                <label for="q3c">مشاهدة المعارض والأسواق التجارية</label>
+                            </div>
+                            <div class="quiz-option" data-option="d">
+                                <input type="radio" name="q3" value="d" id="q3d">
+                                <label for="q3d">تلبية حاجات ورغبات الزبائن</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h5>4. أي من التالية ليس من مصادر الإبداع العامة (البيئة الخاصة - بيئة الصناعة):</h5>
+                            <div class="quiz-option" data-option="a">
+                                <input type="radio" name="q4" value="a" id="q4a">
+                                <label for="q4a">المصادر غير المتوقعة</label>
+                            </div>
+                            <div class="quiz-option" data-option="b">
+                                <input type="radio" name="q4" value="b" id="q4b">
+                                <label for="q4b">التوافق بالعمليات</label>
+                            </div>
+                            <div class="quiz-option" data-option="c">
+                                <input type="radio" name="q4" value="c" id="q4c">
+                                <label for="q4c">الحاجة</label>
+                            </div>
+                            <div class="quiz-option" data-option="d">
+                                <input type="radio" name="q4" value="d" id="q4d">
+                                <label for="q4d">التغيرات في الصناعة أو هيكل السوق</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h5>5. أي من التالية ليس من مصادر الإبداع في البيئة العامة:</h5>
+                            <div class="quiz-option" data-option="a">
+                                <input type="radio" name="q5" value="a" id="q5a">
+                                <label for="q5a">التغيرات السكانية</label>
+                            </div>
+                            <div class="quiz-option" data-option="b">
+                                <input type="radio" name="q5" value="b" id="q5b">
+                                <label for="q5b">التغير بالدخل والقوة الشرائية</label>
+                            </div>
+                            <div class="quiz-option" data-option="c">
+                                <input type="radio" name="q5" value="c" id="q5c">
+                                <label for="q5c">التغير في الإدراك</label>
+                            </div>
+                            <div class="quiz-option" data-option="d">
+                                <input type="radio" name="q5" value="d" id="q5d">
+                                <label for="q5d">المعرفة الجديدة</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h5>6. أي من التالية ليس من خطوات العملية الإبداعية:</h5>
+                            <div class="quiz-option" data-option="a">
+                                <input type="radio" name="q6" value="a" id="q6a">
+                                <label for="q6a">التجهيز</label>
+                            </div>
+                            <div class="quiz-option" data-option="b">
+                                <input type="radio" name="q6" value="b" id="q6b">
+                                <label for="q6b">الحضانة</label>
+                            </div>
+                            <div class="quiz-option" data-option="c">
+                                <input type="radio" name="q6" value="c" id="q6c">
+                                <label for="q6c">التقييم</label>
+                            </div>
+                            <div class="quiz-option" data-option="d">
+                                <input type="radio" name="q6" value="d" id="q6d">
+                                <label for="q6d">الإعداد البدائي</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h5>7. التالية هي أهم النقاط التي وردت في نظرية التنمية الاقتصادية من Schumpeter ما عدا:</h5>
+                            <div class="quiz-option" data-option="a">
+                                <input type="radio" name="q7" value="a" id="q7a">
+                                <label for="q7a">إدخال طريقة إنتاج جديدة، أي غير معروفة عملياً في الصناعة</label>
+                            </div>
+                            <div class="quiz-option" data-option="b">
+                                <input type="radio" name="q7" value="b" id="q7b">
+                                <label for="q7b">إغلاق سوق مبيعات قديم</label>
+                            </div>
+                            <div class="quiz-option" data-option="c">
+                                <input type="radio" name="q7" value="c" id="q7c">
+                                <label for="q7c">تطوير مصدر جديد لتوريد المواد الخام والمنتجات نصف المصنعة</label>
+                            </div>
+                            <div class="quiz-option" data-option="d">
+                                <input type="radio" name="q7" value="d" id="q7d">
+                                <label for="q7d">إعادة تنظيم وهيكلة مثل الحصول على وضع احتكاري أو كسر احتكار قائم</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h5>8. أي من التالي ليس من الخصائص الرئيسية التي تميز العمل الابتكاري والأنشطة الابتكارية:</h5>
+                            <div class="quiz-option" data-option="a">
+                                <input type="radio" name="q8" value="a" id="q8a">
+                                <label for="q8a">درجة الحداثة</label>
+                            </div>
+                            <div class="quiz-option" data-option="b">
+                                <input type="radio" name="q8" value="b" id="q8b">
+                                <label for="q8b">محتوى التوافق</label>
+                            </div>
+                            <div class="quiz-option" data-option="c">
+                                <input type="radio" name="q8" value="c" id="q8c">
+                                <label for="q8c">عدم اليقين والمخاطر</label>
+                            </div>
+                            <div class="quiz-option" data-option="d">
+                                <input type="radio" name="q8" value="d" id="q8d">
+                                <label for="q8d">التعقيد</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h5>9. أي من التالي ليس من أنواع الابتكار:</h5>
+                            <div class="quiz-option" data-option="a">
+                                <input type="radio" name="q9" value="a" id="q9a">
+                                <label for="q9a">ابتكار المنتج</label>
+                            </div>
+                            <div class="quiz-option" data-option="b">
+                                <input type="radio" name="q9" value="b" id="q9b">
+                                <label for="q9b">ابتكار العمليات</label>
+                            </div>
+                            <div class="quiz-option" data-option="c">
+                                <input type="radio" name="q9" value="c" id="q9c">
+                                <label for="q9c">الابتكار الاجتماعي</label>
+                            </div>
+                            <div class="quiz-option" data-option="d">
+                                <input type="radio" name="q9" value="d" id="q9d">
+                                <label for="q9d">الابتكار الجماعي والفردي</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h5>10. أي من التالية ليس من أهم مكونات البنية التحتية الداعمة والمساندة للأعمال الريادية:</h5>
+                            <div class="quiz-option" data-option="a">
+                                <input type="radio" name="q10" value="a" id="q10a">
+                                <label for="q10a">وجود مناهج تعليمية في مراحل التعليم المختلفة</label>
+                            </div>
+                            <div class="quiz-option" data-option="b">
+                                <input type="radio" name="q10" value="b" id="q10b">
+                                <label for="q10b">وجود نظام غير بيروقراطي لتسجيل الأفكار الريادية وضمان حقوق الملكية الفكرية</label>
+                            </div>
+                            <div class="quiz-option" data-option="c">
+                                <input type="radio" name="q10" value="c" id="q10c">
+                                <label for="q10c">مخرجات تعليمية قوية</label>
+                            </div>
+                            <div class="quiz-option" data-option="d">
+                                <input type="radio" name="q10" value="d" id="q10d">
+                                <label for="q10d">وجود نظام تمويل ملائم للريادة</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h5>11. أي من التالي ليس من خطوات العملية الابتكارية:</h5>
+                            <div class="quiz-option" data-option="a">
+                                <input type="radio" name="q11" value="a" id="q11a">
+                                <label for="q11a">التخيل</label>
+                            </div>
+                            <div class="quiz-option" data-option="b">
+                                <input type="radio" name="q11" value="b" id="q11b">
+                                <label for="q11b">التصميم</label>
+                            </div>
+                            <div class="quiz-option" data-option="c">
+                                <input type="radio" name="q11" value="c" id="q11c">
+                                <label for="q11c">التمويل</label>
+                            </div>
+                            <div class="quiz-option" data-option="d">
+                                <input type="radio" name="q11" value="d" id="q11d">
+                                <label for="q11d">التجربة</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h5>12. أي من التالية ليس من أشكال الابتكار:</h5>
+                            <div class="quiz-option" data-option="a">
+                                <input type="radio" name="q12" value="a" id="q12a">
+                                <label for="q12a">ابتكارات المنتج</label>
+                            </div>
+                            <div class="quiz-option" data-option="b">
+                                <input type="radio" name="q12" value="b" id="q12b">
+                                <label for="q12b">ابتكارات العمليات</label>
+                            </div>
+                            <div class="quiz-option" data-option="c">
+                                <input type="radio" name="q12" value="c" id="q12c">
+                                <label for="q12c">الابتكارات الحكومية</label>
+                            </div>
+                            <div class="quiz-option" data-option="d">
+                                <input type="radio" name="q12" value="d" id="q12d">
+                                <label for="q12d">الابتكارات الاجتماعية</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h5>13. أي من التالية ليس من عوامل نجاح الأعمال الريادية:</h5>
+                            <div class="quiz-option" data-option="a">
+                                <input type="radio" name="q13" value="a" id="q13a">
+                                <label for="q13a">استقلالية الفريق المكلف بتنفيذ الفكرة الإبداعية الجديدة</label>
+                            </div>
+                            <div class="quiz-option" data-option="b">
+                                <input type="radio" name="q13" value="b" id="q13b">
+                                <label for="q13b">التحفيز للمخاطرة</label>
+                            </div>
+                            <div class="quiz-option" data-option="c">
+                                <input type="radio" name="q13" value="c" id="q13c">
+                                <label for="q13c">نظام رقابي صارم</label>
+                            </div>
+                            <div class="quiz-option" data-option="d">
+                                <input type="radio" name="q13" value="d" id="q13d">
+                                <label for="q13d">التكامل الريادي بالمشروع</label>
+                            </div>
+                        </div>
+
+                        <div class="quiz-question">
+                            <h5>14. ليس من أنواع الابتكارات:</h5>
+                            <div class="quiz-option" data-option="a">
+                                <input type="radio" name="q14" value="a" id="q14a">
+                                <label for="q14a">ابتكار المنتج</label>
+                            </div>
+                            <div class="quiz-option" data-option="b">
+                                <input type="radio" name="q14" value="b" id="q14b">
+                                <label for="q14b">ابتكار الحكومي</label>
+                            </div>
+                            <div class="quiz-option" data-option="c">
+                                <input type="radio" name="q14" value="c" id="q14c">
+                                <label for="q14c">ابتكار العملية</label>
+                            </div>
+                            <div class="quiz-option" data-option="d">
+                                <input type="radio" name="q14" value="d" id="q14d">
+                                <label for="q14d">ابتكار الاجتماعي</label>
+                            </div>
+                        </div>
+
+                        <!-- أسئلة صح وخطأ -->
+                        <h3><i class="fas fa-check-circle"></i> أسئلة صح وخطأ</h3>
+
+                        <div class="true-false-question">
+                            <h5>1. لا يعتبر العمل الريادي والعملية الريادية من أكثر العمليات الإدارية تشعباً وتعقيداً وتتطلب الكثير من الخصائص والمهارات والسلوكيات الفريدة.</h5>
+                            <div class="true-false-buttons">
+                                <button class="tf-btn" data-question="tf1" data-answer="true">صح</button>
+                                <button class="tf-btn" data-question="tf1" data-answer="false">خطأ</button>
+                            </div>
+                        </div>
+
+                        <div class="true-false-question">
+                            <h5>2. الإبداع هو الإتيان بأفكار جديدة غير مسبوقة قابلة للتطبيق الصناعي بربحية بالأسواق.</h5>
+                            <div class="true-false-buttons">
+                                <button class="tf-btn" data-question="tf2" data-answer="true">صح</button>
+                                <button class="tf-btn" data-question="tf2" data-answer="false">خطأ</button>
+                            </div>
+                        </div>
+
+                        <div class="true-false-question">
+                            <h5>3. تعتبر مرحلة التجهيز والتحضير في العملية الإبداعية بمثابة الخلفية والخبرة والمعرفة التي يجلبها رجل الأعمال معه لعملية التعرف على الفرص.</h5>
+                            <div class="true-false-buttons">
+                                <button class="tf-btn" data-question="tf3" data-answer="true">صح</button>
+                                <button class="tf-btn" data-question="tf3" data-answer="false">خطأ</button>
+                            </div>
+                        </div>
+
+                        <div class="true-false-question">
+                            <h5>4. في مرحلة التقييم في العملية الإبداعية تتعرض الفكرة خلالها للفحص والتحليل للتأكد من توفير المبالغ النقدية المطلوبة.</h5>
+                            <div class="true-false-buttons">
+                                <button class="tf-btn" data-question="tf4" data-answer="true">صح</button>
+                                <button class="tf-btn" data-question="tf4" data-answer="false">خطأ</button>
+                            </div>
+                        </div>
+
+                        <div class="true-false-question">
+                            <h5>5. تتضمن ابتكارات المنتجات بما في ذلك الخدمات الجديدة، تطوير وتسويق منتجات جديدة لم تكن مدرجة سابقاً في إنتاج الشركة وتطوير عمليات الإنتاج.</h5>
+                            <div class="true-false-buttons">
+                                <button class="tf-btn" data-question="tf5" data-answer="true">صح</button>
+                                <button class="tf-btn" data-question="tf5" data-answer="false">خطأ</button>
+                            </div>
+                        </div>
+
+                        <div class="true-false-question">
+                            <h5>6. يستخدم ابتكار العمليات لتحسين أو تجديد عمليات الشركة بشكل عام مثل الإجراءات التكنولوجية والعمليات التواصلية والمعلوماتية وعمليات الإنتاج وعمليات تقييم الوظائف وطرق تقييم الموظفين الخ.</h5>
+                            <div class="true-false-buttons">
+                                <button class="tf-btn" data-question="tf6" data-answer="true">صح</button>
+                                <button class="tf-btn" data-question="tf6" data-answer="false">خطأ</button>
+                            </div>
+                        </div>
+
+                        <div class="true-false-question">
+                            <h5>7. الابتكارات الاجتماعية هي طرق تقليدية لتحقيق أشكال تنظيمية جديدة وأنماط الحياة الجديدة التي تغيّر في الحياة الاجتماعية، وبالتالي فهي تستحق التقليد والمأسسة.</h5>
+                            <div class="true-false-buttons">
+                                <button class="tf-btn" data-question="tf7" data-answer="true">صح</button>
+                                <button class="tf-btn" data-question="tf7" data-answer="false">خطأ</button>
+                            </div>
+                        </div>
+
+                        <div class="true-false-question">
+                            <h5>8. من صفات الابتكارات الناجحة أنها مدمّرة حيث يخلق الابتكار منتجات أو خدمات تستخدم على نطاق واسع لدرجة أنها تحل إلى حد كبير محل المنتجات أو الخدمات السابقة الأقل كفاءة وفاعلية.</h5>
+                            <div class="true-false-buttons">
+                                <button class="tf-btn" data-question="tf8" data-answer="true">صح</button>
+                                <button class="tf-btn" data-question="tf8" data-answer="false">خطأ</button>
+                            </div>
+                        </div>
+
+                        <div class="true-false-question">
+                            <h5>9. لقد أضافت الأعمال الريادية الكثير من المزايا والآثار الكبيرة لأصحابها وللدول التي استضافت هذه الأعمال، حيث أن الأعمال الريادية تقوم بالعديد من الإسهامات المتنوعة للأفراد والمجموعات والدول.</h5>
+                            <div class="true-false-buttons">
+                                <button class="tf-btn" data-question="tf9" data-answer="true">صح</button>
+                                <button class="tf-btn" data-question="tf9" data-answer="false">خطأ</button>
+                            </div>
+                        </div>
+
+                        <div class="true-false-question">
+                            <h5>10. تسهم الأعمال الريادية على خلق فرص العمل للعاطلين عن العمل وزيادة العرض على سلع جديدة وخلق أسواق جديدة عبر التدمير الخلاق للمنتجات.</h5>
+                            <div class="true-false-buttons">
+                                <button class="tf-btn" data-question="tf10" data-answer="true">صح</button>
+                                <button class="tf-btn" data-question="tf10" data-answer="false">خطأ</button>
+                            </div>
+                        </div>
+
+                        <div class="true-false-question">
+                            <h5>11. تقوم ريادة الأعمال بدور كبير في الإسهام بتوفير أعمال للنساء عبر إدخالها بالعديد من الوظائف التي تناسبها وتناسب أوقاتها والموازنة بين أدوارها في العمل وأدوارها اتجاه عائلتها.</h5>
+                            <div class="true-false-buttons">
+                                <button class="tf-btn" data-question="tf11" data-answer="true">صح</button>
+                                <button class="tf-btn" data-question="tf11" data-answer="false">خطأ</button>
+                            </div>
+                        </div>
+
+                        <div class="true-false-question">
+                            <h5>12. تلعب الأعمال الريادية دوراً كبيراً في التغيير التنظيمي وتغيير الثقافة التنظيمية للمنظمة، حيث أن العمل الريادي بحاجة إلى ثقافة تنظيمية تساند وتدعم هذا العمل.</h5>
+                            <div class="true-false-buttons">
+                                <button class="tf-btn" data-question="tf12" data-answer="true">صح</button>
+                                <button class="tf-btn" data-question="tf12" data-answer="false">خطأ</button>
+                            </div>
+                        </div>
+
+                        <div class="true-false-question">
+                            <h5>13. دائماً تقف الشركات أمام الاختيار بين عمل الشيء المطلوب أو شراءه من مصدر خارجي "Make it or Buy it".</h5>
+                            <div class="true-false-buttons">
+                                <button class="tf-btn" data-question="tf13" data-answer="true">صح</button>
+                                <button class="tf-btn" data-question="tf13" data-answer="false">خطأ</button>
+                            </div>
+                        </div>
+
+                        <div class="true-false-question">
+                            <h5>14. يسبب الانشغال التام للشخص الريادي صاحب المشروع الجديد إرهاقاً نفسياً وذهنياً وجسدياً ومالياً.</h5>
+                            <div class="true-false-buttons">
+                                <button class="tf-btn" data-question="tf14" data-answer="true">صح</button>
+                                <button class="tf-btn" data-question="tf14" data-answer="false">خطأ</button>
+                            </div>
+                        </div>
+
+                        <div class="quiz-controls">
+                            <button class="quiz-btn" onclick="checkAnswers()">
+                                <i class="fas fa-check"></i> فحص الإجابات
+                            </button>
+                            <button class="quiz-btn" onclick="resetQuiz()">
+                                <i class="fas fa-redo"></i> إعادة المحاولة
+                            </button>
+                        </div>
+
+                        <div id="quizResults" class="quiz-results" style="display: none;">
+                            <div class="score-display">
+                                <span id="scoreText">النتيجة: 0/28</span>
+                            </div>
+                            <div class="grade-message">
+                                <span id="gradeText">قم بالإجابة على جميع الأسئلة</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-            
-            <div class="chapters-grid">
-                <div class="chapter-card">
-                    <i class="fas fa-building chapter-icon"></i>
-                    <h3 class="chapter-title">الفصل الأول: أهمية المنظمات ومتطلبات إدارتها</h3>
-                    <p class="chapter-description">
-                        تعرف على مفهوم المنظمات وأنواعها، أهميتها للمجتمع، ووظائفها الأساسية. 
-                        اكتشف أدوار ومهارات المديرين في بيئة العمل الحديثة.
-                    </p>
-                    <a href="/entrepreneurship/chapter1/" class="chapter-btn">
-                        <i class="fas fa-arrow-left"></i> ادخل للفصل
-                    </a>
-                </div>
-                
-                <div class="chapter-card">
-                    <i class="fas fa-rocket chapter-icon"></i>
-                    <h3 class="chapter-title">الفصل الثاني: الأداء الابتكاري ومتطلباته</h3>
-                    <p class="chapter-description">
-                        اكتشف تطور الأداء الابتكاري عبر التاريخ، نظرية التنمية الاقتصادية، 
-                        ومفهوم التدمير الخلاق في عالم الأعمال.
-                    </p>
-                    <a href="/entrepreneurship/chapter2/" class="chapter-btn">
-                        <i class="fas fa-arrow-left"></i> ادخل للفصل
-                    </a>
-                </div>
-                
-                <div class="chapter-card">
-                    <i class="fas fa-user-tie chapter-icon"></i>
-                    <h3 class="chapter-title">الفصل الثالث: الصفات الأساسية للرياديين</h3>
-                    <p class="chapter-description">
-                        تعلم عن الصفات والمهارات الأساسية للرياديين، أنواع رجال الأعمال، 
-                        ومفهوم رائد الأعمال الداخلي.
-                    </p>
-                    <a href="/entrepreneurship/chapter3/" class="chapter-btn">
-                        <i class="fas fa-arrow-left"></i> ادخل للفصل
-                    </a>
                 </div>
             </div>
         </div>
     </div>
 
+    <button class="print-btn" onclick="window.print()">
+        <i class="fas fa-print"></i> طباعة
+    </button>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Quiz functionality
+        const mcqAnswers = {
+            q1: 'b',   // أفكار تكنولوجية
+            q2: 'a',   // الإبداع هو إنتاج سلع جديدة
+            q3: 'd',   // تلبية حاجات ورغبات الزبائن
+            q4: 'b',   // التوافق بالعمليات
+            q5: 'b',   // التغير بالدخل والقوة الشرائية
+            q6: 'd',   // الإعداد البدائي
+            q7: 'b',   // إغلاق سوق مبيعات قديم
+            q8: 'b',   // محتوى التوافق
+            q9: 'd',   // الابتكار الجماعي والفردي
+            q10: 'c',  // مخرجات تعليمية قوية
+            q11: 'c',  // التمويل
+            q12: 'c',  // الابتكارات الحكومية
+            q13: 'c',  // نظام رقابي صارم
+            q14: 'b'   // ابتكار الحكومي
+        };
+
+        const tfAnswers = {
+            tf1: false,  // خطأ - يعتبر من أكثر العمليات تشعباً وتعقيداً
+            tf2: true,   // صح
+            tf3: true,   // صح
+            tf4: false,  // خطأ - للتأكد من صحة الفكرة وليس توفير المبالغ
+            tf5: false,  // خطأ - لا تشمل تطوير عمليات الإنتاج
+            tf6: true,   // صح
+            tf7: false,  // خطأ - هي طرق جديدة وليس تقليدية
+            tf8: true,   // صح
+            tf9: true,   // صح
+            tf10: false, // خطأ - زيادة الطلب وليس العرض
+            tf11: true,  // صح
+            tf12: true,  // صح
+            tf13: true,  // صح
+            tf14: true   // صح
+        };
+
+        let selectedTFAnswers = {};
+
+        // Handle true/false questions
+        document.querySelectorAll('.tf-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const question = this.dataset.question;
+                const answer = this.dataset.answer === 'true';
+                
+                // Remove selection from other button
+                document.querySelectorAll(`[data-question="${question}"]`).forEach(b => {
+                    b.classList.remove('selected');
+                });
+                
+                // Add selection to clicked button
+                this.classList.add('selected');
+                selectedTFAnswers[question] = answer;
+            });
+        });
+
+        function checkAnswers() {
+            let score = 0;
+            let totalQuestions = 28;
+
+            // Check MCQ answers
+            Object.keys(mcqAnswers).forEach(questionId => {
+                const selectedOption = document.querySelector(`input[name="${questionId}"]:checked`);
+                const questionContainer = document.querySelector(`input[name="${questionId}"]`).closest('.quiz-question');
+                
+                // Remove previous styling
+                questionContainer.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('correct', 'incorrect');
+                });
+
+                if (selectedOption) {
+                    const selectedValue = selectedOption.value;
+                    const correctAnswer = mcqAnswers[questionId];
+                    
+                    if (selectedValue === correctAnswer) {
+                        score++;
+                        selectedOption.closest('.quiz-option').classList.add('correct');
+                    } else {
+                        selectedOption.closest('.quiz-option').classList.add('incorrect');
+                        // Show correct answer
+                        questionContainer.querySelector(`[data-option="${correctAnswer}"]`).classList.add('correct');
+                    }
+                }
+            });
+
+            // Check True/False answers
+            Object.keys(tfAnswers).forEach(questionId => {
+                const questionContainer = document.querySelector(`[data-question="${questionId}"]`).closest('.true-false-question');
+                const buttons = questionContainer.querySelectorAll('.tf-btn');
+                
+                // Remove previous styling
+                buttons.forEach(btn => {
+                    btn.classList.remove('correct', 'incorrect');
+                });
+
+                if (selectedTFAnswers.hasOwnProperty(questionId)) {
+                    const selectedAnswer = selectedTFAnswers[questionId];
+                    const correctAnswer = tfAnswers[questionId];
+                    
+                    if (selectedAnswer === correctAnswer) {
+                        score++;
+                        buttons.forEach(btn => {
+                            if ((btn.dataset.answer === 'true') === correctAnswer) {
+                                btn.classList.add('correct');
+                            }
+                        });
+                    } else {
+                        buttons.forEach(btn => {
+                            if ((btn.dataset.answer === 'true') === selectedAnswer) {
+                                btn.classList.add('incorrect');
+                            } else if ((btn.dataset.answer === 'true') === correctAnswer) {
+                                btn.classList.add('correct');
+                            }
+                        });
+                    }
+                } else {
+                    // Show correct answer if not answered
+                    buttons.forEach(btn => {
+                        if ((btn.dataset.answer === 'true') === tfAnswers[questionId]) {
+                            btn.classList.add('correct');
+                        }
+                    });
+                }
+            });
+
+            // Calculate percentage and grade
+            const percentage = Math.round((score / totalQuestions) * 100);
+            let grade, gradeClass;
+            
+            if (percentage >= 90) {
+                grade = 'ممتاز';
+                gradeClass = 'grade-a';
+            } else if (percentage >= 80) {
+                grade = 'جيد جداً';
+                gradeClass = 'grade-b';
+            } else if (percentage >= 70) {
+                grade = 'جيد';
+                gradeClass = 'grade-c';
+            } else if (percentage >= 60) {
+                grade = 'مقبول';
+                gradeClass = 'grade-d';
+            } else {
+                grade = 'راسب';
+                gradeClass = 'grade-f';
+            }
+
+            // Show results
+            document.getElementById('scoreText').textContent = `النتيجة: ${score}/${totalQuestions} (${percentage}%)`;
+            document.getElementById('gradeText').textContent = grade;
+            document.getElementById('gradeText').className = `grade-message ${gradeClass}`;
+            document.getElementById('quizResults').style.display = 'block';
+
+            // Scroll to results
+            document.getElementById('quizResults').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function resetQuiz() {
+            // Reset MCQ answers
+            document.querySelectorAll('input[type="radio"]').forEach(input => {
+                input.checked = false;
+            });
+
+            // Reset True/False answers
+            document.querySelectorAll('.tf-btn').forEach(btn => {
+                btn.classList.remove('selected', 'correct', 'incorrect');
+            });
+
+            // Reset MCQ styling
+            document.querySelectorAll('.quiz-option').forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+            });
+
+            // Reset selected answers
+            selectedTFAnswers = {};
+
+            // Hide results
+            document.getElementById('quizResults').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
