@@ -9,7 +9,7 @@ title: Contact
 
   <ul>
     <li><strong>Email:</strong> <a href="mailto:yazeidhdeab@gmail.com">Yazeid@ieee.org</a></li>
-    <li><strong>LinkedIn:</strong> <a href="[bit.ly/3FN8QiH](https://www.linkedin.com/in/yazeed-yasin-249871357?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)" target="_blank">Yazeed Yasin</a></li>
+    <li><strong>LinkedIn:</strong><a href="https://bit.ly/3FN8QiH" target="_blank">Yazeed Yasin</a></li>
  
     <li><strong>Location:</strong> Jordan</li>
   </ul>
