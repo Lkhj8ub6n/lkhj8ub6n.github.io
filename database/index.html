@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Exam - Chapter 1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 0;
+            margin: 0;
+            direction: ltr;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            margin: 0;
+            background: white;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            padding: 20px 30px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .progress-container {
+            background: #f8f9fa;
+            padding: 15px 30px;
+            border-bottom: 1px solid #e9ecef;
+            flex-shrink: 0;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .exam-content {
+            flex: 1;
+            padding: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .page-indicator {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #666;
+            font-size: 18px;
+        }
+
+        .question {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 0;
+            border-left: 5px solid #4CAF50;
+            transition: all 0.3s ease;
+            break-inside: avoid;
+        }
+
+        .question.answered {
+            background: #e8f5e8;
+            border-left-color: #2196F3;
+        }
+
+        .question.correct {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+
+        .question.incorrect {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+        }
+
+        .question-number {
+            font-weight: bold;
+            color: #4CAF50;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .question-text {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .options {
+            display: grid;
+            gap: 12px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 15px;
+        }
+
+        .option:hover {
+            background: #f8f9fa;
+            border-color: #4CAF50;
+        }
+
+        .option.selected {
+            background: #e3f2fd;
+            border-color: #2196F3;
+            color: #1976d2;
+        }
+
+        .option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 12px;
+            transform: scale(1.2);
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(45deg, #2196F3, #1976d2);
+        }
+
+        .btn-danger {
+            background: linear-gradient(45deg, #f44336, #d32f2f);
+        }
+
+        .results {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .score {
+            font-size: 48px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .score.low {
+            color: #f44336;
+        }
+
+        .score.medium {
+            color: #ff9800;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                height: 100vh;
+            }
+
+            .header {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .progress-container {
+                padding: 10px 15px;
+            }
+
+            .exam-content {
+                padding: 15px;
+            }
+
+            .question {
+                padding: 20px;
+            }
+
+            .navigation {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            .progress-info {
+                flex-direction: column;
+                text-align: center;
+                gap: 5px;
+            }
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        #questionsContainer {
+            display: grid;
+            gap: 25px;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 1200px) {
+            #questionsContainer {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (min-width: 1600px) {
+            .exam-content {
+                max-width: 1400px;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Database Exam</h1>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-info">
+                <span>Page: <span id="currentPage">1</span> of <span id="totalPages">5</span></span>
+                <span>Answered: <span id="answeredCount">0</span> of <span id="totalQuestions">49</span></span>
+                <span>Score: <span id="currentScore">0</span>%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+        </div>
+
+        <div class="exam-content">
+            <div class="page-indicator">
+                <strong id="pageTitle">Page 1 (Questions 1-10)</strong>
+            </div>
+
+            <div id="questionsContainer"></div>
+
+            <div class="navigation">
+                <button class="btn btn-secondary" id="prevBtn" onclick="previousPage()" disabled>Previous</button>
+                <div>
+                    <button class="btn" id="checkBtn" onclick="checkAnswers()">Check Answers</button>
+                    <button class="btn btn-danger hidden" id="resetBtn" onclick="resetExam()">Reset Exam</button>
+                </div>
+                <button class="btn btn-secondary" id="nextBtn" onclick="nextPage()">Next</button>
+            </div>
+
+            <div id="results" class="results hidden">
+                <h2>Exam Results</h2>
+                <div class="score" id="finalScore">0%</div>
+                <p id="scoreMessage"></p>
+                <p>Correct answers: <span id="correctAnswers">0</span> of <span id="totalQuestionsResult">49</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            // Page 1 (1-10)
+            {
+                number: 1,
+                text: "When end-users communicate with the database through front-end applications, this is called:",
+                options: ["Direct interaction", "Indirect interaction", "Middle interaction", "Reverse interaction"],
+                correct: 1,
+                page: 1
+            },
+            {
+                number: 2,
+                text: "One of the following is a type of Database application:",
+                options: ["Numeric Database", "Textual Database", "Multimedia Database", "All of the above"],
+                correct: 3,
+                page: 1
+            },
+            {
+                number: 3,
+                text: "When the application resides at the client machine, where it invokes database system functionality at the server machine, the call is:",
+                options: ["One-tier architecture", "Two-tier architecture", "Three-tier architecture", "Parallel architecture"],
+                correct: 1,
+                page: 1
+            },
+            {
+                number: 4,
+                text: "A person who has central control over the system is called:",
+                options: ["DBE", "DBT", "DBA", "DBR"],
+                correct: 2,
+                page: 1
+            },
+            {
+                number: 5,
+                text: "DDL stands for:",
+                options: ["Data Definition Language", "Data diagram Language", "Data Declarative Language", "None of the above"],
+                correct: 0,
+                page: 1
+            },
+            {
+                number: 6,
+                text: "__________ is a collection of operations that performs a single logical function in a database application:",
+                options: ["Query", "SQL", "Transaction", "DML"],
+                correct: 2,
+                page: 1
+            },
+            {
+                number: 7,
+                text: "The database architecture that contains one to a few cores and shared memory is:",
+                options: ["Centralized databases", "Client-server", "Parallel databases", "Distributed databases"],
+                correct: 0,
+                page: 1
+            },
+            {
+                number: 8,
+                text: "Database metadata is data that describes the structure and properties of the data:",
+                options: ["True", "False"],
+                correct: 0,
+                page: 1
+            },
+            {
+                number: 9,
+                text: "One of the following is DBMS functionality:",
+                options: ["Protection and Security", "Presentation and Visualization of data", "Backup and Restoring the database", "All of the above"],
+                correct: 3,
+                page: 1
+            },
+            {
+                number: 10,
+                text: "A Super Key is a candidate key but vice versa is not true:",
+                options: ["True", "False"],
+                correct: 1,
+                page: 1
+            },
+            // Page 2 (11-20)
+            {
+                number: 11,
+                text: "Foreign key field allows one value as NULL value:",
+                options: ["True", "False"],
+                correct: 0,
+                page: 2
+            },
+            {
+                number: 12,
+                text: "In ERD, an entity that does not have a unique attribute of its own is called:",
+                options: ["Strong entity", "Owner entity", "Weak entity", "Derived entity"],
+                correct: 2,
+                page: 2
+            },
+            {
+                number: 13,
+                text: "One of the following is not a type of Database application:",
+                options: ["A relationship between two tables", "A way to sort data", "A constraint on a column", "A unique identifier for each record"],
+                correct: 0,
+                page: 2
+            },
+            {
+                number: 14,
+                text: "Describes data stored in the database and the relationships among the data:",
+                options: ["Physical level", "Logical level", "View level", "Abstraction level"],
+                correct: 1,
+                page: 2
+            },
+            {
+                number: 15,
+                text: "Attribute whose values are calculated and not permanently stored in a database:",
+                options: ["Composite attribute", "Stored attribute", "Derived attribute", "Multi-valued attribute"],
+                correct: 2,
+                page: 2
+            },
+            {
+                number: 16,
+                text: "Language for accessing and updating data organized by the appropriate data model, also known as query language, is:",
+                options: ["DDL", "DHL", "DML", "SQL"],
+                correct: 2,
+                page: 2
+            },
+            {
+                number: 17,
+                text: "SQL stands for:",
+                options: ["Structured Query Language", "Systematic Query Language", "Sequential Query Language", "Synchronized Query Language"],
+                correct: 0,
+                page: 2
+            },
+            {
+                number: 18,
+                text: "A candidate key is a super key and vice versa is true:",
+                options: ["True", "False"],
+                correct: 1,
+                page: 2
+            },
+            {
+                number: 19,
+                text: "The purpose (advantages) of database systems include:",
+                options: ["Removing redundancy and dependencies", "Avoiding inconsistency", "Providing concurrent access to multiple users", "All of the above"],
+                correct: 3,
+                page: 2
+            },
+            {
+                number: 20,
+                text: "In database design, the final table with data records in it is mapped into ER diagram:",
+                options: ["True", "False"],
+                correct: 1,
+                page: 2
+            },
+            // Page 3 (21-30)
+            {
+                number: 21,
+                text: "A transaction in a database system is best described as:",
+                options: ["A set of operations that is executed as a single unit", "A single database query that fetches data", "A collection of unrelated database operations", "A table that stores records"],
+                correct: 0,
+                page: 3
+            },
+            {
+                number: 22,
+                text: "A collection of tools for describing Data, Data relationships, Data semantics, and Data constraints is:",
+                options: ["ERP", "Data Models", "XML", "OOP"],
+                correct: 1,
+                page: 3
+            },
+            {
+                number: 23,
+                text: "Used to specify database retrievals and updates:",
+                options: ["DDL", "DML", "DBA", "DLL"],
+                correct: 1,
+                page: 3
+            },
+            {
+                number: 24,
+                text: "One of the following is considered as the most important stage of database design:",
+                options: ["Database Requirements", "Database Modeling", "Database Implementation", "Database Development"],
+                correct: 0,
+                page: 3
+            },
+            {
+                number: 25,
+                text: "How many types of cardinality constraints?",
+                options: ["Two possible", "Three possible", "Four possible", "Five possible"],
+                correct: 1,
+                page: 3
+            },
+            {
+                number: 26,
+                text: "One of the following does not type of Database keys:",
+                options: ["Candidate Key", "Alternate Key", "Foreign Key", "None of the Above"],
+                correct: 3,
+                page: 3
+            },
+            {
+                number: 27,
+                text: "Entity that does not have a unique attribute of its own is called:",
+                options: ["Unique Entity", "Strong Entity", "Derived Entity", "Weak Entity"],
+                correct: 3,
+                page: 3
+            },
+            {
+                number: 28,
+                text: "What is the name of the relationship shown in the below diagram?",
+                options: ["Self-relationship", "Reversed relationship", "One relationship", "None of the Above"],
+                correct: 0,
+                page: 3
+            },
+            {
+                number: 29,
+                text: "Is this the right sort of Database Keys as shown in the below figure?",
+                options: ["True", "False"],
+                correct: 0,
+                page: 3
+            },
+            {
+                number: 30,
+                text: "A mechanism in SQL that allows the structure of a query to be saved in the RDBMS, also known as a virtual table is:",
+                options: ["Index", "Database Instance", "View", "Trigger"],
+                correct: 2,
+                page: 3
+            },
+            // Page 4 (31-40)
+            {
+                number: 31,
+                text: "When mapping 1:M relationships, the relation mapped from the entity on the M side has a foreign key that corresponds to the primary key of the relation mapped from the 1 side:",
+                options: ["True", "False"],
+                correct: 0,
+                page: 4
+            },
+            {
+                number: 32,
+                text: "In Relation shown below, number 2 means each class must have:",
+                options: ["Less than 1 Students", "Less than 2 Students", "More than 1 Students", "More than 2 Students"],
+                correct: 2,
+                page: 4
+            },
+            {
+                number: 33,
+                text: "Within a relation, the order of rows is important:",
+                options: ["True", "False"],
+                correct: 1,
+                page: 4
+            },
+            {
+                number: 34,
+                text: "In SQL, to remove table from Database, we use:",
+                options: ["Remove Table TableName", "Delete Table TableName", "Drop Table TableName", "Erase Table TableName"],
+                correct: 2,
+                page: 4
+            },
+            {
+                number: 35,
+                text: "SQL word that is used to eliminate duplicate values from a query result is:",
+                options: ["Unique", "Distinct", "Discrete", "Determent"],
+                correct: 1,
+                page: 4
+            },
+            {
+                number: 36,
+                text: "SQL clause that is used for retrieval of records whose values partially match a certain criterion is:",
+                options: ["Such", "Similar", "As", "LIKE"],
+                correct: 3,
+                page: 4
+            },
+            {
+                number: 37,
+                text: "Which clause is used in SQL to group rows that have the same values in specified columns?",
+                options: ["GROUP BY", "SORT BY", "ORDER BY", "JOIN BY"],
+                correct: 0,
+                page: 4
+            },
+            {
+                number: 38,
+                text: "Which SQL statement is used to make changes to an existing table structure?",
+                options: ["UPDATE TABLE", "CHANGE TABLE", "ALTER TABLE", "MODIFY TABLE"],
+                correct: 2,
+                page: 4
+            },
+            {
+                number: 39,
+                text: "Which SQL operator is used to retrieve rows based on a range of values?",
+                options: ["BETWEEN", "LIKE", "IN", "IS NULL"],
+                correct: 0,
+                page: 4
+            },
+            {
+                number: 40,
+                text: "A query that contains a HAVING clause must also contain a ______ clause:",
+                options: ["GROUP BY", "SORT BY", "ORDER BY", "JOIN BY"],
+                correct: 0,
+                page: 4
+            },
+            // Page 5 (41-49)
+            {
+                number: 41,
+                text: "One of the following is not a type of Database keys:",
+                options: ["Candidate Key", "Alternate Key", "Foreign Key", "None of the Above"],
+                correct: 3,
+                page: 5
+            },
+            {
+                number: 42,
+                text: "Entity that does not have a unique attribute of its own is called:",
+                options: ["Unique Entity", "Strong Entity", "Derived Entity", "Weak Entity"],
+                correct: 3,
+                page: 5
+            },
+            {
+                number: 43,
+                text: "Which SQL statement is used to make changes to an existing table structure?",
+                options: ["UPDATE TABLE", "CHANGE TABLE", "ALTER TABLE", "MODIFY TABLE"],
+                correct: 2,
+                page: 5
+            },
+            {
+                number: 44,
+                text: "Within a relation, the order of rows is important:",
+                options: ["True", "False"],
+                correct: 1,
+                page: 5
+            },
+            {
+                number: 45,
+                text: "SQL operator is used to retrieve rows based on a range of values:",
+                options: ["BETWEEN", "LIKE", "IN", "IS NULL"],
+                correct: 0,
+                page: 5
+            },
+            {
+                number: 46,
+                text: "A query that contains a HAVING clause must also contain a _______ clause:",
+                options: ["GROUP BY", "SORT BY", "ORDER BY", "JOIN BY"],
+                correct: 0,
+                page: 5
+            },
+            {
+                number: 47,
+                text: "Used to specify database retrievals and updates:",
+                options: ["DDL", "DML", "DBA", "DLL"],
+                correct: 1,
+                page: 5
+            },
+            {
+                number: 48,
+                text: "Attribute whose values are calculated and not permanently stored in a database is called:",
+                options: ["Multivalued attribute", "Composite attribute", "Derived attribute", "Calculated attribute"],
+                correct: 2,
+                page: 5
+            },
+            {
+                number: 49,
+                text: "One of the following is considered as the most important stage of database design:",
+                options: ["Database Requirements", "Database Modeling", "Database Implementation", "Database Development"],
+                correct: 0,
+                page: 5
+            }
+        ];
+
+        let currentPageNum = 1;
+        let totalPages = 5;
+        let userAnswers = {};
+        let checkedPages = new Set();
+        let examCompleted = false;
+
+        const pageInfo = {
+            1: "Page 1 (Questions 1-10)",
+            2: "Page 2 (Questions 11-20)", 
+            3: "Page 3 (Questions 21-30)",
+            4: "Page 4 (Questions 31-40)",
+            5: "Page 5 (Questions 41-49)"
+        };
+
+        function getCurrentPageQuestions() {
+            return questions.filter(q => q.page === currentPageNum);
+        }
+
+        function displayQuestions() {
+            const container = document.getElementById('questionsContainer');
+            const pageQuestions = getCurrentPageQuestions();
+            
+            container.innerHTML = '';
+            container.classList.add('fade-in');
+            
+            pageQuestions.forEach(question => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.id = `question-${question.number}`;
+                
+                const isAnswered = userAnswers[question.number] !== undefined;
+                const isChecked = checkedPages.has(currentPageNum);
+                
+                if (isAnswered && !isChecked) {
+                    questionDiv.classList.add('answered');
+                } else if (isChecked) {
+                    const userAnswer = userAnswers[question.number];
+                    if (userAnswer === question.correct) {
+                        questionDiv.classList.add('correct');
+                    } else {
+                        questionDiv.classList.add('incorrect');
+                    }
+                }
+                
+                questionDiv.innerHTML = `
+                    <div class="question-number">Question ${question.number}</div>
+                    <div class="question-text">${question.text}</div>
+                    <div class="options">
+                        ${question.options.map((option, index) => {
+                            const optionClass = getOptionClass(question.number, index, question.correct, isChecked);
+                            return `
+                                <label class="option ${optionClass}" onclick="selectAnswer(${question.number}, ${index})">
+                                    <input type="radio" name="q${question.number}" value="${index}" 
+                                           ${userAnswers[question.number] === index ? 'checked' : ''}
+                                           ${isChecked ? 'disabled' : ''}>
+                                    ${String.fromCharCode(65 + index)}. ${option}
+                                </label>
+                            `;
+                        }).join('')}
+                    </div>
+                `;
+                
+                container.appendChild(questionDiv);
+            });
+            
+            setTimeout(() => container.classList.remove('fade-in'), 500);
+        }
+
+        function getOptionClass(questionNum, optionIndex, correctAnswer, isChecked) {
+            if (!isChecked) {
+                return userAnswers[questionNum] === optionIndex ? 'selected' : '';
+            }
+            
+            const userAnswer = userAnswers[questionNum];
+            if (optionIndex === correctAnswer) {
+                return 'correct';
+            }
+            if (userAnswer === optionIndex && optionIndex !== correctAnswer) {
+                return 'incorrect';
+            }
+            return '';
+        }
+
+        function selectAnswer(questionNum, answerIndex) {
+            if (checkedPages.has(currentPageNum)) return;
+            
+            userAnswers[questionNum] = answerIndex;
+            updateProgress();
+            
+            // Update visual feedback
+            const questionDiv = document.getElementById(`question-${questionNum}`);
+            questionDiv.classList.add('answered');
+            
+            // Update option selection
+            const options = questionDiv.querySelectorAll('.option');
+            options.forEach((option, index) => {
+                option.classList.toggle('selected', index === answerIndex);
+            });
+        }
+
+        function updateProgress() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const progressPercent = (answeredCount / questions.length) * 100;
+            
+            document.getElementById('currentPage').textContent = currentPageNum;
+            document.getElementById('totalPages').textContent = totalPages;
+            document.getElementById('answeredCount').textContent = answeredCount;
+            document.getElementById('totalQuestions').textContent = questions.length;
+            document.getElementById('progressFill').style.width = progressPercent + '%';
+            document.getElementById('pageTitle').textContent = pageInfo[currentPageNum];
+            
+            // Update score if any pages have been checked
+            if (checkedPages.size > 0) {
+                const score = calculateScore();
+                document.getElementById('currentScore').textContent = score;
+            }
+        }
+
+        function calculateScore() {
+            let correct = 0;
+            let total = 0;
+            
+            checkedPages.forEach(pageNum => {
+                const pageQuestions = questions.filter(q => q.page === pageNum);
+                pageQuestions.forEach(question => {
+                    total++;
+                    if (userAnswers[question.number] === question.correct) {
+                        correct++;
+                    }
+                });
+            });
+            
+            return total > 0 ? Math.round((correct / total) * 100) : 0;
+        }
+
+        function checkAnswers() {
+            const pageQuestions = getCurrentPageQuestions();
+            const allAnswered = pageQuestions.every(q => userAnswers[q.number] !== undefined);
+            
+            if (!allAnswered) {
+                alert('Please answer all questions on this page before checking');
+                return;
+            }
+            
+            checkedPages.add(currentPageNum);
+            displayQuestions();
+            updateProgress();
+            
+            // Update button states
+            const checkBtn = document.getElementById('checkBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            
+            if (checkedPages.size === totalPages) {
+                checkBtn.textContent = 'Show Final Results';
+                checkBtn.onclick = showFinalResults;
+                examCompleted = true;
+            } else {
+                checkBtn.style.display = 'none';
+            }
+            
+            resetBtn.classList.remove('hidden');
+        }
+
+        function showFinalResults() {
+            let correctAnswers = 0;
+            
+            questions.forEach(question => {
+                if (userAnswers[question.number] === question.correct) {
+                    correctAnswers++;
+                }
+            });
+            
+            const percentage = Math.round((correctAnswers / questions.length) * 100);
+            
+            const resultsDiv = document.getElementById('results');
+            const scoreDiv = document.getElementById('finalScore');
+            const messageDiv = document.getElementById('scoreMessage');
+            
+            scoreDiv.textContent = percentage + '%';
+            
+            if (percentage >= 85) {
+                scoreDiv.className = 'score';
+                messageDiv.textContent = 'Excellent! Outstanding performance!';
+            } else if (percentage >= 70) {
+                scoreDiv.className = 'score medium';
+                messageDiv.textContent = 'Very Good! Good performance!';
+            } else if (percentage >= 50) {
+                scoreDiv.className = 'score medium';
+                messageDiv.textContent = 'Acceptable, you can improve your performance';
+            } else {
+                scoreDiv.className = 'score low';
+                messageDiv.textContent = 'Needs more study';
+            }
+            
+            document.getElementById('correctAnswers').textContent = correctAnswers;
+            document.getElementById('totalQuestionsResult').textContent = questions.length;
+            
+            resultsDiv.classList.remove('hidden');
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function nextPage() {
+            if (currentPageNum < totalPages) {
+                currentPageNum++;
+                displayQuestions();
+                updateProgress();
+                updateNavigationButtons();
+            }
+        }
+
+        function previousPage() {
+            if (currentPageNum > 1) {
+                currentPageNum--;
+                displayQuestions();
+                updateProgress();
+                updateNavigationButtons();
+            }
+        }
+
+        function updateNavigationButtons() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const checkBtn = document.getElementById('checkBtn');
+            
+            prevBtn.disabled = currentPageNum === 1;
+            nextBtn.disabled = currentPageNum === totalPages;
+            
+            // Show/hide check button based on whether current page is checked
+            if (checkedPages.has(currentPageNum)) {
+                checkBtn.style.display = 'none';
+            } else {
+                checkBtn.style.display = 'inline-block';
+                checkBtn.textContent = 'Check Answers';
+                checkBtn.onclick = checkAnswers;
+            }
+        }
+
+        function resetExam() {
+            if (confirm('Are you sure you want to reset the exam? You will lose all saved answers.')) {
+                userAnswers = {};
+                checkedPages.clear();
+                examCompleted = false;
+                currentPageNum = 1;
+                
+                document.getElementById('results').classList.add('hidden');
+                document.getElementById('resetBtn').classList.add('hidden');
+                document.getElementById('currentScore').textContent = '0';
+                
+                displayQuestions();
+                updateProgress();
+                updateNavigationButtons();
+            }
+        }
+
+        // Initialize the exam
+        displayQuestions();
+        updateProgress();
+        updateNavigationButtons();
+    </script>
+</body>
+</html>
