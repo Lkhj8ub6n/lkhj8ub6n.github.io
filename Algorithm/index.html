@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+
+
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -433,6 +437,9 @@
         </div>
 
         <div class="quiz-content">
+
+
+
             <!-- Divide and Conquer Chapter -->
             <div class="chapter active" id="divide-conquer">
                 <h2 class="chapter-title">Divide and Conquer - Merge Sort</h2>
@@ -472,7 +479,7 @@
                     <div class="result"></div>
                 </div>
 
-                <div class="question" data-correct="b">
+                <div class="question" data-correct="a">
                     <div class="question-text">3. Merge Sort follows which strategy?</div>
                     <div class="options">
                         <div class="option" data-value="a"><span class="option-letter">a)</span> Top-down divide and conquer</div>
@@ -516,7 +523,83 @@
                     </div>
                     <div class="result"></div>
                 </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">6. The time complexity of merging two sorted arrays of size n/2 each is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> O(log n)</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> O(n)</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(n log n)</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> O(n²)</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">7. In the merge operation, what happens when one array is exhausted?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> The algorithm stops</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Copy remaining elements from the other array</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Start merging from the beginning</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Reverse the arrays</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">8. How many levels are there in the recursion tree of Merge Sort for input size n?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> n</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> log n</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> n log n</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> n²</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">9. Merge Sort is preferred when:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Memory is limited</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Stable sorting is required</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Input is nearly sorted</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> In-place sorting is needed</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">10. The divide and conquer approach in Merge Sort involves:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Dividing array into unequal parts</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Sorting each element individually</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Dividing into two equal halves recursively</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Finding the minimum element first</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
             </div>
+
 
             <!-- Quick Sort Chapter -->
             <div class="chapter" id="quick-sort">
@@ -587,8 +670,23 @@
                     <div class="result"></div>
                 </div>
 
+                <div class="question" data-correct="b">
+                    <div class="question-text">5. In the best case, Quick Sort's recurrence relation is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> T(n) = T(n-1) + n</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> T(n) = 2T(n/2) + n</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> T(n) = T(n/2) + 1</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> T(n) = 2T(n/2) + 1</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
                 <div class="question" data-correct="c">
-                    <div class="question-text">5. Quick Sort is:</div>
+                    <div class="question-text">6. Quick Sort is:</div>
                     <div class="options">
                         <div class="option" data-value="a"><span class="option-letter">a)</span> Stable and in-place</div>
                         <div class="option" data-value="b"><span class="option-letter">b)</span> Stable but not in-place</div>
@@ -601,7 +699,98 @@
                     </div>
                     <div class="result"></div>
                 </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">7. After partitioning, the pivot element is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> At the beginning of array</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> At the end of array</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> In its final sorted position</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> At a random position</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">8. The space complexity of Quick Sort is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> O(1)</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> O(log n)</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(n)</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> O(n²)</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">9. Quick Sort is preferred for:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Nearly sorted data</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Data that needs stable sorting</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Random data in main memory</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Data with many duplicates</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">10. What happens after the partitioning step in Quick Sort?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Elements are merged</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Subarrays are recursively sorted</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Array is completely sorted</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Pivot is removed</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">11. The worst-case recurrence relation for Quick Sort is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> T(n) = 2T(n/2) + n</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> T(n) = T(n-1) + n</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> T(n) = T(n/2) + n</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> T(n) = nT(n/2) + 1</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">12. Quick Sort differs from Merge Sort in that:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> It requires extra space for merging</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> It doesn't require a merging step</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> It has better worst-case performance</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> It is always stable</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
             </div>
+
 
             <!-- Graphs Chapter -->
             <div class="chapter" id="graphs">
@@ -620,58 +809,209 @@
                         <div class="option" data-value="c"><span class="option-letter">c)</span> A set of nodes and edges connecting them</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> A tree with cycles</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">2. In an undirected graph, if node A is adjacent to node B, then:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> B is not adjacent to A</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> B is adjacent to A</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> A and B are the same node</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> There must be a weight on the edge</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
                 <div class="question" data-correct="c">
-                    <div class="question-text">2. The space complexity of adjacency matrix representation is:</div>
+                    <div class="question-text">3. The space complexity of adjacency matrix representation is:</div>
                     <div class="options">
                         <div class="option" data-value="a"><span class="option-letter">a)</span> O(n)</div>
                         <div class="option" data-value="b"><span class="option-letter">b)</span> O(n log n)</div>
                         <div class="option" data-value="c"><span class="option-letter">c)</span> O(n²)</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> O(n³)</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
                 <div class="question" data-correct="b">
-                    <div class="question-text">3. Which representation is better for sparse graphs?</div>
+                    <div class="question-text">4. Which representation is better for sparse graphs?</div>
                     <div class="options">
                         <div class="option" data-value="a"><span class="option-letter">a)</span> Adjacency matrix</div>
                         <div class="option" data-value="b"><span class="option-letter">b)</span> Adjacency list</div>
                         <div class="option" data-value="c"><span class="option-letter">c)</span> Incidence matrix</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> Both a and c</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
                 <div class="question" data-correct="a">
-                    <div class="question-text">4. The time complexity to check if an edge exists in adjacency matrix is:</div>
+                    <div class="question-text">5. The time complexity to check if an edge exists in adjacency matrix is:</div>
                     <div class="options">
                         <div class="option" data-value="a"><span class="option-letter">a)</span> O(1)</div>
                         <div class="option" data-value="b"><span class="option-letter">b)</span> O(n)</div>
                         <div class="option" data-value="c"><span class="option-letter">c)</span> O(log n)</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> O(n²)</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
                 <div class="question" data-correct="c">
-                    <div class="question-text">5. A weighted graph has:</div>
+                    <div class="question-text">6. In adjacency list representation, the space complexity for a dense graph is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> O(n)</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> O(n log n)</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(n²)</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> O(1)</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">7. A weighted graph has:</div>
                     <div class="options">
                         <div class="option" data-value="a"><span class="option-letter">a)</span> Directed edges only</div>
                         <div class="option" data-value="b"><span class="option-letter">b)</span> Undirected edges only</div>
                         <div class="option" data-value="c"><span class="option-letter">c)</span> Values associated with edges</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> No cycles</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="d">
+                    <div class="question-text">8. Which is NOT a main graph type?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Weighted directed</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Unweighted undirected</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Weighted undirected</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Cyclic directed</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">9. For checking edge existence, adjacency matrix provides:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> O(n) time</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> O(log n) time</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(1) time</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> O(n²) time</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">10. Adjacency list is preferred when:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Graph is dense</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Graph is sparse</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Frequent edge checking is needed</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Memory is unlimited</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">11. In a directed graph, an edge from A to B means:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> B is adjacent to A</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> A is adjacent to B</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Both A and B are adjacent to each other</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> A and B are the same node</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">12. The adjacency matrix for an undirected graph is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Always diagonal</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Always symmetric</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Always upper triangular</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Always sparse</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">13. Graph representation examples include:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Facebook friendships (logical)</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> City road networks (physical)</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Both a and b</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Neither a nor b</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">14. Dense graphs are characterized by:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Few edges relative to possible edges</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Many edges relative to possible edges</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> No edges</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Only self-loops</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
             </div>
+
 
             <!-- Trees Chapter -->
             <div class="chapter" id="trees">
@@ -698,7 +1038,22 @@
                 </div>
 
                 <div class="question" data-correct="c">
-                    <div class="question-text">2. A perfect binary tree with height 3 has how many nodes?</div>
+                    <div class="question-text">2. In a rooted tree, the depth of a node is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Number of children it has</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Distance from the node to any leaf</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Distance from the node to the root</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Maximum path length in the tree</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">3. A perfect binary tree with height 3 has how many nodes?</div>
                     <div class="options">
                         <div class="option" data-value="a"><span class="option-letter">a)</span> 7</div>
                         <div class="option" data-value="b"><span class="option-letter">b)</span> 8</div>
@@ -713,7 +1068,7 @@
                 </div>
 
                 <div class="question" data-correct="b">
-                    <div class="question-text">3. In array representation of binary tree, the parent of node at index 5 is at index:</div>
+                    <div class="question-text">4. In array representation of binary tree, the parent of node at index 5 is at index:</div>
                     <div class="options">
                         <div class="option" data-value="a"><span class="option-letter">a)</span> 1</div>
                         <div class="option" data-value="b"><span class="option-letter">b)</span> 2</div>
@@ -728,7 +1083,7 @@
                 </div>
 
                 <div class="question" data-correct="b">
-                    <div class="question-text">4. Which is true about a full binary tree?</div>
+                    <div class="question-text">5. Which is true about a full binary tree?</div>
                     <div class="options">
                         <div class="option" data-value="a"><span class="option-letter">a)</span> All leaf nodes are at the same level</div>
                         <div class="option" data-value="b"><span class="option-letter">b)</span> Every node has exactly 0 or 2 children</div>
@@ -743,7 +1098,67 @@
                 </div>
 
                 <div class="question" data-correct="c">
-                    <div class="question-text">5. The worst-case space complexity for array representation of binary tree is:</div>
+                    <div class="question-text">6. A complete binary tree:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Has all leaf nodes at the same depth</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Has every node with 2 children</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Is filled level by level from left to right</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Contains cycles</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">7. In array representation, the left child of node at index i is at:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> 2i</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> 2i + 1</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> i + 1</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> i/2</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">8. The height of a rooted tree is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Number of nodes in the tree</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Number of leaf nodes</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Maximum depth of any node</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Number of internal nodes</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">9. Which is NOT a binary tree?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> A tree where each node has 0, 1, or 2 children</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> A tree where some node has 3 children</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> A tree with only left children</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> A tree with only one node</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">10. The worst-case space complexity for array representation of binary tree is:</div>
                     <div class="options">
                         <div class="option" data-value="a"><span class="option-letter">a)</span> O(n)</div>
                         <div class="option" data-value="b"><span class="option-letter">b)</span> O(n log n)</div>
@@ -756,11 +1171,87 @@
                     </div>
                     <div class="result"></div>
                 </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">11. A leaf node in a tree is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> The root node</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> A node with no children</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> A node with exactly one child</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> A node with two children</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">12. In array representation, if a node is at index 0, its right child is at index:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> 1</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> 2</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> 3</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> 0</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="d">
+                    <div class="question-text">13. Which statement about perfect binary trees is FALSE?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> All leaf nodes are at the same depth</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Every internal node has exactly 2 children</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> It has 2^(k+1) - 1 nodes for height k</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> It's always a complete binary tree</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">14. A binary tree that is both full and complete is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Always perfect</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Sometimes perfect</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Never perfect</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Cannot exist</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">15. The depth of the root node in any rooted tree is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> 1</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> 0</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> -1</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Depends on tree height</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
             </div>
+
 
             <!-- Greedy MST Chapter -->
             <div class="chapter" id="greedy-mst">
-                <h2 class="chapter-title">Greedy Algorithms - MST</h2>
+                <h2 class="chapter-title">Greedy Algorithms - Minimum Spanning Tree (MST)</h2>
                 
                 <div class="chapter-controls">
                     <button class="reset-chapter" onclick="resetChapter('greedy-mst')">🔄 Reset Chapter</button>
@@ -775,7 +1266,10 @@
                         <div class="option" data-value="c"><span class="option-letter">c)</span> The maximum spanning tree</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> A tree with maximum number of edges</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
@@ -787,50 +1281,218 @@
                         <div class="option" data-value="c"><span class="option-letter">c)</span> n+1 edges</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> 2n edges</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="d">
+                    <div class="question-text">3. Which property is NOT required for MST?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Connected</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Spans all vertices</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> No cycles</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Maximum weight</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
                 <div class="question" data-correct="b">
-                    <div class="question-text">3. Greedy design strategy:</div>
+                    <div class="question-text">4. Greedy design strategy:</div>
                     <div class="options">
                         <div class="option" data-value="a"><span class="option-letter">a)</span> Always finds global optimum</div>
                         <div class="option" data-value="b"><span class="option-letter">b)</span> Makes locally optimal choices</div>
                         <div class="option" data-value="c"><span class="option-letter">c)</span> Requires dynamic programming</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> Never works for MST</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
                 <div class="question" data-correct="c">
-                    <div class="question-text">4. A graph can have:</div>
+                    <div class="question-text">5. A graph can have:</div>
                     <div class="options">
                         <div class="option" data-value="a"><span class="option-letter">a)</span> Only one MST</div>
                         <div class="option" data-value="b"><span class="option-letter">b)</span> At most two MSTs</div>
                         <div class="option" data-value="c"><span class="option-letter">c)</span> Multiple MSTs with same weight</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> No MST if it has cycles</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
                 <div class="question" data-correct="a">
-                    <div class="question-text">5. MST algorithms include:</div>
+                    <div class="question-text">6. MST algorithms include:</div>
                     <div class="options">
                         <div class="option" data-value="a"><span class="option-letter">a)</span> Kruskal's and Prim's</div>
                         <div class="option" data-value="b"><span class="option-letter">b)</span> Dijkstra's only</div>
                         <div class="option" data-value="c"><span class="option-letter">c)</span> DFS and BFS</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> Quick Sort and Merge Sort</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">7. In an unweighted graph, the MST:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Does not exist</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Is unique</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Can be any spanning tree</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Must use BFS</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">8. The MST problem is solved using:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Divide and conquer</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Greedy approach</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Backtracking</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Branch and bound</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">9. For a connected graph with n vertices and m edges, MST will have:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> m edges</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> n edges</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> n-1 edges</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> m-1 edges</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">10. Which statement about MST is TRUE?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> It always contains the shortest edge in the graph</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> It may contain the shortest edge in the graph</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> It never contains the longest edge in the graph</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> It must contain all edges of the graph</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">11. The main difference between MST and shortest path is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> MST finds path between two specific nodes</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> MST minimizes total tree weight, not individual path lengths</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> MST only works on directed graphs</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> MST requires negative weights</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">12. If all edges in a graph have the same weight, then:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> No MST exists</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Exactly one MST exists</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Any spanning tree is an MST</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> MST problem becomes NP-hard</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">13. MST is applicable to:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Directed graphs only</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Undirected graphs only</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Both directed and undirected graphs</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Trees only</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">14. The greedy choice in MST algorithms typically involves:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Selecting the longest edge</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Selecting edges that don't form cycles</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Selecting the shortest safe edge</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Selecting random edges</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">15. When might a graph have multiple MSTs?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> When it has negative weights</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> When it has edges with equal weights</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> When it's disconnected</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> When it has more than n-1 edges</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
             </div>
 
-            <!-- Kruskal Chapter -->
+
+            <!-- Kruskal's Algorithm Chapter -->
             <div class="chapter" id="kruskal">
                 <h2 class="chapter-title">Kruskal's Algorithm</h2>
+                
+                <div class="chapter-controls">
+                    <button class="reset-chapter" onclick="resetChapter('kruskal')">🔄 Reset Chapter</button>
+                    <button class="reset-all" onclick="resetAll()">🔄 Reset All Chapters</button>
+                </div>
                 
                 <div class="question" data-correct="b">
                     <div class="question-text">1. Kruskal's algorithm is best suited for:</div>
@@ -840,7 +1502,10 @@
                         <div class="option" data-value="c"><span class="option-letter">c)</span> Directed graphs</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> Disconnected graphs</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
@@ -852,7 +1517,10 @@
                         <div class="option" data-value="c"><span class="option-letter">c)</span> Find the minimum edge</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> Check for cycles</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
@@ -864,7 +1532,10 @@
                         <div class="option" data-value="c"><span class="option-letter">c)</span> n-1 edges are selected</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> All vertices are visited</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
@@ -876,7 +1547,10 @@
                         <div class="option" data-value="c"><span class="option-letter">c)</span> O(m log m)</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> O(n²)</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
@@ -888,14 +1562,173 @@
                         <div class="option" data-value="c"><span class="option-letter">c)</span> It's already in the MST</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> It connects two visited vertices</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">6. Kruskal's algorithm uses which strategy?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Dynamic programming</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Divide and conquer</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Greedy approach</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Backtracking</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">7. For cycle detection, Kruskal's algorithm can efficiently use:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> DFS</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> BFS</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Union-Find data structure</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Adjacency matrix</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">8. The greedy choice in Kruskal's algorithm is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Select vertex with minimum degree</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Select minimum weight edge that doesn't create cycle</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Select maximum weight edge</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Select edge connecting to unvisited vertex</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">9. For dense graphs, Kruskal's time complexity becomes:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> O(n log n)</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> O(n²)</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(n² log n)</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> O(n³)</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">10. Kruskal's algorithm is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Vertex-based</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Edge-based</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Path-based</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Level-based</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">11. In the edge list {A,B}:3, {B,C}:1, {A,C}:2, Kruskal's algorithm will select edges in order:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> {A,B}, {B,C}, {A,C}</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> {B,C}, {A,C}, {A,B}</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> {B,C}, {A,C}</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> {A,C}, {A,B}, {B,C}</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">12. The space complexity of Kruskal's algorithm is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> O(1)</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> O(n)</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(m)</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> O(n²)</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">13. Kruskal's algorithm guarantees:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Shortest path between all pairs</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Minimum spanning tree</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Maximum spanning tree</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Eulerian path</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">14. If two edges have the same weight in Kruskal's algorithm:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> The algorithm fails</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Either can be chosen first</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Both must be included</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Both must be excluded</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">15. Kruskal's algorithm processes edges in:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Random order</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Decreasing weight order</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Increasing weight order</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Alphabetical order</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
             </div>
 
-            <!-- Prim Chapter -->
+
+            <!-- Prim's Algorithm Chapter -->
             <div class="chapter" id="prim">
                 <h2 class="chapter-title">Prim's Algorithm</h2>
+                
+                <div class="chapter-controls">
+                    <button class="reset-chapter" onclick="resetChapter('prim')">🔄 Reset Chapter</button>
+                    <button class="reset-all" onclick="resetAll()">🔄 Reset All Chapters</button>
+                </div>
                 
                 <div class="question" data-correct="b">
                     <div class="question-text">1. Prim's algorithm is best suited for:</div>
@@ -905,7 +1738,10 @@
                         <div class="option" data-value="c"><span class="option-letter">c)</span> Directed graphs</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> Disconnected graphs</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
@@ -917,7 +1753,10 @@
                         <div class="option" data-value="c"><span class="option-letter">c)</span> A single arbitrary vertex</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> The minimum weight edge</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
@@ -929,7 +1768,10 @@
                         <div class="option" data-value="c"><span class="option-letter">c)</span> O(n²)</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> O(m log m)</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
@@ -941,26 +1783,188 @@
                         <div class="option" data-value="c"><span class="option-letter">c)</span> Any edge that doesn't create a cycle</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> The maximum weight edge</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
                 <div class="question" data-correct="b">
-                    <div class="question-text">5. Prim's algorithm is:</div>
+                    <div class="question-text">5. Prim's algorithm never creates:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Multiple components</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Cycles</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Weighted edges</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Spanning trees</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">6. Prim's algorithm is:</div>
                     <div class="options">
                         <div class="option" data-value="a"><span class="option-letter">a)</span> Edge-based</div>
                         <div class="option" data-value="b"><span class="option-letter">b)</span> Vertex-based</div>
                         <div class="option" data-value="c"><span class="option-letter">c)</span> Path-based</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> Level-based</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">7. During execution, Prim's algorithm maintains:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Multiple disconnected components</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> A single growing tree</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> All possible paths</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Sorted edge list</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">8. The space complexity of Prim's algorithm is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> O(1)</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> O(n)</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(m)</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> O(n²)</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">9. Prim's algorithm can start from:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Only the first vertex</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Only the vertex with minimum degree</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Any vertex</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Only vertices with odd degree</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">10. Compared to Kruskal's, Prim's algorithm:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Always produces different MST</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Is better for sparse graphs</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Doesn't require sorting all edges</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Has higher time complexity</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">11. The greedy choice in Prim's algorithm is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Select minimum weight edge globally</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Select minimum weight edge from current tree to outside</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Select maximum weight edge</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Select random edge</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="d">
+                    <div class="question-text">12. Prim's algorithm terminates when:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> All edges are processed</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> n-1 edges are selected</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> All vertices are in the tree</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Both b and c</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">13. The cut property used in Prim's algorithm states:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Any edge can be selected</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Minimum edge crossing a cut is safe for MST</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Maximum edge should be avoided</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Cycles must be prevented</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">14. For a complete graph with n vertices, Prim's algorithm examines:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> n edges</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> n-1 edges</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(n²) edges</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> All possible edges</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">15. Prim's algorithm differs from Kruskal's in that it:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Produces different MST weight</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Grows tree from single vertex</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Requires cycle detection</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Cannot handle weighted graphs</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
             </div>
 
-            <!-- Dijkstra Chapter -->
+
+            <!-- Dijkstra's Algorithm Chapter -->
             <div class="chapter" id="dijkstra">
                 <h2 class="chapter-title">Dijkstra's Algorithm</h2>
+                
+                <div class="chapter-controls">
+                    <button class="reset-chapter" onclick="resetChapter('dijkstra')">🔄 Reset Chapter</button>
+                    <button class="reset-all" onclick="resetAll()">🔄 Reset All Chapters</button>
+                </div>
                 
                 <div class="question" data-correct="b">
                     <div class="question-text">1. Dijkstra's algorithm finds:</div>
@@ -970,7 +1974,10 @@
                         <div class="option" data-value="c"><span class="option-letter">c)</span> Maximum flow in network</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> Strongly connected components</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
@@ -982,7 +1989,10 @@
                         <div class="option" data-value="c"><span class="option-letter">c)</span> Negative edge weights</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> Dense graphs</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
@@ -994,7 +2004,10 @@
                         <div class="option" data-value="c"><span class="option-letter">c)</span> O(n²)</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> O(n³)</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
@@ -1006,26 +2019,203 @@
                         <div class="option" data-value="c"><span class="option-letter">c)</span> Random unvisited vertex</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> Vertex with maximum degree</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
                 <div class="question" data-correct="b">
-                    <div class="question-text">5. Initially, the distance of the source vertex is set to:</div>
+                    <div class="question-text">5. The distance relaxation step checks if:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Current path is shorter than known path</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Path through current vertex gives shorter distance</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> All paths have been found</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Graph contains cycles</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">6. Dijkstra's algorithm uses which approach?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Dynamic programming</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Divide and conquer</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Greedy strategy</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Backtracking</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">7. The space complexity of Dijkstra's algorithm is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> O(1)</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> O(n)</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(m)</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> O(n²)</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">8. Initially, the distance of the source vertex is set to:</div>
                     <div class="options">
                         <div class="option" data-value="a"><span class="option-letter">a)</span> 1</div>
                         <div class="option" data-value="b"><span class="option-letter">b)</span> 0</div>
                         <div class="option" data-value="c"><span class="option-letter">c)</span> ∞</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> -1</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">9. Dijkstra's algorithm terminates when:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> All edges are relaxed</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> All vertices are visited</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Shortest path is found</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Target vertex is reached</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">10. The distance array in Dijkstra's algorithm:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Increases monotonically</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Decreases monotonically</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Never increases once set</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Can increase and decrease</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">11. Dijkstra's algorithm is optimal because:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> It checks all possible paths</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Greedy choice is always correct with non-negative weights</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> It uses dynamic programming</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> It finds maximum spanning tree</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="a">
+                    <div class="question-text">12. For finding shortest path between two specific vertices, Dijkstra's algorithm:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Can terminate early when target is reached</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Must complete full algorithm</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Cannot be used</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Requires modification</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">13. The relaxation operation updates distance if:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> New path is longer</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> New path is shorter</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Vertex is unvisited</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Edge weight is positive</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">14. Dijkstra's algorithm produces:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Single shortest path</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> All shortest paths from source</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Shortest path tree from source</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Minimum spanning tree</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">15. If all edge weights are equal in Dijkstra's algorithm:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Algorithm fails</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Reduces to BFS</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Becomes slower</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Finds MST instead</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">16. The key insight in Dijkstra's algorithm is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> All paths must be checked</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Shortest distance vertex can finalize its distance</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Longest paths are easier to find</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Cycles must be avoided</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
             </div>
 
+
             <!-- Additional Topics Chapter -->
             <div class="chapter" id="additional">
-                <h2 class="chapter-title">Additional Topics</h2>
+                <h2 class="chapter-title">Additional Topics Summary</h2>
+                
+                <div class="chapter-controls">
+                    <button class="reset-chapter" onclick="resetChapter('additional')">🔄 Reset Chapter</button>
+                    <button class="reset-all" onclick="resetAll()">🔄 Reset All Chapters</button>
+                </div>
                 
                 <div class="question" data-correct="b">
                     <div class="question-text">1. The merge operation in merge sort has complexity:</div>
@@ -1035,72 +2225,243 @@
                         <div class="option" data-value="c"><span class="option-letter">c)</span> O(n log n)</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> O(n²)</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">2. When merging two sorted arrays, if one array is exhausted:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Algorithm terminates</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Remaining elements from other array are copied</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Process restarts</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Arrays are swapped</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">3. In array representation of binary trees, parent of node at index 7 is at:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Index 2</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Index 3</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Index 14</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Index 15</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
                 <div class="question" data-correct="c">
-                    <div class="question-text">2. Which sorting algorithm is stable?</div>
+                    <div class="question-text">4. Which sorting algorithm is stable?</div>
                     <div class="options">
                         <div class="option" data-value="a"><span class="option-letter">a)</span> Quick Sort</div>
                         <div class="option" data-value="b"><span class="option-letter">b)</span> Heap Sort</div>
                         <div class="option" data-value="c"><span class="option-letter">c)</span> Merge Sort</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> Selection Sort</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="a">
+                    <div class="question-text">5. For a complete binary tree with 7 nodes, array representation uses:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> 7 positions</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> 8 positions</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> 15 positions</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> 16 positions</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
                 <div class="question" data-correct="c">
-                    <div class="question-text">3. Adjacency matrix is preferred over adjacency list when:</div>
+                    <div class="question-text">6. The worst-case space complexity for array representation of binary tree occurs when:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Tree is complete</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Tree is perfect</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Tree has only right children</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Tree is balanced</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">7. Quick Sort performs best when:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Data is sorted</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Data is reverse sorted</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Data is random</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Data has duplicates</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">8. In Quick Sort, the partitioning step:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Sorts the entire array</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Places pivot in correct position</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Merges two subarrays</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Finds the minimum element</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">9. Adjacency matrix is preferred over adjacency list when:</div>
                     <div class="options">
                         <div class="option" data-value="a"><span class="option-letter">a)</span> Graph is sparse</div>
                         <div class="option" data-value="b"><span class="option-letter">b)</span> Memory is limited</div>
                         <div class="option" data-value="c"><span class="option-letter">c)</span> Frequent edge lookups are needed</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> Graph is unweighted</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">10. The height of a complete binary tree with n nodes is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> n</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> log n</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> ⌊log n⌋</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> n/2</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">11. For graphs, density refers to:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Number of vertices</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Number of edges</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Ratio of actual edges to possible edges</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Maximum vertex degree</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
                 <div class="question" data-correct="b">
-                    <div class="question-text">4. Which algorithm guarantees O(n log n) in all cases?</div>
+                    <div class="question-text">12. Which algorithm guarantees O(n log n) in all cases?</div>
                     <div class="options">
                         <div class="option" data-value="a"><span class="option-letter">a)</span> Quick Sort</div>
                         <div class="option" data-value="b"><span class="option-letter">b)</span> Merge Sort</div>
                         <div class="option" data-value="c"><span class="option-letter">c)</span> Bubble Sort</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> Insertion Sort</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">13. In binary tree array representation, left child of root is at index:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> 0</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> 1</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> 2</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> 3</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
 
                 <div class="question" data-correct="c">
-                    <div class="question-text">5. For MST algorithms, which statement is TRUE?</div>
+                    <div class="question-text">14. The main advantage of Quick Sort over Merge Sort is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Better worst-case complexity</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Stability</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> In-place sorting capability</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Consistent performance</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">15. For MST algorithms, which statement is TRUE?</div>
                     <div class="options">
                         <div class="option" data-value="a"><span class="option-letter">a)</span> Kruskal's is always faster than Prim's</div>
                         <div class="option" data-value="b"><span class="option-letter">b)</span> Both always produce the same MST structure</div>
                         <div class="option" data-value="c"><span class="option-letter">c)</span> Both guarantee minimum total weight</div>
                         <div class="option" data-value="d"><span class="option-letter">d)</span> Prim's requires edge sorting</div>
                     </div>
-                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
                     <div class="result"></div>
                 </div>
-            </div>
-
-            <div class="score-board" id="scoreBoard">
-                <h3>📊 Chapter Progress</h3>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-                <p id="scoreText">Complete questions to see your progress!</p>
             </div>
         </div>
     </div>
 
+
     <script>
+        // Global variables
+        let currentChapter = 'divide-conquer';
         let chapterScores = {};
-        
+        let totalQuestions = 0;
+        let totalCorrect = 0;
+
+        // Initialize scores for all chapters
+        function initializeScores() {
+            const chapters = ['divide-conquer', 'quick-sort', 'graphs', 'trees', 'greedy-mst', 'kruskal', 'prim', 'dijkstra', 'additional'];
+            chapters.forEach(chapter => {
+                chapterScores[chapter] = { correct: 0, total: 0 };
+            });
+        }
+
+        // Show specific chapter
         function showChapter(chapterId) {
             // Hide all chapters
             document.querySelectorAll('.chapter').forEach(chapter => {
@@ -1118,258 +2479,158 @@
             // Add active class to clicked tab
             event.target.classList.add('active');
             
-            // Update score for this chapter
-            updateChapterProgress(chapterId);
+            currentChapter = chapterId;
         }
 
+        // Check answer for a question
         function checkAnswer(button) {
             const question = button.closest('.question');
-            const selectedOption = question.querySelector('.option.selected');
             const correctAnswer = question.dataset.correct;
+            const selectedOption = question.querySelector('.option.selected');
             const result = question.querySelector('.result');
-            const allOptions = question.querySelectorAll('.option');
+            const options = question.querySelectorAll('.option');
             
             if (!selectedOption) {
-                alert('⚠️ Please select an answer first!');
+                alert('Please select an answer first!');
                 return;
             }
             
-            // Disable all options and button
-            allOptions.forEach(option => {
+            const selectedValue = selectedOption.dataset.value;
+            const isCorrect = selectedValue === correctAnswer;
+            
+            // Disable all options
+            options.forEach(option => {
                 option.style.pointerEvents = 'none';
                 if (option.dataset.value === correctAnswer) {
                     option.classList.add('correct');
-                } else if (option.classList.contains('selected') && option.dataset.value !== correctAnswer) {
+                } else if (option.classList.contains('selected') && !isCorrect) {
                     option.classList.add('incorrect');
                 }
             });
             
-            button.disabled = true;
-            
             // Show result
-            if (selectedOption.dataset.value === correctAnswer) {
+            result.style.display = 'block';
+            if (isCorrect) {
+                result.textContent = '✅ Correct! Well done!';
                 result.className = 'result correct';
-                result.style.display = 'block';
-                result.innerHTML = '✅ Excellent! Correct answer! 🎉';
+                updateScore(currentChapter, true);
             } else {
+                result.textContent = `❌ Incorrect. The correct answer is ${correctAnswer.toUpperCase()}.`;
                 result.className = 'result incorrect';
-                result.style.display = 'block';
-                result.innerHTML = `❌ Incorrect. The correct answer is: <strong>${correctAnswer.toUpperCase()}</strong> 💡`;
+                updateScore(currentChapter, false);
             }
             
-            // Update chapter progress
-            const chapterId = question.closest('.chapter').id;
-            updateChapterProgress(chapterId);
+            // Disable buttons
+            button.disabled = true;
+            question.querySelector('.reset-question').disabled = false;
         }
 
-        function updateChapterProgress(chapterId) {
-            const chapter = document.getElementById(chapterId);
-            const totalQuestions = chapter.querySelectorAll('.question').length;
-            const answeredQuestions = chapter.querySelectorAll('.question .result[style*="block"]').length;
-            const correctAnswers = chapter.querySelectorAll('.question .result.correct').length;
-            
-            chapterScores[chapterId] = {
-                total: totalQuestions,
-                answered: answeredQuestions,
-                correct: correctAnswers
-            };
-            
-            // Update overall progress
-            updateOverallProgress();
-        }
-
-        function updateOverallProgress() {
-            let totalQuestions = 0;
-            let totalAnswered = 0;
-            let totalCorrect = 0;
-            
-            Object.values(chapterScores).forEach(score => {
-                totalQuestions += score.total;
-                totalAnswered += score.answered;
-                totalCorrect += score.correct;
-            });
-            
-            const progressPercent = totalQuestions > 0 ? (totalAnswered / totalQuestions) * 100 : 0;
-            const scorePercent = totalAnswered > 0 ? (totalCorrect / totalAnswered) * 100 : 0;
-            
-            document.getElementById('progressFill').style.width = progressPercent + '%';
-            
-            if (totalAnswered > 0) {
-                document.getElementById('scoreBoard').classList.add('show');
-                document.getElementById('scoreText').innerHTML = 
-                    `Progress: ${totalAnswered}/${totalQuestions} questions answered<br>
-                     Score: ${totalCorrect}/${totalAnswered} correct (${scorePercent.toFixed(1)}%)`;
-            }
-        }
-
+        // Reset a single question
         function resetQuestion(button) {
             const question = button.closest('.question');
-            const allOptions = question.querySelectorAll('.option');
+            const options = question.querySelectorAll('.option');
             const result = question.querySelector('.result');
             const checkButton = question.querySelector('.check-answer');
             
-            // Reset all options
-            allOptions.forEach(option => {
+            // Reset options
+            options.forEach(option => {
                 option.classList.remove('selected', 'correct', 'incorrect');
                 option.style.pointerEvents = 'auto';
             });
             
-            // Reset buttons
-            checkButton.disabled = false;
-            
             // Hide result
             result.style.display = 'none';
-            result.className = 'result';
-            result.innerHTML = '';
             
-            // Update chapter progress
-            const chapterId = question.closest('.chapter').id;
-            updateChapterProgress(chapterId);
+            // Reset buttons
+            checkButton.disabled = false;
+            button.disabled = true;
         }
 
+        // Reset entire chapter
         function resetChapter(chapterId) {
-            if (confirm('🔄 Are you sure you want to reset all questions in this chapter?')) {
-                const chapter = document.getElementById(chapterId);
-                const questions = chapter.querySelectorAll('.question');
-                
-                questions.forEach(question => {
-                    const allOptions = question.querySelectorAll('.option');
-                    const result = question.querySelector('.result');
-                    const checkButton = question.querySelector('.check-answer');
-                    
-                    // Reset all options
-                    allOptions.forEach(option => {
-                        option.classList.remove('selected', 'correct', 'incorrect');
-                        option.style.pointerEvents = 'auto';
-                    });
-                    
-                    // Reset buttons
-                    checkButton.disabled = false;
-                    
-                    // Hide result
-                    result.style.display = 'none';
-                    result.className = 'result';
-                    result.innerHTML = '';
-                });
-                
-                // Update progress
-                updateChapterProgress(chapterId);
-            }
+            const chapter = document.getElementById(chapterId);
+            const questions = chapter.querySelectorAll('.question');
+            
+            questions.forEach(question => {
+                const resetButton = question.querySelector('.reset-question');
+                resetQuestion(resetButton);
+            });
+            
+            // Reset chapter score
+            chapterScores[chapterId] = { correct: 0, total: 0 };
+            updateProgressDisplay();
         }
 
+        // Reset all chapters
         function resetAll() {
-            if (confirm('🚨 Are you sure you want to reset ALL questions in ALL chapters? This cannot be undone!')) {
-                // Reset all chapter scores
-                Object.keys(chapterScores).forEach(chapterId => {
-                    chapterScores[chapterId] = {
-                        total: chapterScores[chapterId].total,
-                        answered: 0,
-                        correct: 0
-                    };
-                });
-                
-                // Reset all questions in all chapters
-                document.querySelectorAll('.question').forEach(question => {
-                    const allOptions = question.querySelectorAll('.option');
-                    const result = question.querySelector('.result');
-                    const checkButton = question.querySelector('.check-answer');
-                    
-                    // Reset all options
-                    allOptions.forEach(option => {
-                        option.classList.remove('selected', 'correct', 'incorrect');
-                        option.style.pointerEvents = 'auto';
-                    });
-                    
-                    // Reset buttons
-                    checkButton.disabled = false;
-                    
-                    // Hide result
-                    result.style.display = 'none';
-                    result.className = 'result';
-                    result.innerHTML = '';
-                });
-                
-                // Hide score board
-                document.getElementById('scoreBoard').classList.remove('show');
-                
-                // Update overall progress
-                updateOverallProgress();
-            }
+            const chapters = ['divide-conquer', 'quick-sort', 'graphs', 'trees', 'greedy-mst', 'kruskal', 'prim', 'dijkstra', 'additional'];
+            chapters.forEach(chapterId => {
+                resetChapter(chapterId);
+            });
+            
+            totalQuestions = 0;
+            totalCorrect = 0;
+            initializeScores();
+            updateProgressDisplay();
         }
-        document.addEventListener('click', function(e) {
-            if (e.target.closest('.option')) {
-                const option = e.target.closest('.option');
-                const question = option.closest('.question');
-                const allOptions = question.querySelectorAll('.option');
-                
-                // Check if question is already answered
-                if (question.querySelector('.check-answer').disabled) {
-                    return;
-                }
-                
-                // Remove selected class from all options
-                allOptions.forEach(opt => opt.classList.remove('selected'));
-                
-                // Add selected class to clicked option
-                option.classList.add('selected');
-            }
-        });
 
-        // Initialize progress for all chapters and add reset buttons
+        // Update score for a chapter
+        function updateScore(chapterId, isCorrect) {
+            if (!chapterScores[chapterId]) {
+                chapterScores[chapterId] = { correct: 0, total: 0 };
+            }
+            
+            chapterScores[chapterId].total++;
+            if (isCorrect) {
+                chapterScores[chapterId].correct++;
+            }
+            
+            updateProgressDisplay();
+        }
+
+        // Update progress display
+        function updateProgressDisplay() {
+            totalQuestions = 0;
+            totalCorrect = 0;
+            
+            Object.values(chapterScores).forEach(score => {
+                totalQuestions += score.total;
+                totalCorrect += score.correct;
+            });
+            
+            // You can add a progress bar or score display here if needed
+            console.log(`Total Progress: ${totalCorrect}/${totalQuestions}`);
+        }
+
+        // Handle option selection
+        function selectOption(option) {
+            const question = option.closest('.question');
+            const options = question.querySelectorAll('.option');
+            
+            // Remove selection from all options in this question
+            options.forEach(opt => opt.classList.remove('selected'));
+            
+            // Add selection to clicked option
+            option.classList.add('selected');
+        }
+
+        // Initialize the quiz
         document.addEventListener('DOMContentLoaded', function() {
-            // Add chapter controls to chapters that don't have them
-            document.querySelectorAll('.chapter').forEach(chapter => {
-                const chapterId = chapter.id;
-                const totalQuestions = chapter.querySelectorAll('.question').length;
-                chapterScores[chapterId] = {
-                    total: totalQuestions,
-                    answered: 0,
-                    correct: 0
-                };
-                
-                // Add chapter controls if they don't exist
-                if (!chapter.querySelector('.chapter-controls')) {
-                    const title = chapter.querySelector('.chapter-title');
-                    const controls = document.createElement('div');
-                    controls.className = 'chapter-controls';
-                    controls.innerHTML = `
-                        <button class="reset-chapter" onclick="resetChapter('${chapterId}')">🔄 Reset Chapter</button>
-                        <button class="reset-all" onclick="resetAll()">🔄 Reset All Chapters</button>
-                    `;
-                    title.after(controls);
-                }
-                
-                // Add question buttons if they don't exist
-                chapter.querySelectorAll('.question').forEach(question => {
-                    if (!question.querySelector('.question-buttons')) {
-                        const checkButton = question.querySelector('.check-answer');
-                        if (checkButton) {
-                            const buttonContainer = document.createElement('div');
-                            buttonContainer.className = 'question-buttons';
-                            
-                            const resetButton = document.createElement('button');
-                            resetButton.className = 'reset-question';
-                            resetButton.textContent = 'Reset';
-                            resetButton.onclick = function() { resetQuestion(this); };
-                            
-                            checkButton.style.display = 'none'; // Hide old button
-                            
-                            const newCheckButton = document.createElement('button');
-                            newCheckButton.className = 'check-answer';
-                            newCheckButton.textContent = 'Check Answer';
-                            newCheckButton.onclick = function() { checkAnswer(this); };
-                            
-                            buttonContainer.appendChild(newCheckButton);
-                            buttonContainer.appendChild(resetButton);
-                            
-                            const result = question.querySelector('.result');
-                            result.before(buttonContainer);
-                        }
-                    }
+            initializeScores();
+            
+            // Add click handlers to all options
+            document.querySelectorAll('.option').forEach(option => {
+                option.addEventListener('click', function() {
+                    selectOption(this);
                 });
             });
-            updateOverallProgress();
+            
+            // Disable all reset question buttons initially
+            document.querySelectorAll('.reset-question').forEach(button => {
+                button.disabled = true;
+            });
         });
     </script>
 </body>
 </html>
+
