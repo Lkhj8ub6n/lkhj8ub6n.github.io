@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithms Quiz - Data Structures & Algorithms</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #295340 0%, #dddcea 100%);
+            min-height: 100vh;
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: #295340;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .tabs {
+            display: flex;
+            overflow-x: auto;
+            background: #dddcea;
+            padding: 0 10px;
+            scrollbar-width: thin;
+        }
+
+        .tabs::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .tabs::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .tabs::-webkit-scrollbar-thumb {
+            background: #295340;
+            border-radius: 2px;
+        }
+
+        .tab {
+            background: transparent;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #295340;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            min-width: max-content;
+        }
+
+        .tab:hover {
+            background: rgba(41, 83, 64, 0.1);
+        }
+
+        .tab.active {
+            background: white;
+            border-bottom-color: #295340;
+            font-weight: 600;
+        }
+
+        .quiz-content {
+            padding: 20px;
+            min-height: 70vh;
+        }
+
+        .chapter {
+            display: none;
+        }
+
+        .chapter.active {
+            display: block;
+        }
+
+        .chapter-title {
+            color: #295340;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #dddcea;
+        }
+
+        .question {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid #295340;
+            transition: all 0.3s ease;
+        }
+
+        .question:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .question-text {
+            font-weight: 600;
+            color: #295340;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+
+        .options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .option {
+            background: white;
+            border: 2px solid #dddcea;
+            border-radius: 10px;
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .option:hover {
+            border-color: #295340;
+            background: #f0f8f4;
+        }
+
+        .option.selected {
+            border-color: #295340;
+            background: #295340;
+            color: white;
+        }
+
+        .option.correct {
+            border-color: #28a745;
+            background: #28a745;
+            color: white;
+        }
+
+        .option.incorrect {
+            border-color: #dc3545;
+            background: #dc3545;
+            color: white;
+        }
+
+        .option-letter {
+            font-weight: bold;
+            margin-right: 10px;
+            min-width: 20px;
+        }
+
+        .question-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .check-answer, .reset-question {
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .check-answer {
+            background: #295340;
+            color: white;
+        }
+
+        .check-answer:hover {
+            background: #1e3d2f;
+            transform: translateY(-2px);
+        }
+
+        .check-answer:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .reset-question {
+            background: #dc3545;
+            color: white;
+        }
+
+        .reset-question:hover {
+            background: #c82333;
+            transform: translateY(-2px);
+        }
+
+        .reset-question:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .result {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-align: center;
+            display: none;
+        }
+
+        .result.correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .result.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .chapter-controls {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #295340;
+        }
+
+        .reset-chapter, .reset-all {
+            background: #ffc107;
+            color: #212529;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .reset-chapter:hover, .reset-all:hover {
+            background: #e0a800;
+            transform: translateY(-2px);
+        }
+
+        .reset-all {
+            background: #17a2b8;
+            color: white;
+        }
+
+        .reset-all:hover {
+            background: #138496;
+        }
+
+        .score-board {
+            background: #295340;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 15px;
+            display: none;
+        }
+
+        .score-board.show {
+            display: block;
+        }
+
+        .progress-bar {
+            background: #dddcea;
+            height: 6px;
+            border-radius: 3px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: #295340;
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+                border-radius: 0;
+                min-height: 100vh;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .tabs {
+                padding: 0 5px;
+            }
+
+            .tab {
+                padding: 12px 15px;
+                font-size: 0.8rem;
+            }
+
+            .quiz-content {
+                padding: 15px;
+            }
+
+            .question {
+                padding: 15px;
+            }
+
+            .question-text {
+                font-size: 0.95rem;
+            }
+
+            .option {
+                padding: 10px 12px;
+                font-size: 0.85rem;
+            }
+
+            .question-buttons {
+                flex-direction: column;
+            }
+
+            .check-answer, .reset-question {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+
+            .chapter-controls {
+                flex-direction: column;
+            }
+
+            .reset-chapter, .reset-all {
+                padding: 8px 15px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 0;
+            }
+
+            .header {
+                padding: 15px;
+            }
+
+            .header h1 {
+                font-size: 1.3rem;
+            }
+
+            .quiz-content {
+                padding: 10px;
+            }
+
+            .question {
+                padding: 12px;
+            }
+
+            .tab {
+                padding: 10px 12px;
+                font-size: 0.75rem;
+            }
+
+            .check-answer, .reset-question {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+
+            .reset-chapter, .reset-all {
+                padding: 6px 10px;
+                font-size: 0.75rem;
+            }
+
+            .chapter-controls {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Algorithms Quiz</h1>
+            <p>Data Structures & Algorithms - Practice Questions</p>
+        </div>
+
+        <div class="tabs" id="tabContainer">
+            <button class="tab active" onclick="showChapter('divide-conquer')">Divide & Conquer</button>
+            <button class="tab" onclick="showChapter('quick-sort')">Quick Sort</button>
+            <button class="tab" onclick="showChapter('graphs')">Graphs Intro</button>
+            <button class="tab" onclick="showChapter('trees')">Trees</button>
+            <button class="tab" onclick="showChapter('greedy-mst')">Greedy MST</button>
+            <button class="tab" onclick="showChapter('kruskal')">Kruskal's</button>
+            <button class="tab" onclick="showChapter('prim')">Prim's</button>
+            <button class="tab" onclick="showChapter('dijkstra')">Dijkstra's</button>
+            <button class="tab" onclick="showChapter('additional')">Additional Topics</button>
+        </div>
+
+        <div class="quiz-content">
+            <!-- Divide and Conquer Chapter -->
+            <div class="chapter active" id="divide-conquer">
+                <h2 class="chapter-title">Divide and Conquer - Merge Sort</h2>
+                
+                <div class="chapter-controls">
+                    <button class="reset-chapter" onclick="resetChapter('divide-conquer')">🔄 Reset Chapter</button>
+                    <button class="reset-all" onclick="resetAll()">🔄 Reset All Chapters</button>
+                </div>
+                
+                <div class="question" data-correct="b">
+                    <div class="question-text">1. What is the time complexity of Merge Sort in the worst case?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> O(n)</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> O(n log n)</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(n²)</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> O(log n)</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">2. The recurrence relation for Merge Sort is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> T(n) = T(n-1) + n</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> T(n) = 2T(n/2) + n</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> T(n) = T(n/2) + 1</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> T(n) = nT(n/2) + 1</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">3. Merge Sort follows which strategy?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Top-down divide and conquer</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Bottom-up divide and conquer</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Greedy approach</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Dynamic programming</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">4. What is the space complexity of Merge Sort?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> O(1)</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> O(log n)</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(n)</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> O(n²)</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">5. Which of the following is TRUE about Merge Sort?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> It is an in-place sorting algorithm</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> It has different complexities for best and worst cases</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> It is a stable sorting algorithm</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> It uses less memory than Quick Sort</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+            </div>
+
+            <!-- Quick Sort Chapter -->
+            <div class="chapter" id="quick-sort">
+                <h2 class="chapter-title">Quick Sort Algorithm</h2>
+                
+                <div class="chapter-controls">
+                    <button class="reset-chapter" onclick="resetChapter('quick-sort')">🔄 Reset Chapter</button>
+                    <button class="reset-all" onclick="resetAll()">🔄 Reset All Chapters</button>
+                </div>
+                
+                <div class="question" data-correct="c">
+                    <div class="question-text">1. What is the worst-case time complexity of Quick Sort?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> O(n log n)</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> O(n)</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(n²)</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> O(log n)</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">2. Quick Sort uses which divide and conquer strategy?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Bottom-up</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Top-down</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Both top-down and bottom-up</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Neither</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="d">
+                    <div class="question-text">3. When does Quick Sort perform worst?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Random data</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Nearly sorted data</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Reverse sorted data</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Both b and c</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">4. The partitioning step in Quick Sort has time complexity:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> O(1)</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> O(log n)</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(n)</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> O(n log n)</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">5. Quick Sort is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Stable and in-place</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Stable but not in-place</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Not stable but in-place</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Neither stable nor in-place</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+            </div>
+
+            <!-- Graphs Chapter -->
+            <div class="chapter" id="graphs">
+                <h2 class="chapter-title">Introduction to Graphs</h2>
+                
+                <div class="chapter-controls">
+                    <button class="reset-chapter" onclick="resetChapter('graphs')">🔄 Reset Chapter</button>
+                    <button class="reset-all" onclick="resetAll()">🔄 Reset All Chapters</button>
+                </div>
+                
+                <div class="question" data-correct="c">
+                    <div class="question-text">1. A graph is defined as:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> A set of nodes only</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> A set of edges only</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> A set of nodes and edges connecting them</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> A tree with cycles</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">2. The space complexity of adjacency matrix representation is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> O(n)</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> O(n log n)</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(n²)</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> O(n³)</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">3. Which representation is better for sparse graphs?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Adjacency matrix</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Adjacency list</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Incidence matrix</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Both a and c</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="a">
+                    <div class="question-text">4. The time complexity to check if an edge exists in adjacency matrix is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> O(1)</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> O(n)</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(log n)</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> O(n²)</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">5. A weighted graph has:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Directed edges only</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Undirected edges only</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Values associated with edges</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> No cycles</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+            </div>
+
+            <!-- Trees Chapter -->
+            <div class="chapter" id="trees">
+                <h2 class="chapter-title">Trees</h2>
+                
+                <div class="chapter-controls">
+                    <button class="reset-chapter" onclick="resetChapter('trees')">🔄 Reset Chapter</button>
+                    <button class="reset-all" onclick="resetAll()">🔄 Reset All Chapters</button>
+                </div>
+                
+                <div class="question" data-correct="b">
+                    <div class="question-text">1. A tree is defined as:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> A connected graph with cycles</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> A connected graph with no cycles</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> A disconnected graph</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> A graph with exactly n-1 edges</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">2. A perfect binary tree with height 3 has how many nodes?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> 7</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> 8</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> 15</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> 16</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">3. In array representation of binary tree, the parent of node at index 5 is at index:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> 1</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> 2</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> 3</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> 10</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">4. Which is true about a full binary tree?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> All leaf nodes are at the same level</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Every node has exactly 0 or 2 children</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> The tree is completely filled</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> It has 2^k nodes</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">5. The worst-case space complexity for array representation of binary tree is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> O(n)</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> O(n log n)</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(2^n)</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> O(n²)</div>
+                    </div>
+                    <div class="question-buttons">
+                        <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                        <button class="reset-question" onclick="resetQuestion(this)">Reset</button>
+                    </div>
+                    <div class="result"></div>
+                </div>
+            </div>
+
+            <!-- Greedy MST Chapter -->
+            <div class="chapter" id="greedy-mst">
+                <h2 class="chapter-title">Greedy Algorithms - MST</h2>
+                
+                <div class="chapter-controls">
+                    <button class="reset-chapter" onclick="resetChapter('greedy-mst')">🔄 Reset Chapter</button>
+                    <button class="reset-all" onclick="resetAll()">🔄 Reset All Chapters</button>
+                </div>
+                
+                <div class="question" data-correct="b">
+                    <div class="question-text">1. The MST problem aims to find:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> The shortest path between two nodes</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> A tree that spans all nodes with minimum total weight</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> The maximum spanning tree</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> A tree with maximum number of edges</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">2. A spanning tree of a graph with n vertices has exactly:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> n edges</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> n-1 edges</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> n+1 edges</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> 2n edges</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">3. Greedy design strategy:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Always finds global optimum</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Makes locally optimal choices</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Requires dynamic programming</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Never works for MST</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">4. A graph can have:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Only one MST</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> At most two MSTs</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Multiple MSTs with same weight</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> No MST if it has cycles</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="a">
+                    <div class="question-text">5. MST algorithms include:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Kruskal's and Prim's</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Dijkstra's only</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> DFS and BFS</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Quick Sort and Merge Sort</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+            </div>
+
+            <!-- Kruskal Chapter -->
+            <div class="chapter" id="kruskal">
+                <h2 class="chapter-title">Kruskal's Algorithm</h2>
+                
+                <div class="question" data-correct="b">
+                    <div class="question-text">1. Kruskal's algorithm is best suited for:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Dense graphs</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Sparse graphs</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Directed graphs</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Disconnected graphs</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">2. The first step in Kruskal's algorithm is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Select a starting vertex</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Sort all edges by weight</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Find the minimum edge</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Check for cycles</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">3. Kruskal's algorithm stops when:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> All edges are processed</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> A cycle is detected</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> n-1 edges are selected</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> All vertices are visited</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">4. The time complexity of Kruskal's algorithm is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> O(n)</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> O(n log n)</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(m log m)</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> O(n²)</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">5. In Kruskal's algorithm, an edge is rejected if:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> It has maximum weight</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> It creates a cycle</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> It's already in the MST</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> It connects two visited vertices</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+            </div>
+
+            <!-- Prim Chapter -->
+            <div class="chapter" id="prim">
+                <h2 class="chapter-title">Prim's Algorithm</h2>
+                
+                <div class="question" data-correct="b">
+                    <div class="question-text">1. Prim's algorithm is best suited for:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Sparse graphs</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Dense graphs</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Directed graphs</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Disconnected graphs</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">2. Prim's algorithm starts with:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> All vertices</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> All edges</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> A single arbitrary vertex</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> The minimum weight edge</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">3. The time complexity of Prim's algorithm is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> O(n)</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> O(n log n)</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(n²)</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> O(m log m)</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">4. In each step, Prim's algorithm adds:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> The minimum weight edge in the graph</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> The minimum weight edge connecting tree to non-tree vertex</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Any edge that doesn't create a cycle</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> The maximum weight edge</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">5. Prim's algorithm is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Edge-based</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Vertex-based</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Path-based</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Level-based</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+            </div>
+
+            <!-- Dijkstra Chapter -->
+            <div class="chapter" id="dijkstra">
+                <h2 class="chapter-title">Dijkstra's Algorithm</h2>
+                
+                <div class="question" data-correct="b">
+                    <div class="question-text">1. Dijkstra's algorithm finds:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Minimum spanning tree</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Shortest paths from single source to all vertices</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Maximum flow in network</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Strongly connected components</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">2. Dijkstra's algorithm does NOT work with:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Weighted graphs</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Directed graphs</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Negative edge weights</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Dense graphs</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">3. The time complexity of Dijkstra's algorithm is:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> O(n)</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> O(n log n)</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(n²)</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> O(n³)</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">4. In each iteration, Dijkstra's algorithm selects:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Maximum weight edge</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Unvisited vertex with minimum distance</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Random unvisited vertex</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Vertex with maximum degree</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">5. Initially, the distance of the source vertex is set to:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> 1</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> 0</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> ∞</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> -1</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+            </div>
+
+            <!-- Additional Topics Chapter -->
+            <div class="chapter" id="additional">
+                <h2 class="chapter-title">Additional Topics</h2>
+                
+                <div class="question" data-correct="b">
+                    <div class="question-text">1. The merge operation in merge sort has complexity:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> O(log n)</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> O(n)</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> O(n log n)</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> O(n²)</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">2. Which sorting algorithm is stable?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Quick Sort</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Heap Sort</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Merge Sort</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Selection Sort</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">3. Adjacency matrix is preferred over adjacency list when:</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Graph is sparse</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Memory is limited</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Frequent edge lookups are needed</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Graph is unweighted</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="b">
+                    <div class="question-text">4. Which algorithm guarantees O(n log n) in all cases?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Quick Sort</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Merge Sort</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Bubble Sort</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Insertion Sort</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+
+                <div class="question" data-correct="c">
+                    <div class="question-text">5. For MST algorithms, which statement is TRUE?</div>
+                    <div class="options">
+                        <div class="option" data-value="a"><span class="option-letter">a)</span> Kruskal's is always faster than Prim's</div>
+                        <div class="option" data-value="b"><span class="option-letter">b)</span> Both always produce the same MST structure</div>
+                        <div class="option" data-value="c"><span class="option-letter">c)</span> Both guarantee minimum total weight</div>
+                        <div class="option" data-value="d"><span class="option-letter">d)</span> Prim's requires edge sorting</div>
+                    </div>
+                    <button class="check-answer" onclick="checkAnswer(this)">Check Answer</button>
+                    <div class="result"></div>
+                </div>
+            </div>
+
+            <div class="score-board" id="scoreBoard">
+                <h3>📊 Chapter Progress</h3>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p id="scoreText">Complete questions to see your progress!</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let chapterScores = {};
+        
+        function showChapter(chapterId) {
+            // Hide all chapters
+            document.querySelectorAll('.chapter').forEach(chapter => {
+                chapter.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected chapter
+            document.getElementById(chapterId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            // Update score for this chapter
+            updateChapterProgress(chapterId);
+        }
+
+        function checkAnswer(button) {
+            const question = button.closest('.question');
+            const selectedOption = question.querySelector('.option.selected');
+            const correctAnswer = question.dataset.correct;
+            const result = question.querySelector('.result');
+            const allOptions = question.querySelectorAll('.option');
+            
+            if (!selectedOption) {
+                alert('⚠️ Please select an answer first!');
+                return;
+            }
+            
+            // Disable all options and button
+            allOptions.forEach(option => {
+                option.style.pointerEvents = 'none';
+                if (option.dataset.value === correctAnswer) {
+                    option.classList.add('correct');
+                } else if (option.classList.contains('selected') && option.dataset.value !== correctAnswer) {
+                    option.classList.add('incorrect');
+                }
+            });
+            
+            button.disabled = true;
+            
+            // Show result
+            if (selectedOption.dataset.value === correctAnswer) {
+                result.className = 'result correct';
+                result.style.display = 'block';
+                result.innerHTML = '✅ Excellent! Correct answer! 🎉';
+            } else {
+                result.className = 'result incorrect';
+                result.style.display = 'block';
+                result.innerHTML = `❌ Incorrect. The correct answer is: <strong>${correctAnswer.toUpperCase()}</strong> 💡`;
+            }
+            
+            // Update chapter progress
+            const chapterId = question.closest('.chapter').id;
+            updateChapterProgress(chapterId);
+        }
+
+        function updateChapterProgress(chapterId) {
+            const chapter = document.getElementById(chapterId);
+            const totalQuestions = chapter.querySelectorAll('.question').length;
+            const answeredQuestions = chapter.querySelectorAll('.question .result[style*="block"]').length;
+            const correctAnswers = chapter.querySelectorAll('.question .result.correct').length;
+            
+            chapterScores[chapterId] = {
+                total: totalQuestions,
+                answered: answeredQuestions,
+                correct: correctAnswers
+            };
+            
+            // Update overall progress
+            updateOverallProgress();
+        }
+
+        function updateOverallProgress() {
+            let totalQuestions = 0;
+            let totalAnswered = 0;
+            let totalCorrect = 0;
+            
+            Object.values(chapterScores).forEach(score => {
+                totalQuestions += score.total;
+                totalAnswered += score.answered;
+                totalCorrect += score.correct;
+            });
+            
+            const progressPercent = totalQuestions > 0 ? (totalAnswered / totalQuestions) * 100 : 0;
+            const scorePercent = totalAnswered > 0 ? (totalCorrect / totalAnswered) * 100 : 0;
+            
+            document.getElementById('progressFill').style.width = progressPercent + '%';
+            
+            if (totalAnswered > 0) {
+                document.getElementById('scoreBoard').classList.add('show');
+                document.getElementById('scoreText').innerHTML = 
+                    `Progress: ${totalAnswered}/${totalQuestions} questions answered<br>
+                     Score: ${totalCorrect}/${totalAnswered} correct (${scorePercent.toFixed(1)}%)`;
+            }
+        }
+
+        function resetQuestion(button) {
+            const question = button.closest('.question');
+            const allOptions = question.querySelectorAll('.option');
+            const result = question.querySelector('.result');
+            const checkButton = question.querySelector('.check-answer');
+            
+            // Reset all options
+            allOptions.forEach(option => {
+                option.classList.remove('selected', 'correct', 'incorrect');
+                option.style.pointerEvents = 'auto';
+            });
+            
+            // Reset buttons
+            checkButton.disabled = false;
+            
+            // Hide result
+            result.style.display = 'none';
+            result.className = 'result';
+            result.innerHTML = '';
+            
+            // Update chapter progress
+            const chapterId = question.closest('.chapter').id;
+            updateChapterProgress(chapterId);
+        }
+
+        function resetChapter(chapterId) {
+            if (confirm('🔄 Are you sure you want to reset all questions in this chapter?')) {
+                const chapter = document.getElementById(chapterId);
+                const questions = chapter.querySelectorAll('.question');
+                
+                questions.forEach(question => {
+                    const allOptions = question.querySelectorAll('.option');
+                    const result = question.querySelector('.result');
+                    const checkButton = question.querySelector('.check-answer');
+                    
+                    // Reset all options
+                    allOptions.forEach(option => {
+                        option.classList.remove('selected', 'correct', 'incorrect');
+                        option.style.pointerEvents = 'auto';
+                    });
+                    
+                    // Reset buttons
+                    checkButton.disabled = false;
+                    
+                    // Hide result
+                    result.style.display = 'none';
+                    result.className = 'result';
+                    result.innerHTML = '';
+                });
+                
+                // Update progress
+                updateChapterProgress(chapterId);
+            }
+        }
+
+        function resetAll() {
+            if (confirm('🚨 Are you sure you want to reset ALL questions in ALL chapters? This cannot be undone!')) {
+                // Reset all chapter scores
+                Object.keys(chapterScores).forEach(chapterId => {
+                    chapterScores[chapterId] = {
+                        total: chapterScores[chapterId].total,
+                        answered: 0,
+                        correct: 0
+                    };
+                });
+                
+                // Reset all questions in all chapters
+                document.querySelectorAll('.question').forEach(question => {
+                    const allOptions = question.querySelectorAll('.option');
+                    const result = question.querySelector('.result');
+                    const checkButton = question.querySelector('.check-answer');
+                    
+                    // Reset all options
+                    allOptions.forEach(option => {
+                        option.classList.remove('selected', 'correct', 'incorrect');
+                        option.style.pointerEvents = 'auto';
+                    });
+                    
+                    // Reset buttons
+                    checkButton.disabled = false;
+                    
+                    // Hide result
+                    result.style.display = 'none';
+                    result.className = 'result';
+                    result.innerHTML = '';
+                });
+                
+                // Hide score board
+                document.getElementById('scoreBoard').classList.remove('show');
+                
+                // Update overall progress
+                updateOverallProgress();
+            }
+        }
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.option')) {
+                const option = e.target.closest('.option');
+                const question = option.closest('.question');
+                const allOptions = question.querySelectorAll('.option');
+                
+                // Check if question is already answered
+                if (question.querySelector('.check-answer').disabled) {
+                    return;
+                }
+                
+                // Remove selected class from all options
+                allOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selected class to clicked option
+                option.classList.add('selected');
+            }
+        });
+
+        // Initialize progress for all chapters and add reset buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add chapter controls to chapters that don't have them
+            document.querySelectorAll('.chapter').forEach(chapter => {
+                const chapterId = chapter.id;
+                const totalQuestions = chapter.querySelectorAll('.question').length;
+                chapterScores[chapterId] = {
+                    total: totalQuestions,
+                    answered: 0,
+                    correct: 0
+                };
+                
+                // Add chapter controls if they don't exist
+                if (!chapter.querySelector('.chapter-controls')) {
+                    const title = chapter.querySelector('.chapter-title');
+                    const controls = document.createElement('div');
+                    controls.className = 'chapter-controls';
+                    controls.innerHTML = `
+                        <button class="reset-chapter" onclick="resetChapter('${chapterId}')">🔄 Reset Chapter</button>
+                        <button class="reset-all" onclick="resetAll()">🔄 Reset All Chapters</button>
+                    `;
+                    title.after(controls);
+                }
+                
+                // Add question buttons if they don't exist
+                chapter.querySelectorAll('.question').forEach(question => {
+                    if (!question.querySelector('.question-buttons')) {
+                        const checkButton = question.querySelector('.check-answer');
+                        if (checkButton) {
+                            const buttonContainer = document.createElement('div');
+                            buttonContainer.className = 'question-buttons';
+                            
+                            const resetButton = document.createElement('button');
+                            resetButton.className = 'reset-question';
+                            resetButton.textContent = 'Reset';
+                            resetButton.onclick = function() { resetQuestion(this); };
+                            
+                            checkButton.style.display = 'none'; // Hide old button
+                            
+                            const newCheckButton = document.createElement('button');
+                            newCheckButton.className = 'check-answer';
+                            newCheckButton.textContent = 'Check Answer';
+                            newCheckButton.onclick = function() { checkAnswer(this); };
+                            
+                            buttonContainer.appendChild(newCheckButton);
+                            buttonContainer.appendChild(resetButton);
+                            
+                            const result = question.querySelector('.result');
+                            result.before(buttonContainer);
+                        }
+                    }
+                });
+            });
+            updateOverallProgress();
+        });
+    </script>
+</body>
+</html>
