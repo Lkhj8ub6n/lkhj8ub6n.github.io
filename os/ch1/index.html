@@ -1,0 +1,3069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operating System Concepts - Chapter 1 Enhanced Interactive Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: linear-gradient(135deg, #295340 0%, #1e3d30 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+            background: #ffffff;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(41, 83, 64, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #295340 0%, #1e3d30 100%);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(41, 83, 64, 0.1);
+        }
+
+        .nav-btn {
+            padding: 10px 16px;
+            background: #295340;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 13px;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(41, 83, 64, 0.3);
+            background: #1e3d30;
+        }
+
+        .nav-btn.active {
+            background: #1e3d30;
+            box-shadow: 0 5px 15px rgba(41, 83, 64, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .progress-container {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 25px;
+            background: #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 15px 0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #295340 0%, #1e3d30 100%);
+            width: 0%;
+            transition: width 0.8s ease;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .score-display {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #295340;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .achievements {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .achievement {
+            background: #295340;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            opacity: 0.3;
+            transition: all 0.3s ease;
+        }
+
+        .achievement.unlocked {
+            opacity: 1;
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .topic-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(41, 83, 64, 0.1);
+            border-left: 5px solid #295340;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #295340 0%, #1e3d30 100%);
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(41, 83, 64, 0.15);
+        }
+
+        .topic-title {
+            font-size: 1.7em;
+            color: #295340;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .topic-title::before {
+            content: '🖥️';
+            margin-right: 10px;
+            font-size: 0.8em;
+        }
+
+        /* Enhanced highlight styles */
+        .highlight {
+            background: linear-gradient(120deg, #fff3cd 0%, #ffeaa7 100%);
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #295340;
+            border: 2px solid #f39c12;
+            box-shadow: 0 2px 8px rgba(243, 156, 18, 0.3);
+            display: inline-block;
+            margin: 2px;
+            position: relative;
+        }
+
+        .highlight::before {
+            content: '⭐';
+            margin-right: 5px;
+        }
+
+        .super-important {
+            background: linear-gradient(120deg, #ff6b6b 0%, #ee5a52 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 12px rgba(238, 90, 82, 0.4);
+            display: inline-block;
+            margin: 4px;
+            animation: pulse 2s infinite;
+        }
+
+        .super-important::before {
+            content: '🔥';
+            margin-right: 8px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border: 3px solid #4caf50;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.2);
+        }
+
+        .definition-box::before {
+            content: '📖 تعريف مهم';
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #4caf50;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .key-concept {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 3px solid #2196f3;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.2);
+        }
+
+        .key-concept::before {
+            content: '🔑 مفهوم أساسي';
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #2196f3;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .english-content {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 4px solid #295340;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(41, 83, 64, 0.1);
+        }
+
+        .english-content::before {
+            content: '🇺🇸 English';
+            position: absolute;
+            top: -12px;
+            left: 15px;
+            background: #295340;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .arabic-explanation {
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-right: 4px solid #295340;
+            direction: rtl;
+            text-align: right;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(41, 83, 64, 0.1);
+        }
+
+        .arabic-explanation::before {
+            content: '🇸🇦 العربية';
+            position: absolute;
+            top: -12px;
+            right: 15px;
+            background: #295340;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        /* Enhanced important points styling */
+        .important-point {
+            background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
+            border: 2px solid #ff9800;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            position: relative;
+            box-shadow: 0 6px 16px rgba(255, 152, 0, 0.3);
+        }
+
+        .important-point::before {
+            content: '💡';
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            background: #ff9800;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+            font-size: 1.2em;
+        }
+
+        .memory-tip {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border: 2px solid #9c27b0;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            position: relative;
+            box-shadow: 0 6px 16px rgba(156, 39, 176, 0.3);
+        }
+
+        .memory-tip::before {
+            content: '🧠 نصيحة للحفظ';
+            position: absolute;
+            top: -12px;
+            right: 15px;
+            background: #9c27b0;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .quiz-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid #295340;
+            position: relative;
+        }
+
+        .quiz-section::before {
+            content: '🎯 Quiz Time';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #295340;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .quiz-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(41, 83, 64, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .quiz-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(41, 83, 64, 0.15);
+        }
+
+        .question {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #295340;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .question-type {
+            background: #295340;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            margin-right: 10px;
+            margin-bottom: 5px;
+        }
+
+        .options {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .option {
+            padding: 12px 20px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(41, 83, 64, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .option:hover::before {
+            left: 100%;
+        }
+
+        .option:hover {
+            border-color: #295340;
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(41, 83, 64, 0.1);
+        }
+
+        .option.selected {
+            border-color: #295340;
+            background: #e8f5e9;
+        }
+
+        .option.correct {
+            border-color: #4caf50;
+            background: #e8f5e8;
+            animation: correctPulse 0.5s ease;
+        }
+
+        .option.incorrect {
+            border-color: #f44336;
+            background: #ffebee;
+            animation: incorrectShake 0.5s ease;
+        }
+
+        @keyframes correctPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes incorrectShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .true-false {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tf-option {
+            flex: 1;
+            max-width: 200px;
+            min-width: 120px;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tf-true {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+            color: #2e7d32;
+        }
+
+        .tf-false {
+            background: #ffebee;
+            border: 2px solid #f44336;
+            color: #c62828;
+        }
+
+        .tf-option:hover {
+            transform: scale(1.05);
+        }
+
+        .tf-option.selected {
+            box-shadow: 0 0 20px rgba(41, 83, 64, 0.3);
+        }
+
+        .fill-blank {
+            background: #f8f9fa;
+            border: 2px dashed #295340;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 0 5px;
+            min-width: 100px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .fill-blank input {
+            border: none;
+            background: transparent;
+            text-align: center;
+            font-weight: bold;
+            color: #295340;
+            width: 100%;
+        }
+
+        .result {
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .result.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .result.correct {
+            background: #e8f5e8;
+            color: #2e7d32;
+            border: 2px solid #4caf50;
+        }
+
+        .result.incorrect {
+            background: #ffebee;
+            color: #c62828;
+            border: 2px solid #f44336;
+        }
+
+        .quiz-btn {
+            background: #295340;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .quiz-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .quiz-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(41, 83, 64, 0.3);
+            background: #1e3d30;
+        }
+
+        .key-points {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border: 2px solid #295340;
+            box-shadow: 0 4px 12px rgba(41, 83, 64, 0.1);
+        }
+
+        .key-points h4 {
+            color: #295340;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .key-points ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .key-points li {
+            margin: 12px 0;
+            position: relative;
+            padding-left: 30px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(41, 83, 64, 0.1);
+        }
+
+        .key-points li::before {
+            content: '✅';
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid #295340;
+            box-shadow: 0 8px 20px rgba(41, 83, 64, 0.1);
+        }
+
+        .diagram {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border: 3px solid #295340;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 15px 0;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(41, 83, 64, 0.1);
+        }
+
+        .collapsible {
+            cursor: pointer;
+            padding: 15px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            margin: 15px 0;
+            transition: all 0.3s ease;
+            border: 2px solid #295340;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(41, 83, 64, 0.1);
+        }
+
+        .collapsible::after {
+            content: '▼';
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+            font-size: 1.2em;
+            color: #295340;
+        }
+
+        .collapsible.active::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .collapsible:hover {
+            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(41, 83, 64, 0.15);
+        }
+
+        .collapsible-content {
+            display: none;
+            padding: 20px;
+            border-top: 2px solid #295340;
+            background: white;
+            border-radius: 0 0 12px 12px;
+            box-shadow: 0 4px 12px rgba(41, 83, 64, 0.1);
+        }
+
+        .collapsible.active + .collapsible-content {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; max-height: 0; }
+            to { opacity: 1; max-height: 500px; }
+        }
+
+        .important {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 3px solid #f39c12;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.3);
+        }
+
+        .important::before {
+            content: '⚠️ مهم جداً';
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #f39c12;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .definition {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border: 3px solid #4caf50;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .english-text {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #295340;
+            box-shadow: 0 4px 12px rgba(41, 83, 64, 0.1);
+        }
+
+        .arabic-text {
+            direction: rtl;
+            text-align: right;
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-right: 4px solid #295340;
+            box-shadow: 0 4px 12px rgba(41, 83, 64, 0.1);
+        }
+
+        .stats-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(41, 83, 64, 0.1);
+            border: 2px solid #295340;
+        }
+
+        .stats-number {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #295340;
+        }
+
+        .stats-label {
+            color: #666;
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        .quiz-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        /* Enhanced mobile responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                margin: 5px;
+                padding: 10px;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .header p {
+                font-size: 1em;
+            }
+            
+            .nav-menu {
+                gap: 5px;
+                padding: 10px;
+            }
+            
+            .nav-btn {
+                padding: 8px 12px;
+                font-size: 11px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .score-display {
+                flex-direction: column;
+                gap: 10px;
+                font-size: 1.1em;
+            }
+
+            .topic-card {
+                padding: 15px;
+            }
+
+            .topic-title {
+                font-size: 1.4em;
+                flex-wrap: wrap;
+            }
+
+            .english-content, .arabic-explanation {
+                padding: 15px;
+            }
+
+            .quiz-container {
+                padding: 15px;
+            }
+
+            .question {
+                font-size: 1em;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .question-type {
+                margin-bottom: 10px;
+            }
+
+            .true-false {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .tf-option {
+                max-width: 100%;
+            }
+
+            .achievements {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .achievement {
+                width: 100%;
+                max-width: 200px;
+                text-align: center;
+            }
+
+            .quiz-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .stats-card {
+                padding: 15px;
+            }
+
+            .stats-number {
+                font-size: 1.8em;
+            }
+
+            .collapsible {
+                padding: 12px;
+            }
+
+            .important, .definition-box, .key-concept {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin: 2px;
+                padding: 8px;
+            }
+
+            .nav-menu {
+                padding: 8px;
+            }
+
+            .nav-btn {
+                padding: 6px 10px;
+                font-size: 10px;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .topic-title {
+                font-size: 1.2em;
+            }
+
+            .quiz-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .progress-container {
+                padding: 15px;
+            }
+
+            .score-display {
+                font-size: 1em;
+            }
+        }
+
+        /* Enhanced visual separators */
+        .visual-separator {
+            height: 4px;
+            background: linear-gradient(90deg, transparent 0%, #295340 20%, #1e3d30 50%, #295340 80%, transparent 100%);
+            margin: 25px 0;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .visual-separator::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: #295340;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(41, 83, 64, 0.5);
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #295340 50%, transparent 100%);
+            margin: 20px 0;
+            border-radius: 1px;
+        }
+
+        .content-separator {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, #e0e0e0 50%, transparent 100%);
+            margin: 15px 0;
+            border-radius: 0.5px;
+        }
+
+        .icon-text {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+        }
+
+        .icon-text::before {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .concept-highlight {
+            background: linear-gradient(120deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            display: inline-block;
+            margin: 2px;
+        }
+
+        .exam-tip {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border: 2px solid #e84393;
+            box-shadow: 0 6px 16px rgba(232, 67, 147, 0.3);
+            position: relative;
+        }
+
+        .exam-tip::before {
+            content: '📝 نصيحة للامتحان';
+            position: absolute;
+            top: -12px;
+            right: 15px;
+            background: #e84393;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Operating System Concepts</h1>
+            <p>Chapter 1: Introduction - Enhanced Interactive Guide</p>
+        </header>
+
+        <nav class="nav-menu">
+            <button class="nav-btn active" data-section="overview">Overview</button>
+            <button class="nav-btn" data-section="what-os-do">What OS Do</button>
+            <button class="nav-btn" data-section="computer-organization">Computer Organization</button>
+            <button class="nav-btn" data-section="os-structure">OS Structure</button>
+            <button class="nav-btn" data-section="os-operations">OS Operations</button>
+            <button class="nav-btn" data-section="process-management">Process Management</button>
+            <button class="nav-btn" data-section="memory-management">Memory Management</button>
+            <button class="nav-btn" data-section="storage-management">Storage Management</button>
+            <button class="nav-btn" data-section="protection-security">Protection & Security</button>
+            <button class="nav-btn" data-section="computing-environments">Computing Environments</button>
+            <button class="nav-btn" data-section="comprehensive-quiz">Final Exam</button>
+            <button class="nav-btn" data-section="final-summary">Summary</button>
+        </nav>
+
+        <div class="progress-container">
+            <div class="score-display">
+                <span id="scoreDisplay">Score: 0/0</span>
+                <span id="percentageDisplay">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <div class="achievements" id="achievements">
+                <div class="achievement" data-unlock="5">🌟 First Steps</div>
+                <div class="achievement" data-unlock="15">🎯 Getting Started</div>
+                <div class="achievement" data-unlock="30">🚀 Knowledge Builder</div>
+                <div class="achievement" data-unlock="50">🏆 Expert Level</div>
+                <div class="achievement" data-unlock="75">💎 Master</div>
+                <div class="achievement" data-unlock="100">👑 OS Champion</div>
+            </div>
+        </div>
+
+        <!-- Overview Section -->
+        <div id="overview" class="section active">
+            <div class="topic-card">
+                <h2 class="topic-title">Chapter 1: Introduction - Overview</h2>
+                
+                <div class="definition-box">
+                    <h3>📚 محتويات الفصل الأول</h3>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>📖 Chapter Contents:</h4>
+                            <ul>
+                                <li><span class="highlight">What Operating Systems Do</span></li>
+                                <li><span class="highlight">Computer-System Organization</span></li>
+                                <li><span class="highlight">Operating-System Structure</span></li>
+                                <li><span class="highlight">Operating-System Operations</span></li>
+                                <li><span class="highlight">Process Management</span></li>
+                                <li><span class="highlight">Memory Management</span></li>
+                                <li><span class="highlight">Storage Management</span></li>
+                                <li><span class="highlight">Protection and Security</span></li>
+                                <li><span class="highlight">Computing Environments</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>📋 المحتويات:</h4>
+                            <ul>
+                                <li><span class="concept-highlight">ما تفعله أنظمة التشغيل</span></li>
+                                <li><span class="concept-highlight">تنظيم النظام الحاسوبي</span></li>
+                                <li><span class="concept-highlight">بنية نظام التشغيل</span></li>
+                                <li><span class="concept-highlight">عمليات نظام التشغيل</span></li>
+                                <li><span class="concept-highlight">إدارة العمليات</span></li>
+                                <li><span class="concept-highlight">إدارة الذاكرة</span></li>
+                                <li><span class="concept-highlight">إدارة التخزين</span></li>
+                                <li><span class="concept-highlight">الحماية والأمان</span></li>
+                                <li><span class="concept-highlight">بيئات الحوسبة</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visual-separator"></div>
+
+                <div class="key-concept">
+                    <h3>🎯 أهداف التعلم</h3>
+                    <div class="key-points">
+                        <ul>
+                            <li><span class="super-important">فهم دور أنظمة التشغيل في النظم الحاسوبية</span></li>
+                            <li><span class="highlight">تعلم تنظيم وبنية النظام الحاسوبي</span></li>
+                            <li><span class="highlight">استكشاف أنواع بيئات الحوسبة المختلفة</span></li>
+                            <li><span class="highlight">إتقان مفاهيم إدارة العمليات والذاكرة</span></li>
+                            <li><span class="highlight">فهم آليات الحماية والأمان</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="memory-tip">
+                    <p><strong>💭 نصيحة للحفظ:</strong> تذكر أن نظام التشغيل هو الوسيط بين المستخدم والأجهزة، مثل المترجم الذي يترجم بين لغتين مختلفتين!</p>
+                </div>
+
+                <div class="quiz-stats">
+                    <div class="stats-card">
+                        <div class="stats-number" id="totalQuestions">0</div>
+                        <div class="stats-label">إجمالي الأسئلة</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-number" id="correctAnswers">0</div>
+                        <div class="stats-label">الإجابات الصحيحة</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-number" id="accuracy">0%</div>
+                        <div class="stats-label">نسبة الدقة</div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-number" id="sectionsCompleted">0</div>
+                        <div class="stats-label">الأقسام المكتملة</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- What Operating Systems Do -->
+        <div id="what-os-do" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">What is an Operating System?</h2>
+                
+                <div class="definition-box">
+                    <h3>🔍 التعريف الأساسي</h3>
+                    <p class="super-important">برنامج يعمل كوسيط بين مستخدم الحاسوب والأجهزة</p>
+                    <p><strong>A program that acts as an intermediary between a user of a computer and the computer hardware.</strong></p>
+                </div>
+
+                <div class="key-concept">
+                    <h3>🎯 أهداف نظام التشغيل</h3>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>Operating system goals:</h4>
+                            <ul>
+                                <li><span class="highlight">Execute user programs and make solving user problems easier</span></li>
+                                <li><span class="highlight">Make the computer system convenient to use</span></li>
+                                <li><span class="highlight">Use the computer hardware in an efficient manner</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>أهداف نظام التشغيل:</h4>
+                            <ul>
+                                <li><span class="concept-highlight">تنفيذ برامج المستخدم وتسهيل حل مشاكلهم</span></li>
+                                <li><span class="concept-highlight">جعل استخدام النظام الحاسوبي مريحاً</span></li>
+                                <li><span class="concept-highlight">استخدام الأجهزة بطريقة فعالة</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapsible" onclick="toggleCollapsible(this)">
+                    📖 Operating System Definition - Two Views
+                </div>
+                <div class="collapsible-content">
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>🔧 OS is a resource allocator</h4>
+                            <ul>
+                                <li><span class="highlight">Manages all resources</span></li>
+                                <li><span class="highlight">Decides between conflicting requests for efficient and fair resource use</span></li>
+                            </ul>
+                            
+                            <h4>🎮 OS is a control program</h4>
+                            <ul>
+                                <li><span class="highlight">Controls execution of programs to prevent errors and improper use of the computer</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>🔧 نظام التشغيل كمخصص موارد</h4>
+                            <ul>
+                                <li><span class="concept-highlight">يدير جميع موارد النظام</span></li>
+                                <li><span class="concept-highlight">يتخذ قرارات بين الطلبات المتضاربة لضمان الاستخدام الفعال والعادل</span></li>
+                            </ul>
+                            
+                            <h4>🎮 نظام التشغيل كبرنامج تحكم</h4>
+                            <ul>
+                                <li><span class="concept-highlight">يتحكم في تنفيذ البرامج لمنع الأخطاء والاستخدام غير السليم</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <div class="collapsible" onclick="toggleCollapsible(this)">
+                    🚀 Computer Startup Process (Bootstrap)
+                </div>
+                <div class="collapsible-content">
+                    <div class="key-concept">
+                        <h4>🔋 Bootstrap program (برنامج البوت ستراب):</h4>
+                        <div class="two-column">
+                            <div class="english-text">
+                                <ul>
+                                    <li><span class="highlight">Loaded at power-up or reboot</span></li>
+                                    <li><span class="super-important">Typically stored in ROM or EEPROM, generally known as firmware</span></li>
+                                    <li><span class="highlight">Initializes all aspects of system</span></li>
+                                    <li><span class="highlight">Loads operating system kernel and starts execution</span></li>
+                                </ul>
+                            </div>
+                            <div class="arabic-text">
+                                <ul>
+                                    <li><span class="concept-highlight">يُحمّل عند بدء التشغيل أو إعادة التشغيل</span></li>
+                                    <li><span class="super-important">يُخزن عادة في ROM أو EEPROM ويُعرف بالبرمجيات الثابتة</span></li>
+                                    <li><span class="concept-highlight">يُهيئ جميع جوانب النظام</span></li>
+                                    <li><span class="concept-highlight">يُحمّل نواة نظام التشغيل ويبدأ تنفيذها</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visual-separator"></div>
+
+                <div class="important">
+                    <h4>🔑 التعريف الأهم:</h4>
+                    <p class="super-important">"البرنامج الوحيد الذي يعمل دائماً على الحاسوب" هو النواة (Kernel)</p>
+                    <p><strong>Definition:</strong> "The one program running at all times on the computer" is the <span class="highlight">kernel</span>. Everything else is either a system program (ships with the operating system) or an application program.</p>
+                </div>
+
+                <div class="exam-tip">
+                    <p><strong>📝 نصيحة للامتحان:</strong> تذكر الفرق بين Kernel وProgram وProcess - هذا سؤال مهم جداً في الامتحانات!</p>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">MCQ</span>
+                            Question 1: What is the primary goal of an operating system?
+                        </div>
+                        <div class="options" data-question="1">
+                            <div class="option" data-answer="wrong">A) Increase processor speed</div>
+                            <div class="option" data-answer="correct">B) Make the computer system convenient to use</div>
+                            <div class="option" data-answer="wrong">C) Reduce memory usage</div>
+                            <div class="option" data-answer="wrong">D) Increase the number of installed programs</div>
+                        </div>
+                        <div class="result" id="result1"></div>
+                    </div>
+
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">T/F</span>
+                            Question 2: The operating system acts as an intermediary between user and hardware.
+                        </div>
+                        <div class="true-false" data-question="2">
+                            <div class="tf-option tf-true" data-answer="correct">TRUE</div>
+                            <div class="tf-option tf-false" data-answer="wrong">FALSE</div>
+                        </div>
+                        <div class="result" id="result2"></div>
+                    </div>
+
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">MCQ</span>
+                            Question 3: What is the kernel?
+                        </div>
+                        <div class="options" data-question="3">
+                            <div class="option" data-answer="wrong">A) An application program</div>
+                            <div class="option" data-answer="correct">B) The one program running at all times on the computer</div>
+                            <div class="option" data-answer="wrong">C) Part of hardware</div>
+                            <div class="option" data-answer="wrong">D) A type of file</div>
+                        </div>
+                        <div class="result" id="result3"></div>
+                    </div>
+
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">FILL</span>
+                            Question 4: The operating system manages all <span class="fill-blank"><input type="text" data-answer="resources" placeholder="?"></span> and decides between conflicting requests.
+                        </div>
+                        <div class="result" id="result4"></div>
+                        <button class="quiz-btn" data-check="4">Check Answer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Computer System Organization -->
+        <div id="computer-organization" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">Computer System Structure</h2>
+                
+                <div class="key-concept">
+                    <h3>🏗️ المكونات الأربعة للنظام الحاسوبي</h3>
+                    <p class="super-important">Computer system can be divided into four components</p>
+                </div>
+
+                <div class="definition-box">
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>🔧 Hardware</h4>
+                            <p><span class="highlight">Provides basic computing resources</span></p>
+                            <ul><li>CPU, memory, I/O devices</li></ul>
+                            
+                            <h4>⚙️ Operating system</h4>
+                            <p><span class="highlight">Controls and coordinates use of hardware among various applications and users</span></p>
+                            
+                            <h4>📱 Application programs</h4>
+                            <p><span class="highlight">Define the ways in which the system resources are used to solve the computing problems of the users</span></p>
+                            <ul><li>Word processors, compilers, web browsers, database systems, video games</li></ul>
+                            
+                            <h4>👥 Users</h4>
+                            <p><span class="highlight">People, machines, other computers</span></p>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>🔧 الأجهزة (Hardware)</h4>
+                            <p><span class="concept-highlight">توفر موارد الحوسبة الأساسية</span></p>
+                            <ul><li>المعالج والذاكرة وأجهزة الإدخال والإخراج</li></ul>
+                            
+                            <h4>⚙️ نظام التشغيل</h4>
+                            <p><span class="concept-highlight">يتحكم وينسق استخدام الأجهزة بين التطبيقات والمستخدمين</span></p>
+                            
+                            <h4>📱 برامج التطبيقات</h4>
+                            <p><span class="concept-highlight">تحدد طرق استخدام موارد النظام لحل مشاكل المستخدمين</span></p>
+                            <ul><li>معالجات النصوص، المترجمات، متصفحات الويب، قواعد البيانات، الألعاب</li></ul>
+                            
+                            <h4>👥 المستخدمون</h4>
+                            <p><span class="concept-highlight">الأشخاص والآلات والحاسبات الأخرى</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="diagram">
+                    <h4>🏗️ Four Components of a Computer System</h4>
+                    <div style="border: 3px solid #295340; border-radius: 15px; padding: 20px; margin: 15px 0; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
+                        <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 15px; margin: 8px; border-radius: 10px; display: flex; justify-content: space-between; border: 2px solid #2196f3;">
+                            <span style="font-weight: bold;">user 1</span><span style="font-weight: bold;">user 2</span><span style="font-weight: bold;">user 3</span><span style="font-weight: bold;">...</span><span style="font-weight: bold;">user n</span>
+                        </div>
+                        <div style="text-align: center; font-size: 24px; margin: 10px 0;">⬇️</div>
+                        <div style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); padding: 15px; margin: 8px; border-radius: 10px; text-align: center; border: 2px solid #4caf50;">
+                            <strong>system and application programs</strong><br>
+                            <small>(compiler, assembler, text editor, database system)</small>
+                        </div>
+                        <div style="text-align: center; font-size: 24px; margin: 10px 0;">⬇️</div>
+                        <div style="background: linear-gradient(135deg, #295340 0%, #1e3d30 100%); color: white; padding: 15px; margin: 8px; border-radius: 10px; text-align: center; border: 2px solid #295340;">
+                            <strong>operating system</strong>
+                        </div>
+                        <div style="text-align: center; font-size: 24px; margin: 10px 0;">⬇️</div>
+                        <div style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); padding: 15px; margin: 8px; border-radius: 10px; text-align: center; border: 2px solid #f39c12;">
+                            <strong>computer hardware</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-tip">
+                    <p><strong>💭 تذكر:</strong> النظام مثل البناء المكون من 4 طوابق: المستخدمون في الأعلى، ثم التطبيقات، ثم نظام التشغيل، وأخيراً الأجهزة في الأسفل!</p>
+                </div>
+
+                <div class="collapsible" onclick="toggleCollapsible(this)">
+                    💻 Computer-System Operation
+                </div>
+                <div class="collapsible-content">
+                    <div class="key-concept">
+                        <h4>⚙️ Computer-system operation:</h4>
+                        <ul>
+                            <li><span class="highlight">One or more CPUs, device controllers connect through common bus providing access to shared memory</span></li>
+                            <li><span class="highlight">Concurrent execution of CPUs and devices competing for memory cycles</span></li>
+                            <li><span class="super-important">I/O devices and the CPU can execute concurrently</span></li>
+                            <li><span class="highlight">Each device controller is in charge of a particular device type</span></li>
+                            <li><span class="highlight">Each device controller has a local buffer</span></li>
+                            <li><span class="highlight">CPU moves data from/to main memory to/from local buffers</span></li>
+                            <li><span class="highlight">I/O is from the device to local buffer of controller</span></li>
+                            <li><span class="super-important">Device controller informs CPU that it has finished its operation by causing an interrupt</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <div class="collapsible" onclick="toggleCollapsible(this)">
+                    🔄 I/O Structure
+                </div>
+                <div class="collapsible-content">
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>🔄 Synchronous I/O:</h4>
+                            <ul>
+                                <li><span class="highlight">After I/O starts, control returns to user program only upon I/O completion</span></li>
+                                <li><span class="highlight">Wait instruction idles the CPU until the next interrupt</span></li>
+                                <li><span class="highlight">Wait loop (contention for memory access)</span></li>
+                                <li><span class="highlight">At most one I/O request is outstanding at a time, no simultaneous I/O processing</span></li>
+                            </ul>
+                            
+                            <div class="content-separator"></div>
+                            
+                            <h4>⚡ Asynchronous I/O:</h4>
+                            <ul>
+                                <li><span class="highlight">After I/O starts, control returns to user program without waiting for I/O completion</span></li>
+                                <li><span class="super-important">System call – request to the operating system to allow user to wait for I/O completion</span></li>
+                                <li><span class="highlight">Device-status table contains entry for each I/O device indicating its type, address, and state</span></li>
+                                <li><span class="highlight">Operating system indexes into I/O device table to determine device status and to modify table entry to include interrupt</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>🔄 الإدخال/الإخراج المتزامن:</h4>
+                            <ul>
+                                <li><span class="concept-highlight">بعد بدء I/O، يعود التحكم للبرنامج فقط عند اكتمال العملية</span></li>
+                                <li><span class="concept-highlight">تعليمة الانتظار توقف المعالج حتى المقاطعة التالية</span></li>
+                            </ul>
+                            
+                            <div class="content-separator"></div>
+                            
+                            <h4>⚡ الإدخال/الإخراج غير المتزامن:</h4>
+                            <ul>
+                                <li><span class="concept-highlight">بعد بدء I/O، يعود التحكم للبرنامج دون انتظار الاكتمال</span></li>
+                                <li><span class="super-important">استدعاء النظام للسماح للمستخدم بانتظار اكتمال I/O</span></li>
+                                <li><span class="concept-highlight">جدول حالة الأجهزة يحتوي على معلومات كل جهاز I/O</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <div class="collapsible" onclick="toggleCollapsible(this)">
+                    ⚡ Direct Memory Access (DMA) Structure
+                </div>
+                <div class="collapsible-content">
+                    <div class="important">
+                        <h4>🚀 DMA Features:</h4>
+                        <div class="two-column">
+                            <div class="english-text">
+                                <ul>
+                                    <li><span class="highlight">Used for high-speed I/O devices able to transmit information at close to memory speeds</span></li>
+                                    <li><span class="highlight">Device controller transfers blocks of data from buffer storage directly to main memory without CPU intervention</span></li>
+                                    <li><span class="super-important">Only one interrupt is generated per block, rather than one interrupt per byte</span></li>
+                                </ul>
+                            </div>
+                            <div class="arabic-text">
+                                <ul>
+                                    <li><span class="concept-highlight">تُستخدم لأجهزة I/O عالية السرعة</span></li>
+                                    <li><span class="concept-highlight">وحدة التحكم تنقل كتل البيانات مباشرة دون تدخل المعالج</span></li>
+                                    <li><span class="super-important">مقاطعة واحدة فقط لكل كتلة وليس لكل بايت</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="visual-separator"></div>
+
+                <div class="exam-tip">
+                    <p><strong>📝 نصيحة مهمة:</strong> DMA هو موضوع مفضل في الامتحانات! تذكر: مقاطعة واحدة لكل كتلة، وليس لكل بايت.</p>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">MCQ</span>
+                            Question 5: How many basic components does a computer system have?
+                        </div>
+                        <div class="options" data-question="5">
+                            <div class="option" data-answer="wrong">A) 3</div>
+                            <div class="option" data-answer="correct">B) 4</div>
+                            <div class="option" data-answer="wrong">C) 5</div>
+                            <div class="option" data-answer="wrong">D) 6</div>
+                        </div>
+                        <div class="result" id="result5"></div>
+                    </div>
+
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">MCQ</span>
+                            Question 5.1: Where is the bootstrap program typically stored?
+                        </div>
+                        <div class="options" data-question="5-1">
+                            <div class="option" data-answer="wrong">A) Main memory</div>
+                            <div class="option" data-answer="correct">B) ROM or EEPROM</div>
+                            <div class="option" data-answer="wrong">C) Hard disk</div>
+                            <div class="option" data-answer="wrong">D) Cache memory</div>
+                        </div>
+                        <div class="result" id="result5-1"></div>
+                    </div>
+
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">T/F</span>
+                            Question 5.2: In DMA, only one interrupt is generated per block of data.
+                        </div>
+                        <div class="true-false" data-question="5-2">
+                            <div class="tf-option tf-true" data-answer="correct">TRUE</div>
+                            <div class="tf-option tf-false" data-answer="wrong">FALSE</div>
+                        </div>
+                        <div class="result" id="result5-2"></div>
+                    </div>
+
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">FILL</span>
+                            Question 5.3: The bootstrap program is generally known as <span class="fill-blank"><input type="text" data-answer="firmware" placeholder="?"></span>.
+                        </div>
+                        <div class="result" id="result5-3"></div>
+                        <button class="quiz-btn" data-check="5-3">Check Answer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OS Structure -->
+        <div id="os-structure" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">Operating System Structure</h2>
+                
+                <div class="key-concept">
+                    <h3>🏗️ بنية نظام التشغيل</h3>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>📊 Multiprogramming:</h4>
+                            <ul>
+                                <li><span class="super-important">Multiprogramming needed for efficiency</span></li>
+                                <li><span class="highlight">Single user cannot keep CPU and I/O devices busy at all times</span></li>
+                                <li><span class="highlight">Multiprogramming organizes jobs (code and data) so CPU always has one to execute</span></li>
+                                <li><span class="highlight">A subset of total jobs in system is kept in memory</span></li>
+                                <li><span class="highlight">One job selected and run via job scheduling</span></li>
+                                <li><span class="highlight">When it has to wait (for I/O for example), OS switches to another job</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>📊 البرمجة المتعددة:</h4>
+                            <ul>
+                                <li><span class="super-important">البرمجة المتعددة ضرورية للكفاءة</span></li>
+                                <li><span class="concept-highlight">مستخدم واحد لا يستطيع إبقاء المعالج وأجهزة I/O مشغولة دائماً</span></li>
+                                <li><span class="concept-highlight">تنظم الوظائف بحيث يكون للمعالج دائماً وظيفة للتنفيذ</span></li>
+                                <li><span class="concept-highlight">مجموعة فرعية من الوظائف تُحفظ في الذاكرة</span></li>
+                                <li><span class="concept-highlight">يتم اختيار وظيفة وتشغيلها عبر جدولة الوظائف</span></li>
+                                <li><span class="concept-highlight">عندما تنتظر (لـ I/O مثلاً)، ينتقل النظام لوظيفة أخرى</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="definition-box">
+                    <h4>⏱️ Timesharing (multitasking) - تقاسم الوقت:</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="highlight">CPU switches jobs so frequently that users can interact with each job while it is running, creating interactive computing</span></li>
+                                <li><span class="super-important">Response time should be < 1 second</span></li>
+                                <li><span class="highlight">Each user has at least one program executing in memory → process</span></li>
+                                <li><span class="highlight">If several jobs ready to run at the same time → CPU scheduling</span></li>
+                                <li><span class="highlight">If processes don't fit in memory, swapping moves them in and out to run</span></li>
+                                <li><span class="highlight">Virtual memory allows execution of processes not completely in memory</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="concept-highlight">المعالج ينتقل بين الوظائف بسرعة عالية للتفاعل</span></li>
+                                <li><span class="super-important">وقت الاستجابة يجب أن يكون أقل من ثانية واحدة</span></li>
+                                <li><span class="concept-highlight">كل مستخدم له برنامج واحد على الأقل في الذاكرة ← عملية</span></li>
+                                <li><span class="concept-highlight">إذا كانت عدة وظائف جاهزة ← جدولة المعالج</span></li>
+                                <li><span class="concept-highlight">إذا لم تتسع العمليات في الذاكرة ← التبديل</span></li>
+                                <li><span class="concept-highlight">الذاكرة الافتراضية تسمح بتنفيذ عمليات غير مكتملة في الذاكرة</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-tip">
+                    <p><strong>💭 تذكر الرقم المهم:</strong> في أنظمة تقاسم الوقت، وقت الاستجابة يجب أن يكون أقل من ثانية واحدة! هذا رقم مهم جداً في الامتحانات.</p>
+                </div>
+
+                <div class="exam-tip">
+                    <p><strong>📝 سؤال شائع:</strong> ما الفرق بين Multiprogramming و Multitasking؟ Multiprogramming للكفاءة، Multitasking للتفاعل مع المستخدم!</p>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">MCQ</span>
+                            Question 6: In timesharing systems, what should the response time be?
+                        </div>
+                        <div class="options" data-question="6">
+                            <div class="option" data-answer="correct">A) Less than 1 second</div>
+                            <div class="option" data-answer="wrong">B) More than 5 seconds</div>
+                            <div class="option" data-answer="wrong">C) Between 2-3 seconds</div>
+                            <div class="option" data-answer="wrong">D) Timing doesn't matter</div>
+                        </div>
+                        <div class="result" id="result6"></div>
+                    </div>
+
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">MCQ</span>
+                            Question 6.1: What is the fastest in the storage hierarchy?
+                        </div>
+                        <div class="options" data-question="6-1">
+                            <div class="option" data-answer="wrong">A) Hard disk</div>
+                            <div class="option" data-answer="wrong">B) Main memory</div>
+                            <div class="option" data-answer="correct">C) Registers</div>
+                            <div class="option" data-answer="wrong">D) Cache</div>
+                        </div>
+                        <div class="result" id="result6-1"></div>
+                    </div>
+
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">T/F</span>
+                            Question 6.2: Caching involves copying information from slower to faster storage temporarily.
+                        </div>
+                        <div class="true-false" data-question="6-2">
+                            <div class="tf-option tf-true" data-answer="correct">TRUE</div>
+                            <div class="tf-option tf-false" data-answer="wrong">FALSE</div>
+                        </div>
+                        <div class="result" id="result6-2"></div>
+                    </div>
+
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">FILL</span>
+                            Question 6.3: In caching, information is copied from <span class="fill-blank"><input type="text" data-answer="slower" placeholder="?"></span> to faster storage temporarily.
+                        </div>
+                        <div class="result" id="result6-3"></div>
+                        <button class="quiz-btn" data-check="6-3">Check Answer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OS Operations -->
+        <div id="os-operations" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">Operating-System Operations</h2>
+                
+                <div class="key-concept">
+                    <h3>🔄 Dual-mode operation</h3>
+                    <p class="super-important">العملية مزدوجة الوضع - حماية النظام</p>
+                </div>
+
+                <div class="definition-box">
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>🛡️ Dual-mode operation:</h4>
+                            <ul>
+                                <li><span class="highlight">Allows OS to protect itself and other system components</span></li>
+                                <li><span class="super-important">User mode and kernel mode</span></li>
+                                <li><span class="highlight">Mode bit provided by hardware</span></li>
+                                <li><span class="highlight">Provides ability to distinguish when system is running user code or kernel code</span></li>
+                                <li><span class="super-important">Some instructions designated as privileged, only executable in kernel mode</span></li>
+                                <li><span class="highlight">System call changes mode to kernel, return from call resets it to user</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>🛡️ العملية مزدوجة الوضع:</h4>
+                            <ul>
+                                <li><span class="concept-highlight">تسمح لنظام التشغيل بحماية نفسه ومكونات النظام</span></li>
+                                <li><span class="super-important">وضع المستخدم ووضع النواة</span></li>
+                                <li><span class="concept-highlight">بت الوضع يوفره الأجهزة</span></li>
+                                <li><span class="concept-highlight">يوفر القدرة على التمييز بين تشغيل كود المستخدم أو النواة</span></li>
+                                <li><span class="super-important">بعض التعليمات مميزة، تُنفذ فقط في وضع النواة</span></li>
+                                <li><span class="concept-highlight">استدعاء النظام يغير الوضع للنواة، والعودة تعيده للمستخدم</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="important">
+                    <h4>🔑 المفاهيم الأساسية:</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="super-important">User Mode: Limited access to system resources</span></li>
+                                <li><span class="super-important">Kernel Mode: Full access to all system resources</span></li>
+                                <li><span class="highlight">Privileged Instructions: Can only be executed in kernel mode</span></li>
+                                <li><span class="highlight">Mode Bit: Hardware mechanism to track current mode</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="super-important">وضع المستخدم: وصول محدود لموارد النظام</span></li>
+                                <li><span class="super-important">وضع النواة: وصول كامل لجميع موارد النظام</span></li>
+                                <li><span class="concept-highlight">التعليمات المميزة: تُنفذ فقط في وضع النواة</span></li>
+                                <li><span class="concept-highlight">بت الوضع: آلية الأجهزة لتتبع الوضع الحالي</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-tip">
+                    <p><strong>💭 طريقة سهلة للحفظ:</strong> فكر في User Mode كضيف في منزل (وصول محدود)، وKernel Mode كصاحب المنزل (وصول كامل)!</p>
+                </div>
+
+                <div class="exam-tip">
+                    <p><strong>📝 سؤال مهم:</strong> ما هما الوضعان في dual-mode operation؟ الجواب دائماً: User mode و Kernel mode.</p>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">MCQ</span>
+                            Question 7: What are the two modes in dual-mode operation?
+                        </div>
+                        <div class="options" data-question="7">
+                            <div class="option" data-answer="correct">A) User mode and kernel mode</div>
+                            <div class="option" data-answer="wrong">B) Fast mode and slow mode</div>
+                            <div class="option" data-answer="wrong">C) Input mode and output mode</div>
+                            <div class="option" data-answer="wrong">D) Read mode and write mode</div>
+                        </div>
+                        <div class="result" id="result7"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Process Management -->
+        <div id="process-management" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">Process Management</h2>
+                
+                <div class="definition-box">
+                    <h3>🔄 Process Definition</h3>
+                    <p class="super-important">A process is a program in execution</p>
+                    <p class="super-important">العملية هي برنامج قيد التنفيذ</p>
+                    <p><strong>Process is a unit of work within the system.</strong></p>
+                </div>
+
+                <div class="key-concept">
+                    <h4>⚡ الفرق الأساسي:</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <p><span class="super-important">Program is a passive entity</span></p>
+                            <p><span class="super-important">Process is an active entity</span></p>
+                        </div>
+                        <div class="arabic-text">
+                            <p><span class="super-important">البرنامج كيان سلبي</span></p>
+                            <p><span class="super-important">العملية كيان نشط</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="important">
+                    <h4>🔧 Process needs resources to accomplish its task:</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="highlight">CPU, memory, I/O, files</span></li>
+                                <li><span class="highlight">Initialization data</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="concept-highlight">المعالج، الذاكرة، I/O، الملفات</span></li>
+                                <li><span class="concept-highlight">بيانات التهيئة</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="key-concept">
+                    <h4>🧵 Process Types:</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="super-important">Single-threaded process has one program counter specifying location of next instruction to execute</span></li>
+                                <li><span class="highlight">Process executes instructions sequentially, one at a time, until completion</span></li>
+                                <li><span class="super-important">Multi-threaded process has one program counter per thread</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="super-important">العملية أحادية الخيط لها مؤشر برنامج واحد</span></li>
+                                <li><span class="concept-highlight">العملية تُنفذ التعليمات تسلسلياً حتى الانتهاء</span></li>
+                                <li><span class="super-important">العملية متعددة الخيوط لها مؤشر برنامج لكل خيط</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="definition-box">
+                    <h4>📋 Process Management Activities:</h4>
+                    <p>The operating system is responsible for the following activities in connection with process management:</p>
+                    <div class="key-points">
+                        <ul>
+                            <li><span class="highlight">Creating and deleting both user and system processes</span></li>
+                            <li><span class="highlight">Suspending and resuming processes</span></li>
+                            <li><span class="highlight">Providing mechanisms for process synchronization</span></li>
+                            <li><span class="highlight">Providing mechanisms for process communication</span></li>
+                            <li><span class="highlight">Providing mechanisms for deadlock handling</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="important">
+                    <p><span class="super-important">Typically system has many processes, some user, some operating system running concurrently on one or more CPUs</span></p>
+                    <p><span class="super-important">Concurrency by multiplexing the CPUs among the processes/threads</span></p>
+                </div>
+
+                <div class="memory-tip">
+                    <p><strong>💭 تذكر بسهولة:</strong> Program = ملف في القرص الصلب (سلبي)، Process = Program يعمل في الذاكرة (نشط)!</p>
+                </div>
+
+                <div class="exam-tip">
+                    <p><strong>📝 سؤال شائع جداً:</strong> ما الفرق بين Program وProcess؟ احفظ هذا جيداً: Program passive, Process active!</p>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">MCQ</span>
+                            Question 8: What is the difference between a program and a process?
+                        </div>
+                        <div class="options" data-question="8">
+                            <div class="option" data-answer="wrong">A) There is no difference</div>
+                            <div class="option" data-answer="correct">B) Program is a passive entity, process is an active entity</div>
+                            <div class="option" data-answer="wrong">C) Program is faster than process</div>
+                            <div class="option" data-answer="wrong">D) Process is larger than program</div>
+                        </div>
+                        <div class="result" id="result8"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Memory Management -->
+        <div id="memory-management" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">Memory Management</h2>
+                
+                <div class="key-concept">
+                    <h3>🧠 Basic Principles</h3>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="super-important">All data in memory before and after processing</span></li>
+                                <li><span class="super-important">All instructions in memory in order to execute</span></li>
+                                <li><span class="highlight">Memory management determines what is in memory when</span></li>
+                                <li><span class="highlight">Optimizing CPU utilization and computer response to users</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="super-important">جميع البيانات في الذاكرة قبل وبعد المعالجة</span></li>
+                                <li><span class="super-important">جميع التعليمات في الذاكرة لكي تُنفذ</span></li>
+                                <li><span class="concept-highlight">إدارة الذاكرة تحدد ما هو موجود ومتى</span></li>
+                                <li><span class="concept-highlight">تحسين استخدام المعالج واستجابة النظام</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="definition-box">
+                    <h4>📋 Memory management activities:</h4>
+                    <div class="key-points">
+                        <ul>
+                            <li><span class="highlight">Keeping track of which parts of memory are currently being used and by whom</span></li>
+                            <li><span class="highlight">Deciding which processes (or parts thereof) and data to move into and out of memory</span></li>
+                            <li><span class="highlight">Allocating and deallocating memory space as needed</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="memory-tip">
+                    <p><strong>💭 قاعدة ذهبية:</strong> لا يمكن تنفيذ أي تعليمة إلا إذا كانت في الذاكرة! هذا أساس إدارة الذاكرة.</p>
+                </div>
+
+                <div class="exam-tip">
+                    <p><strong>📝 نقطة مهمة:</strong> جميع التعليمات والبيانات يجب أن تكون في الذاكرة للتنفيذ - هذا سؤال أساسي!</p>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">MCQ</span>
+                            Question 9: Where must all instructions be located in order to execute?
+                        </div>
+                        <div class="options" data-question="9">
+                            <div class="option" data-answer="wrong">A) On the hard disk</div>
+                            <div class="option" data-answer="correct">B) In memory</div>
+                            <div class="option" data-answer="wrong">C) In the processor</div>
+                            <div class="option" data-answer="wrong">D) On the network</div>
+                        </div>
+                        <div class="result" id="result9"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Storage Management -->
+        <div id="storage-management" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">Storage Management</h2>
+                
+                <div class="key-concept">
+                    <h3>📁 File-System Management</h3>
+                    <div class="definition-box">
+                        <p><span class="super-important">Logical storage unit - file</span></p>
+                        <p><span class="super-important">وحدة التخزين المنطقية - الملف</span></p>
+                    </div>
+                </div>
+
+                <div class="important">
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>🗂️ File-System Management:</h4>
+                            <ul>
+                                <li><span class="highlight">OS provides logical view of information storage</span></li>
+                                <li><span class="super-important">Logical storage unit - file</span></li>
+                                <li><span class="highlight">Each medium is controlled by device (i.e., disk drive, tape drive)</span></li>
+                                <li><span class="highlight">Varying properties include access speed, capacity, data-transfer rate, access method (sequential or random)</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>🗂️ إدارة نظام الملفات:</h4>
+                            <ul>
+                                <li><span class="concept-highlight">نظام التشغيل يوفر نظرة منطقية لتخزين المعلومات</span></li>
+                                <li><span class="super-important">وحدة التخزين المنطقية - الملف</span></li>
+                                <li><span class="concept-highlight">كل وسيط يُتحكم به بواسطة جهاز</span></li>
+                                <li><span class="concept-highlight">خصائص متنوعة: سرعة الوصول، السعة، معدل النقل، طريقة الوصول</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="key-concept">
+                    <h4>📋 File-System management features:</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="highlight">Files usually organized into directories</span></li>
+                                <li><span class="highlight">Access control on most systems to determine who can access what</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="concept-highlight">الملفات عادة منظمة في أدلة</span></li>
+                                <li><span class="concept-highlight">التحكم في الوصول لتحديد من يمكنه الوصول لماذا</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="definition-box">
+                    <h4>⚙️ OS activities include:</h4>
+                    <div class="key-points">
+                        <ul>
+                            <li><span class="highlight">Creating and deleting files and directories</span></li>
+                            <li><span class="highlight">Primitives to manipulate files and dirs</span></li>
+                            <li><span class="highlight">Mapping files onto secondary storage</span></li>
+                            <li><span class="highlight">Backup files onto stable (non-volatile) storage media</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="important">
+                    <h4>💽 I/O Subsystem:</h4>
+                    <p><span class="super-important">One purpose of OS is to hide peculiarities of hardware devices from the user</span></p>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h5>I/O subsystem responsible for:</h5>
+                            <ul>
+                                <li><span class="super-important">Memory management of I/O including buffering (storing data temporarily while it is being transferred), caching (storing parts of data in faster storage for performance), spooling (the overlapping of output of one job with input of other jobs)</span></li>
+                                <li><span class="highlight">General device-driver interface</span></li>
+                                <li><span class="highlight">Drivers for specific hardware devices</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h5>نظام I/O الفرعي مسؤول عن:</h5>
+                            <ul>
+                                <li><span class="super-important">إدارة ذاكرة I/O: التخزين المؤقت، التجميع، التداخل</span></li>
+                                <li><span class="concept-highlight">واجهة عامة لبرامج تشغيل الأجهزة</span></li>
+                                <li><span class="concept-highlight">برامج تشغيل للأجهزة المحددة</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-tip">
+                    <p><strong>💭 تذكر الثلاثة:</strong> Buffering (تخزين مؤقت)، Caching (ذاكرة التخزين المؤقت)، Spooling (التداخل) - هذه الثلاث وظائف مهمة لنظام I/O!</p>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">MCQ</span>
+                            Question 10: What is the logical storage unit in an operating system?
+                        </div>
+                        <div class="options" data-question="10">
+                            <div class="option" data-answer="wrong">A) Directory</div>
+                            <div class="option" data-answer="correct">B) File</div>
+                            <div class="option" data-answer="wrong">C) Disk</div>
+                            <div class="option" data-answer="wrong">D) Memory</div>
+                        </div>
+                        <div class="result" id="result10"></div>
+                    </div>
+
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">T/F</span>
+                            Question 10.1: I/O subsystem includes buffering, caching, and spooling.
+                        </div>
+                        <div class="true-false" data-question="10-1">
+                            <div class="tf-option tf-true" data-answer="correct">TRUE</div>
+                            <div class="tf-option tf-false" data-answer="wrong">FALSE</div>
+                        </div>
+                        <div class="result" id="result10-1"></div>
+                    </div>
+
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">FILL</span>
+                            Question 10.2: Files are usually organized into <span class="fill-blank"><input type="text" data-answer="directories" placeholder="?"></span>.
+                        </div>
+                        <div class="result" id="result10-2"></div>
+                        <button class="quiz-btn" data-check="10-2">Check Answer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Protection and Security -->
+        <div id="protection-security" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">Protection and Security</h2>
+                
+                <div class="key-concept">
+                    <h3>🛡️ Definitions</h3>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="super-important">Protection – any mechanism for controlling access of processes or users to resources defined by the OS</span></li>
+                                <li><span class="super-important">Security – defense of the system against internal and external attacks</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="super-important">الحماية – أي آلية للتحكم في وصول العمليات أو المستخدمين للموارد</span></li>
+                                <li><span class="super-important">الأمان – دفاع النظام ضد الهجمات الداخلية والخارجية</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="definition-box">
+                    <h4>👤 User Identification:</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="highlight">Systems generally first distinguish among users, to determine who can do what</span></li>
+                                <li><span class="super-important">User identities (user IDs, security IDs) include name and associated number, one per user</span></li>
+                                <li><span class="highlight">User ID then associated with all files, processes of that user to determine access control</span></li>
+                                <li><span class="super-important">Group identifier (group ID) allows set of users to be defined and controls associated with each process, file</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="concept-highlight">الأنظمة تميز أولاً بين المستخدمين لتحديد من يمكنه فعل ماذا</span></li>
+                                <li><span class="super-important">هويات المستخدمين تشمل اسم ورقم مرتبط، واحد لكل مستخدم</span></li>
+                                <li><span class="concept-highlight">معرف المستخدم يرتبط بجميع ملفاته وعملياته للتحكم في الوصول</span></li>
+                                <li><span class="super-important">معرف المجموعة يسمح بتعريف مجموعة مستخدمين والتحكم المرتبط</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-tip">
+                    <p><strong>💭 الفرق البسيط:</strong> Protection = التحكم في الوصول للموارد، Security = الدفاع ضد الهجمات. فكر في Protection كحارس الباب، و Security كنظام الإنذار!</p>
+                </div>
+
+                <div class="exam-tip">
+                    <p><strong>📝 سؤال مهم:</strong> ما الفرق بين Protection و Security؟ Protection يتحكم في الوصول، Security يدافع ضد الهجمات.</p>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">MCQ</span>
+                            Question 11: What is the difference between protection and security?
+                        </div>
+                        <div class="options" data-question="11">
+                            <div class="option" data-answer="wrong">A) There is no difference</div>
+                            <div class="option" data-answer="correct">B) Protection controls access to resources, security defends against attacks</div>
+                            <div class="option" data-answer="wrong">C) Security is more important than protection</div>
+                            <div class="option" data-answer="wrong">D) Protection is external only</div>
+                        </div>
+                        <div class="result" id="result11"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Computing Environments -->
+        <div id="computing-environments" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">Computing Environments</h2>
+                
+                <div class="key-concept">
+                    <h3>🌐 Computing Environments</h3>
+                </div>
+
+                <div class="definition-box">
+                    <h4>🏢 Traditional Computing:</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="highlight">Office environment: PCs connected to a network, terminals attached to mainframe or minicomputers providing batch and timesharing</span></li>
+                                <li><span class="highlight">Now portals allowing networked and remote systems access to same resources</span></li>
+                                <li><span class="highlight">Home networks: Used to be single system, then modems. Now firewalled, networked</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="concept-highlight">بيئة المكتب: أجهزة كمبيوتر متصلة بشبكة، محطات متصلة بحواسب رئيسية</span></li>
+                                <li><span class="concept-highlight">الآن بوابات تسمح للأنظمة الشبكية والبعيدة بالوصول لنفس الموارد</span></li>
+                                <li><span class="concept-highlight">الشبكات المنزلية: كانت أنظمة مفردة، ثم مودمات، الآن شبكات محمية</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="important">
+                    <h4>🖥️ Client-Server Computing:</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="highlight">Dumb terminals supplanted by smart PCs</span></li>
+                                <li><span class="highlight">Many systems now servers, responding to requests generated by clients</span></li>
+                                <li><span class="super-important">Compute-server provides an interface to client to request services (i.e. database)</span></li>
+                                <li><span class="super-important">File-server provides interface for clients to store and retrieve files</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="concept-highlight">المحطات البسيطة استُبدلت بأجهزة كمبيوتر ذكية</span></li>
+                                <li><span class="concept-highlight">أنظمة كثيرة الآن خوادم تستجيب لطلبات العملاء</span></li>
+                                <li><span class="super-important">خادم الحوسبة يوفر واجهة للعميل لطلب الخدمات</span></li>
+                                <li><span class="super-important">خادم الملفات يوفر واجهة للعملاء لتخزين واسترجاع الملفات</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="key-concept">
+                    <h4>🔗 Peer-to-Peer Computing:</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="highlight">Another model of distributed system</span></li>
+                                <li><span class="super-important">P2P does not distinguish clients and servers</span></li>
+                                <li><span class="super-important">Instead all nodes are considered peers</span></li>
+                                <li><span class="highlight">May each act as client, server or both</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="concept-highlight">نموذج آخر للأنظمة الموزعة</span></li>
+                                <li><span class="super-important">P2P لا يميز بين العملاء والخوادم</span></li>
+                                <li><span class="super-important">بدلاً من ذلك جميع العقد تعتبر نظراء</span></li>
+                                <li><span class="concept-highlight">قد تعمل كل عقدة كعميل أو خادم أو كلاهما</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-tip">
+                    <p><strong>💭 تذكر P2P:</strong> في الـ Peer-to-Peer، لا يوجد رئيس! جميع الأجهزة متساوية وتعمل كعملاء وخوادم في نفس الوقت.</p>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">MCQ</span>
+                            Question 12: In Peer-to-Peer (P2P) computing:
+                        </div>
+                        <div class="options" data-question="12">
+                            <div class="option" data-answer="wrong">A) There are always central servers</div>
+                            <div class="option" data-answer="correct">B) All nodes are considered peers</div>
+                            <div class="option" data-answer="wrong">C) Clients are more important than servers</div>
+                            <div class="option" data-answer="wrong">D) There is no network</div>
+                        </div>
+                        <div class="result" id="result12"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comprehensive Quiz -->
+        <div id="comprehensive-quiz" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">Final Comprehensive Exam</h2>
+                <div class="important">
+                    <h4>📋 Final Exam Instructions:</h4>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>This comprehensive exam contains 20 questions covering all topics</li>
+                        <li>Mix of multiple choice and true/false questions</li>
+                        <li>Read each question carefully before answering</li>
+                        <li>You can review your answers before submitting</li>
+                        <li>Detailed results and explanations will be provided</li>
+                    </ul>
+                    <div class="arabic-explanation" style="margin-top: 15px;">
+                        <p><strong>تعليمات الامتحان:</strong> امتحان شامل من 20 سؤال يغطي جميع المواضيع. اقرأ كل سؤال بعناية وستحصل على نتائج مفصلة.</p>
+                    </div>
+                </div>
+
+                <div id="comprehensive-quiz-content"></div>
+
+                <div style="text-align: center; margin: 20px 0;">
+                    <button class="quiz-btn" id="start-final-btn">🎯 Start Final Exam</button>
+                    <button class="quiz-btn" id="check-final-btn" style="display: none;">📊 Submit Exam</button>
+                    <button class="quiz-btn" id="reset-final-btn" style="display: none;">🔄 Retake Exam</button>
+                </div>
+
+                <div id="final-results" style="display: none;"></div>
+            </div>
+        </div>
+
+        <!-- Final Summary -->
+        <div id="final-summary" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">Final Summary & Study Guide</h2>
+                
+                <div class="summary-box">
+                    <h3>🔑 النقاط الأساسية للحفظ:</h3>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>📚 Basic Definitions:</h4>
+                            <ul>
+                                <li><span class="super-important">Operating System: intermediary between user and hardware</span></li>
+                                <li><span class="super-important">Kernel: the one program running at all times</span></li>
+                                <li><span class="super-important">Process: program in execution (active)</span></li>
+                                <li><span class="super-important">Program: passive entity</span></li>
+                                <li><span class="super-important">Bootstrap: loaded from ROM/EEPROM at startup (firmware)</span></li>
+                            </ul>
+                            
+                            <h4>🏗️ System Components (4):</h4>
+                            <ul>
+                                <li><span class="highlight">Hardware: CPU, memory, I/O devices</span></li>
+                                <li><span class="highlight">Operating System: control and coordination</span></li>
+                                <li><span class="highlight">Application Programs: word processors, compilers, etc.</span></li>
+                                <li><span class="highlight">Users: people, machines, other computers</span></li>
+                            </ul>
+                            
+                            <h4>📊 Storage Hierarchy (Fast→Slow):</h4>
+                            <ol>
+                                <li><span class="super-important">Registers (fastest, most expensive)</span></li>
+                                <li><span class="highlight">Cache</span></li>
+                                <li><span class="highlight">Main Memory</span></li>
+                                <li><span class="highlight">Electronic Disk</span></li>
+                                <li><span class="highlight">Magnetic Disk</span></li>
+                                <li><span class="highlight">Optical Disk</span></li>
+                                <li><span class="highlight">Magnetic Tapes (slowest, cheapest)</span></li>
+                            </ol>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>📚 التعريفات الأساسية:</h4>
+                            <ul>
+                                <li><span class="super-important">نظام التشغيل: وسيط بين المستخدم والأجهزة</span></li>
+                                <li><span class="super-important">النواة: البرنامج الوحيد الذي يعمل دائماً</span></li>
+                                <li><span class="super-important">العملية: برنامج قيد التنفيذ (نشط)</span></li>
+                                <li><span class="super-important">البرنامج: كيان سلبي</span></li>
+                                <li><span class="super-important">البوت ستراب: البرمجيات الثابتة في ROM/EEPROM</span></li>
+                            </ul>
+                            
+                            <h4>🏗️ مكونات النظام (4):</h4>
+                            <ul>
+                                <li><span class="concept-highlight">الأجهزة: المعالج، الذاكرة، أجهزة I/O</span></li>
+                                <li><span class="concept-highlight">نظام التشغيل: التحكم والتنسيق</span></li>
+                                <li><span class="concept-highlight">برامج التطبيقات: معالجات النصوص، المترجمات</span></li>
+                                <li><span class="concept-highlight">المستخدمون: الأشخاص، الآلات، الحاسبات</span></li>
+                            </ul>
+                            
+                            <h4>📊 التسلسل الهرمي للتخزين:</h4>
+                            <p>من الأسرع/الأغلى إلى الأبطأ/الأرخص: <span class="super-important">السجلات، الذاكرة المؤقتة، الذاكرة الرئيسية، القرص الإلكتروني، القرص المغناطيسي، القرص البصري، الأشرطة المغناطيسية</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="important">
+                    <h4>🔢 المفاهيم والأرقام المهمة:</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="super-important">Timesharing response time: < 1 second</span></li>
+                                <li><span class="super-important">DMA interrupts: one per block (not per byte)</span></li>
+                                <li><span class="super-important">Single-threaded process: one program counter</span></li>
+                                <li><span class="super-important">Dual-mode: user mode and kernel mode</span></li>
+                                <li><span class="highlight">Multiprogramming: needed for efficiency</span></li>
+                                <li><span class="highlight">Caching: copies from slower to faster storage</span></li>
+                                <li><span class="highlight">Protection: controls access to resources</span></li>
+                                <li><span class="highlight">Security: defends against attacks</span></li>
+                                <li><span class="highlight">I/O Subsystem: buffering, caching, spooling</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="super-important">وقت الاستجابة في تقاسم الوقت: < 1 ثانية</span></li>
+                                <li><span class="super-important">مقاطعات DMA: واحدة لكل كتلة</span></li>
+                                <li><span class="super-important">العملية أحادية الخيط: مؤشر برنامج واحد</span></li>
+                                <li><span class="super-important">الوضع المزدوج: وضع المستخدم ووضع النواة</span></li>
+                                <li><span class="concept-highlight">البرمجة المتعددة: ضرورية للكفاءة</span></li>
+                                <li><span class="concept-highlight">التخزين المؤقت: النسخ من بطيء إلى سريع</span></li>
+                                <li><span class="concept-highlight">الحماية: تتحكم في الوصول للموارد</span></li>
+                                <li><span class="concept-highlight">الأمان: يدافع ضد الهجمات</span></li>
+                                <li><span class="concept-highlight">نظام I/O الفرعي: التخزين المؤقت والتجميع</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exam-tip">
+                    <h4>📝 نصائح مهمة للامتحان:</h4>
+                    <div class="key-points">
+                        <ul>
+                            <li><span class="super-important">احفظ الفرق بين Program (سلبي) و Process (نشط)</span></li>
+                            <li><span class="super-important">تذكر أن Kernel هو البرنامج الوحيد الذي يعمل دائماً</span></li>
+                            <li><span class="super-important">وقت الاستجابة في Timesharing أقل من ثانية واحدة</span></li>
+                            <li><span class="super-important">DMA مقاطعة واحدة لكل كتلة وليس لكل بايت</span></li>
+                            <li><span class="super-important">النظام له 4 مكونات أساسية</span></li>
+                            <li><span class="super-important">الوضعان في dual-mode: User mode و Kernel mode</span></li>
+                            <li><span class="super-important">Protection يتحكم في الوصول، Security يدافع ضد الهجمات</span></li>
+                            <li><span class="super-important">File هو وحدة التخزين المنطقية</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px; padding: 20px; background: linear-gradient(135deg, #295340 0%, #1e3d30 100%); border-radius: 15px; color: white;">
+                    <h2>🌟 Congratulations on Completing the Course! 🌟</h2>
+                    <p style="font-size: 1.1em; margin-top: 10px;">You are now ready to excel in your Operating System Concepts exam!</p>
+                    <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.9;">Remember: Understanding concepts is more valuable than memorizing facts.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let totalScore = 0;
+        let totalQuestions = 0;
+        let comprehensiveQuizQuestions = [];
+        let comprehensiveAnswers = {};
+        let sectionProgress = {};
+        let achievements = [];
+
+        function showSection(sectionId, buttonElement) {
+            try {
+                // Hide all sections
+                const sections = document.querySelectorAll('.section');
+                sections.forEach(section => section.classList.remove('active'));
+                
+                // Show selected section
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+                
+                // Update navigation
+                const buttons = document.querySelectorAll('.nav-btn');
+                buttons.forEach(btn => btn.classList.remove('active'));
+                
+                if (buttonElement && buttonElement.classList.contains('nav-btn')) {
+                    buttonElement.classList.add('active');
+                }
+                
+                // Update progress
+                updateProgress();
+                updateSectionProgress(sectionId);
+            } catch (error) {
+                console.error('Error in showSection:', error);
+            }
+        }
+
+        function updateProgress() {
+            try {
+                const progress = (totalScore / Math.max(totalQuestions, 1)) * 100;
+                const progressBar = document.getElementById('progress');
+                const scoreDisplay = document.getElementById('scoreDisplay');
+                const percentageDisplay = document.getElementById('percentageDisplay');
+                
+                if (progressBar) progressBar.style.width = progress + '%';
+                if (scoreDisplay) scoreDisplay.textContent = `Score: ${totalScore}/${totalQuestions}`;
+                if (percentageDisplay) percentageDisplay.textContent = `${progress.toFixed(1)}%`;
+                
+                // Update stats
+                const totalQuestionsEl = document.getElementById('totalQuestions');
+                const correctAnswersEl = document.getElementById('correctAnswers');
+                const accuracyEl = document.getElementById('accuracy');
+                
+                if (totalQuestionsEl) totalQuestionsEl.textContent = totalQuestions;
+                if (correctAnswersEl) correctAnswersEl.textContent = totalScore;
+                if (accuracyEl) accuracyEl.textContent = `${progress.toFixed(1)}%`;
+                
+                // Check for achievements
+                checkAchievements(progress);
+            } catch (error) {
+                console.error('Error in updateProgress:', error);
+            }
+        }
+
+        function updateSectionProgress(sectionId) {
+            try {
+                if (!sectionProgress[sectionId]) {
+                    sectionProgress[sectionId] = true;
+                    const completed = Object.keys(sectionProgress).length;
+                    const sectionsCompletedEl = document.getElementById('sectionsCompleted');
+                    if (sectionsCompletedEl) {
+                        sectionsCompletedEl.textContent = completed;
+                    }
+                }
+            } catch (error) {
+                console.error('Error in updateSectionProgress:', error);
+            }
+        }
+
+        function checkAchievements(progress) {
+            try {
+                const achievementElements = document.querySelectorAll('.achievement');
+                achievementElements.forEach(achievement => {
+                    const unlockScore = parseInt(achievement.dataset.unlock);
+                    if (totalScore >= unlockScore && !achievement.classList.contains('unlocked')) {
+                        achievement.classList.add('unlocked');
+                        achievements.push(unlockScore);
+                    }
+                });
+            } catch (error) {
+                console.error('Error in checkAchievements:', error);
+            }
+        }
+
+        function toggleCollapsible(element) {
+            element.classList.toggle('active');
+        }
+
+        // Enhanced Quiz functionality
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('option')) {
+                handleMCQAnswer(e);
+            } else if (e.target.classList.contains('tf-option')) {
+                handleTrueFalseAnswer(e);
+            }
+        });
+
+        function handleMCQAnswer(e) {
+            const optionsContainer = e.target.closest('.options');
+            if (!optionsContainer) return;
+            
+            const question = optionsContainer.dataset.question;
+            const options = optionsContainer.querySelectorAll('.option');
+            const result = document.getElementById('result' + question);
+            
+            if (!result) return;
+            
+            // Remove previous selections
+            options.forEach(opt => {
+                opt.classList.remove('selected', 'correct', 'incorrect');
+            });
+            
+            // Mark selected option
+            e.target.classList.add('selected');
+            
+            // Check answer
+            const isCorrect = e.target.dataset.answer === 'correct';
+            e.target.classList.add(isCorrect ? 'correct' : 'incorrect');
+            
+            // Show result
+            showResult(result, isCorrect, question);
+            
+            // Show correct answer if wrong
+            if (!isCorrect) {
+                options.forEach(opt => {
+                    if (opt.dataset.answer === 'correct') {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+        }
+
+        function handleTrueFalseAnswer(e) {
+            const tfContainer = e.target.closest('.true-false');
+            if (!tfContainer) return;
+            
+            const question = tfContainer.dataset.question;
+            const options = tfContainer.querySelectorAll('.tf-option');
+            const result = document.getElementById('result' + question);
+            
+            if (!result) return;
+            
+            // Remove previous selections
+            options.forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Mark selected option
+            e.target.classList.add('selected');
+            
+            // Check answer
+            const isCorrect = e.target.dataset.answer === 'correct';
+            
+            // Show result
+            showResult(result, isCorrect, question);
+        }
+
+        function showResult(resultElement, isCorrect, questionNumber) {
+            if (!resultElement) return;
+            
+            resultElement.style.display = 'block';
+            resultElement.className = 'result ' + (isCorrect ? 'correct' : 'incorrect');
+            
+            // Add show class with a small delay for animation
+            setTimeout(() => {
+                resultElement.classList.add('show');
+            }, 10);
+            
+            const messages = {
+                correct: [
+                    '✅ ممتاز! إجابة صحيحة!',
+                    '🎉 رائع! أحسنت!',
+                    '⭐ مذهل! إجابة صحيحة!',
+                    '🚀 عظيم! إجابة صحيحة!'
+                ],
+                incorrect: [
+                    '❌ ليس صحيح تماماً. راجع المادة وحاول مرة أخرى.',
+                    '🤔 خطأ. اطلع على الشرح أعلاه.',
+                    '📚 إجابة خاطئة. يرجى دراسة هذا الموضوع أكثر.',
+                    '💡 غير صحيح. ارجع إلى المحتوى.'
+                ]
+            };
+            
+            const messageArray = isCorrect ? messages.correct : messages.incorrect;
+            const randomMessage = messageArray[Math.floor(Math.random() * messageArray.length)];
+            resultElement.textContent = randomMessage;
+            
+            // Update score if not answered before
+            const container = resultElement.closest('.quiz-container');
+            if (container && !container.dataset.answered) {
+                totalQuestions++;
+                if (isCorrect) totalScore++;
+                container.dataset.answered = 'true';
+                updateProgress();
+            }
+        }
+
+        function checkFillBlank(questionNumber) {
+            const questionContainer = document.getElementById('result' + questionNumber);
+            if (!questionContainer) return;
+            
+            const parentContainer = questionContainer.closest('.quiz-container');
+            if (!parentContainer) return;
+            
+            const input = parentContainer.querySelector('input[data-answer]');
+            if (!input) return;
+            
+            const userAnswer = input.value.toLowerCase().trim();
+            const correctAnswer = input.dataset.answer.toLowerCase();
+            const result = document.getElementById('result' + questionNumber);
+            
+            const isCorrect = userAnswer === correctAnswer;
+            
+            // Visual feedback
+            input.style.borderColor = isCorrect ? '#4caf50' : '#f44336';
+            input.style.backgroundColor = isCorrect ? '#e8f5e8' : '#ffebee';
+            
+            showResult(result, isCorrect, questionNumber);
+            
+            if (!isCorrect) {
+                setTimeout(() => {
+                    input.value = correctAnswer;
+                    input.style.borderColor = '#4caf50';
+                    input.style.backgroundColor = '#e8f5e8';
+                }, 2000);
+            }
+        }
+
+        // Final Comprehensive Exam
+        function generateFinalExam() {
+            const questions = [
+                {
+                    type: 'mcq',
+                    question: "What is the correct definition of an operating system?",
+                    options: [
+                        "A program for running games",
+                        "A program that acts as an intermediary between user and hardware",
+                        "Part of the processor",
+                        "A type of memory"
+                    ],
+                    correct: 1
+                },
+                {
+                    type: 'tf',
+                    question: "The kernel is the one program running at all times on the computer.",
+                    correct: true
+                },
+                {
+                    type: 'mcq',
+                    question: "How many basic components does a computer system have?",
+                    options: ["3", "4", "5", "6"],
+                    correct: 1
+                },
+                {
+                    type: 'mcq',
+                    question: "Where is the bootstrap program typically stored?",
+                    options: ["Main memory", "ROM or EEPROM", "Hard disk", "Cache memory"],
+                    correct: 1
+                },
+                {
+                    type: 'tf',
+                    question: "In DMA, only one interrupt is generated per block of data.",
+                    correct: true
+                },
+                {
+                    type: 'mcq',
+                    question: "What is the fastest in the storage hierarchy?",
+                    options: ["Hard disk", "Main memory", "Registers", "Cache"],
+                    correct: 2
+                },
+                {
+                    type: 'tf',
+                    question: "Caching involves copying information from slower to faster storage temporarily.",
+                    correct: true
+                },
+                {
+                    type: 'mcq',
+                    question: "In timesharing systems, what should the response time be?",
+                    options: ["Less than 1 second", "More than 5 seconds", "Between 2-3 seconds", "Timing doesn't matter"],
+                    correct: 0
+                },
+                {
+                    type: 'mcq',
+                    question: "What are the two modes in dual-mode operation?",
+                    options: [
+                        "User mode and kernel mode",
+                        "Fast mode and slow mode",
+                        "Input mode and output mode",
+                        "Read mode and write mode"
+                    ],
+                    correct: 0
+                },
+                {
+                    type: 'mcq',
+                    question: "What is the difference between a program and a process?",
+                    options: [
+                        "There is no difference",
+                        "Program is a passive entity, process is an active entity",
+                        "Program is faster than process",
+                        "Process is larger than program"
+                    ],
+                    correct: 1
+                },
+                {
+                    type: 'mcq',
+                    question: "Where must all instructions be located in order to execute?",
+                    options: ["On the hard disk", "In memory", "In the processor", "On the network"],
+                    correct: 1
+                },
+                {
+                    type: 'mcq',
+                    question: "What is the logical storage unit in an operating system?",
+                    options: ["Directory", "File", "Disk", "Memory"],
+                    correct: 1
+                },
+                {
+                    type: 'tf',
+                    question: "I/O subsystem includes buffering, caching, and spooling.",
+                    correct: true
+                },
+                {
+                    type: 'tf',
+                    question: "Protection controls access to resources while security defends against attacks.",
+                    correct: true
+                },
+                {
+                    type: 'mcq',
+                    question: "In Peer-to-Peer (P2P) computing:",
+                    options: [
+                        "There are always central servers",
+                        "All nodes are considered peers",
+                        "Clients are more important than servers",
+                        "There is no network"
+                    ],
+                    correct: 1
+                },
+                {
+                    type: 'mcq',
+                    question: "What does DMA stand for and what is its main advantage?",
+                    options: [
+                        "Direct Memory Access - reduces CPU interrupts",
+                        "Dynamic Memory Allocation - increases speed",
+                        "Data Management Architecture - better organization",
+                        "Device Memory Array - more storage"
+                    ],
+                    correct: 0
+                },
+                {
+                    type: 'tf',
+                    question: "Main memory can be viewed as a last cache for secondary storage.",
+                    correct: true
+                },
+                {
+                    type: 'mcq',
+                    question: "What is spooling in I/O subsystem?",
+                    options: [
+                        "Storing data permanently",
+                        "The overlapping of output of one job with input of other jobs",
+                        "Deleting unnecessary files",
+                        "Compressing data for storage"
+                    ],
+                    correct: 1
+                },
+                {
+                    type: 'mcq',
+                    question: "Which statement about storage hierarchy is correct?",
+                    options: [
+                        "Magnetic tapes are faster than registers",
+                        "Cache is more expensive per bit than main memory",
+                        "Optical disks have unlimited capacity",
+                        "Electronic disks are slower than magnetic disks"
+                    ],
+                    correct: 1
+                },
+                {
+                    type: 'tf',
+                    question: "Process management includes providing mechanisms for deadlock handling.",
+                    correct: true
+                }
+            ];
+
+            comprehensiveQuizQuestions = [...questions];
+            comprehensiveAnswers = {};
+            
+            const quizContainer = document.getElementById('comprehensive-quiz-content');
+            quizContainer.innerHTML = '';
+            
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'quiz-container';
+                
+                let questionHTML = `<div class="question">
+                    <span class="question-type">${q.type.toUpperCase()}</span>
+                    Question ${index + 1}: ${q.question}
+                </div>`;
+                
+                if (q.type === 'mcq') {
+                    questionHTML += `<div class="options" data-question="final-${index}">
+                        ${q.options.map((option, optIndex) => 
+                            `<div class="option" data-answer="${optIndex}" onclick="selectFinalAnswer(${index}, ${optIndex}, 'mcq')">${String.fromCharCode(65 + optIndex)}) ${option}</div>`
+                        ).join('')}
+                    </div>`;
+                } else if (q.type === 'tf') {
+                    questionHTML += `<div class="true-false" data-question="final-${index}">
+                        <div class="tf-option tf-true" data-answer="true" onclick="selectFinalAnswer(${index}, true, 'tf')">TRUE</div>
+                        <div class="tf-option tf-false" data-answer="false" onclick="selectFinalAnswer(${index}, false, 'tf')">FALSE</div>
+                    </div>`;
+                }
+                
+                questionHTML += `<div class="result" id="final-result${index}"></div>`;
+                questionDiv.innerHTML = questionHTML;
+                quizContainer.appendChild(questionDiv);
+            });
+            
+            document.getElementById('start-final-btn').style.display = 'none';
+            document.getElementById('check-final-btn').style.display = 'inline-block';
+        }
+
+        function selectFinalAnswer(questionIndex, answer, type) {
+            comprehensiveAnswers[questionIndex] = {answer: answer, type: type};
+            
+            // Visual feedback
+            if (type === 'mcq') {
+                const options = document.querySelectorAll(`[data-question="final-${questionIndex}"] .option`);
+                options.forEach(opt => opt.classList.remove('selected'));
+                if (options[answer]) {
+                    options[answer].classList.add('selected');
+                }
+            } else if (type === 'tf') {
+                const options = document.querySelectorAll(`[data-question="final-${questionIndex}"] .tf-option`);
+                options.forEach(opt => opt.classList.remove('selected'));
+                
+                // Find and select the clicked option
+                const clickedOption = document.querySelector(`[data-question="final-${questionIndex}"] .tf-option[data-answer="${answer}"]`);
+                if (clickedOption) {
+                    clickedOption.classList.add('selected');
+                }
+            }
+        }
+
+        function checkFinalExam() {
+            let score = 0;
+            const results = [];
+            
+            comprehensiveQuizQuestions.forEach((q, index) => {
+                const userAnswerObj = comprehensiveAnswers[index];
+                let isCorrect = false;
+                let userAnswer = 'لم تُجب';
+                
+                if (q.type === 'mcq' && userAnswerObj) {
+                    isCorrect = userAnswerObj.answer === q.correct;
+                    userAnswer = q.options[userAnswerObj.answer] || 'Not answered';
+                } else if (q.type === 'tf' && userAnswerObj) {
+                    isCorrect = userAnswerObj.answer === q.correct;
+                    userAnswer = userAnswerObj.answer ? 'TRUE' : 'FALSE';
+                }
+                
+                if (isCorrect) score++;
+                
+                results.push({
+                    question: q.question,
+                    userAnswer: userAnswer,
+                    correctAnswer: q.type === 'mcq' ? q.options[q.correct] : (q.correct ? 'TRUE' : 'FALSE'),
+                    isCorrect: isCorrect,
+                    type: q.type
+                });
+            });
+            
+            displayFinalResults(score, results);
+        }
+
+        function displayFinalResults(score, results) {
+            const percentage = (score / comprehensiveQuizQuestions.length * 100).toFixed(1);
+            let grade = '';
+            let gradeColor = '';
+            
+            if (percentage >= 90) { grade = 'A+ Excellent'; gradeColor = '#4caf50'; }
+            else if (percentage >= 80) { grade = 'A Good'; gradeColor = '#8bc34a'; }
+            else if (percentage >= 70) { grade = 'B+ Satisfactory'; gradeColor = '#ffc107'; }
+            else if (percentage >= 60) { grade = 'B Needs Review'; gradeColor = '#ff9800'; }
+            else { grade = 'C Requires Study'; gradeColor = '#f44336'; }
+            
+            const resultsDiv = document.getElementById('final-results');
+            resultsDiv.innerHTML = `
+                <div class="summary-box">
+                    <h3>🎯 Final Exam Results</h3>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <div style="font-size: 3em; color: ${gradeColor}; margin-bottom: 10px;">
+                            ${score}/${comprehensiveQuizQuestions.length}
+                        </div>
+                        <div style="font-size: 2em; margin: 10px 0; color: ${gradeColor};">
+                            ${percentage}%
+                        </div>
+                        <div style="font-size: 1.5em; margin: 10px 0; color: ${gradeColor}; font-weight: bold;">
+                            Grade: ${grade}
+                        </div>
+                    </div>
+                    
+                    <div class="key-points">
+                        <h4>📋 Detailed Review:</h4>
+                        <div style="max-height: 400px; overflow-y: auto;">
+                            ${results.map((result, index) => `
+                                <div style="margin: 10px 0; padding: 15px; border-radius: 10px; background: ${result.isCorrect ? '#e8f5e8' : '#ffebee'}; border-left: 4px solid ${result.isCorrect ? '#4caf50' : '#f44336'};">
+                                    <strong>Q${index + 1} [${result.type.toUpperCase()}]:</strong> ${result.question}<br>
+                                    <strong>Your Answer:</strong> ${result.userAnswer}<br>
+                                    <strong>Correct Answer:</strong> ${result.correctAnswer}
+                                    <span style="float: right; font-size: 1.2em;">${result.isCorrect ? '✅' : '❌'}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    ${percentage >= 70 ? `
+                        <div class="key-points">
+                            <h4>🎉 Congratulations!</h4>
+                            <p>You have demonstrated a strong understanding of Operating System Concepts. You're well prepared for your actual exam!</p>
+                            <div class="arabic-explanation" style="margin-top: 10px;">
+                                <p>مبروك! لقد أظهرت فهماً قوياً لمفاهيم أنظمة التشغيل وأنت مستعد للامتحان الفعلي!</p>
+                            </div>
+                        </div>
+                    ` : `
+                        <div class="important">
+                            <h4>📚 Study Recommendations:</h4>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>Review sections where you scored lowest</li>
+                                <li>Focus on understanding concepts rather than memorizing</li>
+                                <li>Re-read the summary section carefully</li>
+                                <li>Retake the exam after thorough review</li>
+                            </ul>
+                            <div class="arabic-explanation" style="margin-top: 10px;">
+                                <p><strong>توصيات للدراسة:</strong> راجع الأقسام التي حصلت فيها على درجات منخفضة، ركز على فهم المفاهيم، وأعد الامتحان بعد المراجعة الشاملة.</p>
+                            </div>
+                        </div>
+                    `}
+                </div>
+            `;
+            resultsDiv.style.display = 'block';
+            
+            document.getElementById('check-final-btn').style.display = 'none';
+            document.getElementById('reset-final-btn').style.display = 'inline-block';
+            
+            // Update overall progress
+            totalScore += score;
+            totalQuestions += comprehensiveQuizQuestions.length;
+            updateProgress();
+        }
+
+        function resetFinalExam() {
+            document.getElementById('comprehensive-quiz-content').innerHTML = '';
+            document.getElementById('final-results').style.display = 'none';
+            document.getElementById('start-final-btn').style.display = 'inline-block';
+            document.getElementById('check-final-btn').style.display = 'none';
+            document.getElementById('reset-final-btn').style.display = 'none';
+            comprehensiveAnswers = {};
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                updateProgress();
+                console.log('📚 دليل مفاهيم أنظمة التشغيل التفاعلي محمل!');
+                console.log('🎯 أكمل جميع الاختبارات لإلغاء تأمين الإنجازات!');
+                
+                // Add click handlers for navigation
+                document.querySelectorAll('.nav-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const sectionId = this.getAttribute('data-section');
+                        if (sectionId) {
+                            showSection(sectionId, this);
+                        }
+                    });
+                });
+                
+                // Add click handlers for fill-in-the-blank check buttons
+                document.querySelectorAll('.quiz-btn[data-check]').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const questionNumber = this.getAttribute('data-check');
+                        if (questionNumber) {
+                            checkFillBlank(questionNumber);
+                        }
+                    });
+                });
+                
+                // Add click handlers for final exam buttons
+                const startFinalBtn = document.getElementById('start-final-btn');
+                const checkFinalBtn = document.getElementById('check-final-btn');
+                const resetFinalBtn = document.getElementById('reset-final-btn');
+                
+                if (startFinalBtn) {
+                    startFinalBtn.addEventListener('click', generateFinalExam);
+                }
+                if (checkFinalBtn) {
+                    checkFinalBtn.addEventListener('click', checkFinalExam);
+                }
+                if (resetFinalBtn) {
+                    resetFinalBtn.addEventListener('click', resetFinalExam);
+                }
+                
+            } catch (error) {
+                console.error('Error initializing page:', error);
+            }
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Arrow key navigation
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                const activeBtn = document.querySelector('.nav-btn.active');
+                if (activeBtn) {
+                    const buttons = Array.from(document.querySelectorAll('.nav-btn'));
+                    const currentIndex = buttons.indexOf(activeBtn);
+                    let newIndex;
+                    
+                    if (e.key === 'ArrowLeft') {
+                        newIndex = currentIndex > 0 ? currentIndex - 1 : buttons.length - 1;
+                    } else {
+                        newIndex = currentIndex < buttons.length - 1 ? currentIndex + 1 : 0;
+                    }
+                    
+                    const targetBtn = buttons[newIndex];
+                    if (targetBtn) {
+                        targetBtn.click();
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

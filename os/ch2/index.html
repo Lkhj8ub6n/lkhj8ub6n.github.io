@@ -1,0 +1,2790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operating System Structures - Chapter 2 Mobile Optimized Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: linear-gradient(135deg, #295340 0%, #1e3d30 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px;
+            background: #ffffff;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(41, 83, 64, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #295340 0%, #1e3d30 100%);
+            border-radius: 15px;
+            margin-bottom: 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .header h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(41, 83, 64, 0.1);
+        }
+
+        .nav-btn {
+            padding: 10px 16px;
+            background: #295340;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 13px;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(41, 83, 64, 0.3);
+            background: #1e3d30;
+        }
+
+        .nav-btn.active {
+            background: #1e3d30;
+            box-shadow: 0 5px 15px rgba(41, 83, 64, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .progress-container {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 25px;
+            background: #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 15px 0;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #295340 0%, #1e3d30 100%);
+            width: 0%;
+            transition: width 0.8s ease;
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .score-display {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #295340;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .achievements {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .achievement {
+            background: #295340;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            opacity: 0.3;
+            transition: all 0.3s ease;
+        }
+
+        .achievement.unlocked {
+            opacity: 1;
+            animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .topic-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(41, 83, 64, 0.1);
+            border-left: 5px solid #295340;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #295340 0%, #1e3d30 100%);
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(41, 83, 64, 0.15);
+        }
+
+        .topic-title {
+            font-size: 1.7em;
+            color: #295340;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .topic-title::before {
+            content: '🏗️';
+            margin-right: 10px;
+            font-size: 0.8em;
+        }
+
+        /* Enhanced highlight styles */
+        .highlight {
+            background: linear-gradient(120deg, #fff3cd 0%, #ffeaa7 100%);
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #295340;
+            border: 2px solid #f39c12;
+            box-shadow: 0 2px 8px rgba(243, 156, 18, 0.3);
+            display: inline-block;
+            margin: 2px;
+            position: relative;
+        }
+
+        .highlight::before {
+            content: '⭐';
+            margin-right: 5px;
+        }
+
+        .super-important {
+            background: linear-gradient(120deg, #ff6b6b 0%, #ee5a52 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 12px rgba(238, 90, 82, 0.4);
+            display: inline-block;
+            margin: 4px;
+            animation: pulse 2s infinite;
+        }
+
+        .super-important::before {
+            content: '🔥';
+            margin-right: 8px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .definition-box {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border: 3px solid #4caf50;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.2);
+        }
+
+        .definition-box::before {
+            content: '📖 تعريف مهم';
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #4caf50;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .key-concept {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border: 3px solid #2196f3;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.2);
+        }
+
+        .key-concept::before {
+            content: '🔑 مفهوم أساسي';
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #2196f3;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .english-content {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-left: 4px solid #2c5282;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(44, 82, 130, 0.1);
+        }
+
+        .english-content::before {
+            content: '🇺🇸 English';
+            position: absolute;
+            top: -12px;
+            left: 15px;
+            background: #295340;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .arabic-explanation {
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border-right: 4px solid #2c5282;
+            direction: rtl;
+            text-align: right;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(44, 82, 130, 0.1);
+        }
+
+        .arabic-explanation::before {
+            content: '🇸🇦 العربية';
+            position: absolute;
+            top: -12px;
+            right: 15px;
+            background: #295340;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        /* Enhanced important points styling */
+        .important-point {
+            background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
+            border: 2px solid #ff9800;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            position: relative;
+            box-shadow: 0 6px 16px rgba(255, 152, 0, 0.3);
+        }
+
+        .important-point::before {
+            content: '💡';
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            background: #ff9800;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 50%;
+            font-size: 1.2em;
+        }
+
+        .memory-tip {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border: 2px solid #9c27b0;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            position: relative;
+            box-shadow: 0 6px 16px rgba(156, 39, 176, 0.3);
+        }
+
+        .memory-tip::before {
+            content: '🧠 نصيحة للحفظ';
+            position: absolute;
+            top: -12px;
+            right: 15px;
+            background: #9c27b0;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .quiz-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid #295340;
+            position: relative;
+        }
+
+        .quiz-section::before {
+            content: '🎯 Quiz Time';
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background: #295340;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .quiz-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(41, 83, 64, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .quiz-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(41, 83, 64, 0.15);
+        }
+
+        .question {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #295340;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .question-type {
+            background: #295340;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            margin-right: 10px;
+            margin-bottom: 5px;
+        }
+
+        .options {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .option {
+            padding: 12px 20px;
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(41, 83, 64, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .option:hover::before {
+            left: 100%;
+        }
+
+        .option:hover {
+            border-color: #295340;
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(41, 83, 64, 0.1);
+        }
+
+        .option.selected {
+            border-color: #295340;
+            background: #e8f5e9;
+        }
+
+        .option.correct {
+            border-color: #4caf50;
+            background: #e8f5e8;
+            animation: correctPulse 0.5s ease;
+        }
+
+        .option.incorrect {
+            border-color: #f44336;
+            background: #ffebee;
+            animation: incorrectShake 0.5s ease;
+        }
+
+        @keyframes correctPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes incorrectShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .true-false {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tf-option {
+            flex: 1;
+            max-width: 200px;
+            min-width: 120px;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tf-true {
+            background: #e8f5e8;
+            border: 2px solid #4caf50;
+            color: #2e7d32;
+        }
+
+        .tf-false {
+            background: #ffebee;
+            border: 2px solid #f44336;
+            color: #c62828;
+        }
+
+        .tf-option:hover {
+            transform: scale(1.05);
+        }
+
+        .tf-option.selected {
+            box-shadow: 0 0 20px rgba(41, 83, 64, 0.3);
+        }
+
+        .result {
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            font-weight: bold;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .result.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .result.correct {
+            background: #e8f5e8;
+            color: #2e7d32;
+            border: 2px solid #4caf50;
+        }
+
+        .result.incorrect {
+            background: #ffebee;
+            color: #c62828;
+            border: 2px solid #f44336;
+        }
+
+        .quiz-btn {
+            background: #295340;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            margin: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .quiz-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .quiz-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(41, 83, 64, 0.3);
+            background: #1e3d30;
+        }
+
+        .key-points {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border: 2px solid #295340;
+            box-shadow: 0 4px 12px rgba(41, 83, 64, 0.1);
+        }
+
+        .key-points h4 {
+            color: #295340;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .key-points ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .key-points li {
+            margin: 12px 0;
+            position: relative;
+            padding-left: 30px;
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(41, 83, 64, 0.1);
+        }
+
+        .key-points li::before {
+            content: '✅';
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .summary-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border: 2px solid #295340;
+            box-shadow: 0 8px 20px rgba(41, 83, 64, 0.1);
+        }
+
+        .important {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 3px solid #f39c12;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.3);
+        }
+
+        .important::before {
+            content: '⚠️ مهم جداً';
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #f39c12;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .english-text {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid #295340;
+            box-shadow: 0 4px 12px rgba(41, 83, 64, 0.1);
+        }
+
+        .arabic-text {
+            direction: rtl;
+            text-align: right;
+            background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-right: 4px solid #295340;
+            box-shadow: 0 4px 12px rgba(41, 83, 64, 0.1);
+        }
+
+        .concept-highlight {
+            background: linear-gradient(120deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            display: inline-block;
+            margin: 2px;
+        }
+
+        .exam-tip {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 15px 0;
+            border: 2px solid #e84393;
+            box-shadow: 0 6px 16px rgba(232, 67, 147, 0.3);
+            position: relative;
+        }
+
+        .exam-tip::before {
+            content: '📝 نصيحة للامتحان';
+            position: absolute;
+            top: -12px;
+            right: 15px;
+            background: #e84393;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        /* Enhanced mobile responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                margin: 5px;
+                padding: 10px;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 20px 15px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .header p {
+                font-size: 1em;
+            }
+            
+            .nav-menu {
+                gap: 5px;
+                padding: 10px;
+            }
+            
+            .nav-btn {
+                padding: 8px 12px;
+                font-size: 11px;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .score-display {
+                flex-direction: column;
+                gap: 10px;
+                font-size: 1.1em;
+            }
+
+            .topic-card {
+                padding: 15px;
+            }
+
+            .topic-title {
+                font-size: 1.4em;
+                flex-wrap: wrap;
+            }
+
+            .english-content, .arabic-explanation {
+                padding: 15px;
+            }
+
+            .quiz-container {
+                padding: 15px;
+            }
+
+            .question {
+                font-size: 1em;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .question-type {
+                margin-bottom: 10px;
+            }
+
+            .true-false {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .tf-option {
+                max-width: 100%;
+            }
+
+            .achievements {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .achievement {
+                width: 100%;
+                max-width: 200px;
+                text-align: center;
+            }
+
+            .important, .definition-box, .key-concept {
+                padding: 15px;
+            }
+
+            .english-text, .arabic-text {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin: 2px;
+                padding: 8px;
+            }
+
+            .nav-menu {
+                padding: 8px;
+            }
+
+            .nav-btn {
+                padding: 6px 10px;
+                font-size: 10px;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .topic-title {
+                font-size: 1.2em;
+            }
+
+            .progress-container {
+                padding: 15px;
+            }
+
+            .score-display {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Operating System Structures</h1>
+            <p>Chapter 2: OS Services, System Calls, and Design </p>
+        </header>
+
+        <nav class="nav-menu">
+            <button class="nav-btn active" data-section="overview">Overview</button>
+            <button class="nav-btn" data-section="os-services">OS Services</button>
+            <button class="nav-btn" data-section="user-interfaces">User Interfaces</button>
+            <button class="nav-btn" data-section="system-calls">System Calls</button>
+            <button class="nav-btn" data-section="system-programs">System Programs</button>
+            <button class="nav-btn" data-section="os-design">OS Design</button>
+            <button class="nav-btn" data-section="os-structures">OS Structures</button>
+            <button class="nav-btn" data-section="virtual-machines">Virtual Machines</button>
+            <button class="nav-btn" data-section="comprehensive-quiz">Final Exam</button>
+            <button class="nav-btn" data-section="final-summary">Summary</button>
+        </nav>
+
+        <div class="progress-container">
+            <div class="score-display">
+                <span id="scoreDisplay">Score: 0/0</span>
+                <span id="percentageDisplay">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            <div class="achievements" id="achievements">
+                <div class="achievement" data-unlock="5">🌟 Structure Master</div>
+                <div class="achievement" data-unlock="15">🎯 Service Expert</div>
+                <div class="achievement" data-unlock="30">🚀 System Architect</div>
+                <div class="achievement" data-unlock="50">🏆 Design Champion</div>
+                <div class="achievement" data-unlock="75">💎 Interface Guru</div>
+                <div class="achievement" data-unlock="100">👑 OS Structures Pro</div>
+            </div>
+        </div>
+
+        <!-- Overview Section -->
+        <div id="overview" class="section active">
+            <div class="topic-card">
+                <h2 class="topic-title">Chapter 2: Operating System Structures - Overview</h2>
+                
+                <div class="definition-box">
+                    <h3>📚 محتويات الفصل الثاني</h3>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>📖 Chapter Contents:</h4>
+                            <ul>
+                                <li><span class="highlight">Operating System Services</span></li>
+                                <li><span class="highlight">User Operating System Interface</span></li>
+                                <li><span class="highlight">System Calls</span></li>
+                                <li><span class="highlight">Types of System Calls</span></li>
+                                <li><span class="highlight">System Programs</span></li>
+                                <li><span class="highlight">Operating System Design and Implementation</span></li>
+                                <li><span class="highlight">Operating System Structure</span></li>
+                                <li><span class="highlight">Virtual Machines</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>📚 التعريفات الأساسية:</h4>
+                            <ul>
+                                <li><span class="super-important">استدعاءات النظام: واجهة البرمجة لخدمات نظام التشغيل</span></li>
+                                <li><span class="super-important">API: واجهة برنامج التطبيق (Win32، POSIX، Java)</span></li>
+                                <li><span class="super-important">CLI: واجهة سطر الأوامر - إدخال أوامر مباشر</span></li>
+                                <li><span class="super-important">GUI: واجهة المستخدم الرسومية - استعارة سطح المكتب</span></li>
+                                <li><span class="super-important">السياسة مقابل الآلية: ماذا مقابل كيف</span></li>
+                            </ul>
+                            
+                            <h4>🏗️ بنى أنظمة التشغيل:</h4>
+                            <ul>
+                                <li><span class="concept-highlight">البنية البسيطة: MS-DOS (غير معياري)</span></li>
+                                <li><span class="concept-highlight">الطبقي: طبقة 0 = الأجهزة، طبقة N = واجهة المستخدم</span></li>
+                                <li><span class="concept-highlight">النواة المصغرة: كود أقل في وضع النواة، أكثر أماناً</span></li>
+                                <li><span class="concept-highlight">الوحدات: موجه الكائنات، قابل للتحميل أثناء التشغيل</span></li>
+                                <li><span class="concept-highlight">الآلات الافتراضية: واجهة مطابقة للأجهزة المجردة</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="important">
+                    <h4>🔢 المفاهيم والأرقام المهمة:</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="super-important">System calls are written in high-level languages (C/C++)</span></li>
+                                <li><span class="super-important">Each system call has a unique number</span></li>
+                                <li><span class="super-important">5 types of system calls: Process control, File management, Device management, Information maintenance, Communications</span></li>
+                                <li><span class="highlight">System programs provide convenient environment</span></li>
+                                <li><span class="highlight">User goals: convenient, easy, reliable, safe, fast</span></li>
+                                <li><span class="highlight">System goals: easy to design/implement/maintain, flexible, reliable, error-free, efficient</span></li>
+                                <li><span class="highlight">Virtual machines: complete protection, isolation, perfect for research</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="super-important">استدعاءات النظام مكتوبة بلغات عالية المستوى (C/C++)</span></li>
+                                <li><span class="super-important">كل استدعاء نظام له رقم فريد</span></li>
+                                <li><span class="super-important">5 أنواع من استدعاءات النظام: تحكم العمليات، إدارة الملفات، إدارة الأجهزة، صيانة المعلومات، الاتصالات</span></li>
+                                <li><span class="concept-highlight">برامج النظام توفر بيئة مريحة</span></li>
+                                <li><span class="concept-highlight">أهداف المستخدم: مريح، سهل، موثوق، آمن، سريع</span></li>
+                                <li><span class="concept-highlight">أهداف النظام: سهل التصميم/التنفيذ/الصيانة، مرن، موثوق، خالي من الأخطاء، فعال</span></li>
+                                <li><span class="concept-highlight">الآلات الافتراضية: حماية كاملة، عزل، مثالية للبحث</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exam-tip">
+                    <h4>📝 نصائح مهمة للامتحان:</h4>
+                    <div class="key-points">
+                        <ul>
+                            <li><span class="super-important">احفظ الفرق بين Policy (ماذا) و Mechanism (كيف)</span></li>
+                            <li><span class="super-important">تذكر أن System Calls هي واجهة البرمجة لخدمات نظام التشغيل</span></li>
+                            <li><span class="super-important">CLI يسمح بإدخال الأوامر مباشرة، GUI يستخدم الأيقونات</span></li>
+                            <li><span class="super-important">في الأنظمة الطبقية: طبقة 0 = الأجهزة، طبقة N = واجهة المستخدم</span></li>
+                            <li><span class="super-important">Microkernel: أكثر أماناً لكن أداء أبطأ بسبب Communication overhead</span></li>
+                            <li><span class="super-important">Virtual Machines توفر عزل كامل لكن لا تسمح بمشاركة مباشرة للموارد</span></li>
+                            <li><span class="super-important">أشهر 3 APIs: Win32, POSIX, Java API</span></li>
+                            <li><span class="super-important">5 أنواع System Calls: Process, File, Device, Information, Communications</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Operating System Services -->
+        <div id="os-services" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">Operating System Services</h2>
+                
+                <div class="definition-box">
+                    <h3>🔍 خدمات نظام التشغيل</h3>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>🎯 Service Categories:</h4>
+                            <p><span class="super-important">Set of operating-system services provides functions that are helpful to the user</span></p>
+                            <ul>
+                                <li><span class="highlight">User-oriented services</span></li>
+                                <li><span class="highlight">System-oriented services</span></li>
+                                <li><span class="highlight">Support efficient operation</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>🎯 فئات الخدمات:</h4>
+                            <p><span class="super-important">مجموعة خدمات نظام التشغيل توفر وظائف مفيدة للمستخدم</span></p>
+                            <ul>
+                                <li><span class="concept-highlight">خدمات موجهة للمستخدم</span></li>
+                                <li><span class="concept-highlight">خدمات موجهة للنظام</span></li>
+                                <li><span class="concept-highlight">دعم التشغيل الفعال</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="key-concept">
+                    <h3>👤 الخدمات الموجهة للمستخدم</h3>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="super-important">User interface - Almost all operating systems have a user interface (UI)</span></li>
+                                <li><span class="super-important">Program execution - Load a program into memory and run it</span></li>
+                                <li><span class="super-important">I/O operations - Running program may require I/O</span></li>
+                                <li><span class="super-important">File-system manipulation - Read and write files and directories</span></li>
+                                <li><span class="super-important">Communications - Processes exchange information</span></li>
+                                <li><span class="super-important">Error detection - OS needs to be aware of possible errors</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="super-important">واجهة المستخدم - تقريباً كل أنظمة التشغيل لها واجهة مستخدم</span></li>
+                                <li><span class="super-important">تنفيذ البرامج - تحميل البرنامج في الذاكرة وتشغيله</span></li>
+                                <li><span class="super-important">عمليات الإدخال/الإخراج - البرامج تحتاج عمليات I/O</span></li>
+                                <li><span class="super-important">التعامل مع نظام الملفات - قراءة وكتابة الملفات والأدلة</span></li>
+                                <li><span class="super-important">الاتصالات - العمليات تتبادل المعلومات</span></li>
+                                <li><span class="super-important">كشف الأخطاء - النظام يحتاج لمعرفة الأخطاء المحتملة</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="important">
+                    <h3>⚙️ الخدمات الموجهة للنظام</h3>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>🔧 Ensuring efficient operation:</h4>
+                            <ul>
+                                <li><span class="super-important">Resource allocation - Multiple users or jobs running concurrently</span></li>
+                                <li><span class="super-important">Accounting - Track which users use what resources</span></li>
+                                <li><span class="super-important">Protection and security - Control use of information, defend against attacks</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>🔧 ضمان التشغيل الفعال:</h4>
+                            <ul>
+                                <li><span class="super-important">تخصيص الموارد - عدة مستخدمين أو وظائف تعمل متزامنة</span></li>
+                                <li><span class="super-important">المحاسبة - تتبع استخدام المستخدمين للموارد</span></li>
+                                <li><span class="super-important">الحماية والأمان - التحكم في استخدام المعلومات والدفاع ضد الهجمات</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exam-tip">
+                    <h4>📝 نصائح للامتحان:</h4>
+                    <div class="key-points">
+                        <ul>
+                            <li><span class="super-important">Error detection خدمة موجهة للمستخدم، ليس للنظام!</span></li>
+                            <li><span class="super-important">Resource allocation خدمة موجهة للنظام</span></li>
+                            <li><span class="super-important">6 خدمات للمستخدم: UI, Program execution, I/O, File system, Communications, Error detection</span></li>
+                            <li><span class="super-important">3 خدمات للنظام: Resource allocation, Accounting, Protection & security</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">MCQ</span>
+                            Question 1: Which of the following is NOT a user-oriented OS service?
+                        </div>
+                        <div class="options" data-question="1">
+                            <div class="option" data-answer="wrong">A) User interface</div>
+                            <div class="option" data-answer="wrong">B) Program execution</div>
+                            <div class="option" data-answer="correct">C) Resource allocation</div>
+                            <div class="option" data-answer="wrong">D) File-system manipulation</div>
+                        </div>
+                        <div class="result" id="result1"></div>
+                    </div>
+
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">T/F</span>
+                            Question 2: Error detection is a system-oriented service, not user-oriented.
+                        </div>
+                        <div class="true-false" data-question="2">
+                            <div class="tf-option tf-true" data-answer="wrong">TRUE</div>
+                            <div class="tf-option tf-false" data-answer="correct">FALSE</div>
+                        </div>
+                        <div class="result" id="result2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Interfaces -->
+        <div id="user-interfaces" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">User Operating System Interface</h2>
+                
+                <div class="definition-box">
+                    <h3>🖥️ واجهات المستخدم</h3>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>🎯 Interface Types:</h4>
+                            <p><span class="super-important">Different ways for users to interact with the OS</span></p>
+                            <ul>
+                                <li><span class="highlight">Command Line Interface (CLI)</span></li>
+                                <li><span class="highlight">Graphical User Interface (GUI)</span></li>
+                                <li><span class="highlight">Touch Screen Interface</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>🎯 أنواع الواجهات:</h4>
+                            <p><span class="super-important">طرق مختلفة للمستخدمين للتفاعل مع نظام التشغيل</span></p>
+                            <ul>
+                                <li><span class="concept-highlight">واجهة سطر الأوامر (CLI)</span></li>
+                                <li><span class="concept-highlight">واجهة المستخدم الرسومية (GUI)</span></li>
+                                <li><span class="concept-highlight">واجهة الشاشة اللمسية</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="key-concept">
+                    <h4>⌨️ Command Line Interface (CLI)</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="super-important">CLI allows direct command entry</span></li>
+                                <li><span class="super-important">Sometimes implemented in kernel, sometimes by systems program</span></li>
+                                <li><span class="super-important">Sometimes multiple flavors implemented – shells</span></li>
+                                <li><span class="highlight">Primarily fetches a command from user and executes it</span></li>
+                                <li><span class="highlight">Sometimes commands built-in, sometimes just names of programs</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="super-important">واجهة سطر الأوامر تسمح بإدخال الأوامر مباشرة</span></li>
+                                <li><span class="super-important">أحياناً تُنفذ في النواة، أحياناً بواسطة برامج النظام</span></li>
+                                <li><span class="super-important">أحياناً يتم تنفيذ نكهات متعددة - الأصداف (shells)</span></li>
+                                <li><span class="concept-highlight">بشكل أساسي تجلب أمراً من المستخدم وتنفذه</span></li>
+                                <li><span class="concept-highlight">أحياناً الأوامر مدمجة، أحياناً مجرد أسماء برامج</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="important">
+                    <h4>🎨 Graphical User Interface (GUI)</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="super-important">User-friendly desktop metaphor interface</span></li>
+                                <li><span class="super-important">Usually mouse, keyboard, and monitor</span></li>
+                                <li><span class="super-important">Icons represent files, programs, actions, etc</span></li>
+                                <li><span class="highlight">Various mouse buttons over objects cause various actions</span></li>
+                                <li><span class="highlight">Many systems now include both CLI and GUI interfaces</span></li>
+                                <li><span class="highlight">Microsoft Windows is GUI with CLI "command" shell</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="super-important">واجهة سطح مكتب استعارية سهلة الاستخدام</span></li>
+                                <li><span class="super-important">عادة فأرة ولوحة مفاتيح وشاشة</span></li>
+                                <li><span class="super-important">الأيقونات تمثل الملفات والبرامج والإجراءات</span></li>
+                                <li><span class="concept-highlight">أزرار الفأرة المختلفة تسبب إجراءات مختلفة</span></li>
+                                <li><span class="concept-highlight">أنظمة كثيرة الآن تشمل CLI وGUI معاً</span></li>
+                                <li><span class="concept-highlight">Windows هو GUI مع shell سطر أوامر</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exam-tip">
+                    <h4>📝 نصائح للامتحان:</h4>
+                    <div class="key-points">
+                        <ul>
+                            <li><span class="super-important">CLI: إدخال أوامر مباشر - يمكن تنفيذه في النواة أو برامج النظام</span></li>
+                            <li><span class="super-important">GUI: أيقونات تمثل ملفات وبرامج وإجراءات</span></li>
+                            <li><span class="super-important">Shells: نكهات متعددة من CLI</span></li>
+                            <li><span class="super-important">Desktop metaphor: استعارة سطح المكتب في GUI</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">MCQ</span>
+                            Question 3: What do icons represent in a GUI?
+                        </div>
+                        <div class="options" data-question="3">
+                            <div class="option" data-answer="wrong">A) Only files</div>
+                            <div class="option" data-answer="wrong">B) Only programs</div>
+                            <div class="option" data-answer="correct">C) Files, programs, actions, etc</div>
+                            <div class="option" data-answer="wrong">D) Only folders</div>
+                        </div>
+                        <div class="result" id="result3"></div>
+                    </div>
+
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">T/F</span>
+                            Question 4: CLI can be implemented either in the kernel or by system programs.
+                        </div>
+                        <div class="true-false" data-question="4">
+                            <div class="tf-option tf-true" data-answer="correct">TRUE</div>
+                            <div class="tf-option tf-false" data-answer="wrong">FALSE</div>
+                        </div>
+                        <div class="result" id="result4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Calls -->
+        <div id="system-calls" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">System Calls</h2>
+                
+                <div class="definition-box">
+                    <h3>🔧 استدعاءات النظام</h3>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>🎯 Definition:</h4>
+                            <p><span class="super-important">Programming interface to the services provided by the operating system</span></p>
+                            <ul>
+                                <li><span class="highlight">Interface between processes and OS</span></li>
+                                <li><span class="highlight">Access to OS services</span></li>
+                                <li><span class="highlight">Written in high-level languages</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>🎯 التعريف:</h4>
+                            <p><span class="super-important">واجهة البرمجة للخدمات التي يوفرها نظام التشغيل</span></p>
+                            <ul>
+                                <li><span class="concept-highlight">واجهة بين العمليات ونظام التشغيل</span></li>
+                                <li><span class="concept-highlight">الوصول لخدمات نظام التشغيل</span></li>
+                                <li><span class="concept-highlight">مكتوبة بلغات عالية المستوى</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="key-concept">
+                    <h4>🎯 خصائص استدعاءات النظام الأساسية:</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="super-important">Typically written in high-level languages like C or C++</span></li>
+                                <li><span class="super-important">Most programs access system calls through a high-level Application Program Interface (API)</span></li>
+                                <li><span class="super-important">Three most common APIs: Win32 API, POSIX API, Java API</span></li>
+                                <li><span class="super-important">Each system call is associated with a unique number</span></li>
+                                <li><span class="highlight">System call interface maintains a table indexed by these numbers</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="super-important">عادة تُكتب بلغات عالية المستوى مثل C أو C++</span></li>
+                                <li><span class="super-important">معظم البرامج تصل لاستدعاءات النظام عبر API عالي المستوى</span></li>
+                                <li><span class="super-important">أشهر ثلاث APIs: Win32، POSIX، Java API</span></li>
+                                <li><span class="super-important">كل استدعاء نظام مرتبط برقم فريد</span></li>
+                                <li><span class="concept-highlight">واجهة استدعاء النظام تحتفظ بجدول مفهرس بهذه الأرقام</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="important">
+                    <h4>📊 أنواع استدعاءات النظام الخمسة</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="super-important">1. Process control - create, terminate, load, execute processes</span></li>
+                                <li><span class="super-important">2. File management - create, delete, open, close, read, write files</span></li>
+                                <li><span class="super-important">3. Device management - request, release, read, write devices</span></li>
+                                <li><span class="super-important">4. Information maintenance - get/set time, date, system data</span></li>
+                                <li><span class="super-important">5. Communications - create/delete connections, send/receive messages</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="super-important">1. تحكم العمليات - إنشاء، إنهاء، تحميل، تنفيذ العمليات</span></li>
+                                <li><span class="super-important">2. إدارة الملفات - إنشاء، حذف، فتح، إغلاق، قراءة، كتابة الملفات</span></li>
+                                <li><span class="super-important">3. إدارة الأجهزة - طلب، تحرير، قراءة، كتابة الأجهزة</span></li>
+                                <li><span class="super-important">4. صيانة المعلومات - جلب/تعيين الوقت، التاريخ، بيانات النظام</span></li>
+                                <li><span class="super-important">5. الاتصالات - إنشاء/حذف اتصالات، إرسال/استقبال رسائل</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exam-tip">
+                    <h4>📝 نصائح للامتحان:</h4>
+                    <div class="key-points">
+                        <ul>
+                            <li><span class="super-important">احفظ الـ 5 أنواع: Process, File, Device, Information, Communications</span></li>
+                            <li><span class="super-important">أشهر 3 APIs: Win32, POSIX, Java API</span></li>
+                            <li><span class="super-important">كل system call له رقم فريد</span></li>
+                            <li><span class="super-important">مكتوبة بـ C/C++ (لغات عالية المستوى)</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">MCQ</span>
+                            Question 5: What are the three most common APIs for accessing system calls?
+                        </div>
+                        <div class="options" data-question="5">
+                            <div class="option" data-answer="correct">A) Win32 API, POSIX API, Java API</div>
+                            <div class="option" data-answer="wrong">B) Windows API, Linux API, Mac API</div>
+                            <div class="option" data-answer="wrong">C) C API, C++ API, Python API</div>
+                            <div class="option" data-answer="wrong">D) Hardware API, Software API, Network API</div>
+                        </div>
+                        <div class="result" id="result5"></div>
+                    </div>
+
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">T/F</span>
+                            Question 6: Each system call is associated with a unique number.
+                        </div>
+                        <div class="true-false" data-question="6">
+                            <div class="tf-option tf-true" data-answer="correct">TRUE</div>
+                            <div class="tf-option tf-false" data-answer="wrong">FALSE</div>
+                        </div>
+                        <div class="result" id="result6"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- System Programs -->
+        <div id="system-programs" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">System Programs</h2>
+                
+                <div class="definition-box">
+                    <h3>⚙️ برامج النظام</h3>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>🎯 Purpose:</h4>
+                            <p><span class="super-important">Provide a convenient environment for program development and execution</span></p>
+                            <ul>
+                                <li><span class="highlight">Make system more user-friendly</span></li>
+                                <li><span class="highlight">Interface to system calls</span></li>
+                                <li><span class="highlight">Programming environment</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>🎯 الغرض:</h4>
+                            <p><span class="super-important">توفر بيئة مريحة لتطوير وتنفيذ البرامج</span></p>
+                            <ul>
+                                <li><span class="concept-highlight">تجعل النظام أكثر ود للمستخدم</span></li>
+                                <li><span class="concept-highlight">واجهة لاستدعاءات النظام</span></li>
+                                <li><span class="concept-highlight">بيئة البرمجة</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="key-concept">
+                    <h4>📂 فئات برامج النظام:</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="super-important">File manipulation - Create, delete, copy, rename, print, dump, list files</span></li>
+                                <li><span class="super-important">Status information - Date, time, memory, disk space, users</span></li>
+                                <li><span class="super-important">File modification - Text editors, search commands</span></li>
+                                <li><span class="super-important">Programming language support - Compilers, assemblers, debuggers</span></li>
+                                <li><span class="super-important">Program loading and execution - Loaders, linkers</span></li>
+                                <li><span class="super-important">Communications - Email, web browsers, remote login</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="super-important">التعامل مع الملفات - إنشاء، حذف، نسخ، إعادة تسمية الملفات</span></li>
+                                <li><span class="super-important">معلومات الحالة - التاريخ، الوقت، الذاكرة، مساحة القرص</span></li>
+                                <li><span class="super-important">تعديل الملفات - محررات النصوص، أوامر البحث</span></li>
+                                <li><span class="super-important">دعم لغات البرمجة - المترجمات، المجمعات، مصححات الأخطاء</span></li>
+                                <li><span class="super-important">تحميل وتنفيذ البرامج - المحملات، الرابطات</span></li>
+                                <li><span class="super-important">الاتصالات - البريد الإلكتروني، متصفحات الويب، تسجيل الدخول البعيد</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="important">
+                    <h4>🔄 العلاقة مع استدعاءات النظام</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <p><span class="super-important">Some system programs are simply user interfaces to system calls; others are more complex</span></p>
+                            <ul>
+                                <li><span class="highlight">Simple interface programs</span></li>
+                                <li><span class="highlight">Complex application programs</span></li>
+                                <li><span class="highlight">Bridge between user and OS</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <p><span class="super-important">بعض برامج النظام مجرد واجهات مستخدم لاستدعاءات النظام؛ أخرى أكثر تعقيداً</span></p>
+                            <ul>
+                                <li><span class="concept-highlight">برامج واجهة بسيطة</span></li>
+                                <li><span class="concept-highlight">برامج تطبيقات معقدة</span></li>
+                                <li><span class="concept-highlight">جسر بين المستخدم ونظام التشغيل</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exam-tip">
+                    <h4>📝 نصائح للامتحان:</h4>
+                    <div class="key-points">
+                        <ul>
+                            <li><span class="super-important">6 فئات رئيسية: File manipulation, Status info, File modification, Programming support, Program loading, Communications</span></li>
+                            <li><span class="super-important">System programs توفر بيئة مريحة للتطوير والتنفيذ</span></li>
+                            <li><span class="super-important">بعضها واجهات بسيطة لـ system calls، بعضها معقد</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">MCQ</span>
+                            Question 7: Which is NOT a category of system programs?
+                        </div>
+                        <div class="options" data-question="7">
+                            <div class="option" data-answer="wrong">A) File manipulation</div>
+                            <div class="option" data-answer="wrong">B) Programming language support</div>
+                            <div class="option" data-answer="correct">C) Hardware manufacturing</div>
+                            <div class="option" data-answer="wrong">D) Communications</div>
+                        </div>
+                        <div class="result" id="result7"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OS Design -->
+        <div id="os-design" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">Operating System Design and Implementation</h2>
+                
+                <div class="definition-box">
+                    <h3>🎯 تصميم وتنفيذ نظام التشغيل</h3>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>🎯 Design Goals:</h4>
+                            <p><span class="super-important">Start by defining goals and specifications</span></p>
+                            <ul>
+                                <li><span class="highlight">Define user requirements</span></li>
+                                <li><span class="highlight">Define system requirements</span></li>
+                                <li><span class="highlight">Balance conflicting goals</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>🎯 أهداف التصميم:</h4>
+                            <p><span class="super-important">ابدأ بتحديد الأهداف والمواصفات</span></p>
+                            <ul>
+                                <li><span class="concept-highlight">حدد متطلبات المستخدم</span></li>
+                                <li><span class="concept-highlight">حدد متطلبات النظام</span></li>
+                                <li><span class="concept-highlight">وازن بين الأهداف المتضاربة</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="key-concept">
+                    <h4>👥 أهداف المستخدم مقابل أهداف النظام</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h5>👤 User goals:</h5>
+                            <ul>
+                                <li><span class="super-important">Convenient to use</span></li>
+                                <li><span class="super-important">Easy to learn</span></li>
+                                <li><span class="super-important">Reliable</span></li>
+                                <li><span class="super-important">Safe</span></li>
+                                <li><span class="super-important">Fast</span></li>
+                            </ul>
+                            
+                            <h5>⚙️ System goals:</h5>
+                            <ul>
+                                <li><span class="super-important">Easy to design</span></li>
+                                <li><span class="super-important">Easy to implement</span></li>
+                                <li><span class="super-important">Easy to maintain</span></li>
+                                <li><span class="super-important">Flexible</span></li>
+                                <li><span class="super-important">Reliable</span></li>
+                                <li><span class="super-important">Error-free</span></li>
+                                <li><span class="super-important">Efficient</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h5>👤 أهداف المستخدم:</h5>
+                            <ul>
+                                <li><span class="super-important">مريح للاستخدام</span></li>
+                                <li><span class="super-important">سهل التعلم</span></li>
+                                <li><span class="super-important">موثوق</span></li>
+                                <li><span class="super-important">آمن</span></li>
+                                <li><span class="super-important">سريع</span></li>
+                            </ul>
+                            
+                            <h5>⚙️ أهداف النظام:</h5>
+                            <ul>
+                                <li><span class="super-important">سهل التصميم</span></li>
+                                <li><span class="super-important">سهل التنفيذ</span></li>
+                                <li><span class="super-important">سهل الصيانة</span></li>
+                                <li><span class="super-important">مرن</span></li>
+                                <li><span class="super-important">موثوق</span></li>
+                                <li><span class="super-important">خالي من الأخطاء</span></li>
+                                <li><span class="super-important">فعال</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="important">
+                    <h4>🔄 السياسة مقابل الآلية</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="super-important">Policy: What will be done?</span></li>
+                                <li><span class="super-important">Mechanism: How to do it?</span></li>
+                                <li><span class="super-important">Separation allows maximum flexibility if policy decisions are to be changed later</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="super-important">السياسة: ماذا سيتم فعله؟</span></li>
+                                <li><span class="super-important">الآلية: كيف نفعل ذلك؟</span></li>
+                                <li><span class="super-important">الفصل يسمح بأقصى مرونة إذا كانت قرارات السياسة ستتغير لاحقاً</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exam-tip">
+                    <h4>📝 نصائح للامتحان:</h4>
+                    <div class="key-points">
+                        <ul>
+                            <li><span class="super-important">Policy (ماذا) vs Mechanism (كيف) - مفهوم أساسي!</span></li>
+                            <li><span class="super-important">User goals: مريح، سهل، موثوق، آمن، سريع</span></li>
+                            <li><span class="super-important">System goals: سهل التصميم/التنفيذ/الصيانة، مرن، موثوق، خالي من الأخطاء، فعال</span></li>
+                            <li><span class="super-important">فصل السياسة عن الآلية يوفر مرونة أكبر</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">MCQ</span>
+                            Question 8: What is the difference between policy and mechanism?
+                        </div>
+                        <div class="options" data-question="8">
+                            <div class="option" data-answer="correct">A) Policy decides what will be done, mechanism determines how to do it</div>
+                            <div class="option" data-answer="wrong">B) Policy determines how to do it, mechanism decides what will be done</div>
+                            <div class="option" data-answer="wrong">C) They are the same thing</div>
+                            <div class="option" data-answer="wrong">D) Policy is for users, mechanism is for developers</div>
+                        </div>
+                        <div class="result" id="result8"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- OS Structures -->
+        <div id="os-structures" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">Operating System Structures</h2>
+                
+                <div class="definition-box">
+                    <h3>🏗️ بنى أنظمة التشغيل</h3>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>🎯 Structure Approaches:</h4>
+                            <p><span class="super-important">Different approaches to organizing operating system components</span></p>
+                            <ul>
+                                <li><span class="highlight">Simple Structure</span></li>
+                                <li><span class="highlight">Layered Approach</span></li>
+                                <li><span class="highlight">Microkernel</span></li>
+                                <li><span class="highlight">Modules</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>🎯 مناهج البنية:</h4>
+                            <p><span class="super-important">طرق مختلفة لتنظيم مكونات نظام التشغيل</span></p>
+                            <ul>
+                                <li><span class="concept-highlight">البنية البسيطة</span></li>
+                                <li><span class="concept-highlight">النهج الطبقي</span></li>
+                                <li><span class="concept-highlight">النواة المصغرة</span></li>
+                                <li><span class="concept-highlight">الوحدات</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="key-concept">
+                    <h4>🔧 البنية البسيطة (MS-DOS)</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="super-important">Written to provide the most functionality in the least space</span></li>
+                                <li><span class="super-important">Not divided into modules</span></li>
+                                <li><span class="super-important">Interfaces and levels of functionality are not well separated</span></li>
+                                <li><span class="highlight">Example: MS-DOS system structure</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="super-important">كُتب لتوفير أقصى وظائف في أقل مساحة</span></li>
+                                <li><span class="super-important">غير مقسم إلى وحدات</span></li>
+                                <li><span class="super-important">الواجهات ومستويات الوظائف غير منفصلة جيداً</span></li>
+                                <li><span class="concept-highlight">مثال: بنية نظام MS-DOS</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="important">
+                    <h4>🔄 النهج الطبقي (Layered Approach)</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="super-important">Operating system divided into a number of layers (levels)</span></li>
+                                <li><span class="super-important">Bottom layer (layer 0) is the hardware</span></li>
+                                <li><span class="super-important">Highest layer (layer N) is the user interface</span></li>
+                                <li><span class="super-important">Each layer uses functions and services of only lower-level layers</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="super-important">نظام التشغيل مقسم إلى عدد من الطبقات</span></li>
+                                <li><span class="super-important">الطبقة السفلى (طبقة 0) هي الأجهزة</span></li>
+                                <li><span class="super-important">الطبقة العليا (طبقة N) هي واجهة المستخدم</span></li>
+                                <li><span class="super-important">كل طبقة تستخدم وظائف وخدمات الطبقات الأقل مستوى فقط</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="key-concept">
+                    <h4>🔬 النواة المصغرة (Microkernel)</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h5>✅ Benefits:</h5>
+                            <ul>
+                                <li><span class="super-important">Easier to extend a microkernel</span></li>
+                                <li><span class="super-important">Easier to port to new architectures</span></li>
+                                <li><span class="super-important">More reliable (less code in kernel mode)</span></li>
+                                <li><span class="super-important">More secure</span></li>
+                            </ul>
+                            
+                            <h5>❌ Detriments:</h5>
+                            <ul>
+                                <li><span class="super-important">Performance overhead of user space to kernel space communication</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h5>✅ الفوائد:</h5>
+                            <ul>
+                                <li><span class="super-important">أسهل لتوسيع النواة المصغرة</span></li>
+                                <li><span class="super-important">أسهل للنقل للمعماريات الجديدة</span></li>
+                                <li><span class="super-important">أكثر موثوقية (كود أقل في وضع النواة)</span></li>
+                                <li><span class="super-important">أكثر أماناً</span></li>
+                            </ul>
+                            
+                            <h5>❌ العيوب:</h5>
+                            <ul>
+                                <li><span class="super-important">عبء الأداء من اتصال مساحة المستخدم لمساحة النواة</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="important">
+                    <h4>🧩 الوحدات (Modules)</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="super-important">Pieces of code that can be loaded into the operating system kernel at runtime</span></li>
+                                <li><span class="super-important">Uses object-oriented approach</span></li>
+                                <li><span class="super-important">Each core component is separate</span></li>
+                                <li><span class="super-important">Each talks to others over known interfaces</span></li>
+                                <li><span class="super-important">Each is loadable as needed within the kernel</span></li>
+                                <li><span class="highlight">Similar to layers but with more flexible</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="super-important">قطع كود يمكن تحميلها في نواة نظام التشغيل أثناء التشغيل</span></li>
+                                <li><span class="super-important">تستخدم نهج موجه الكائنات</span></li>
+                                <li><span class="super-important">كل مكون أساسي منفصل</span></li>
+                                <li><span class="super-important">كل منها يتحدث مع الآخرين عبر واجهات معروفة</span></li>
+                                <li><span class="super-important">كل منها قابل للتحميل حسب الحاجة داخل النواة</span></li>
+                                <li><span class="concept-highlight">مشابه للطبقات لكن أكثر مرونة</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exam-tip">
+                    <h4>📝 نصائح للامتحان:</h4>
+                    <div class="key-points">
+                        <ul>
+                            <li><span class="super-important">Simple Structure: MS-DOS - غير معياري، غير مقسم لوحدات</span></li>
+                            <li><span class="super-important">Layered: طبقة 0 = الأجهزة، طبقة N = واجهة المستخدم</span></li>
+                            <li><span class="super-important">Microkernel: أكثر أماناً لكن أداء أبطأ بسبب Communication overhead</span></li>
+                            <li><span class="super-important">Modules: Object-oriented، قابل للتحميل أثناء التشغيل</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">MCQ</span>
+                            Question 9: In a layered operating system, what is layer 0?
+                        </div>
+                        <div class="options" data-question="9">
+                            <div class="option" data-answer="correct">A) Hardware</div>
+                            <div class="option" data-answer="wrong">B) User interface</div>
+                            <div class="option" data-answer="wrong">C) Applications</div>
+                            <div class="option" data-answer="wrong">D) System calls</div>
+                        </div>
+                        <div class="result" id="result9"></div>
+                    </div>
+
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">T/F</span>
+                            Question 10: Microkernel systems have performance overhead due to user space to kernel space communication.
+                        </div>
+                        <div class="true-false" data-question="10">
+                            <div class="tf-option tf-true" data-answer="correct">TRUE</div>
+                            <div class="tf-option tf-false" data-answer="wrong">FALSE</div>
+                        </div>
+                        <div class="result" id="result10"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Virtual Machines -->
+        <div id="virtual-machines" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">Virtual Machines</h2>
+                
+                <div class="definition-box">
+                    <h3>💻 الآلات الافتراضية</h3>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>🎯 Concept:</h4>
+                            <p><span class="super-important">Takes the layered approach to its logical conclusion</span></p>
+                            <p><span class="super-important">Treats hardware and the operating system kernel as though they were all hardware</span></p>
+                            <ul>
+                                <li><span class="highlight">Abstraction layer</span></li>
+                                <li><span class="highlight">Isolation</span></li>
+                                <li><span class="highlight">Resource sharing</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>🎯 المفهوم:</h4>
+                            <p><span class="super-important">تأخذ النهج الطبقي إلى نهايته المنطقية</span></p>
+                            <p><span class="super-important">تعامل الأجهزة ونواة نظام التشغيل كما لو كانت كلها أجهزة</span></p>
+                            <ul>
+                                <li><span class="concept-highlight">طبقة تجريد</span></li>
+                                <li><span class="concept-highlight">عزل</span></li>
+                                <li><span class="concept-highlight">مشاركة الموارد</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="key-concept">
+                    <h4>🎯 خصائص الآلات الافتراضية:</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="super-important">Provides an interface identical to the underlying bare hardware</span></li>
+                                <li><span class="super-important">Creates the illusion of multiple processes, each executing on its own processor</span></li>
+                                <li><span class="super-important">Resources of physical computer are shared to create virtual machines</span></li>
+                                <li><span class="highlight">CPU scheduling can create the appearance that users have their own processor</span></li>
+                                <li><span class="highlight">Spooling and file system can provide virtual card readers and virtual line printers</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="super-important">توفر واجهة مطابقة للأجهزة الأساسية المجردة</span></li>
+                                <li><span class="super-important">تخلق وهم عمليات متعددة، كل منها تعمل على معالجها الخاص</span></li>
+                                <li><span class="super-important">موارد الحاسوب الفيزيائي تُشارك لإنشاء آلات افتراضية</span></li>
+                                <li><span class="concept-highlight">جدولة المعالج يمكن أن تخلق مظهر أن للمستخدمين معالجهم الخاص</span></li>
+                                <li><span class="concept-highlight">التجميع ونظام الملفات يمكن أن يوفر قارئات بطاقات وطابعات افتراضية</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="important">
+                    <h4>⚖️ فوائد وتحديات الآلات الافتراضية:</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h5>✅ Benefits:</h5>
+                            <ul>
+                                <li><span class="super-important">Complete protection of system resources</span></li>
+                                <li><span class="super-important">Each virtual machine is isolated from all others</span></li>
+                                <li><span class="super-important">Perfect vehicle for operating-systems research and development</span></li>
+                                <li><span class="super-important">System development doesn't disrupt normal operation</span></li>
+                                <li><span class="highlight">Allow multiple operating systems on one machine</span></li>
+                                <li><span class="highlight">Easy to create snapshots and backups</span></li>
+                            </ul>
+                            
+                            <h5>❌ Challenges:</h5>
+                            <ul>
+                                <li><span class="super-important">Isolation permits no direct sharing of resources</span></li>
+                                <li><span class="highlight">Performance overhead</span></li>
+                                <li><span class="highlight">Complex implementation</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h5>✅ الفوائد:</h5>
+                            <ul>
+                                <li><span class="super-important">حماية كاملة لموارد النظام</span></li>
+                                <li><span class="super-important">كل آلة افتراضية معزولة عن الأخريات</span></li>
+                                <li><span class="super-important">وسيلة مثالية لبحث وتطوير أنظمة التشغيل</span></li>
+                                <li><span class="super-important">تطوير النظام لا يعطل التشغيل العادي</span></li>
+                                <li><span class="concept-highlight">تسمح بأنظمة تشغيل متعددة على جهاز واحد</span></li>
+                                <li><span class="concept-highlight">سهولة إنشاء لقطات ونسخ احتياطية</span></li>
+                            </ul>
+                            
+                            <h5>❌ التحديات:</h5>
+                            <ul>
+                                <li><span class="super-important">العزل لا يسمح بالمشاركة المباشرة للموارد</span></li>
+                                <li><span class="concept-highlight">عبء الأداء</span></li>
+                                <li><span class="concept-highlight">تنفيذ معقد</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exam-tip">
+                    <h4>📝 نصائح للامتحان:</h4>
+                    <div class="key-points">
+                        <ul>
+                            <li><span class="super-important">Virtual Machines توفر واجهة مطابقة للأجهزة المجردة</span></li>
+                            <li><span class="super-important">حماية كاملة وعزل تام بين الآلات الافتراضية</span></li>
+                            <li><span class="super-important">مثالية للبحث والتطوير لأنها لا تعطل التشغيل العادي</span></li>
+                            <li><span class="super-important">العزل يمنع المشاركة المباشرة للموارد</span></li>
+                            <li><span class="super-important">تأخذ Layered approach إلى نهايته المنطقية</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">MCQ</span>
+                            Question 11: What does a virtual machine provide?
+                        </div>
+                        <div class="options" data-question="11">
+                            <div class="option" data-answer="correct">A) An interface identical to the underlying bare hardware</div>
+                            <div class="option" data-answer="wrong">B) A completely different interface from hardware</div>
+                            <div class="option" data-answer="wrong">C) Only software interfaces</div>
+                            <div class="option" data-answer="wrong">D) Network interfaces only</div>
+                        </div>
+                        <div class="result" id="result11"></div>
+                    </div>
+
+                    <div class="quiz-container">
+                        <div class="question">
+                            <span class="question-type">T/F</span>
+                            Question 12: Virtual machines allow direct sharing of resources between virtual machines.
+                        </div>
+                        <div class="true-false" data-question="12">
+                            <div class="tf-option tf-true" data-answer="wrong">TRUE</div>
+                            <div class="tf-option tf-false" data-answer="correct">FALSE</div>
+                        </div>
+                        <div class="result" id="result12"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comprehensive Quiz -->
+        <div id="comprehensive-quiz" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">Final Comprehensive Exam</h2>
+                
+                <div class="definition-box">
+                    <h3>🎯 الامتحان الشامل النهائي</h3>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>📋 Exam Instructions:</h4>
+                            <ul>
+                                <li><span class="super-important">Comprehensive exam contains 20 questions covering all Chapter 2 topics</span></li>
+                                <li><span class="super-important">Mix of multiple choice and true/false questions</span></li>
+                                <li><span class="highlight">Read each question carefully before answering</span></li>
+                                <li><span class="highlight">You can review your answers before submitting</span></li>
+                                <li><span class="highlight">Detailed results and explanations will be provided</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>📋 تعليمات الامتحان:</h4>
+                            <ul>
+                                <li><span class="super-important">امتحان شامل من 20 سؤال يغطي جميع مواضيع الفصل الثاني</span></li>
+                                <li><span class="super-important">مزيج من أسئلة الاختيار المتعدد والصواب/الخطأ</span></li>
+                                <li><span class="concept-highlight">اقرأ كل سؤال بعناية قبل الإجابة</span></li>
+                                <li><span class="concept-highlight">يمكنك مراجعة إجاباتك قبل التسليم</span></li>
+                                <li><span class="concept-highlight">ستحصل على نتائج مفصلة وشروحات</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="important">
+                    <h4>📚 مراجعة سريعة قبل الامتحان:</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h5>🔑 Key Topics to Review:</h5>
+                            <ul>
+                                <li><span class="super-important">OS Services (User vs System oriented)</span></li>
+                                <li><span class="super-important">User Interfaces (CLI vs GUI)</span></li>
+                                <li><span class="super-important">System Calls (5 types, APIs)</span></li>
+                                <li><span class="super-important">System Programs (6 categories)</span></li>
+                                <li><span class="super-important">Policy vs Mechanism</span></li>
+                                <li><span class="super-important">OS Structures (Simple, Layered, Microkernel, Modules)</span></li>
+                                <li><span class="super-important">Virtual Machines (Benefits and challenges)</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h5>🔑 المواضيع الأساسية للمراجعة:</h5>
+                            <ul>
+                                <li><span class="super-important">خدمات النظام (موجهة للمستخدم مقابل النظام)</span></li>
+                                <li><span class="super-important">واجهات المستخدم (CLI مقابل GUI)</span></li>
+                                <li><span class="super-important">استدعاءات النظام (5 أنواع، APIs)</span></li>
+                                <li><span class="super-important">برامج النظام (6 فئات)</span></li>
+                                <li><span class="super-important">السياسة مقابل الآلية</span></li>
+                                <li><span class="super-important">بنى النظام (بسيط، طبقي، نواة مصغرة، وحدات)</span></li>
+                                <li><span class="super-important">الآلات الافتراضية (الفوائد والتحديات)</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="key-concept">
+                    <h4>🎯 نصائح النجاح:</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="highlight">Take your time - no time limit</span></li>
+                                <li><span class="highlight">Remember: Error detection is USER-oriented service</span></li>
+                                <li><span class="highlight">Layer 0 = Hardware, Layer N = User Interface</span></li>
+                                <li><span class="highlight">Policy = What, Mechanism = How</span></li>
+                                <li><span class="highlight">5 System Call types: Process, File, Device, Information, Communications</span></li>
+                                <li><span class="highlight">3 Main APIs: Win32, POSIX, Java</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="concept-highlight">خذ وقتك - لا يوجد حد زمني</span></li>
+                                <li><span class="concept-highlight">تذكر: كشف الأخطاء خدمة موجهة للمستخدم</span></li>
+                                <li><span class="concept-highlight">طبقة 0 = الأجهزة، طبقة N = واجهة المستخدم</span></li>
+                                <li><span class="concept-highlight">السياسة = ماذا، الآلية = كيف</span></li>
+                                <li><span class="concept-highlight">5 أنواع استدعاءات النظام: العمليات، الملفات، الأجهزة، المعلومات، الاتصالات</span></li>
+                                <li><span class="concept-highlight">3 واجهات رئيسية: Win32، POSIX، Java</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="comprehensive-quiz-content"></div>
+
+                <div style="text-align: center; margin: 20px 0;">
+                    <button class="quiz-btn" id="start-final-btn">🎯 Start Final Exam</button>
+                    <button class="quiz-btn" id="check-final-btn" style="display: none;">📊 Submit Exam</button>
+                    <button class="quiz-btn" id="reset-final-btn" style="display: none;">🔄 Retake Exam</button>
+                </div>
+
+                <div id="final-results" style="display: none;"></div>
+            </div>
+        </div>
+
+        <!-- Final Summary -->
+        <div id="final-summary" class="section">
+            <div class="topic-card">
+                <h2 class="topic-title">Final Summary & Study Guide</h2>
+                
+                <div class="definition-box">
+                    <h3>🏆 ملخص شامل للفصل الثاني</h3>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>📚 Chapter 2 Complete Overview:</h4>
+                            <p><span class="super-important">Operating System Structures covers the fundamental organization and design principles of modern operating systems</span></p>
+                            <ul>
+                                <li><span class="highlight">Services and interfaces</span></li>
+                                <li><span class="highlight">System calls and APIs</span></li>
+                                <li><span class="highlight">Design principles</span></li>
+                                <li><span class="highlight">Structural approaches</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>📚 نظرة شاملة للفصل الثاني:</h4>
+                            <p><span class="super-important">بنى أنظمة التشغيل يغطي المبادئ الأساسية للتنظيم والتصميم لأنظمة التشغيل الحديثة</span></p>
+                            <ul>
+                                <li><span class="concept-highlight">الخدمات والواجهات</span></li>
+                                <li><span class="concept-highlight">استدعاءات النظام وواجهات البرمجة</span></li>
+                                <li><span class="concept-highlight">مبادئ التصميم</span></li>
+                                <li><span class="concept-highlight">المناهج الهيكلية</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="key-concept">
+                    <h3>🔑 النقاط الأساسية للحفظ:</h3>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <h4>📚 Key Definitions:</h4>
+                            <ul>
+                                <li><span class="super-important">System Calls: Programming interface to OS services</span></li>
+                                <li><span class="super-important">API: Application Program Interface (Win32, POSIX, Java)</span></li>
+                                <li><span class="super-important">CLI: Command Line Interface - direct command entry</span></li>
+                                <li><span class="super-important">GUI: Graphical User Interface - desktop metaphor</span></li>
+                                <li><span class="super-important">Policy vs Mechanism: What vs How</span></li>
+                            </ul>
+                            
+                            <h4>🏗️ OS Structures:</h4>
+                            <ul>
+                                <li><span class="super-important">Simple Structure: MS-DOS (not modular)</span></li>
+                                <li><span class="super-important">Layered: Layer 0 = Hardware, Layer N = User Interface</span></li>
+                                <li><span class="super-important">Microkernel: Less code in kernel mode, more secure</span></li>
+                                <li><span class="super-important">Modules: Object-oriented, loadable at runtime</span></li>
+                                <li><span class="super-important">Virtual Machines: Interface identical to bare hardware</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <h4>📚 التعريفات الأساسية:</h4>
+                            <ul>
+                                <li><span class="super-important">استدعاءات النظام: واجهة البرمجة لخدمات نظام التشغيل</span></li>
+                                <li><span class="super-important">API: واجهة برنامج التطبيق (Win32، POSIX، Java)</span></li>
+                                <li><span class="super-important">CLI: واجهة سطر الأوامر - إدخال أوامر مباشر</span></li>
+                                <li><span class="super-important">GUI: واجهة المستخدم الرسومية - استعارة سطح المكتب</span></li>
+                                <li><span class="super-important">السياسة مقابل الآلية: ماذا مقابل كيف</span></li>
+                            </ul>
+                            
+                            <h4>🏗️ بنى أنظمة التشغيل:</h4>
+                            <ul>
+                                <li><span class="super-important">البنية البسيطة: MS-DOS (غير معياري)</span></li>
+                                <li><span class="super-important">الطبقي: طبقة 0 = الأجهزة، طبقة N = واجهة المستخدم</span></li>
+                                <li><span class="super-important">النواة المصغرة: كود أقل في وضع النواة، أكثر أماناً</span></li>
+                                <li><span class="super-important">الوحدات: موجه الكائنات، قابل للتحميل أثناء التشغيل</span></li>
+                                <li><span class="super-important">الآلات الافتراضية: واجهة مطابقة للأجهزة المجردة</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="important">
+                    <h4>🔢 الأرقام والإحصائيات المهمة:</h4>
+                    <div class="two-column">
+                        <div class="english-text">
+                            <ul>
+                                <li><span class="super-important">6 User-oriented services: UI, Program execution, I/O, File system, Communications, Error detection</span></li>
+                                <li><span class="super-important">3 System-oriented services: Resource allocation, Accounting, Protection & security</span></li>
+                                <li><span class="super-important">5 types of system calls: Process control, File management, Device management, Information maintenance, Communications</span></li>
+                                <li><span class="super-important">3 most common APIs: Win32 API, POSIX API, Java API</span></li>
+                                <li><span class="super-important">6 categories of system programs: File manipulation, Status info, File modification, Programming support, Program loading, Communications</span></li>
+                            </ul>
+                        </div>
+                        <div class="arabic-text">
+                            <ul>
+                                <li><span class="super-important">6 خدمات موجهة للمستخدم: واجهة المستخدم، تنفيذ البرامج، I/O، نظام الملفات، الاتصالات، كشف الأخطاء</span></li>
+                                <li><span class="super-important">3 خدمات موجهة للنظام: تخصيص الموارد، المحاسبة، الحماية والأمان</span></li>
+                                <li><span class="super-important">5 أنواع من استدعاءات النظام: تحكم العمليات، إدارة الملفات، إدارة الأجهزة، صيانة المعلومات، الاتصالات</span></li>
+                                <li><span class="super-important">3 واجهات برمجة شائعة: Win32 API، POSIX API، Java API</span></li>
+                                <li><span class="super-important">6 فئات من برامج النظام: التعامل مع الملفات، معلومات الحالة، تعديل الملفات، دعم البرمجة، تحميل البرامج، الاتصالات</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exam-tip">
+                    <h4>📝 نصائح ذهبية للامتحانات:</h4>
+                    <div class="key-points">
+                        <ul>
+                            <li><span class="super-important">احفظ الفرق بين Policy (ماذا) و Mechanism (كيف) - سؤال شائع!</span></li>
+                            <li><span class="super-important">Error detection خدمة موجهة للمستخدم، ليس للنظام!</span></li>
+                            <li><span class="super-important">في Layered systems: طبقة 0 = الأجهزة، طبقة N = واجهة المستخدم</span></li>
+                            <li><span class="super-important">Microkernel: أكثر أماناً وموثوقية لكن أداء أبطأ بسبب Communication overhead</span></li>
+                            <li><span class="super-important">Virtual Machines: عزل كامل، لا مشاركة مباشرة للموارد</span></li>
+                            <li><span class="super-important">System calls مكتوبة بلغات عالية المستوى (C/C++)</span></li>
+                            <li><span class="super-important">كل system call له رقم فريد</span></li>
+                            <li><span class="super-important">GUI: الأيقونات تمثل ملفات، برامج، إجراءات، إلخ</span></li>
+                            <li><span class="super-important">CLI: يمكن تنفيذه في النواة أو بواسطة برامج النظام</span></li>
+                            <li><span class="super-important">أهداف المستخدم: مريح، سهل، موثوق، آمن، سريع</span></li>
+                            <li><span class="super-important">أهداف النظام: سهل التصميم/التنفيذ/الصيانة، مرن، موثوق، خالي من الأخطاء، فعال</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="summary-box">
+                    <h3>🎓 شهادة إتمام الفصل الثاني</h3>
+                    <div style="text-align: center; margin: 30px 0; padding: 20px; background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%); border-radius: 15px; color: white;">
+                        <h2>🌟 تهانينا! لقد أتممت دراسة بنى أنظمة التشغيل! 🌟</h2>
+                        <div class="two-column" style="margin-top: 20px;">
+                            <div style="color: white;">
+                                <h3>🏆 What You've Mastered:</h3>
+                                <ul style="text-align: left; margin-top: 10px;">
+                                    <li>✅ Operating System Services and Interfaces</li>
+                                    <li>✅ System Calls and Programming Interfaces</li>
+                                    <li>✅ OS Design Principles and Goals</li>
+                                    <li>✅ Different OS Structural Approaches</li>
+                                    <li>✅ Virtual Machine Concepts</li>
+                                </ul>
+                            </div>
+                            <div style="color: white; text-align: right; direction: rtl;">
+                                <h3>🏆 ما تعلمته:</h3>
+                                <ul style="text-align: right; margin-top: 10px;">
+                                    <li>✅ خدمات أنظمة التشغيل والواجهات</li>
+                                    <li>✅ استدعاءات النظام وواجهات البرمجة</li>
+                                    <li>✅ مبادئ وأهداف تصميم أنظمة التشغيل</li>
+                                    <li>✅ المناهج الهيكلية المختلفة لأنظمة التشغيل</li>
+                                    <li>✅ مفاهيم الآلات الافتراضية</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p style="font-size: 1.1em; margin-top: 20px; opacity: 0.9;">🎯 أنت الآن مستعد لتصميم وفهم معماريات أنظمة التشغيل المختلفة!</p>
+                        <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.8;">💡 تذكر دائماً: التصميم الجيد يفصل بين السياسة والآلية لتحقيق أقصى مرونة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let totalScore = 0;
+        let totalQuestions = 0;
+        let comprehensiveQuizQuestions = [];
+        let comprehensiveAnswers = {};
+        let sectionProgress = {};
+        let achievements = [];
+
+        function showSection(sectionId, buttonElement) {
+            try {
+                // Hide all sections
+                const sections = document.querySelectorAll('.section');
+                sections.forEach(section => section.classList.remove('active'));
+                
+                // Show selected section
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                }
+                
+                // Update navigation
+                const buttons = document.querySelectorAll('.nav-btn');
+                buttons.forEach(btn => btn.classList.remove('active'));
+                
+                if (buttonElement && buttonElement.classList.contains('nav-btn')) {
+                    buttonElement.classList.add('active');
+                }
+                
+                // Update progress
+                updateProgress();
+                updateSectionProgress(sectionId);
+            } catch (error) {
+                console.error('Error in showSection:', error);
+            }
+        }
+
+        function updateProgress() {
+            try {
+                const progress = (totalScore / Math.max(totalQuestions, 1)) * 100;
+                const progressBar = document.getElementById('progress');
+                const scoreDisplay = document.getElementById('scoreDisplay');
+                const percentageDisplay = document.getElementById('percentageDisplay');
+                
+                if (progressBar) progressBar.style.width = progress + '%';
+                if (scoreDisplay) scoreDisplay.textContent = `Score: ${totalScore}/${totalQuestions}`;
+                if (percentageDisplay) percentageDisplay.textContent = `${progress.toFixed(1)}%`;
+                
+                // Check for achievements
+                checkAchievements(progress);
+            } catch (error) {
+                console.error('Error in updateProgress:', error);
+            }
+        }
+
+        function updateSectionProgress(sectionId) {
+            try {
+                if (!sectionProgress[sectionId]) {
+                    sectionProgress[sectionId] = true;
+                }
+            } catch (error) {
+                console.error('Error in updateSectionProgress:', error);
+            }
+        }
+
+        function checkAchievements(progress) {
+            try {
+                const achievementElements = document.querySelectorAll('.achievement');
+                achievementElements.forEach(achievement => {
+                    const unlockScore = parseInt(achievement.dataset.unlock);
+                    if (totalScore >= unlockScore && !achievement.classList.contains('unlocked')) {
+                        achievement.classList.add('unlocked');
+                        achievements.push(unlockScore);
+                    }
+                });
+            } catch (error) {
+                console.error('Error in checkAchievements:', error);
+            }
+        }
+
+        // Enhanced Quiz functionality
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('option')) {
+                handleMCQAnswer(e);
+            } else if (e.target.classList.contains('tf-option')) {
+                handleTrueFalseAnswer(e);
+            }
+        });
+
+        function handleMCQAnswer(e) {
+            const optionsContainer = e.target.closest('.options');
+            if (!optionsContainer) return;
+            
+            const question = optionsContainer.dataset.question;
+            const options = optionsContainer.querySelectorAll('.option');
+            const result = document.getElementById('result' + question);
+            
+            if (!result) return;
+            
+            // Remove previous selections
+            options.forEach(opt => {
+                opt.classList.remove('selected', 'correct', 'incorrect');
+            });
+            
+            // Mark selected option
+            e.target.classList.add('selected');
+            
+            // Check answer
+            const isCorrect = e.target.dataset.answer === 'correct';
+            e.target.classList.add(isCorrect ? 'correct' : 'incorrect');
+            
+            // Show result
+            showResult(result, isCorrect, question);
+            
+            // Show correct answer if wrong
+            if (!isCorrect) {
+                options.forEach(opt => {
+                    if (opt.dataset.answer === 'correct') {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+        }
+
+        function handleTrueFalseAnswer(e) {
+            const tfContainer = e.target.closest('.true-false');
+            if (!tfContainer) return;
+            
+            const question = tfContainer.dataset.question;
+            const options = tfContainer.querySelectorAll('.tf-option');
+            const result = document.getElementById('result' + question);
+            
+            if (!result) return;
+            
+            // Remove previous selections
+            options.forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Mark selected option
+            e.target.classList.add('selected');
+            
+            // Check answer
+            const isCorrect = e.target.dataset.answer === 'correct';
+            
+            // Show result
+            showResult(result, isCorrect, question);
+        }
+
+        function showResult(resultElement, isCorrect, questionNumber) {
+            if (!resultElement) return;
+            
+            resultElement.style.display = 'block';
+            resultElement.className = 'result ' + (isCorrect ? 'correct' : 'incorrect');
+            
+            // Add show class with a small delay for animation
+            setTimeout(() => {
+                resultElement.classList.add('show');
+            }, 10);
+            
+            const messages = {
+                correct: [
+                    '✅ ممتاز! إجابة صحيحة!',
+                    '🎉 رائع! أحسنت!',
+                    '⭐ مذهل! إجابة صحيحة!',
+                    '🚀 عظيم! إجابة صحيحة!'
+                ],
+                incorrect: [
+                    '❌ ليس صحيح تماماً. راجع المادة وحاول مرة أخرى.',
+                    '🤔 خطأ. اطلع على الشرح أعلاه.',
+                    '📚 إجابة خاطئة. يرجى دراسة هذا الموضوع أكثر.',
+                    '💡 غير صحيح. ارجع إلى المحتوى.'
+                ]
+            };
+            
+            const messageArray = isCorrect ? messages.correct : messages.incorrect;
+            const randomMessage = messageArray[Math.floor(Math.random() * messageArray.length)];
+            resultElement.textContent = randomMessage;
+            
+            // Update score if not answered before
+            const container = resultElement.closest('.quiz-container');
+            if (container && !container.dataset.answered) {
+                totalQuestions++;
+                if (isCorrect) totalScore++;
+                container.dataset.answered = 'true';
+                updateProgress();
+            }
+        }
+
+        // Final Comprehensive Exam
+        function generateFinalExam() {
+            const questions = [
+                {
+                    type: 'mcq',
+                    question: "Which of the following is NOT a user-oriented OS service?",
+                    options: [
+                        "User interface",
+                        "Program execution", 
+                        "Resource allocation",
+                        "File-system manipulation"
+                    ],
+                    correct: 2
+                },
+                {
+                    type: 'tf',
+                    question: "System calls are the programming interface to the services provided by the operating system.",
+                    correct: true
+                },
+                {
+                    type: 'mcq',
+                    question: "What are the three most common APIs for accessing system calls?",
+                    options: [
+                        "Win32 API, POSIX API, Java API",
+                        "Windows API, Linux API, Mac API",
+                        "C API, C++ API, Python API", 
+                        "Hardware API, Software API, Network API"
+                    ],
+                    correct: 0
+                },
+                {
+                    type: 'mcq',
+                    question: "What do icons represent in a GUI?",
+                    options: ["Only files", "Only programs", "Files, programs, actions, etc", "Only folders"],
+                    correct: 2
+                },
+                {
+                    type: 'tf',
+                    question: "CLI can be implemented either in the kernel or by system programs.",
+                    correct: true
+                },
+                {
+                    type: 'mcq',
+                    question: "Which is NOT a category of system programs?",
+                    options: [
+                        "File manipulation",
+                        "Programming language support",
+                        "Hardware manufacturing", 
+                        "Communications"
+                    ],
+                    correct: 2
+                },
+                {
+                    type: 'mcq',
+                    question: "What is the difference between policy and mechanism?",
+                    options: [
+                        "Policy decides what will be done, mechanism determines how to do it",
+                        "Policy determines how to do it, mechanism decides what will be done",
+                        "They are the same thing",
+                        "Policy is for users, mechanism is for developers"
+                    ],
+                    correct: 0
+                },
+                {
+                    type: 'mcq',
+                    question: "In a layered operating system, what is layer 0?",
+                    options: ["Hardware", "User interface", "Applications", "System calls"],
+                    correct: 0
+                },
+                {
+                    type: 'tf',
+                    question: "Microkernel systems have performance overhead due to user space to kernel space communication.",
+                    correct: true
+                },
+                {
+                    type: 'mcq',
+                    question: "What does a virtual machine provide?",
+                    options: [
+                        "An interface identical to the underlying bare hardware",
+                        "A completely different interface from hardware",
+                        "Only software interfaces",
+                        "Network interfaces only"
+                    ],
+                    correct: 0
+                },
+                {
+                    type: 'tf',
+                    question: "Virtual machines allow direct sharing of resources between virtual machines.",
+                    correct: false
+                },
+                {
+                    type: 'mcq',
+                    question: "What is the purpose of accounting in OS services?",
+                    options: [
+                        "To manage user interfaces",
+                        "To keep track of which users use what resources",
+                        "To execute programs",
+                        "To detect errors"
+                    ],
+                    correct: 1
+                },
+                {
+                    type: 'tf',
+                    question: "Error detection is a system-oriented service, not user-oriented.",
+                    correct: false
+                },
+                {
+                    type: 'mcq',
+                    question: "Which language are system calls typically written in?",
+                    options: ["Assembly", "High-level languages like C or C++", "Machine code", "JavaScript"],
+                    correct: 1
+                },
+                {
+                    type: 'mcq',
+                    question: "How many types of system calls are there?",
+                    options: ["3", "4", "5", "6"],
+                    correct: 2
+                },
+                {
+                    type: 'tf',
+                    question: "Each system call is associated with a unique number.",
+                    correct: true
+                },
+                {
+                    type: 'mcq',
+                    question: "Which OS structure is MS-DOS an example of?",
+                    options: ["Layered approach", "Microkernel", "Simple structure", "Modules"],
+                    correct: 2
+                },
+                {
+                    type: 'tf',
+                    question: "In layered systems, each layer can only use functions from lower-level layers.",
+                    correct: true
+                },
+                {
+                    type: 'mcq',
+                    question: "What is a main benefit of microkernel architecture?",
+                    options: [
+                        "Faster performance",
+                        "More reliable (less code in kernel mode)",
+                        "Uses less memory",
+                        "Easier to write applications"
+                    ],
+                    correct: 1
+                },
+                {
+                    type: 'tf',
+                    question: "Virtual machines provide complete protection of system resources since each is isolated.",
+                    correct: true
+                }
+            ];
+
+            comprehensiveQuizQuestions = [...questions];
+            comprehensiveAnswers = {};
+            
+            const quizContainer = document.getElementById('comprehensive-quiz-content');
+            quizContainer.innerHTML = '';
+            
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'quiz-container';
+                
+                let questionHTML = `<div class="question">
+                    <span class="question-type">${q.type.toUpperCase()}</span>
+                    Question ${index + 1}: ${q.question}
+                </div>`;
+                
+                if (q.type === 'mcq') {
+                    questionHTML += `<div class="options" data-question="final-${index}">
+                        ${q.options.map((option, optIndex) => 
+                            `<div class="option" data-answer="${optIndex}" onclick="selectFinalAnswer(${index}, ${optIndex}, 'mcq')">${String.fromCharCode(65 + optIndex)}) ${option}</div>`
+                        ).join('')}
+                    </div>`;
+                } else if (q.type === 'tf') {
+                    questionHTML += `<div class="true-false" data-question="final-${index}">
+                        <div class="tf-option tf-true" data-answer="true" onclick="selectFinalAnswer(${index}, true, 'tf')">TRUE</div>
+                        <div class="tf-option tf-false" data-answer="false" onclick="selectFinalAnswer(${index}, false, 'tf')">FALSE</div>
+                    </div>`;
+                }
+                
+                questionHTML += `<div class="result" id="final-result${index}"></div>`;
+                questionDiv.innerHTML = questionHTML;
+                quizContainer.appendChild(questionDiv);
+            });
+            
+            document.getElementById('start-final-btn').style.display = 'none';
+            document.getElementById('check-final-btn').style.display = 'inline-block';
+        }
+
+        function selectFinalAnswer(questionIndex, answer, type) {
+            comprehensiveAnswers[questionIndex] = {answer: answer, type: type};
+            
+            // Visual feedback
+            if (type === 'mcq') {
+                const options = document.querySelectorAll(`[data-question="final-${questionIndex}"] .option`);
+                options.forEach(opt => opt.classList.remove('selected'));
+                if (options[answer]) {
+                    options[answer].classList.add('selected');
+                }
+            } else if (type === 'tf') {
+                const options = document.querySelectorAll(`[data-question="final-${questionIndex}"] .tf-option`);
+                options.forEach(opt => opt.classList.remove('selected'));
+                
+                // Find and select the clicked option
+                const clickedOption = document.querySelector(`[data-question="final-${questionIndex}"] .tf-option[data-answer="${answer}"]`);
+                if (clickedOption) {
+                    clickedOption.classList.add('selected');
+                }
+            }
+        }
+
+        function checkFinalExam() {
+            let score = 0;
+            const results = [];
+            
+            comprehensiveQuizQuestions.forEach((q, index) => {
+                const userAnswerObj = comprehensiveAnswers[index];
+                let isCorrect = false;
+                let userAnswer = 'لم تُجب';
+                
+                if (q.type === 'mcq' && userAnswerObj) {
+                    isCorrect = userAnswerObj.answer === q.correct;
+                    userAnswer = q.options[userAnswerObj.answer] || 'Not answered';
+                } else if (q.type === 'tf' && userAnswerObj) {
+                    isCorrect = userAnswerObj.answer === q.correct;
+                    userAnswer = userAnswerObj.answer ? 'TRUE' : 'FALSE';
+                }
+                
+                if (isCorrect) score++;
+                
+                results.push({
+                    question: q.question,
+                    userAnswer: userAnswer,
+                    correctAnswer: q.type === 'mcq' ? q.options[q.correct] : (q.correct ? 'TRUE' : 'FALSE'),
+                    isCorrect: isCorrect,
+                    type: q.type
+                });
+            });
+            
+            displayFinalResults(score, results);
+        }
+
+        function displayFinalResults(score, results) {
+            const percentage = (score / comprehensiveQuizQuestions.length * 100).toFixed(1);
+            let grade = '';
+            let gradeColor = '';
+            
+            if (percentage >= 90) { grade = 'A+ Excellent'; gradeColor = '#4caf50'; }
+            else if (percentage >= 80) { grade = 'A Good'; gradeColor = '#8bc34a'; }
+            else if (percentage >= 70) { grade = 'B+ Satisfactory'; gradeColor = '#ffc107'; }
+            else if (percentage >= 60) { grade = 'B Needs Review'; gradeColor = '#ff9800'; }
+            else { grade = 'C Requires Study'; gradeColor = '#f44336'; }
+            
+            const resultsDiv = document.getElementById('final-results');
+            resultsDiv.innerHTML = `
+                <div class="summary-box">
+                    <h3>🎯 Final Exam Results</h3>
+                    <div style="text-align: center; margin: 20px 0;">
+                        <div style="font-size: 3em; color: ${gradeColor}; margin-bottom: 10px;">
+                            ${score}/${comprehensiveQuizQuestions.length}
+                        </div>
+                        <div style="font-size: 2em; margin: 10px 0; color: ${gradeColor};">
+                            ${percentage}%
+                        </div>
+                        <div style="font-size: 1.5em; margin: 10px 0; color: ${gradeColor}; font-weight: bold;">
+                            Grade: ${grade}
+                        </div>
+                    </div>
+                    
+                    <div class="key-points">
+                        <h4>📋 Detailed Review:</h4>
+                        <div style="max-height: 400px; overflow-y: auto;">
+                            ${results.map((result, index) => `
+                                <div style="margin: 10px 0; padding: 15px; border-radius: 10px; background: ${result.isCorrect ? '#e8f5e8' : '#ffebee'}; border-left: 4px solid ${result.isCorrect ? '#4caf50' : '#f44336'};">
+                                    <strong>Q${index + 1} [${result.type.toUpperCase()}]:</strong> ${result.question}<br>
+                                    <strong>Your Answer:</strong> ${result.userAnswer}<br>
+                                    <strong>Correct Answer:</strong> ${result.correctAnswer}
+                                    <span style="float: right; font-size: 1.2em;">${result.isCorrect ? '✅' : '❌'}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    
+                    ${percentage >= 70 ? `
+                        <div class="key-points">
+                            <h4>🎉 Congratulations!</h4>
+                            <p>You have demonstrated excellent understanding of Operating System Structures! You're ready for advanced OS topics!</p>
+                            <div class="arabic-explanation" style="margin-top: 10px;">
+                                <p>مبروك! لقد أظهرت فهماً ممتازاً لبنى أنظمة التشغيل وأنت مستعد للمواضيع المتقدمة!</p>
+                            </div>
+                        </div>
+                    ` : `
+                        <div class="important">
+                            <h4>📚 Study Recommendations:</h4>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>Review system calls and their types thoroughly</li>
+                                <li>Focus on understanding different OS structures</li>
+                                <li>Study the difference between policy and mechanism</li>
+                                <li>Practice identifying user vs system-oriented services</li>
+                                <li>Retake the exam after comprehensive review</li>
+                            </ul>
+                            <div class="arabic-explanation" style="margin-top: 10px;">
+                                <p><strong>توصيات للدراسة:</strong> راجع استدعاءات النظام وأنواعها، ركز على فهم بنى أنظمة التشغيل المختلفة، وأعد الامتحان بعد المراجعة الشاملة.</p>
+                            </div>
+                        </div>
+                    `}
+                </div>
+            `;
+            resultsDiv.style.display = 'block';
+            
+            document.getElementById('check-final-btn').style.display = 'none';
+            document.getElementById('reset-final-btn').style.display = 'inline-block';
+            
+            // Update overall progress
+            totalScore += score;
+            totalQuestions += comprehensiveQuizQuestions.length;
+            updateProgress();
+        }
+
+        function resetFinalExam() {
+            document.getElementById('comprehensive-quiz-content').innerHTML = '';
+            document.getElementById('final-results').style.display = 'none';
+            document.getElementById('start-final-btn').style.display = 'inline-block';
+            document.getElementById('check-final-btn').style.display = 'none';
+            document.getElementById('reset-final-btn').style.display = 'none';
+            comprehensiveAnswers = {};
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                updateProgress();
+                console.log('🏗️ دليل بنى أنظمة التشغيل التفاعلي محمل ومحسن للهاتف!');
+                console.log('🎯 أكمل جميع الاختبارات لإلغاء تأمين الإنجازات!');
+                
+                // Add click handlers for navigation
+                document.querySelectorAll('.nav-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const sectionId = this.getAttribute('data-section');
+                        if (sectionId) {
+                            showSection(sectionId, this);
+                        }
+                    });
+                });
+                
+                // Add click handlers for final exam buttons
+                const startFinalBtn = document.getElementById('start-final-btn');
+                const checkFinalBtn = document.getElementById('check-final-btn');
+                const resetFinalBtn = document.getElementById('reset-final-btn');
+                
+                if (startFinalBtn) {
+                    startFinalBtn.addEventListener('click', generateFinalExam);
+                }
+                if (checkFinalBtn) {
+                    checkFinalBtn.addEventListener('click', checkFinalExam);
+                }
+                if (resetFinalBtn) {
+                    resetFinalBtn.addEventListener('click', resetFinalExam);
+                }
+                
+            } catch (error) {
+                console.error('Error initializing page:', error);
+            }
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Arrow key navigation
+            if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                const activeBtn = document.querySelector('.nav-btn.active');
+                if (activeBtn) {
+                    const buttons = Array.from(document.querySelectorAll('.nav-btn'));
+                    const currentIndex = buttons.indexOf(activeBtn);
+                    let newIndex;
+                    
+                    if (e.key === 'ArrowLeft') {
+                        newIndex = currentIndex > 0 ? currentIndex - 1 : buttons.length - 1;
+                    } else {
+                        newIndex = currentIndex < buttons.length - 1 ? currentIndex + 1 : 0;
+                    }
+                    
+                    const targetBtn = buttons[newIndex];
+                    if (targetBtn) {
+                        targetBtn.click();
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
