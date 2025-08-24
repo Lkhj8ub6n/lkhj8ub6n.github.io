@@ -1,0 +1,1148 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>الحاسبة الشاملة | جو أكاديمي - وتد - الماهر | جيل 2008 و 2009</title>
+  <style>
+    :root {
+      --primary: #2d5a52;
+      --secondary: #ffd700;
+      --success: #27ae60;
+      --danger: #e74c3c;
+      --dark: #ffffff;
+      --dark-2: #f8f9fa;
+      --dark-3: #e9ecef;
+      --light: #2c3e50;
+      --muted: #6c757d;
+      --border: #dee2e6;
+      --card: #ffffff;
+      --accent: #3d6a62;
+      --bg-main: #2d5a52;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Tajawal", "Cairo", system-ui, -apple-system, sans-serif;
+      background: var(--bg-main);
+      color: white;
+      line-height: 1.6;
+      min-height: 100vh;
+      transition: all 0.3s ease;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    .main-wrapper {
+      background: var(--dark);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      color: var(--light);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+      padding: 2rem 1rem;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--primary);
+      border: 2px solid var(--secondary);
+      border-radius: 25px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      color: white;
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+      background: var(--accent);
+    }
+
+    .theme-icon {
+      font-size: 1.2rem;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .lightbulb-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--secondary);
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulse 2s infinite;
+    }
+
+    .lightbulb-icon::before {
+      content: '💡';
+      font-size: 2rem;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    .header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+      padding: 0 1rem;
+    }
+
+    .tab {
+      cursor: pointer;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      background: var(--dark-2);
+      color: var(--muted);
+      border: 2px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .tab:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      background: var(--dark-3);
+    }
+
+    .tab.active {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      border-color: var(--primary);
+      box-shadow: 0 8px 25px rgba(45, 90, 82, 0.3);
+    }
+
+    .platform-section {
+      background: var(--card);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .platform-header {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      padding: 1.5rem;
+      font-weight: 800;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .platform-header .icon {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--secondary);
+      animation: pulse 2s infinite;
+    }
+
+    .pricing-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+    }
+
+    .pricing-table th {
+      background: var(--primary);
+      color: white;
+      padding: 1rem;
+      font-weight: 700;
+      text-align: center;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .pricing-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--light);
+    }
+
+    .pricing-table tbody tr:nth-child(odd) {
+      background: var(--dark-2);
+    }
+
+    .pricing-table tbody tr:nth-child(even) {
+      background: var(--dark);
+    }
+
+    .pricing-table tbody tr:hover {
+      background: rgba(45, 90, 82, 0.1);
+      transform: scale(1.01);
+      transition: all 0.2s ease;
+    }
+
+    .package-number {
+      width: 60px;
+      text-align: center;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .price-cell {
+      font-weight: 700;
+      color: var(--success);
+      white-space: nowrap;
+    }
+
+    .discount-hint {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-right: 0.5rem;
+    }
+
+    .calculator {
+      margin: 1.5rem;
+      background: var(--dark-2);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+
+    .calculator h3 {
+      margin-bottom: 1rem;
+      color: var(--primary);
+      font-size: 1.4rem;
+    }
+
+    .calculator-description {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .subjects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .subject-category {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .category-title {
+      font-weight: 800;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .category-price {
+      background: var(--secondary);
+      color: var(--primary);
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .subject-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      background: var(--dark-2);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      color: var(--light);
+      cursor: pointer;
+    }
+
+    .subject-item:hover {
+      background: var(--dark-3);
+      transform: translateX(5px);
+      box-shadow: 0 3px 10px rgba(45, 90, 82, 0.1);
+    }
+
+    .subject-item input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .summary-item {
+      background: var(--dark-3);
+      border: 2px dashed var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .summary-label {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .summary-value {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--light);
+    }
+
+    .summary-item.total {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-color: var(--primary);
+      color: white;
+    }
+
+    .summary-item.total .summary-value {
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 1rem 1.5rem;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--dark-2);
+      border: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      color: var(--light);
+    }
+
+    .note {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: rgba(45, 90, 82, 0.1);
+      border: 1px solid var(--primary);
+      border-radius: 8px;
+      color: var(--light);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+        flex-direction: column;
+      }
+      
+      .tabs {
+        flex-direction: column;
+      }
+      
+      .tab {
+        padding: 0.75rem 1.5rem;
+      }
+      
+      .subjects-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .summary {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="main-wrapper">
+      <div class="header">
+        <h1>
+          <div class="lightbulb-icon"></div>
+          الحاسبة الشاملة للبكجات التعليمية
+        </h1>
+        <p></p>
+      </div>
+
+      <div class="tabs">
+        <div class="tab active" data-platform="joacademy">منصة جو أكاديمي</div>
+        <div class="tab" data-platform="wattad">منصة وتد</div>
+        <div class="tab" data-platform="almaher">منصة الماهر</div>
+      </div>
+
+      <!-- جو أكاديمي -->
+      <section id="joacademy" class="platform-section">
+        <div class="platform-header">
+          <span class="icon"></span>
+          <span>منصة جو أكاديمي</span>
+        </div>
+        
+        <!-- تبويبات الأجيال -->
+        <div class="tabs" style="margin: 1rem 1.5rem 0; justify-content: flex-start;">
+          <div class="tab active grade-tab" data-grade="2008" style="font-size: 1rem; padding: 0.75rem 1.5rem;">جيل 2008</div>
+          <div class="tab grade-tab" data-grade="2009" style="font-size: 1rem; padding: 0.75rem 1.5rem;">جيل 2009</div>
+        </div>
+
+        <!-- محتوى جيل 2008 -->
+        <div id="grade-2008" class="grade-content">
+
+          <div class="calculator">
+            <h3>حاسبة البكجات - جو أكاديمي جيل 2008</h3>
+            <p class="calculator-description">اختر المواد التي تريد دراستها ليتم حساب التكلفة الإجمالية مع الخصومات تلقائياً</p>
+            
+            <div class="subjects-grid">
+              <div class="subject-category">
+                <div class="category-title">
+                  المواد العلمية
+                  <span class="category-price">50 د.ا</span>
+                </div>
+                <label class="subject-item">
+                  <span>الرياضيات</span>
+                  <input type="checkbox" data-price="50" data-platform="joacademy-2008">
+                </label>
+                <label class="subject-item">
+                  <span>الفيزياء</span>
+                  <input type="checkbox" data-price="50" data-platform="joacademy-2008">
+                </label>
+                <label class="subject-item">
+                  <span>الكيمياء</span>
+                  <input type="checkbox" data-price="50" data-platform="joacademy-2008">
+                </label>
+                <label class="subject-item">
+                  <span>العلوم الحياتية</span>
+                  <input type="checkbox" data-price="50" data-platform="joacademy-2008">
+                </label>
+                <label class="subject-item">
+                  <span>علوم الأرض والبيئة</span>
+                  <input type="checkbox" data-price="50" data-platform="joacademy-2008">
+                </label>
+              </div>
+              
+              <div class="subject-category">
+                <div class="category-title">
+                  المواد الإنسانية الاجتماعية
+                  <span class="category-price">30 د.ا</span>
+                </div>
+                <label class="subject-item">
+                  <span>اللغة العربية تخصص</span>
+                  <input type="checkbox" data-price="30" data-platform="joacademy-2008">
+                </label>
+                <label class="subject-item">
+                  <span>اللغة الإنجليزية متقدم</span>
+                  <input type="checkbox" data-price="30" data-platform="joacademy-2008">
+                </label>
+                <label class="subject-item">
+                  <span>رياضيات الأعمال</span>
+                  <input type="checkbox" data-price="30" data-platform="joacademy-2008">
+                </label>
+                <label class="subject-item">
+                  <span>التربية الإسلامية تخصص</span>
+                  <input type="checkbox" data-price="30" data-platform="joacademy-2008">
+                </label>
+                <label class="subject-item">
+                  <span>التاريخ</span>
+                  <input type="checkbox" data-price="30" data-platform="joacademy-2008">
+                </label>
+                <label class="subject-item">
+                  <span>الجغرافيا</span>
+                  <input type="checkbox" data-price="30" data-platform="joacademy-2008">
+                </label>
+                <label class="subject-item">
+                  <span>الثقافة المالية</span>
+                  <input type="checkbox" data-price="30" data-platform="joacademy-2008">
+                </label>
+                <label class="subject-item">
+                  <span>علم الاجتماع وعلم النفس</span>
+                  <input type="checkbox" data-price="30" data-platform="joacademy-2008">
+                </label>
+                <label class="subject-item">
+                  <span>الفلسفة</span>
+                  <input type="checkbox" data-price="30" data-platform="joacademy-2008">
+                </label>
+              </div>
+            </div>
+            
+            <div class="summary">
+              <div class="summary-item">
+                <div class="summary-label">عدد المواد</div>
+                <div class="summary-value" data-output="count-joacademy-2008">0</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-label">المجموع قبل الخصم</div>
+                <div class="summary-value" data-output="subtotal-joacademy-2008">0 د.ا</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-label">نسبة الخصم</div>
+                <div class="summary-value" data-output="discount-rate-joacademy-2008">لا يوجد</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-label">قيمة الخصم</div>
+                <div class="summary-value" data-output="discount-amount-joacademy-2008">0 د.ا</div>
+              </div>
+              <div class="summary-item total">
+                <div class="summary-label">الإجمالي النهائي</div>
+                <div class="summary-value" data-output="total-joacademy-2008">0 د.ا</div>
+              </div>
+            </div>
+            
+            <div class="note">
+              <strong>نظام الخصومات:</strong> مادة واحدة = لا يوجد خصم | مادتان أو ثلاث = خصم 20% | أربع مواد فأكثر = خصم 30%
+            </div>
+          </div>
+        </div>
+
+        <!-- محتوى جيل 2009 -->
+        <div id="grade-2009" class="grade-content" style="display: none;">
+
+          <div class="calculator">
+            <h3>حاسبة البكجات - جو أكاديمي جيل 2009</h3>
+            <p class="calculator-description">اختر المواد التي تريد دراستها ليتم حساب التكلفة الإجمالية مع الخصومات تلقائياً</p>
+            
+            <div class="subjects-grid">
+              <div class="subject-category">
+                <div class="category-title">
+                  مواد اللغة
+                  <span class="category-price">50 د.ا</span>
+                </div>
+                <label class="subject-item">
+                  <span>اللغة العربية - فصل أول</span>
+                  <input type="checkbox" data-price="50" data-platform="joacademy-2009">
+                </label>
+                <label class="subject-item">
+                  <span>اللغة الإنجليزية - فصل أول</span>
+                  <input type="checkbox" data-price="50" data-platform="joacademy-2009">
+                </label>
+              </div>
+              
+              <div class="subject-category">
+                <div class="category-title">
+                  المواد الاجتماعية
+                  <span class="category-price">30 د.ا</span>
+                </div>
+                <label class="subject-item">
+                  <span>تاريخ الأردن - فصل أول</span>
+                  <input type="checkbox" data-price="30" data-platform="joacademy-2009">
+                </label>
+                <label class="subject-item">
+                  <span>التربية الإسلامية - فصل أول</span>
+                  <input type="checkbox" data-price="30" data-platform="joacademy-2009">
+                </label>
+              </div>
+            </div>
+            
+            <div class="summary">
+              <div class="summary-item">
+                <div class="summary-label">عدد المواد</div>
+                <div class="summary-value" data-output="count-joacademy-2009">0</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-label">المجموع قبل الخصم</div>
+                <div class="summary-value" data-output="subtotal-joacademy-2009">0 د.ا</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-label">نسبة الخصم</div>
+                <div class="summary-value" data-output="discount-rate-joacademy-2009">لا يوجد</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-label">قيمة الخصم</div>
+                <div class="summary-value" data-output="discount-amount-joacademy-2009">0 د.ا</div>
+              </div>
+              <div class="summary-item total">
+                <div class="summary-label">الإجمالي النهائي</div>
+                <div class="summary-value" data-output="total-joacademy-2009">0 د.ا</div>
+              </div>
+            </div>
+            
+            <div class="note">
+              <strong>نظام الخصومات:</strong> مادة واحدة = لا يوجد خصم | مادتان أو ثلاث = خصم 20% | أربع مواد = خصم 30%
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- وتد -->
+      <section id="wattad" class="platform-section" style="display: none;">
+        <div class="platform-header">
+          <span class="icon"></span>
+          <span>منصة وتد</span>
+        </div>
+        
+        <!-- تبويبات الأجيال -->
+        <div class="tabs" style="margin: 1rem 1.5rem 0; justify-content: flex-start;">
+          <div class="tab active grade-tab wattad-grade-tab" data-grade="2008" style="font-size: 1rem; padding: 0.75rem 1.5rem;">جيل 2008</div>
+          <div class="tab grade-tab wattad-grade-tab" data-grade="2009" style="font-size: 1rem; padding: 0.75rem 1.5rem;">جيل 2009</div>
+        </div>
+
+        <!-- محتوى جيل 2008 -->
+        <div id="wattad-grade-2008" class="wattad-grade-content">
+
+          <div class="calculator">
+            <h3>حاسبة البكجات - وتد جيل 2008</h3>
+            <p class="calculator-description">اختر المواد التي تريد دراستها ليتم حساب التكلفة الإجمالية مع الخصومات تلقائياً</p>
+            
+            <div class="subjects-grid">
+              <div class="subject-category">
+                <div class="category-title">
+                  المواد المتقدمة/العلمية
+                  <span class="category-price">50 د.ا</span>
+                </div>
+                <label class="subject-item">
+                  <span>رياضيات المتقدم</span>
+                  <input type="checkbox" data-price="50" data-platform="wattad-2008">
+                </label>
+                <label class="subject-item">
+                  <span>الكيمياء</span>
+                  <input type="checkbox" data-price="50" data-platform="wattad-2008">
+                </label>
+                <label class="subject-item">
+                  <span>الأحياء</span>
+                  <input type="checkbox" data-price="50" data-platform="wattad-2008">
+                </label>
+                <label class="subject-item">
+                  <span>الإنجليزي المتقدم</span>
+                  <input type="checkbox" data-price="50" data-platform="wattad-2008">
+                </label>
+                <label class="subject-item">
+                  <span>الفيزياء</span>
+                  <input type="checkbox" data-price="50" data-platform="wattad-2008">
+                </label>
+              </div>
+              
+              <div class="subject-category">
+                <div class="category-title">
+                  المواد الأساسية
+                  <span class="category-price">40 د.ا</span>
+                </div>
+                <label class="subject-item">
+                  <span>علوم الأرض والبيئة</span>
+                  <input type="checkbox" data-price="40" data-platform="wattad-2008">
+                </label>
+                <label class="subject-item">
+                  <span>اللغة العربية التخصص</span>
+                  <input type="checkbox" data-price="40" data-platform="wattad-2008">
+                </label>
+                <label class="subject-item">
+                  <span>رياضيات الأعمال</span>
+                  <input type="checkbox" data-price="40" data-platform="wattad-2008">
+                </label>
+                <label class="subject-item">
+                  <span>الثقافة المالية</span>
+                  <input type="checkbox" data-price="40" data-platform="wattad-2008">
+                </label>
+              </div>
+              
+              <div class="subject-category">
+                <div class="category-title">
+                  المواد الثقافية
+                  <span class="category-price">28 د.ا</span>
+                </div>
+                <label class="subject-item">
+                  <span>التربية الإسلامية</span>
+                  <input type="checkbox" data-price="28" data-platform="wattad-2008">
+                </label>
+                <label class="subject-item">
+                  <span>علم الاجتماع وعلم النفس</span>
+                  <input type="checkbox" data-price="28" data-platform="wattad-2008">
+                </label>
+                <label class="subject-item">
+                  <span>التاريخ</span>
+                  <input type="checkbox" data-price="28" data-platform="wattad-2008">
+                </label>
+                <label class="subject-item">
+                  <span>الجغرافيا</span>
+                  <input type="checkbox" data-price="28" data-platform="wattad-2008">
+                </label>
+                <label class="subject-item">
+                  <span>الفلسفة</span>
+                  <input type="checkbox" data-price="28" data-platform="wattad-2008">
+                </label>
+              </div>
+            </div>
+            
+            <div class="summary">
+              <div class="summary-item">
+                <div class="summary-label">عدد المواد</div>
+                <div class="summary-value" data-output="count-wattad-2008">0</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-label">المجموع قبل الخصم</div>
+                <div class="summary-value" data-output="subtotal-wattad-2008">0 د.ا</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-label">نسبة الخصم</div>
+                <div class="summary-value" data-output="discount-rate-wattad-2008">لا يوجد</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-label">قيمة الخصم</div>
+                <div class="summary-value" data-output="discount-amount-wattad-2008">0 د.ا</div>
+              </div>
+              <div class="summary-item total">
+                <div class="summary-label">الإجمالي النهائي</div>
+                <div class="summary-value" data-output="total-wattad-2008">0 د.ا</div>
+              </div>
+            </div>
+            
+            <div class="note">
+              <strong>نظام الخصومات:</strong> مادة واحدة = لا يوجد خصم | مادتان أو ثلاث = خصم 15% | أربع مواد فأكثر = خصم 25%
+            </div>
+          </div>
+        </div>
+
+        <!-- محتوى جيل 2009 -->
+        <div id="wattad-grade-2009" class="wattad-grade-content" style="display: none;">
+
+          <div class="calculator">
+            <h3>حاسبة وتد 2009 - بكجات ذكية</h3>
+            <p class="calculator-description">اختر ما تحتاجه - سنخبرك بأفضل طريقة للتوفير! 💰</p>
+            
+            <div class="subjects-grid">
+              <div class="subject-category">
+                <div class="category-title">
+                  🥇 البكج الكامل - أفضل قيمة
+                  <span class="category-price">100 د.ا</span>
+                </div>
+                <label class="subject-item">
+                  <span>✨ البكج الكامل (4 مواد) - يوفر 26 د.ا</span>
+                  <input type="checkbox" data-price="100" data-platform="wattad-2009">
+                </label>
+              </div>
+
+              <div class="subject-category">
+                <div class="category-title">
+                  📦 البكجات المتخصصة
+                  <span class="category-price">توفير مضمون</span>
+                </div>
+                <label class="subject-item">
+                  <span>📚 بكج اللغات (عربي + إنجليزي) - يوفر 5 د.ا</span>
+                  <input type="checkbox" data-price="75" data-platform="wattad-2009">
+                </label>
+                <label class="subject-item">
+                  <span>🏛️ بكج الاجتماعية (تربية + تاريخ) - يوفر 6 د.ا</span>
+                  <input type="checkbox" data-price="40" data-platform="wattad-2009">
+                </label>
+              </div>
+              
+              <div class="subject-category">
+                <div class="category-title">
+                  📝 المواد المنفصلة
+                  <span class="category-price">حسب الحاجة</span>
+                </div>
+                <label class="subject-item">
+                  <span>اللغة العربية</span>
+                  <input type="checkbox" data-price="40" data-platform="wattad-2009">
+                </label>
+                <label class="subject-item">
+                  <span>اللغة الإنجليزية</span>
+                  <input type="checkbox" data-price="40" data-platform="wattad-2009">
+                </label>
+                <label class="subject-item">
+                  <span>التربية الإسلامية</span>
+                  <input type="checkbox" data-price="23" data-platform="wattad-2009">
+                </label>
+                <label class="subject-item">
+                  <span>تاريخ الأردن</span>
+                  <input type="checkbox" data-price="23" data-platform="wattad-2009">
+                </label>
+              </div>
+            </div>
+            
+            <div class="summary">
+              <div class="summary-item">
+                <div class="summary-label">العناصر المختارة</div>
+                <div class="summary-value" data-output="count-wattad-2009">0</div>
+              </div>
+              <div class="summary-item">
+                <div class="summary-label">التوفير الإجمالي</div>
+                <div class="summary-value" data-output="savings-wattad-2009">0 د.ا</div>
+              </div>
+              <div class="summary-item total">
+                <div class="summary-label">المجموع النهائي</div>
+                <div class="summary-value" data-output="total-wattad-2009">0 د.ا</div>
+              </div>
+            </div>
+            
+            <div class="note">
+              <strong>💡 نصيحة:</strong> البكج الكامل (100 د.ا) هو الأفضل اقتصادياً! يشمل جميع المواد مع توفير 26 د.ا مقارنة بالشراء المنفصل.
+              <br><strong>البكجات المتاحة:</strong> بكج اللغات (75 د.ا) • بكج الاجتماعية (40 د.ا) • البكج الكامل (100 د.ا)
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- الماهر -->
+      <section id="almaher" class="platform-section" style="display: none;">
+        <div class="platform-header">
+          <span class="icon"></span>
+          <span>منصة الماهر</span>
+        </div>
+        
+        <!-- تبويبات الأجيال -->
+        <div class="tabs" style="margin: 1rem 1.5rem 0; justify-content: flex-start;">
+          <div class="tab active grade-tab almaher-grade-tab" data-grade="2008" style="font-size: 1rem; padding: 0.75rem 1.5rem;">جيل 2008 (ثاني ثانوي)</div>
+          <div class="tab grade-tab almaher-grade-tab" data-grade="2009" style="font-size: 1rem; padding: 0.75rem 1.5rem;">جيل 2009 (أول ثانوي)</div>
+        </div>
+
+        <!-- محتوى جيل 2008 -->
+        <div id="almaher-grade-2008" class="almaher-grade-content">
+
+          <div class="calculator">
+            <h3>حاسبة البطاقات - الماهر جيل 2008</h3>
+            <p class="calculator-description">اختر عدد المواد المطلوبة حسب البطاقات الثابتة</p>
+            
+            <div class="subjects-grid">
+              <div class="subject-category">
+                <div class="category-title">
+                  🎯 البطاقات المتاحة
+                  <span class="category-price">أسعار ثابتة</span>
+                </div>
+                <label class="subject-item">
+                  <span>📄 بطاقة مادة واحدة (50 د.ا)</span>
+                  <input type="checkbox" data-price="50" data-platform="almaher-2008">
+                </label>
+                <label class="subject-item">
+                  <span>📄 بطاقة مادتين (80 د.ا)</span>
+                  <input type="checkbox" data-price="80" data-platform="almaher-2008">
+                </label>
+                <label class="subject-item">
+                  <span>📄 بطاقة ثلاث مواد (100 د.ا)</span>
+                  <input type="checkbox" data-price="100" data-platform="almaher-2008">
+                </label>
+                <label class="subject-item">
+                  <span>📄 بطاقة أربع مواد (120 د.ا)</span>
+                  <input type="checkbox" data-price="120" data-platform="almaher-2008">
+                </label>
+              </div>
+            </div>
+            
+            <div class="summary">
+              <div class="summary-item">
+                <div class="summary-label">البطاقات المختارة</div>
+                <div class="summary-value" data-output="count-almaher-2008">0</div>
+              </div>
+              <div class="summary-item total">
+                <div class="summary-label">الإجمالي النهائي</div>
+                <div class="summary-value" data-output="total-almaher-2008">0 د.ا</div>
+              </div>
+            </div>
+            
+            <div class="note">
+              <strong>📋 نظام البطاقات:</strong> مادة واحدة (50 د.ا) • مادتان (80 د.ا) • ثلاث مواد (100 د.ا) • أربع مواد (120 د.ا)
+            </div>
+          </div>
+        </div>
+
+        <!-- محتوى جيل 2009 -->
+        <div id="almaher-grade-2009" class="almaher-grade-content" style="display: none;">
+
+          <div class="calculator">
+            <h3>حاسبة البطاقات - الماهر جيل 2009</h3>
+            <p class="calculator-description">اختر البطاقة المناسبة لاحتياجاتك الدراسية</p>
+            
+            <div class="subjects-grid">
+              <div class="subject-category">
+                <div class="category-title">
+                  🎯 البطاقات المتاحة
+                  <span class="category-price">أسعار ثابتة</span>
+                </div>
+                <label class="subject-item">
+                  <span>📚 بطاقة العربي والإنجليزي (80 د.ا)</span>
+                  <input type="checkbox" data-price="80" data-platform="almaher-2009">
+                </label>
+                <label class="subject-item">
+                  <span>📄 بطاقة جميع المواد الوزارية (100 د.ا)</span>
+                  <input type="checkbox" data-price="100" data-platform="almaher-2009">
+                </label>
+              </div>
+            </div>
+            
+            <div class="summary">
+              <div class="summary-item">
+                <div class="summary-label">البطاقات المختارة</div>
+                <div class="summary-value" data-output="count-almaher-2009">0</div>
+              </div>
+              <div class="summary-item total">
+                <div class="summary-label">الإجمالي النهائي</div>
+                <div class="summary-value" data-output="total-almaher-2009">0 د.ا</div>
+              </div>
+            </div>
+            
+            <div class="note">
+              <strong>📋 البطاقات المتاحة:</strong> العربي والإنجليزي (80 د.ا) • جميع المواد الوزارية (100 د.ا)
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    // تبديل التبويبات الرئيسية
+    const tabs = document.querySelectorAll('.tab:not(.grade-tab)');
+    const sections = document.querySelectorAll('.platform-section');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // إزالة الحالة النشطة من جميع التبويبات
+        tabs.forEach(t => t.classList.remove('active'));
+        // إضافة الحالة النشطة للتبويب المختار
+        tab.classList.add('active');
+        
+        // إخفاء جميع الأقسام
+        sections.forEach(section => section.style.display = 'none');
+        // إظهار القسم المختار
+        document.getElementById(tab.dataset.platform).style.display = 'block';
+      });
+    });
+
+    // تبديل تبويبات الأجيال
+    const gradeTabs = document.querySelectorAll('.grade-tab');
+    const gradeContents = document.querySelectorAll('.grade-content');
+    const wattadGradeTabs = document.querySelectorAll('.wattad-grade-tab');
+    const wattadGradeContents = document.querySelectorAll('.wattad-grade-content');
+    const almaherGradeTabs = document.querySelectorAll('.almaher-grade-tab');
+    const almaherGradeContents = document.querySelectorAll('.almaher-grade-content');
+
+    gradeTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // إزالة الحالة النشطة من جميع تبويبات الأجيال في جو أكاديمي
+        gradeTabs.forEach(t => t.classList.remove('active'));
+        // إضافة الحالة النشطة للتبويب المختار
+        tab.classList.add('active');
+        
+        // إخفاء جميع محتويات الأجيال في جو أكاديمي
+        gradeContents.forEach(content => content.style.display = 'none');
+        // إظهار محتوى الجيل المختار
+        document.getElementById(`grade-${tab.dataset.grade}`).style.display = 'block';
+      });
+    });
+
+    // تبديل تبويبات أجيال وتد
+    wattadGradeTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // إزالة الحالة النشطة من جميع تبويبات أجيال وتد
+        wattadGradeTabs.forEach(t => t.classList.remove('active'));
+        // إضافة الحالة النشطة للتبويب المختار
+        tab.classList.add('active');
+        
+        // إخفاء جميع محتويات أجيال وتد
+        wattadGradeContents.forEach(content => content.style.display = 'none');
+        // إظهار محتوى الجيل المختار
+        document.getElementById(`wattad-grade-${tab.dataset.grade}`).style.display = 'block';
+      });
+    });
+
+    // تبديل تبويبات أجيال الماهر
+    almaherGradeTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // إزالة الحالة النشطة من جميع تبويبات أجيال الماهر
+        almaherGradeTabs.forEach(t => t.classList.remove('active'));
+        // إضافة الحالة النشطة للتبويب المختار
+        tab.classList.add('active');
+        
+        // إخفاء جميع محتويات أجيال الماهر
+        almaherGradeContents.forEach(content => content.style.display = 'none');
+        // إظهار محتوى الجيل المختار
+        document.getElementById(`almaher-grade-${tab.dataset.grade}`).style.display = 'block';
+      });
+    });
+
+    // دالة تنسيق الأرقام
+    function formatNumber(num) {
+      return new Intl.NumberFormat('ar-EG', {
+        maximumFractionDigits: 2,
+        minimumFractionDigits: 0
+      }).format(num);
+    }
+
+    // حاسبة البكجات
+    function initCalculator(platform) {
+      const checkboxes = document.querySelectorAll(`input[data-platform="${platform}"]`);
+      const outputs = {
+        count: document.querySelector(`[data-output="count-${platform}"]`),
+        subtotal: document.querySelector(`[data-output="subtotal-${platform}"]`),
+        discountRate: document.querySelector(`[data-output="discount-rate-${platform}"]`),
+        discountAmount: document.querySelector(`[data-output="discount-amount-${platform}"]`),
+        total: document.querySelector(`[data-output="total-${platform}"]`),
+        savings: document.querySelector(`[data-output="savings-${platform}"]`)
+      };
+
+      function calculate() {
+        if (platform === 'wattad-2009') {
+          calculateWattad2009();
+          return;
+        } else if (platform.startsWith('almaher')) {
+          calculateAlmaher();
+          return;
+        }
+
+        const selectedSubjects = Array.from(checkboxes)
+          .filter(cb => cb.checked)
+          .map(cb => parseFloat(cb.dataset.price));
+
+        const count = selectedSubjects.length;
+        const subtotal = selectedSubjects.reduce((sum, price) => sum + price, 0);
+
+        let discountRate = 0;
+        if (platform.startsWith('joacademy')) {
+          // نظام خصومات جو أكاديمي (نفس النظام للجيلين)
+          if (count >= 4) {
+            discountRate = 0.30; // خصم 30%
+          } else if (count >= 2) {
+            discountRate = 0.20; // خصم 20%
+          }
+        } else if (platform === 'wattad-2008') {
+          // نظام خصومات وتد 2008
+          if (count >= 4) {
+            discountRate = 0.25; // خصم 25%
+          } else if (count >= 2) {
+            discountRate = 0.15; // خصم 15%
+          }
+        }
+
+        const discountAmount = subtotal * discountRate;
+        const total = subtotal - discountAmount;
+
+        // تحديث النتائج
+        outputs.count.textContent = count;
+        outputs.subtotal.textContent = formatNumber(subtotal) + ' د.ا';
+        outputs.discountRate.textContent = discountRate > 0 ? `${discountRate * 100}%` : 'لا يوجد';
+        outputs.discountAmount.textContent = formatNumber(discountAmount) + ' د.ا';
+        outputs.total.textContent = formatNumber(total) + ' د.ا';
+      }
+
+      function calculateAlmaher() {
+        const selected = Array.from(checkboxes).filter(cb => cb.checked);
+        let total = selected.reduce((sum, cb) => sum + parseFloat(cb.dataset.price), 0);
+        let count = selected.length;
+
+        // تحديث النتائج - الماهر له نظام بسيط بدون خصومات
+        outputs.count.textContent = count;
+        outputs.total.textContent = formatNumber(total) + ' د.ا';
+      }
+
+      function calculateWattad2009() {
+        const selected = Array.from(checkboxes).filter(cb => cb.checked);
+        let total = selected.reduce((sum, cb) => sum + parseFloat(cb.dataset.price), 0);
+        let count = selected.length;
+        let savings = 0;
+        let suggestion = '';
+
+        // تحديد المواد المختارة
+        const selectedItems = selected.map(cb => cb.parentElement.textContent.trim());
+        const hasArabic = selectedItems.some(item => item.includes('اللغة العربية') && !item.includes('بكج'));
+        const hasEnglish = selectedItems.some(item => item.includes('اللغة الإنجليزية') && !item.includes('بكج'));
+        const hasIslamic = selectedItems.some(item => item.includes('التربية الإسلامية') && !item.includes('بكج'));
+        const hasHistory = selectedItems.some(item => item.includes('تاريخ الأردن') && !item.includes('بكج'));
+
+        // حساب التوفير للبكجات
+        selected.forEach(cb => {
+          const price = parseFloat(cb.dataset.price);
+          const itemText = cb.parentElement.textContent.trim();
+          
+          if (price === 100) {
+            savings += 26;
+          } else if (price === 75) {
+            savings += 5;
+          } else if (price === 40 && itemText.includes('بكج الاجتماعية')) {
+            savings += 6;
+          }
+        });
+
+        // اقتراحات التوفير
+        if (hasArabic && hasEnglish && !selectedItems.some(item => item.includes('بكج اللغات'))) {
+          suggestion = '💡 يمكنك توفير 5 د.ا باختيار بكج اللغات بدلاً من المواد المنفصلة!';
+        } else if (hasIslamic && hasHistory && !selectedItems.some(item => item.includes('بكج الاجتماعية'))) {
+          suggestion = '💡 يمكنك توفير 6 د.ا باختيار بكج الاجتماعية بدلاً من المواد المنفصلة!';
+        } else if ((hasArabic || hasEnglish || hasIslamic || hasHistory) && selected.length >= 3) {
+          suggestion = '💡 البكج الكامل (100 د.ا) يوفر عليك أكثر مع جميع المواد!';
+        }
+
+        // تحديث النتائج
+        outputs.count.textContent = count;
+        outputs.total.textContent = formatNumber(total) + ' د.ا';
+        outputs.savings.textContent = formatNumber(savings) + ' د.ا';
+
+        // عرض الاقتراح في النوتة
+        const noteEl = document.querySelector('#wattad-grade-2009 .note');
+        if (suggestion && noteEl) {
+          noteEl.innerHTML = `<strong>${suggestion}</strong><br><strong>البكجات المتاحة:</strong> بكج اللغات (75 د.ا) • بكج الاجتماعية (40 د.ا) • البكج الكامل (100 د.ا)`;
+        } else if (noteEl) {
+          noteEl.innerHTML = `<strong>💡 نصيحة:</strong> البكج الكامل (100 د.ا) هو الأفضل اقتصادياً! يشمل جميع المواد مع توفير 26 د.ا مقارنة بالشراء المنفصل.<br><strong>البكجات المتاحة:</strong> بكج اللغات (75 د.ا) • بكج الاجتماعية (40 د.ا) • البكج الكامل (100 د.ا)`;
+        }
+      }
+
+      // ربط الأحداث
+      checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', calculate);
+      });
+
+      // حساب أولي
+      calculate();
+    }
+
+    // تشغيل الحاسبات
+    initCalculator('joacademy-2008');
+    initCalculator('joacademy-2009');
+    initCalculator('wattad-2008');
+    initCalculator('wattad-2009');
+    initCalculator('almaher-2008');
+    initCalculator('almaher-2009');
+  </script>
+</body>
+</html>
