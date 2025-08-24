@@ -435,12 +435,12 @@
         
         <!-- تبويبات الأجيال -->
         <div class="tabs" style="margin: 1rem 1.5rem 0; justify-content: flex-start;">
-          <div class="tab active grade-tab" data-grade="2008" style="font-size: 1rem; padding: 0.75rem 1.5rem;">جيل 2008</div>
+          <div class="tab grade-tab" data-grade="2008" style="font-size: 1rem; padding: 0.75rem 1.5rem;">جيل 2008</div>
           <div class="tab grade-tab" data-grade="2009" style="font-size: 1rem; padding: 0.75rem 1.5rem;">جيل 2009</div>
         </div>
 
         <!-- محتوى جيل 2008 -->
-        <div id="grade-2008" class="grade-content">
+        <div id="grade-2008" class="grade-content" style="display: none;">
 
           <div class="calculator">
             <h3>حاسبة البكجات - جو أكاديمي جيل 2008</h3>
@@ -625,12 +625,12 @@
         
         <!-- تبويبات الأجيال -->
         <div class="tabs" style="margin: 1rem 1.5rem 0; justify-content: flex-start;">
-          <div class="tab active grade-tab wattad-grade-tab" data-grade="2008" style="font-size: 1rem; padding: 0.75rem 1.5rem;">جيل 2008</div>
+          <div class="tab grade-tab wattad-grade-tab" data-grade="2008" style="font-size: 1rem; padding: 0.75rem 1.5rem;">جيل 2008</div>
           <div class="tab grade-tab wattad-grade-tab" data-grade="2009" style="font-size: 1rem; padding: 0.75rem 1.5rem;">جيل 2009</div>
         </div>
 
         <!-- محتوى جيل 2008 -->
-        <div id="wattad-grade-2008" class="wattad-grade-content">
+        <div id="wattad-grade-2008" class="wattad-grade-content" style="display: none;">
 
           <div class="calculator">
             <h3>حاسبة البكجات - وتد جيل 2008</h3>
@@ -834,8 +834,8 @@
         
         <!-- تبويبات الأجيال -->
         <div class="tabs" style="margin: 1rem 1.5rem 0; justify-content: flex-start;">
-          <div class="tab active grade-tab almaher-grade-tab" data-grade="2008" style="font-size: 1rem; padding: 0.75rem 1.5rem;">جيل 2008 (ثاني ثانوي)</div>
-          <div class="tab grade-tab almaher-grade-tab" data-grade="2009" style="font-size: 1rem; padding: 0.75rem 1.5rem;">جيل 2009 (أول ثانوي)</div>
+          <div class="tab active grade-tab almaher-grade-tab" data-grade="2008" style="font-size: 1rem; padding: 0.75rem 1.5rem;"> جيل 2008 </div>
+          <div class="tab grade-tab almaher-grade-tab" data-grade="2009" style="font-size: 1rem; padding: 0.75rem 1.5rem;"> جيل 2009 </div>
         </div>
 
         <!-- محتوى جيل 2008 -->
@@ -901,6 +901,10 @@
                   <span class="category-price">أسعار ثابتة</span>
                 </div>
                 <label class="subject-item">
+                  <span>📄 بطاقة مادة واحدة (50 د.ا)</span>
+                  <input type="checkbox" data-price="50" data-platform="almaher-2009">
+                </label>
+                <label class="subject-item">
                   <span>📚 بطاقة العربي والإنجليزي (80 د.ا)</span>
                   <input type="checkbox" data-price="80" data-platform="almaher-2009">
                 </label>
@@ -923,7 +927,7 @@
             </div>
             
             <div class="note">
-              <strong>📋 البطاقات المتاحة:</strong> العربي والإنجليزي (80 د.ا) • جميع المواد الوزارية (100 د.ا)
+              <strong>📋 البطاقات المتاحة:</strong> مادة واحدة (50 د.ا) • العربي والإنجليزي (80 د.ا) • جميع المواد الوزارية (100 د.ا)
             </div>
           </div>
         </div>
@@ -947,11 +951,38 @@
         sections.forEach(section => section.style.display = 'none');
         // إظهار القسم المختار
         document.getElementById(tab.dataset.platform).style.display = 'block';
+        
+        // إخفاء جميع محتويات الأجيال عند تغيير المنصة
+        hideAllGradeContents();
+        resetAllGradeTabs();
       });
     });
 
+    // دالة لإخفاء جميع محتويات الأجيال
+    function hideAllGradeContents() {
+      // جو أكاديمي
+      document.querySelectorAll('.grade-content').forEach(content => {
+        content.style.display = 'none';
+      });
+      // وتد
+      document.querySelectorAll('.wattad-grade-content').forEach(content => {
+        content.style.display = 'none';
+      });
+      // الماهر
+      document.querySelectorAll('.almaher-grade-content').forEach(content => {
+        content.style.display = 'none';
+      });
+    }
+
+    // دالة لإزالة التنشيط من جميع تبويبات الأجيال
+    function resetAllGradeTabs() {
+      document.querySelectorAll('.grade-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+    }
+
     // تبديل تبويبات الأجيال
-    const gradeTabs = document.querySelectorAll('.grade-tab');
+    const gradeTabs = document.querySelectorAll('.grade-tab:not(.wattad-grade-tab):not(.almaher-grade-tab)');
     const gradeContents = document.querySelectorAll('.grade-content');
     const wattadGradeTabs = document.querySelectorAll('.wattad-grade-tab');
     const wattadGradeContents = document.querySelectorAll('.wattad-grade-content');
@@ -968,7 +999,10 @@
         // إخفاء جميع محتويات الأجيال في جو أكاديمي
         gradeContents.forEach(content => content.style.display = 'none');
         // إظهار محتوى الجيل المختار
-        document.getElementById(`grade-${tab.dataset.grade}`).style.display = 'block';
+        const targetContent = document.getElementById(`grade-${tab.dataset.grade}`);
+        if (targetContent) {
+          targetContent.style.display = 'block';
+        }
       });
     });
 
@@ -983,7 +1017,10 @@
         // إخفاء جميع محتويات أجيال وتد
         wattadGradeContents.forEach(content => content.style.display = 'none');
         // إظهار محتوى الجيل المختار
-        document.getElementById(`wattad-grade-${tab.dataset.grade}`).style.display = 'block';
+        const targetContent = document.getElementById(`wattad-grade-${tab.dataset.grade}`);
+        if (targetContent) {
+          targetContent.style.display = 'block';
+        }
       });
     });
 
@@ -998,7 +1035,10 @@
         // إخفاء جميع محتويات أجيال الماهر
         almaherGradeContents.forEach(content => content.style.display = 'none');
         // إظهار محتوى الجيل المختار
-        document.getElementById(`almaher-grade-${tab.dataset.grade}`).style.display = 'block';
+        const targetContent = document.getElementById(`almaher-grade-${tab.dataset.grade}`);
+        if (targetContent) {
+          targetContent.style.display = 'block';
+        }
       });
     });
 
@@ -1137,12 +1177,14 @@
     }
 
     // تشغيل الحاسبات
-    initCalculator('joacademy-2008');
-    initCalculator('joacademy-2009');
-    initCalculator('wattad-2008');
-    initCalculator('wattad-2009');
-    initCalculator('almaher-2008');
-    initCalculator('almaher-2009');
+    document.addEventListener('DOMContentLoaded', function() {
+      initCalculator('joacademy-2008');
+      initCalculator('joacademy-2009');
+      initCalculator('wattad-2008');
+      initCalculator('wattad-2009');
+      initCalculator('almaher-2008');
+      initCalculator('almaher-2009');
+    });
   </script>
 </body>
 </html>
