@@ -1,0 +1,47 @@
+{
+  "chapterId": "chapter2",           ← غيّر من chapterX
+  "topicId": "topic1",               ← غيّر من topicY
+  "topicTitle": "Use Case Diagram",  ← ضع عنوان الموضوع
+  
+  "sections": [
+    {
+      "title": "مقدمة عن Use Case Diagram",
+      "subsections": [
+        {
+          "subtitle": "ما هو Use Case Diagram؟",
+          "content": "مخطط حالات الاستخدام هو مخطط UML يوضح تفاعل المستخدمين (الفاعلين) مع النظام. يُستخدم لتوثيق المتطلبات الوظيفية للنظام من منظور المستخدم."
+        },
+        {
+          "subtitle": "عناصر Use Case Diagram",
+          "list": [
+            "<strong>الفاعل (Actor):</strong> المستخدم أو النظام الخارجي الذي يتفاعل مع النظام",
+            "<strong>حالة الاستخدام (Use Case):</strong> وظيفة أو خدمة يقدمها النظام",
+            "<strong>العلاقات (Relations):</strong> الربط بين الفاعلين وحالات الاستخدام",
+            "<strong>حدود النظام (System Boundary):</strong> يوضح حدود النظام المراد تطويره"
+          ],
+          "listType": "ul"
+        },
+        {
+          "highlight": {
+            "title": "فائدة مهمة",
+            "content": "Use Case Diagram يساعد في: فهم متطلبات النظام، التواصل مع أصحاب المصلحة، تحديد نطاق المشروع، وتخطيط عملية التطوير"
+          }
+        }
+      ]
+    },
+    {
+      "title": "أنواع العلاقات في Use Case Diagram",
+      "subsections": [
+        {
+          "subtitle": "العلاقات الأساسية",
+          "list": [
+            "<strong>Include:</strong> علاقة إلزامية - حالة الاستخدام A تتضمن دائماً حالة الاستخدام B",
+            "<strong>Extend:</strong> علاقة اختيارية - حالة الاستخدام B قد تمتد من حالة الاستخدام A",
+            "<strong>Generalization:</strong> علاقة وراثة - فاعل أو حالة استخدام تُورث من أخرى"
+          ],
+          "listType": "ul"
+        }
+      ]
+    }
+  ]
+}

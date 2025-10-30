@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الفصل الثاني - Use Case Diagram</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="main-container">
+            <div class="header">
+                <a href="../index.html" class="back-btn">
+                    <i class="fas fa-arrow-right"></i> العودة للرئيسية
+                </a>
+              <h1><i class="fas fa-diagram-project"></i> الفصل الثاني</h1>
+<p>Use Case Diagram</p>
+            </div>
+            
+            <div class="content-wrapper">
+                <ul class="nav nav-tabs" id="contentTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="summary-tab" data-bs-toggle="tab" data-bs-target="#summary" type="button" role="tab">
+                            <i class="fas fa-book"></i> الملخص
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="quiz-tab" data-bs-toggle="tab" data-bs-target="#quiz" type="button" role="tab">
+                            <i class="fas fa-question-circle"></i> الاختبار
+                        </button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content" id="contentTabContent">
+                    <!-- Summary Tab -->
+                    <div class="tab-pane fade show active" id="summary" role="tabpanel">
+                        <h2 class="section-title">
+                            <i class="fas fa-book-open"></i>
+                            ملخص الموضوع
+                        </h2>
+                        
+                        <div class="summary-content" id="summary-content">
+                            <!-- سيتم تحميل المحتوى من ملف JSON -->
+                            <p class="text-center"><i class="fas fa-spinner fa-spin"></i> جاري تحميل المحتوى...</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Quiz Tab -->
+                    <div class="tab-pane fade" id="quiz" role="tabpanel">
+                        <h2 class="section-title">
+                            <i class="fas fa-question-circle"></i>
+                            اختبار الموضوع
+                        </h2>
+                        
+                        <div class="quiz-container" id="mcq-container">
+                            <!-- سيتم تحميل أسئلة الاختيار من متعدد من ملف JSON -->
+                            <p class="text-center"><i class="fas fa-spinner fa-spin"></i> جاري تحميل الأسئلة...</p>
+                        </div>
+
+                        <div class="quiz-container" id="tf-container">
+                            <!-- سيتم تحميل أسئلة صح وخطأ من ملف JSON -->
+                        </div>
+
+                        <div class="quiz-controls">
+                            <button class="quiz-btn" onclick="quizManager.checkAnswers()">
+                                <i class="fas fa-check"></i> فحص الإجابات
+                            </button>
+                            <button class="quiz-btn" onclick="quizManager.resetQuiz()">
+                                <i class="fas fa-redo"></i> إعادة المحاولة
+                            </button>
+                        </div>
+
+                        <div id="quizResults" class="quiz-results" style="display: none;">
+                            <div class="score-display">
+                                <span id="scoreText">النتيجة: 0/0</span>
+                            </div>
+                            <div class="grade-message">
+                                <span id="gradeText">قم بالإجابة على جميع الأسئلة</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/quiz.js"></script>
+    <script>
+        // تهيئة مدير الاختبار
+       const quizManager = new QuizManager('chapter2', 'topic1');
+        // تحميل البيانات عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', async () => {
+            await quizManager.loadQuizData();
+            await ContentLoader.loadContent('chapter1', 'topic1');
+        });
+    </script>
+</body>
+</html>
