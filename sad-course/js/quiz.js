@@ -58,6 +58,10 @@ class ContentLoader {
         this.currentLanguage = this.currentLanguage === 'ar' ? 'en' : 'ar';
         return this.currentLanguage;
     }
+
+    static reloadContent(chapterId, topicId) {
+        this.loadContent(chapterId, topicId);
+    }
 }
 
 // Quiz Manager Class
