@@ -257,11 +257,6 @@
             <p id="chapter-subtitle"></p>
         </div>
 
-        <div class="chapter-overview" id="chapter-overview" style="display: none;">
-            <h2><i class="fas fa-info-circle"></i> نظرة عامة على الفصل</h2>
-            <p id="chapter-description"></p>
-        </div>
-
         <div class="topics-grid" id="topics-container">
             <div class="loading">
                 <i class="fas fa-spinner fa-spin"></i> جاري تحميل المواضيع...
@@ -322,8 +317,6 @@
             document.getElementById('chapter-title').innerHTML =
                 `<i class="fas fa-book"></i> ${chapter.title}`;
             document.getElementById('chapter-subtitle').textContent = chapter.subtitle;
-            document.getElementById('chapter-description').textContent = chapter.description;
-            document.getElementById('chapter-overview').style.display = 'block';
 
             const topicsContainer = document.getElementById('topics-container');
             let topicsHTML = '';
