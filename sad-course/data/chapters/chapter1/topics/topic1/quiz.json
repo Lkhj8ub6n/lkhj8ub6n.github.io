@@ -1,0 +1,290 @@
+{
+  "chapterId": "chapter1",
+  "topicId": "topic1",
+  "topicTitle": "System Analysis and Design (SAD)",
+  "topicTitleEn": "System Analysis and Design (SAD)",
+  "mcq": [
+    {
+      "id": "q1",
+      "question": "ما هو الهدف الرئيسي من System Analysis and Design؟",
+      "questionEn": "What is the main goal of System Analysis and Design?",
+      "options": [
+        "كتابة الكود البرمجي فقط",
+        "تصميم واجهات المستخدم",
+        "تطوير أنظمة معلومات لتلبية احتياجات العمل",
+        "إدارة قواعد البيانات"
+      ],
+      "optionsEn": [
+        "Writing code only",
+        "Designing user interfaces",
+        "Developing information systems to meet business needs",
+        "Managing databases"
+      ],
+      "correct": "c",
+      "explanation": "الهدف الرئيسي من SAD هو تطوير أنظمة معلومات لتلبية احتياجات العمل أو المنظمة",
+      "explanationEn": "The main goal of SAD is to develop information systems to meet business or organizational needs"
+    },
+    {
+      "id": "q2",
+      "question": "أي من التالي ليس من مكونات SAD؟",
+      "questionEn": "Which of the following is NOT a component of SAD?",
+      "options": [
+        "System Analysis",
+        "System Design",
+        "System Marketing",
+        "Implementation"
+      ],
+      "optionsEn": [
+        "System Analysis",
+        "System Design",
+        "System Marketing",
+        "Implementation"
+      ],
+      "correct": "c",
+      "explanation": "System Marketing ليس من مكونات SAD. المكونات الثلاثة هي: System Analysis و System Design و Implementation",
+      "explanationEn": "System Marketing is not a component of SAD. The three components are: System Analysis, System Design, and Implementation"
+    },
+    {
+      "id": "q3",
+      "question": "في أي مرحلة من SAD يتم جمع المتطلبات من المستخدمين؟",
+      "questionEn": "In which phase of SAD are requirements gathered from users?",
+      "options": [
+        "Implementation",
+        "System Design",
+        "System Analysis",
+        "Testing"
+      ],
+      "optionsEn": [
+        "Implementation",
+        "System Design",
+        "System Analysis",
+        "Testing"
+      ],
+      "correct": "c",
+      "explanation": "في مرحلة System Analysis يتم جمع المتطلبات من المستخدمين وفهم احتياجات العمل",
+      "explanationEn": "In the System Analysis phase, requirements are gathered from users and business needs are understood"
+    },
+    {
+      "id": "q4",
+      "question": "ماذا يشمل System Design؟",
+      "questionEn": "What does System Design include?",
+      "options": [
+        "كتابة الكود فقط",
+        "تحديد المشاكل في النظام الحالي",
+        "تحديد البنية وواجهة المستخدم وقواعد البيانات",
+        "جمع المتطلبات"
+      ],
+      "optionsEn": [
+        "Writing code only",
+        "Identifying problems in the current system",
+        "Defining architecture, UI, and databases",
+        "Gathering requirements"
+      ],
+      "correct": "c",
+      "explanation": "System Design يشمل تحديد بنية النظام، تصميم واجهة المستخدم، تصميم قواعد البيانات، وتصميم سير العمل",
+      "explanationEn": "System Design includes defining system architecture, designing user interface, designing databases, and designing workflows"
+    },
+    {
+      "id": "q5",
+      "question": "أي من الأمثلة التالية يوضح 'فهم أفضل للمتطلبات'؟",
+      "questionEn": "Which example demonstrates 'better requirement understanding'?",
+      "options": [
+        "نظام مستشفى يؤتمت السجلات",
+        "منصة تجارة إلكترونية تقدم توصيات شخصية",
+        "بنك يحلل التهديدات الأمنية",
+        "برنامج CRM يتوسع مع الشركة"
+      ],
+      "optionsEn": [
+        "A hospital system that automates records",
+        "An e-commerce platform offering personalized recommendations",
+        "A bank analyzing security threats",
+        "A CRM program that scales with the company"
+      ],
+      "correct": "b",
+      "explanation": "منصة التجارة الإلكترونية التي تفهم أن المستخدمين يريدون توصيات شخصية هو مثال على فهم أفضل للمتطلبات",
+      "explanationEn": "An e-commerce platform understanding that users want personalized recommendations is an example of better requirement understanding"
+    },
+    {
+      "id": "q6",
+      "question": "كيف يساعد SAD في تقليل التكلفة؟",
+      "questionEn": "How does SAD help reduce costs?",
+      "options": [
+        "بزيادة عدد الموظفين",
+        "بتوفير خارطة طريق واضحة وتقليل إعادة العمل",
+        "بتجاهل المتطلبات",
+        "بعدم الاختبار"
+      ],
+      "optionsEn": [
+        "By increasing staff numbers",
+        "By providing a clear roadmap and reducing rework",
+        "By ignoring requirements",
+        "By skipping testing"
+      ],
+      "correct": "b",
+      "explanation": "SAD يساعد في تقليل التكلفة من خلال توفير خارطة طريق واضحة وتقليل إعادة العمل",
+      "explanationEn": "SAD helps reduce costs by providing a clear roadmap and reducing rework"
+    },
+    {
+      "id": "q7",
+      "question": "ما الفائدة الرئيسية من تحديد المخاطر مبكراً في SAD؟",
+      "questionEn": "What is the main benefit of identifying risks early in SAD?",
+      "options": [
+        "زيادة التكلفة",
+        "تجنب الفشل المكلف",
+        "تعقيد العملية",
+        "تقليل الجودة"
+      ],
+      "optionsEn": [
+        "Increasing costs",
+        "Avoiding costly failure",
+        "Complicating the process",
+        "Reducing quality"
+      ],
+      "correct": "b",
+      "explanation": "تحديد المخاطر مبكراً يساعد في تجنب الفشل المكلف للمشروع",
+      "explanationEn": "Identifying risks early helps avoid costly project failure"
+    },
+    {
+      "id": "q8",
+      "question": "أي مرحلة من SAD تشمل الصيانة؟",
+      "questionEn": "Which SAD phase includes maintenance?",
+      "options": [
+        "System Analysis",
+        "System Design",
+        "Implementation",
+        "Requirements Gathering"
+      ],
+      "optionsEn": [
+        "System Analysis",
+        "System Design",
+        "Implementation",
+        "Requirements Gathering"
+      ],
+      "correct": "c",
+      "explanation": "مرحلة Implementation تشمل كتابة الكود، الاختبار، النشر، والصيانة",
+      "explanationEn": "The Implementation phase includes writing code, testing, deployment, and maintenance"
+    },
+    {
+      "id": "q9",
+      "question": "ما المقصود بـ Scalability في سياق SAD؟",
+      "questionEn": "What does Scalability mean in the context of SAD?",
+      "options": [
+        "قدرة النظام على التوسع مستقبلاً",
+        "سرعة تنفيذ النظام",
+        "تكلفة النظام",
+        "عدد المستخدمين الحاليين"
+      ],
+      "optionsEn": [
+        "The system's ability to scale in the future",
+        "System execution speed",
+        "System cost",
+        "Current number of users"
+      ],
+      "correct": "a",
+      "explanation": "Scalability تعني قدرة النظام على التوسع والنمو مستقبلاً",
+      "explanationEn": "Scalability means the system's ability to expand and grow in the future"
+    },
+    {
+      "id": "q10",
+      "question": "أي من التالي مثال على 'تحسين الكفاءة'؟",
+      "questionEn": "Which is an example of 'improved efficiency'?",
+      "options": [
+        "منصة Netflix تقدم توصيات",
+        "نظام مستشفى يؤتمت سجلات المرضى",
+        "Amazon تتبع المخزون",
+        "Tesla تقدم تحديثات برمجية"
+      ],
+      "optionsEn": [
+        "Netflix offering recommendations",
+        "A hospital system automating patient records",
+        "Amazon tracking inventory",
+        "Tesla providing software updates"
+      ],
+      "correct": "b",
+      "explanation": "نظام المستشفى الذي يؤتمت سجلات المرضى بدلاً من الورق هو مثال واضح على تحسين الكفاءة",
+      "explanationEn": "A hospital system automating patient records instead of paper is a clear example of improved efficiency"
+    }
+  ],
+  "trueFalse": [
+    {
+      "id": "tf1",
+      "question": "SAD يشمل فقط كتابة الكود البرمجي",
+      "questionEn": "SAD only includes writing code",
+      "correct": false,
+      "explanation": "SAD يشمل ثلاثة مكونات رئيسية: Analysis و Design و Implementation وليس فقط كتابة الكود",
+      "explanationEn": "SAD includes three main components: Analysis, Design, and Implementation, not just writing code"
+    },
+    {
+      "id": "tf2",
+      "question": "System Analysis يركز على فهم احتياجات المستخدمين وتحديد المشاكل",
+      "questionEn": "System Analysis focuses on understanding user needs and identifying problems",
+      "correct": true,
+      "explanation": "هذا صحيح، System Analysis يهتم بجمع المتطلبات وفهم احتياجات العمل وتحديد المشاكل في النظام الحالي",
+      "explanationEn": "This is correct, System Analysis is concerned with gathering requirements, understanding business needs, and identifying problems in the current system"
+    },
+    {
+      "id": "tf3",
+      "question": "Implementation هي المرحلة الأولى في SAD",
+      "questionEn": "Implementation is the first phase in SAD",
+      "correct": false,
+      "explanation": "System Analysis هي المرحلة الأولى، تليها System Design ثم Implementation",
+      "explanationEn": "System Analysis is the first phase, followed by System Design then Implementation"
+    },
+    {
+      "id": "tf4",
+      "question": "من فوائد SAD تقليل المخاطر بتحديدها مبكراً",
+      "questionEn": "One benefit of SAD is reducing risks by identifying them early",
+      "correct": true,
+      "explanation": "صحيح، SAD يساعد في تحديد المخاطر مبكراً مما يقلل من احتمالية الفشل المكلف",
+      "explanationEn": "Correct, SAD helps identify risks early, reducing the likelihood of costly failure"
+    },
+    {
+      "id": "tf5",
+      "question": "System Design لا يشمل تصميم قواعد البيانات",
+      "questionEn": "System Design does not include database design",
+      "correct": false,
+      "explanation": "System Design يشمل تصميم قواعد البيانات بالإضافة إلى تصميم بنية النظام وواجهة المستخدم وسير العمل",
+      "explanationEn": "System Design includes database design in addition to system architecture, user interface, and workflow design"
+    },
+    {
+      "id": "tf6",
+      "question": "SAD يساعد في توفير الوقت والتكلفة",
+      "questionEn": "SAD helps save time and cost",
+      "correct": true,
+      "explanation": "صحيح، من خلال توفير خارطة طريق واضحة وتقليل إعادة العمل",
+      "explanationEn": "Correct, by providing a clear roadmap and reducing rework"
+    },
+    {
+      "id": "tf7",
+      "question": "Scalability تعني عدم القدرة على التوسع مستقبلاً",
+      "questionEn": "Scalability means inability to expand in the future",
+      "correct": false,
+      "explanation": "Scalability تعني القدرة على التوسع والنمو مستقبلاً وليس العكس",
+      "explanationEn": "Scalability means the ability to expand and grow in the future, not the opposite"
+    },
+    {
+      "id": "tf8",
+      "question": "في مرحلة System Analysis، يتم كتابة الكود البرمجي",
+      "questionEn": "In the System Analysis phase, code is written",
+      "correct": false,
+      "explanation": "كتابة الكود البرمجي تتم في مرحلة Implementation وليس في System Analysis",
+      "explanationEn": "Code writing is done in the Implementation phase, not in System Analysis"
+    },
+    {
+      "id": "tf9",
+      "question": "نظام إدارة المستشفى مثال على تحسين الكفاءة",
+      "questionEn": "A hospital management system is an example of improved efficiency",
+      "correct": true,
+      "explanation": "صحيح، أتمتة سجلات المرضى بدلاً من الورق هو مثال واضح على تحسين الكفاءة",
+      "explanationEn": "Correct, automating patient records instead of paper is a clear example of improved efficiency"
+    },
+    {
+      "id": "tf10",
+      "question": "SAD لا يهتم بصيانة النظام بعد النشر",
+      "questionEn": "SAD does not care about system maintenance after deployment",
+      "correct": false,
+      "explanation": "الصيانة جزء أساسي من مرحلة Implementation في SAD",
+      "explanationEn": "Maintenance is an essential part of the Implementation phase in SAD"
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "chapterId": "chapter1",
+  "topicId": "topic1",
+  "topicTitle": "System Analysis and Design (SAD)",
+  "topicTitleEn": "System Analysis and Design (SAD)",
+  "sections": [
+    {
+      "title": "تعريف SAD",
+      "titleEn": "Definition of SAD",
+      "subsections": [
+        {
+          "content": "تحليل وتصميم النظم (System Analysis and Design) هو عملية منهجية لدراسة وتخطيط وتصميم وتنفيذ أنظمة المعلومات لتلبية احتياجات العمل أو المنظمة.",
+          "contentEn": "System Analysis and Design (SAD) is a systematic process for studying, planning, designing, and implementing information systems to meet business or organizational needs."
+        }
+      ]
+    },
+    {
+      "title": "المكونات الرئيسية الثلاثة",
+      "titleEn": "Three Main Components",
+      "subsections": [
+        {
+          "subtitle": "1. System Analysis (تحليل النظام)",
+          "subtitleEn": "1. System Analysis",
+          "list": [
+            "جمع المتطلبات من المستخدمين",
+            "فهم احتياجات العمل",
+            "تحديد المشاكل في النظام الحالي",
+            "تحليل الحلول الممكنة"
+          ],
+          "listEn": [
+            "Gathering requirements from users",
+            "Understanding business needs",
+            "Identifying problems in the current system",
+            "Analyzing possible solutions"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "عندما يريد بنك تطوير تطبيق، المحلل يجلس مع الموظفين ويسألهم: ما المشاكل؟ ما الذي تحتاجونه؟",
+            "contentEn": "When a bank wants to develop an application, the analyst sits with employees and asks: What are the problems? What do you need?"
+          }
+        },
+        {
+          "subtitle": "2. System Design (تصميم النظام)",
+          "subtitleEn": "2. System Design",
+          "list": [
+            "تحديد بنية النظام (Architecture)",
+            "تصميم واجهة المستخدم (UI)",
+            "تصميم قواعد البيانات",
+            "تصميم سير العمل (Workflows)"
+          ],
+          "listEn": [
+            "Defining system architecture",
+            "Designing user interface (UI)",
+            "Designing databases",
+            "Designing workflows"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "رسم كيف سيبدو التطبيق، أي الأزرار، القوائم، كيف تتصل الشاشات ببعضها.",
+            "contentEn": "Drawing how the app will look - buttons, menus, how screens connect to each other."
+          }
+        },
+        {
+          "subtitle": "3. Implementation (التنفيذ)",
+          "subtitleEn": "3. Implementation",
+          "list": [
+            "كتابة الكود البرمجي",
+            "الاختبار",
+            "النشر (Deployment)",
+            "الصيانة"
+          ],
+          "listEn": [
+            "Writing code",
+            "Testing",
+            "Deployment",
+            "Maintenance"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "المبرمجون يكتبون الكود، يختبرونه، ثم ينشرون التطبيق للمستخدمين.",
+            "contentEn": "Programmers write code, test it, then deploy the application to users."
+          }
+        }
+      ]
+    },
+    {
+      "title": "أهمية SAD",
+      "titleEn": "Importance of SAD",
+      "subsections": [
+        {
+          "subtitle": "1. Better Requirement Understanding (فهم أفضل للمتطلبات)",
+          "subtitleEn": "1. Better Requirement Understanding",
+          "list": [
+            "يساعد في توثيق المتطلبات بوضوح",
+            "يقلل من سوء الفهم"
+          ],
+          "listEn": [
+            "Helps document requirements clearly",
+            "Reduces misunderstandings"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "منصة تجارة إلكترونية تفهم أن المستخدمين يريدون توصيات شخصية.",
+            "contentEn": "An e-commerce platform understands that users want personalized recommendations."
+          }
+        },
+        {
+          "subtitle": "2. Improved Efficiency (تحسين الكفاءة)",
+          "subtitleEn": "2. Improved Efficiency",
+          "list": [
+            "يحسّن عمليات العمل",
+            "يزيل المهام المتكررة"
+          ],
+          "listEn": [
+            "Improves business processes",
+            "Eliminates repetitive tasks"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "نظام إدارة مستشفى يؤتمت حفظ سجلات المرضى بدلاً من الورق.",
+            "contentEn": "A hospital management system automates patient record keeping instead of paper."
+          }
+        },
+        {
+          "subtitle": "3. Cost and Time Optimization (توفير التكلفة والوقت)",
+          "subtitleEn": "3. Cost and Time Optimization",
+          "list": [
+            "يقلل من إعادة العمل",
+            "يوفر خارطة طريق واضحة"
+          ],
+          "listEn": [
+            "Reduces rework",
+            "Provides a clear roadmap"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "Agile يستخدم التصميم التكراري للتكيف مع التغييرات بكفاءة.",
+            "contentEn": "Agile uses iterative design to adapt to changes efficiently."
+          }
+        },
+        {
+          "subtitle": "4. Risk Reduction (تقليل المخاطر)",
+          "subtitleEn": "4. Risk Reduction",
+          "list": [
+            "يحدد المخاطر مبكراً",
+            "يتجنب الفشل المكلف"
+          ],
+          "listEn": [
+            "Identifies risks early",
+            "Avoids costly failure"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "البنوك تحلل التهديدات الأمنية قبل نشر أنظمة الخدمات المصرفية.",
+            "contentEn": "Banks analyze security threats before deploying banking systems."
+          }
+        },
+        {
+          "subtitle": "5. Scalability (القابلية للتوسع)",
+          "subtitleEn": "5. Scalability",
+          "list": [
+            "يضمن أن النظام يمكن توسعته مستقبلاً"
+          ],
+          "listEn": [
+            "Ensures the system can be scaled in the future"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "برامج CRM السحابية يمكن أن تكبر مع نمو الشركة.",
+            "contentEn": "Cloud CRM software can grow with the company's growth."
+          }
+        }
+      ]
+    }
+  ]
+}

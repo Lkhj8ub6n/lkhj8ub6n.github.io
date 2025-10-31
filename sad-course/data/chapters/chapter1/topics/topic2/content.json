@@ -1,0 +1,204 @@
+{
+  "chapterId": "chapter1",
+  "topicId": "topic2",
+  "topicTitle": "Software Engineering Body of Knowledge (SWEBOK)",
+  "topicTitleEn": "Software Engineering Body of Knowledge (SWEBOK)",
+  "sections": [
+    {
+      "title": "تعريف SWEBOK",
+      "titleEn": "Definition of SWEBOK",
+      "subsections": [
+        {
+          "content": "SWEBOK هو دليل معترف به عالمياً يحدد المجالات المعرفية الأساسية وأفضل الممارسات في هندسة البرمجيات. يعمل كمرجع للمحترفين والمعلمين والطلاب.",
+          "contentEn": "SWEBOK is a globally recognized guide that defines the fundamental knowledge areas and best practices in software engineering. It serves as a reference for professionals, educators, and students."
+        }
+      ]
+    },
+    {
+      "title": "الـ 15 Knowledge Areas",
+      "titleEn": "The 15 Knowledge Areas",
+      "subsections": [
+        {
+          "subtitle": "1. Software Requirements (متطلبات البرمجيات)",
+          "subtitleEn": "1. Software Requirements",
+          "content": "جمع وتحليل وتوثيق متطلبات النظام",
+          "contentEn": "Gathering, analyzing, and documenting system requirements",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "توثيق أن تطبيق البنك يجب أن يدعم تسجيل الدخول البيومتري",
+            "contentEn": "Documenting that a banking app must support biometric login"
+          }
+        },
+        {
+          "subtitle": "2. Software Design (تصميم البرمجيات)",
+          "subtitleEn": "2. Software Design",
+          "content": "تحديد بنية النظام والمكونات والواجهات",
+          "contentEn": "Defining system architecture, components, and interfaces",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "تصميم بنية microservices لتطبيق كبير",
+            "contentEn": "Designing a microservices architecture for a large application"
+          }
+        },
+        {
+          "subtitle": "3. Software Construction (بناء البرمجيات)",
+          "subtitleEn": "3. Software Construction",
+          "content": "كتابة وتصحيح الكود",
+          "contentEn": "Writing and debugging code",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "مبرمج يكتب كود بلغة Python",
+            "contentEn": "A programmer writing code in Python"
+          }
+        },
+        {
+          "subtitle": "4. Software Testing (اختبار البرمجيات)",
+          "subtitleEn": "4. Software Testing",
+          "content": "التحقق والتصديق على وظائف النظام",
+          "contentEn": "Verification and validation of system functions",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "اختبار أن زر 'إضافة إلى السلة' يعمل صحيحاً",
+            "contentEn": "Testing that the 'Add to Cart' button works correctly"
+          }
+        },
+        {
+          "subtitle": "5. Software Maintenance (صيانة البرمجيات)",
+          "subtitleEn": "5. Software Maintenance",
+          "content": "تحديث وتحسين الأنظمة بعد النشر",
+          "contentEn": "Updating and improving systems after deployment",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "إصلاح bug أو إضافة ميزة جديدة",
+            "contentEn": "Fixing a bug or adding a new feature"
+          }
+        },
+        {
+          "subtitle": "6. Software Configuration Management",
+          "subtitleEn": "6. Software Configuration Management",
+          "content": "إدارة التغييرات في مكونات النظام",
+          "contentEn": "Managing changes in system components",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "استخدام Git لتتبع التغييرات",
+            "contentEn": "Using Git to track changes"
+          }
+        },
+        {
+          "subtitle": "7. Software Engineering Management",
+          "subtitleEn": "7. Software Engineering Management",
+          "content": "تخطيط ومراقبة والتحكم في المشاريع",
+          "contentEn": "Planning, monitoring, and controlling projects",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "Project manager يدير فريق تطوير",
+            "contentEn": "A project manager managing a development team"
+          }
+        },
+        {
+          "subtitle": "8. Software Engineering Process",
+          "subtitleEn": "8. Software Engineering Process",
+          "content": "تعريف وتحسين عمليات التطوير",
+          "contentEn": "Defining and improving development processes",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "تطبيق Agile methodology",
+            "contentEn": "Implementing Agile methodology"
+          }
+        },
+        {
+          "subtitle": "9. Software Engineering Models and Methods",
+          "subtitleEn": "9. Software Engineering Models and Methods",
+          "content": "استخدام نماذج مثل UML ومنهجيات مثل Agile",
+          "contentEn": "Using models like UML and methodologies like Agile",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "رسم Use Case Diagram",
+            "contentEn": "Drawing a Use Case Diagram"
+          }
+        },
+        {
+          "subtitle": "10. Software Quality",
+          "subtitleEn": "10. Software Quality",
+          "content": "ضمان أن الأنظمة تلبي معايير الجودة",
+          "contentEn": "Ensuring systems meet quality standards",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "تطبيق معايير ISO",
+            "contentEn": "Applying ISO standards"
+          }
+        },
+        {
+          "subtitle": "11. Software Engineering Professional Practice",
+          "subtitleEn": "11. Software Engineering Professional Practice",
+          "content": "المسؤوليات الأخلاقية والمهنية",
+          "contentEn": "Ethical and professional responsibilities",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "احترام خصوصية بيانات المستخدمين",
+            "contentEn": "Respecting user data privacy"
+          }
+        },
+        {
+          "subtitle": "12. Software Engineering Economics",
+          "subtitleEn": "12. Software Engineering Economics",
+          "content": "تقدير التكلفة والميزانية",
+          "contentEn": "Cost estimation and budgeting",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "حساب ROI لمشروع تطوير",
+            "contentEn": "Calculating ROI for a development project"
+          }
+        },
+        {
+          "subtitle": "13. Computing Foundations",
+          "subtitleEn": "13. Computing Foundations",
+          "content": "مفاهيم علوم الحاسب الأساسية",
+          "contentEn": "Fundamental computer science concepts",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "خوارزميات، هياكل البيانات",
+            "contentEn": "Algorithms, data structures"
+          }
+        },
+        {
+          "subtitle": "14. Mathematical Foundations",
+          "subtitleEn": "14. Mathematical Foundations",
+          "content": "المبادئ الرياضية المطبقة في هندسة البرمجيات",
+          "contentEn": "Mathematical principles applied in software engineering",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "المنطق، الاحتمالات",
+            "contentEn": "Logic, probability"
+          }
+        },
+        {
+          "subtitle": "15. Engineering Foundations",
+          "subtitleEn": "15. Engineering Foundations",
+          "content": "مبادئ الهندسة المطبقة على تطوير البرمجيات",
+          "contentEn": "Engineering principles applied to software development",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "تحليل المتطلبات الهندسية",
+            "contentEn": "Engineering requirements analysis"
+          }
+        }
+      ]
+    }
+  ]
+}

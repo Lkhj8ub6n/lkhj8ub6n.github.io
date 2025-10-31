@@ -1,0 +1,141 @@
+{
+  "chapterId": "chapter1",
+  "topicId": "topic4",
+  "topicTitle": "Software Development Life Cycle (SDLC)",
+  "topicTitleEn": "Software Development Life Cycle (SDLC)",
+  "sections": [
+    {
+      "title": "تعريف SDLC",
+      "titleEn": "Definition of SDLC",
+      "subsections": [
+        {
+          "content": "دورة حياة تطوير البرمجيات هي إطار منظم لتطوير أنظمة البرمجيات. تتكون من سلسلة من المراحل، كل مرحلة لها أهداف ومخرجات محددة.",
+          "contentEn": "The Software Development Life Cycle is an organized framework for developing software systems. It consists of a series of phases, each with specific goals and outputs."
+        }
+      ]
+    },
+    {
+      "title": "النماذج الخمسة الرئيسية",
+      "titleEn": "Five Main Models",
+      "subsections": [
+        {
+          "subtitle": "1. Waterfall Model (النموذج الشلالي)",
+          "subtitleEn": "1. Waterfall Model",
+          "content": "نموذج خطي ومتسلسل، كل مرحلة تكتمل قبل الانتقال للتالية. المراحل: Requirements → Design → Implementation → Testing → Deployment → Maintenance",
+          "contentEn": "A linear and sequential model where each phase completes before moving to the next. Phases: Requirements → Design → Implementation → Testing → Deployment → Maintenance",
+          "list": [
+            "<strong>المميزات:</strong> بسيط وسهل الفهم، واضح ومنظم، سهل الإدارة",
+            "<strong>العيوب:</strong> غير مرن، صعب العودة لمرحلة سابقة، المستخدم يرى المنتج في النهاية فقط",
+            "<strong>متى نستخدمه:</strong> متطلبات واضحة ومستقرة، مشاريع صغيرة، تقنية معروفة"
+          ],
+          "listEn": [
+            "<strong>Advantages:</strong> Simple and easy to understand, clear and organized, easy to manage",
+            "<strong>Disadvantages:</strong> Inflexible, hard to go back to previous phase, user sees product only at the end",
+            "<strong>When to use:</strong> Clear and stable requirements, small projects, known technology"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "نظام محاسبة لشركة صغيرة بمتطلبات واضحة ومحددة",
+            "contentEn": "Accounting system for a small company with clear and specific requirements"
+          }
+        },
+        {
+          "subtitle": "2. Iterative Model (النموذج التكراري)",
+          "subtitleEn": "2. Iterative Model",
+          "content": "النظام يُطور في دورات (iterations)، كل دورة تنتج نسخة عاملة من النظام وتضيف ميزات جديدة.",
+          "contentEn": "The system is developed in iterations, each iteration produces a working version and adds new features.",
+          "list": [
+            "<strong>المميزات:</strong> مرن أكثر من Waterfall، يمكن اختبار النظام مبكراً، يسهل إدارة المخاطر",
+            "<strong>العيوب:</strong> يحتاج إدارة جيدة، قد يكون مكلفاً",
+            "<strong>متى نستخدمه:</strong> متطلبات واضحة لكن قد تتغير، مشاريع متوسطة إلى كبيرة"
+          ],
+          "listEn": [
+            "<strong>Advantages:</strong> More flexible than Waterfall, can test system early, easier risk management",
+            "<strong>Disadvantages:</strong> Needs good management, can be costly",
+            "<strong>When to use:</strong> Clear but changeable requirements, medium to large projects"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "تطوير نظام CRM حيث تضاف ميزات تدريجياً",
+            "contentEn": "Developing a CRM system where features are added gradually"
+          }
+        },
+        {
+          "subtitle": "3. Spiral Model (النموذج الحلزوني)",
+          "subtitleEn": "3. Spiral Model",
+          "content": "يجمع بين Iterative و Risk Analysis، يركز على إصدارات تدريجية. كل دورة تشمل: تخطيط → تحليل المخاطر → هندسة → تقييم",
+          "contentEn": "Combines Iterative and Risk Analysis, focuses on incremental releases. Each cycle includes: Planning → Risk Analysis → Engineering → Evaluation",
+          "list": [
+            "<strong>المميزات:</strong> إدارة ممتازة للمخاطر، مرن جداً، مناسب للمشاريع الكبيرة والمعقدة",
+            "<strong>العيوب:</strong> معقد ومكلف، يحتاج خبرة في تحليل المخاطر",
+            "<strong>متى نستخدمه:</strong> مشاريع عالية المخاطر، مشاريع كبيرة ومعقدة"
+          ],
+          "listEn": [
+            "<strong>Advantages:</strong> Excellent risk management, very flexible, suitable for large and complex projects",
+            "<strong>Disadvantages:</strong> Complex and expensive, needs risk analysis expertise",
+            "<strong>When to use:</strong> High-risk projects, large and complex projects"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "تطوير نظام تحكم لطائرة، أنظمة طبية حرجة",
+            "contentEn": "Developing an aircraft control system, critical medical systems"
+          }
+        },
+        {
+          "subtitle": "4. V-Model (نموذج V)",
+          "subtitleEn": "4. V-Model",
+          "content": "يشدد على التحقق والتصديق، كل مرحلة تطوير لها مرحلة اختبار مقابلة. يشبه Waterfall لكن مع تركيز على Testing.",
+          "contentEn": "Emphasizes verification and validation, each development phase has a corresponding testing phase. Similar to Waterfall but with focus on Testing.",
+          "list": [
+            "<strong>المراحل المقابلة:</strong> Requirements ↔ Acceptance Testing، Design ↔ System Testing، Implementation ↔ Unit Testing",
+            "<strong>المميزات:</strong> التركيز القوي على الجودة، الاختبار يُخطط مبكراً، سهل الإدارة",
+            "<strong>العيوب:</strong> غير مرن مثل Waterfall، لا يناسب المتطلبات المتغيرة",
+            "<strong>متى نستخدمه:</strong> عندما الجودة حرجة، مشاريع صغيرة إلى متوسطة"
+          ],
+          "listEn": [
+            "<strong>Corresponding phases:</strong> Requirements ↔ Acceptance Testing, Design ↔ System Testing, Implementation ↔ Unit Testing",
+            "<strong>Advantages:</strong> Strong focus on quality, testing planned early, easy to manage",
+            "<strong>Disadvantages:</strong> Inflexible like Waterfall, doesn't suit changing requirements",
+            "<strong>When to use:</strong> When quality is critical, small to medium projects"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "تطوير software لأجهزة طبية، أنظمة أمنية حرجة",
+            "contentEn": "Developing software for medical devices, critical security systems"
+          }
+        },
+        {
+          "subtitle": "5. Agile Model (النموذج الرشيق)",
+          "subtitleEn": "5. Agile Model",
+          "content": "نموذج تكراري ومرن، يعطي أولوية لردود فعل العملاء، التسليم التدريجي، والتعاون بين الفريق. يعمل في Sprints قصيرة (1-4 أسابيع).",
+          "contentEn": "An iterative and flexible model that prioritizes customer feedback, incremental delivery, and team collaboration. Works in short Sprints (1-4 weeks).",
+          "list": [
+            "<strong>المميزات:</strong> مرن جداً، تسليم سريع، المستخدم مشارك باستمرار، يتكيف مع التغييرات",
+            "<strong>العيوب:</strong> يحتاج تعاون عالي، قد يكون صعب التنبؤ، يحتاج فريق ذو خبرة",
+            "<strong>متى نستخدمه:</strong> متطلبات متغيرة، مشاريع تحتاج تسليم سريع، مشاريع مبتكرة"
+          ],
+          "listEn": [
+            "<strong>Advantages:</strong> Very flexible, fast delivery, user continuously involved, adapts to changes",
+            "<strong>Disadvantages:</strong> Needs high collaboration, can be hard to predict, needs experienced team",
+            "<strong>When to use:</strong> Changing requirements, projects need fast delivery, innovative projects"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "تطبيقات الجوال، startups، منتجات SaaS",
+            "contentEn": "Mobile apps, startups, SaaS products"
+          }
+        }
+      ]
+    }
+  ]
+}
