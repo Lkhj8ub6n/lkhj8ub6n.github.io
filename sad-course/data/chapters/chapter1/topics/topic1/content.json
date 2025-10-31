@@ -9,31 +9,20 @@
       "titleEn": "Definition of SAD",
       "subsections": [
         {
-          "content": "تحليل وتصميم النظم (System Analysis and Design) هو عملية منهجية لدراسة وتخطيط وتصميم وتنفيذ أنظمة المعلومات لتلبية احتياجات العمل أو المنظمة.",
-          "contentEn":"System Analysis and Design (SAD) is the process of studying, planning, designing, and implementing information systems to meet business or organizational needs."
+          "content": "تحليل وتصميم النظم (System Analysis and Design) هو عملية منهجية لدراسة وتخطيط وتصميم وتنفيذ أنظمة المعلومات لتلبية احتياجات العمل أو المنظمة. يشمل ذلك فهم متطلبات المستخدمين، تحليل الأنظمة الموجودة، وتصميم حلول جديدة أو محسّنة لتعزيز الكفاءة والفعالية.",
+          "contentEn": "System Analysis and Design (SAD) is the process of studying, planning, designing, and implementing information systems to meet business or organizational needs. It involves understanding the requirements of users, analyzing existing systems, and designing new or improved solutions to enhance efficiency and effectiveness."
         }
       ]
     },
     {
-      "title": "المكونات الرئيسية الثلاثة",
-      "titleEn": "Three Main Components",
+      "title": "المكونات الرئيسية لـ SAD",
+      "titleEn": "Key Components of SAD",
       "subsections": [
         {
           "subtitle": "1. System Analysis (تحليل النظام)",
           "subtitleEn": "1. System Analysis",
-          "list": [
-            "جمع المتطلبات من المستخدمين",
-            "فهم احتياجات العمل",
-            "تحديد المشاكل في النظام الحالي",
-            "تحليل الحلول الممكنة"
-          ],
-          "listEn": [
-            "Gathering requirements from users",
-            "Understanding business needs",
-            "Identifying problems in the current system",
-            "Analyzing possible solutions"
-          ],
-          "listType": "ul",
+          "content": "يشمل جمع المتطلبات، فهم احتياجات العمل، تحديد المشاكل، وتحليل الحلول الممكنة.",
+          "contentEn": "Involves gathering requirements, understanding business needs, identifying problems, and analyzing possible solutions.",
           "highlight": {
             "title": "مثال",
             "titleEn": "Example",
@@ -44,19 +33,8 @@
         {
           "subtitle": "2. System Design (تصميم النظام)",
           "subtitleEn": "2. System Design",
-          "list": [
-            "تحديد بنية النظام (Architecture)",
-            "تصميم واجهة المستخدم (UI)",
-            "تصميم قواعد البيانات",
-            "تصميم سير العمل (Workflows)"
-          ],
-          "listEn": [
-            "Defining system architecture",
-            "Designing user interface (UI)",
-            "Designing databases",
-            "Designing workflows"
-          ],
-          "listType": "ul",
+          "content": "يركز على تحديد البنية المعمارية، واجهة المستخدم، هياكل البيانات، وسير العمل لتطوير نظام مثالي.",
+          "contentEn": "Focuses on defining the architecture, user interface, data structures, and workflows to develop an optimal system.",
           "highlight": {
             "title": "مثال",
             "titleEn": "Example",
@@ -67,19 +45,8 @@
         {
           "subtitle": "3. Implementation (التنفيذ)",
           "subtitleEn": "3. Implementation",
-          "list": [
-            "كتابة الكود البرمجي",
-            "الاختبار",
-            "النشر (Deployment)",
-            "الصيانة"
-          ],
-          "listEn": [
-            "Writing code",
-            "Testing",
-            "Deployment",
-            "Maintenance"
-          ],
-          "listType": "ul",
+          "content": "يشمل كتابة الكود، الاختبار، النشر، والصيانة للنظام.",
+          "contentEn": "Includes coding, testing, deployment, and maintenance of the system.",
           "highlight": {
             "title": "مثال",
             "titleEn": "Example",
@@ -90,100 +57,176 @@
       ]
     },
     {
-      "title": "أهمية SAD",
-      "titleEn": "Importance of SAD",
+      "title": "أهمية تحليل وتصميم النظم",
+      "titleEn": "Importance of System Analysis and Design",
       "subsections": [
         {
-          "subtitle": "1. Better Requirement Understanding (فهم أفضل للمتطلبات)",
+          "content": "يعتبر SAD أمراً بالغ الأهمية في صناعة البرمجيات لأنه يضمن تطوير حلول برمجية عالية الجودة، فعّالة، ومتمحورة حول المستخدم. إليك أهميته:",
+          "contentEn": "SAD is crucial in the software industry because it ensures the development of high-quality, efficient, and user-centric software solutions. Here's why it matters:"
+        },
+        {
+          "subtitle": "1. فهم أفضل للمتطلبات (Better Requirement Understanding)",
           "subtitleEn": "1. Better Requirement Understanding",
           "list": [
-            "يساعد في توثيق المتطلبات بوضوح",
-            "يقلل من سوء الفهم"
+            "يساعد في تحديد وتوثيق متطلبات العمل بوضوح، مما يقلل من سوء الفهم",
+            "يضمن أن يلبي النظام احتياجات المستخدمين الفعلية"
           ],
           "listEn": [
-            "Helps document requirements clearly",
-            "Reduces misunderstandings"
+            "Helps in identifying and documenting business requirements clearly, reducing misunderstandings",
+            "Ensures the system meets actual user needs"
           ],
           "listType": "ul",
           "highlight": {
             "title": "مثال",
             "titleEn": "Example",
-            "content": "منصة تجارة إلكترونية تفهم أن المستخدمين يريدون توصيات شخصية.",
-            "contentEn": "An e-commerce platform understands that users want personalized recommendations."
+            "content": "في منصة التجارة الإلكترونية، فهم احتياجات المستخدمين يمكن أن يؤدي إلى ميزات مثل التوصيات الشخصية.",
+            "contentEn": "In an e-commerce platform, understanding user needs can lead to features like personalized recommendations."
           }
         },
         {
-          "subtitle": "2. Improved Efficiency (تحسين الكفاءة)",
-          "subtitleEn": "2. Improved Efficiency",
+          "subtitle": "2. تحسين الكفاءة والإنتاجية (Improved Efficiency and Productivity)",
+          "subtitleEn": "2. Improved Efficiency and Productivity",
           "list": [
-            "يحسّن عمليات العمل",
-            "يزيل المهام المتكررة"
+            "يحسّن عمليات العمل من خلال إزالة المهام الزائدة",
+            "يوفر الوقت ويزيد الإنتاجية"
           ],
           "listEn": [
-            "Improves business processes",
-            "Eliminates repetitive tasks"
+            "Optimizes business processes by eliminating redundant tasks",
+            "Saves time and increases productivity"
           ],
           "listType": "ul",
           "highlight": {
             "title": "مثال",
             "titleEn": "Example",
-            "content": "نظام إدارة مستشفى يؤتمت حفظ سجلات المرضى بدلاً من الورق.",
-            "contentEn": "A hospital management system automates patient record keeping instead of paper."
+            "content": "نظام إدارة المستشفيات يؤتمت الاحتفاظ بسجلات المرضى، مما يقلل من الأخطاء اليدوية والأوراق.",
+            "contentEn": "A hospital management system automates patient record-keeping, reducing manual errors and paperwork."
           }
         },
         {
-          "subtitle": "3. Cost and Time Optimization (توفير التكلفة والوقت)",
+          "subtitle": "3. تحسين التكلفة والوقت (Cost and Time Optimization)",
           "subtitleEn": "3. Cost and Time Optimization",
           "list": [
-            "يقلل من إعادة العمل",
-            "يوفر خارطة طريق واضحة"
+            "يقلل من إعادة العمل ووقت التطوير من خلال ضمان خارطة طريق واضحة",
+            "يوفر الموارد والميزانية"
           ],
           "listEn": [
-            "Reduces rework",
-            "Provides a clear roadmap"
+            "Reduces rework and development time by ensuring a clear roadmap",
+            "Saves resources and budget"
           ],
           "listType": "ul",
           "highlight": {
             "title": "مثال",
             "titleEn": "Example",
-            "content": "Agile يستخدم التصميم التكراري للتكيف مع التغييرات بكفاءة.",
-            "contentEn": "Agile uses iterative design to adapt to changes efficiently."
+            "content": "منهجيات Agile تستخدم التصميم التكراري للتكيف مع التغييرات بكفاءة.",
+            "contentEn": "Agile methodologies use iterative design to adapt to changes efficiently."
           }
         },
         {
-          "subtitle": "4. Risk Reduction (تقليل المخاطر)",
+          "subtitle": "4. تقليل المخاطر (Risk Reduction)",
           "subtitleEn": "4. Risk Reduction",
           "list": [
-            "يحدد المخاطر مبكراً",
-            "يتجنب الفشل المكلف"
+            "يحدد المخاطر المحتملة في وقت مبكر من مرحلة التطوير، مما يتجنب الفشل المكلف",
+            "يوفر خطة احتياطية للمشاكل المحتملة"
           ],
           "listEn": [
-            "Identifies risks early",
-            "Avoids costly failure"
+            "Identifies potential risks early in the development phase, avoiding costly failures",
+            "Provides contingency plans for potential issues"
           ],
           "listType": "ul",
           "highlight": {
             "title": "مثال",
             "titleEn": "Example",
-            "content": "البنوك تحلل التهديدات الأمنية قبل نشر أنظمة الخدمات المصرفية.",
-            "contentEn": "Banks analyze security threats before deploying banking systems."
+            "content": "البنوك تحلل التهديدات الأمنية في أنظمة الخدمات المصرفية عبر الإنترنت قبل النشر.",
+            "contentEn": "Banks analyze security threats in online banking systems before deployment."
           }
         },
         {
-          "subtitle": "5. Scalability (القابلية للتوسع)",
-          "subtitleEn": "5. Scalability",
+          "subtitle": "5. قابلية التوسع والتطوير المستقبلي (Scalability and Future-Proofing)",
+          "subtitleEn": "5. Scalability and Future-Proofing",
           "list": [
-            "يضمن أن النظام يمكن توسعته مستقبلاً"
+            "يضمن تصميم النظام للتوسع والتعديلات المستقبلية",
+            "يسمح بإضافة ميزات جديدة بسهولة"
           ],
           "listEn": [
-            "Ensures the system can be scaled in the future"
+            "Ensures the system is designed for future expansion and modifications",
+            "Allows easy addition of new features"
           ],
           "listType": "ul",
           "highlight": {
             "title": "مثال",
             "titleEn": "Example",
-            "content": "برامج CRM السحابية يمكن أن تكبر مع نمو الشركة.",
-            "contentEn": "Cloud CRM software can grow with the company's growth."
+            "content": "برامج CRM السحابية يمكن أن تتوسع مع نمو الأعمال.",
+            "contentEn": "Cloud-based CRM software can scale as a business grows."
+          }
+        }
+      ]
+    },
+    {
+      "title": "تأثير SAD على صناعة البرمجيات",
+      "titleEn": "Impact of SAD on the Software Industry",
+      "subsections": [
+        {
+          "content": "يلعب SAD دوراً محورياً في تشكيل صناعة البرمجيات من خلال ضمان تطوير أنظمة قوية وقابلة للتوسع وسهلة الاستخدام.",
+          "contentEn": "SAD plays a pivotal role in shaping the software industry by ensuring the development of robust, scalable, and user-friendly systems."
+        },
+        {
+          "subtitle": "1. جودة برمجيات أعلى (Higher Software Quality)",
+          "subtitleEn": "1. Higher Software Quality",
+          "content": "يضمن أن البرمجيات تلبي توقعات العملاء، مما يؤدي إلى رضا أعلى.",
+          "contentEn": "Ensures that software meets customer expectations, leading to higher satisfaction.",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "Google Search يتطور باستمرار بناءً على احتياجات المستخدمين وتحليل الأداء.",
+            "contentEn": "Google Search continuously evolves based on user needs and performance analysis."
+          }
+        },
+        {
+          "subtitle": "2. التوحيد وأفضل الممارسات (Standardization and Best Practices)",
+          "subtitleEn": "2. Standardization and Best Practices",
+          "content": "يشجع على الالتزام بأنماط التصميم، الأطر، وأفضل الممارسات مثل مخططات UML.",
+          "contentEn": "Encourages adherence to design patterns, frameworks, and best practices like UML diagrams.",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "المؤسسات الكبيرة تستخدم تقنيات نمذجة الأنظمة لتصميم حلول ERP.",
+            "contentEn": "Large enterprises use system modeling techniques to design ERP solutions."
+          }
+        },
+        {
+          "subtitle": "3. تسهيل Agile و DevOps (Facilitates Agile and DevOps)",
+          "subtitleEn": "3. Facilitates Agile and DevOps",
+          "content": "يدعم المنهجيات الحديثة من خلال دمج دورات التغذية الراجعة والتحسين المستمر.",
+          "contentEn": "Supports modern methodologies by integrating continuous feedback and improvement cycles.",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "Spotify يستخدم Agile وبنية الخدمات الصغيرة للتحديثات السريعة للميزات.",
+            "contentEn": "Spotify uses Agile and microservices architecture for rapid feature updates."
+          }
+        },
+        {
+          "subtitle": "4. ميزة تنافسية للشركات (Competitive Advantage for Businesses)",
+          "subtitleEn": "4. Competitive Advantage for Businesses",
+          "content": "يساعد الشركات على البقاء في المقدمة من خلال توفير حلول برمجية مبتكرة وفعّالة.",
+          "contentEn": "Helps companies stay ahead by providing innovative and efficient software solutions.",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "نظام اللوجستيات في Amazon يتيح تتبع المخزون في الوقت الفعلي والتسليم السريع.",
+            "contentEn": "Amazon's logistics system enables real-time inventory tracking and fast delivery."
+          }
+        },
+        {
+          "subtitle": "5. الذكاء الاصطناعي واتخاذ القرارات المعتمدة على البيانات (AI and Data-Driven Decision Making)",
+          "subtitleEn": "5. AI and Data-Driven Decision Making",
+          "content": "يمكّن من دمج الذكاء الاصطناعي والبيانات الضخمة للتحليلات التنبؤية والأتمتة.",
+          "contentEn": "Enables the integration of AI and big data for predictive analytics and automation.",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "Netflix يوصي بالمحتوى بناءً على تحليل سلوك المستخدم.",
+            "contentEn": "Netflix recommends content based on user behavior analysis."
           }
         }
       ]
