@@ -1,0 +1,158 @@
+{
+  "chapterId": "chapter1",
+  "topicId": "topic3",
+  "topicTitle": "دور محلل النظم (Role of System Analyst)",
+  "topicTitleEn": "Role of System Analyst",
+  "sections": [
+    {
+      "title": "المسؤوليات الرئيسية",
+      "titleEn": "Main Responsibilities",
+      "subsections": [
+        {
+          "subtitle": "1. جمع المتطلبات (Requirements Gathering)",
+          "subtitleEn": "1. Requirements Gathering",
+          "content": "التحدث مع المستخدمين وأصحاب المصلحة لفهم احتياجاتهم",
+          "contentEn": "Talking to users and stakeholders to understand their needs",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "مقابلة موظفي البنك لفهم كيف يريدون نظام إدارة الحسابات",
+            "contentEn": "Interviewing bank employees to understand how they want an account management system"
+          }
+        },
+        {
+          "subtitle": "2. تحليل العمليات (Process Analysis)",
+          "subtitleEn": "2. Process Analysis",
+          "content": "دراسة وتحليل العمليات الحالية لتحديد نقاط القوة والضعف",
+          "contentEn": "Studying and analyzing current processes to identify strengths and weaknesses",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "تحليل كيف يتم معالجة الطلبات في المتجر الإلكتروني",
+            "contentEn": "Analyzing how orders are processed in the online store"
+          }
+        },
+        {
+          "subtitle": "3. تصميم الحلول (Solution Design)",
+          "subtitleEn": "3. Solution Design",
+          "content": "اقتراح حلول تقنية تلبي احتياجات العمل",
+          "contentEn": "Proposing technical solutions that meet business needs",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "تصميم نظام حجز للمطاعم يدعم الدفع الإلكتروني",
+            "contentEn": "Designing a restaurant reservation system that supports electronic payment"
+          }
+        },
+        {
+          "subtitle": "4. التوثيق (Documentation)",
+          "subtitleEn": "4. Documentation",
+          "content": "كتابة مستندات تفصيلية توضح المتطلبات والتصميم",
+          "contentEn": "Writing detailed documents that explain requirements and design",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "إنشاء مستند يوضح كيف يجب أن يعمل نظام إدارة المخزون",
+            "contentEn": "Creating a document that shows how an inventory management system should work"
+          }
+        },
+        {
+          "subtitle": "5. التنسيق بين الفرق (Team Coordination)",
+          "subtitleEn": "5. Team Coordination",
+          "content": "العمل كجسر بين المستخدمين والمطورين",
+          "contentEn": "Working as a bridge between users and developers",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "شرح متطلبات العملاء لفريق البرمجة",
+            "contentEn": "Explaining customer requirements to the programming team"
+          }
+        },
+        {
+          "subtitle": "6. الاختبار والتحقق (Testing and Validation)",
+          "subtitleEn": "6. Testing and Validation",
+          "content": "التأكد من أن النظام يلبي المتطلبات المحددة",
+          "contentEn": "Ensuring the system meets the specified requirements",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "اختبار أن نظام الحجز يعمل بشكل صحيح مع جميع أنواع المستخدمين",
+            "contentEn": "Testing that the reservation system works correctly with all types of users"
+          }
+        },
+        {
+          "subtitle": "7. التدريب والدعم (Training and Support)",
+          "subtitleEn": "7. Training and Support",
+          "content": "تدريب المستخدمين على استخدام النظام الجديد",
+          "contentEn": "Training users on how to use the new system",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "إعداد ورشة عمل لتدريب الموظفين على نظام إدارة علاقات العملاء CRM",
+            "contentEn": "Preparing a workshop to train employees on the CRM system"
+          }
+        },
+        {
+          "subtitle": "8. التحسين المستمر (Continuous Improvement)",
+          "subtitleEn": "8. Continuous Improvement",
+          "content": "مراقبة النظام واقتراح تحسينات دورية",
+          "contentEn": "Monitoring the system and suggesting periodic improvements",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "اقتراح إضافة ميزة جديدة بناءً على ملاحظات المستخدمين",
+            "contentEn": "Suggesting adding a new feature based on user feedback"
+          }
+        }
+      ]
+    },
+    {
+      "title": "المهارات المطلوبة",
+      "titleEn": "Required Skills",
+      "subsections": [
+        {
+          "subtitle": "المهارات التقنية (Technical Skills)",
+          "subtitleEn": "Technical Skills",
+          "list": [
+            "فهم قواعد البيانات وأنظمة المعلومات",
+            "معرفة بلغات البرمجة الأساسية",
+            "القدرة على استخدام أدوات النمذجة مثل UML"
+          ],
+          "listEn": [
+            "Understanding databases and information systems",
+            "Knowledge of basic programming languages",
+            "Ability to use modeling tools like UML"
+          ]
+        },
+        {
+          "subtitle": "المهارات التحليلية (Analytical Skills)",
+          "subtitleEn": "Analytical Skills",
+          "list": [
+            "القدرة على حل المشكلات المعقدة",
+            "التفكير المنطقي والنقدي",
+            "تحليل البيانات واستخلاص النتائج"
+          ],
+          "listEn": [
+            "Ability to solve complex problems",
+            "Logical and critical thinking",
+            "Data analysis and drawing conclusions"
+          ]
+        },
+        {
+          "subtitle": "المهارات الشخصية (Soft Skills)",
+          "subtitleEn": "Soft Skills",
+          "list": [
+            "التواصل الفعال مع الفرق المختلفة",
+            "مهارات الاستماع والتفاوض",
+            "القدرة على العمل ضمن فريق"
+          ],
+          "listEn": [
+            "Effective communication with different teams",
+            "Listening and negotiation skills",
+            "Ability to work in a team"
+          ]
+        }
+      ]
+    }
+  ]
+}

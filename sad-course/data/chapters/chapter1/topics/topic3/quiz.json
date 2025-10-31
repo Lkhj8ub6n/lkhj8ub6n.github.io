@@ -1,0 +1,286 @@
+{
+  "mcq": [
+    {
+      "id": "q1",
+      "question": "ما هي المسؤولية الأولى لمحلل النظم؟",
+      "questionEn": "What is the first responsibility of a system analyst?",
+      "options": [
+        "كتابة الكود",
+        "جمع المتطلبات",
+        "تصميم الشعارات",
+        "شراء الأجهزة"
+      ],
+      "optionsEn": [
+        "Writing code",
+        "Requirements gathering",
+        "Designing logos",
+        "Purchasing hardware"
+      ],
+      "correct": "b",
+      "explanation": "جمع المتطلبات هو أول مسؤولية حيث يتحدث المحلل مع المستخدمين لفهم احتياجاتهم",
+      "explanationEn": "Requirements gathering is the first responsibility where the analyst talks to users to understand their needs"
+    },
+    {
+      "id": "q2",
+      "question": "ماذا يعني Process Analysis؟",
+      "questionEn": "What does Process Analysis mean?",
+      "options": [
+        "شراء البرمجيات",
+        "دراسة وتحليل العمليات الحالية",
+        "تثبيت الأنظمة",
+        "حذف البيانات"
+      ],
+      "optionsEn": [
+        "Purchasing software",
+        "Studying and analyzing current processes",
+        "Installing systems",
+        "Deleting data"
+      ],
+      "correct": "b",
+      "explanation": "Process Analysis يعني دراسة وتحليل العمليات الحالية لتحديد نقاط القوة والضعف",
+      "explanationEn": "Process Analysis means studying and analyzing current processes to identify strengths and weaknesses"
+    },
+    {
+      "id": "q3",
+      "question": "ما هو دور محلل النظم في Solution Design؟",
+      "questionEn": "What is the system analyst's role in Solution Design?",
+      "options": [
+        "حذف النظام القديم",
+        "اقتراح حلول تقنية تلبي احتياجات العمل",
+        "شراء الأجهزة",
+        "تنظيف الحاسوب"
+      ],
+      "optionsEn": [
+        "Deleting the old system",
+        "Proposing technical solutions that meet business needs",
+        "Purchasing hardware",
+        "Cleaning the computer"
+      ],
+      "correct": "b",
+      "explanation": "في Solution Design، المحلل يقترح حلول تقنية تلبي احتياجات العمل",
+      "explanationEn": "In Solution Design, the analyst proposes technical solutions that meet business needs"
+    },
+    {
+      "id": "q4",
+      "question": "لماذا يعتبر التوثيق مهماً؟",
+      "questionEn": "Why is documentation important?",
+      "options": [
+        "لزيادة حجم الملفات",
+        "لتوضيح المتطلبات والتصميم بشكل تفصيلي",
+        "لملء المساحة",
+        "لإضاعة الوقت"
+      ],
+      "optionsEn": [
+        "To increase file size",
+        "To explain requirements and design in detail",
+        "To fill space",
+        "To waste time"
+      ],
+      "correct": "b",
+      "explanation": "التوثيق مهم لكتابة مستندات تفصيلية توضح المتطلبات والتصميم",
+      "explanationEn": "Documentation is important for writing detailed documents that explain requirements and design"
+    },
+    {
+      "id": "q5",
+      "question": "ما دور محلل النظم في Team Coordination؟",
+      "questionEn": "What is the system analyst's role in Team Coordination?",
+      "options": [
+        "طرد الموظفين",
+        "العمل كجسر بين المستخدمين والمطورين",
+        "شراء الأثاث",
+        "تنظيم الحفلات"
+      ],
+      "optionsEn": [
+        "Firing employees",
+        "Working as a bridge between users and developers",
+        "Purchasing furniture",
+        "Organizing parties"
+      ],
+      "correct": "b",
+      "explanation": "محلل النظم يعمل كجسر بين المستخدمين والمطورين لتسهيل التواصل",
+      "explanationEn": "The system analyst works as a bridge between users and developers to facilitate communication"
+    },
+    {
+      "id": "q6",
+      "question": "ماذا يتضمن Testing and Validation؟",
+      "questionEn": "What does Testing and Validation include?",
+      "options": [
+        "شراء البرمجيات",
+        "التأكد من أن النظام يلبي المتطلبات المحددة",
+        "حذف النظام",
+        "تغيير الألوان"
+      ],
+      "optionsEn": [
+        "Purchasing software",
+        "Ensuring the system meets the specified requirements",
+        "Deleting the system",
+        "Changing colors"
+      ],
+      "correct": "b",
+      "explanation": "Testing and Validation يتضمن التأكد من أن النظام يلبي المتطلبات المحددة",
+      "explanationEn": "Testing and Validation includes ensuring the system meets the specified requirements"
+    },
+    {
+      "id": "q7",
+      "question": "ما أهمية Training and Support؟",
+      "questionEn": "What is the importance of Training and Support?",
+      "options": [
+        "لإضاعة الوقت",
+        "لتدريب المستخدمين على استخدام النظام الجديد",
+        "لزيادة التكلفة",
+        "لحذف البيانات"
+      ],
+      "optionsEn": [
+        "To waste time",
+        "To train users on how to use the new system",
+        "To increase costs",
+        "To delete data"
+      ],
+      "correct": "b",
+      "explanation": "Training and Support مهم لتدريب المستخدمين على استخدام النظام الجديد بشكل فعال",
+      "explanationEn": "Training and Support is important for training users on how to use the new system effectively"
+    },
+    {
+      "id": "q8",
+      "question": "ما المقصود بـ Continuous Improvement؟",
+      "questionEn": "What is meant by Continuous Improvement?",
+      "options": [
+        "ترك النظام كما هو",
+        "مراقبة النظام واقتراح تحسينات دورية",
+        "حذف النظام",
+        "تجاهل المشاكل"
+      ],
+      "optionsEn": [
+        "Leaving the system as is",
+        "Monitoring the system and suggesting periodic improvements",
+        "Deleting the system",
+        "Ignoring problems"
+      ],
+      "correct": "b",
+      "explanation": "Continuous Improvement يعني مراقبة النظام واقتراح تحسينات دورية بناءً على الملاحظات",
+      "explanationEn": "Continuous Improvement means monitoring the system and suggesting periodic improvements based on feedback"
+    },
+    {
+      "id": "q9",
+      "question": "أي من التالي يعتبر من Technical Skills المطلوبة؟",
+      "questionEn": "Which of the following is considered a required Technical Skill?",
+      "options": [
+        "الطبخ",
+        "فهم قواعد البيانات وأنظمة المعلومات",
+        "القيادة",
+        "الرسم"
+      ],
+      "optionsEn": [
+        "Cooking",
+        "Understanding databases and information systems",
+        "Driving",
+        "Drawing"
+      ],
+      "correct": "b",
+      "explanation": "فهم قواعد البيانات وأنظمة المعلومات هو من المهارات التقنية المطلوبة",
+      "explanationEn": "Understanding databases and information systems is one of the required technical skills"
+    },
+    {
+      "id": "q10",
+      "question": "أي من التالي يعتبر من Soft Skills؟",
+      "questionEn": "Which of the following is considered a Soft Skill?",
+      "options": [
+        "البرمجة",
+        "التواصل الفعال مع الفرق المختلفة",
+        "استخدام الحاسوب",
+        "تصميم قواعد البيانات"
+      ],
+      "optionsEn": [
+        "Programming",
+        "Effective communication with different teams",
+        "Using computers",
+        "Designing databases"
+      ],
+      "correct": "b",
+      "explanation": "التواصل الفعال مع الفرق المختلفة هو من المهارات الشخصية (Soft Skills)",
+      "explanationEn": "Effective communication with different teams is one of the soft skills"
+    }
+  ],
+  "trueFalse": [
+    {
+      "id": "tf1",
+      "question": "محلل النظم لا يحتاج للتحدث مع المستخدمين",
+      "questionEn": "System analysts don't need to talk to users",
+      "correct": false,
+      "explanation": "خطأ، جمع المتطلبات يتطلب التحدث مع المستخدمين وأصحاب المصلحة",
+      "explanationEn": "False, requirements gathering requires talking to users and stakeholders"
+    },
+    {
+      "id": "tf2",
+      "question": "Process Analysis يساعد في تحديد نقاط القوة والضعف",
+      "questionEn": "Process Analysis helps identify strengths and weaknesses",
+      "correct": true,
+      "explanation": "صحيح، تحليل العمليات يساعد في دراسة وتحديد نقاط القوة والضعف",
+      "explanationEn": "Correct, process analysis helps study and identify strengths and weaknesses"
+    },
+    {
+      "id": "tf3",
+      "question": "التوثيق غير مهم في عمل محلل النظم",
+      "questionEn": "Documentation is not important in a system analyst's work",
+      "correct": false,
+      "explanation": "خطأ، التوثيق مهم جداً لتوضيح المتطلبات والتصميم بشكل تفصيلي",
+      "explanationEn": "False, documentation is very important for explaining requirements and design in detail"
+    },
+    {
+      "id": "tf4",
+      "question": "محلل النظم يعمل كجسر بين المستخدمين والمطورين",
+      "questionEn": "System analysts work as a bridge between users and developers",
+      "correct": true,
+      "explanation": "صحيح، محلل النظم ينسق بين الفرق ويعمل كجسر بين المستخدمين والمطورين",
+      "explanationEn": "Correct, system analysts coordinate between teams and work as a bridge between users and developers"
+    },
+    {
+      "id": "tf5",
+      "question": "Testing and Validation يضمن أن النظام يلبي المتطلبات",
+      "questionEn": "Testing and Validation ensures the system meets requirements",
+      "correct": true,
+      "explanation": "صحيح، الاختبار والتحقق يضمن أن النظام يلبي المتطلبات المحددة",
+      "explanationEn": "Correct, testing and validation ensures the system meets the specified requirements"
+    },
+    {
+      "id": "tf6",
+      "question": "التدريب والدعم ليس من مسؤوليات محلل النظم",
+      "questionEn": "Training and support is not a system analyst's responsibility",
+      "correct": false,
+      "explanation": "خطأ، تدريب المستخدمين على استخدام النظام الجديد هو من مسؤوليات محلل النظم",
+      "explanationEn": "False, training users on how to use the new system is a system analyst's responsibility"
+    },
+    {
+      "id": "tf7",
+      "question": "Continuous Improvement يعني ترك النظام دون تحسين",
+      "questionEn": "Continuous Improvement means leaving the system without improvement",
+      "correct": false,
+      "explanation": "خطأ، التحسين المستمر يعني مراقبة النظام واقتراح تحسينات دورية",
+      "explanationEn": "False, continuous improvement means monitoring the system and suggesting periodic improvements"
+    },
+    {
+      "id": "tf8",
+      "question": "فهم قواعد البيانات من المهارات التقنية المطلوبة",
+      "questionEn": "Understanding databases is a required technical skill",
+      "correct": true,
+      "explanation": "صحيح، فهم قواعد البيانات وأنظمة المعلومات من المهارات التقنية الأساسية",
+      "explanationEn": "Correct, understanding databases and information systems is a fundamental technical skill"
+    },
+    {
+      "id": "tf9",
+      "question": "محلل النظم لا يحتاج لمهارات تحليلية",
+      "questionEn": "System analysts don't need analytical skills",
+      "correct": false,
+      "explanation": "خطأ، المهارات التحليلية مثل حل المشكلات والتفكير المنطقي ضرورية جداً",
+      "explanationEn": "False, analytical skills like problem-solving and logical thinking are very necessary"
+    },
+    {
+      "id": "tf10",
+      "question": "التواصل الفعال من المهارات الشخصية المهمة",
+      "questionEn": "Effective communication is an important soft skill",
+      "correct": true,
+      "explanation": "صحيح، التواصل الفعال مع الفرق المختلفة من أهم المهارات الشخصية",
+      "explanationEn": "Correct, effective communication with different teams is one of the most important soft skills"
+    }
+  ]
+}

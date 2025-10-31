@@ -1,0 +1,138 @@
+{
+  "chapterId": "chapter1",
+  "topicId": "topic4",
+  "topicTitle": "دورة حياة تطوير النظم (SDLC)",
+  "topicTitleEn": "Software Development Life Cycle (SDLC)",
+  "sections": [
+    {
+      "title": "تعريف SDLC",
+      "titleEn": "Definition of SDLC",
+      "subsections": [
+        {
+          "content": "SDLC هي عملية منظمة تُستخدم لتطوير وصيانة أنظمة المعلومات. تتكون من مراحل محددة تبدأ من التخطيط وتنتهي بالصيانة.",
+          "contentEn": "SDLC is an organized process used to develop and maintain information systems. It consists of specific phases that start from planning and end with maintenance."
+        }
+      ]
+    },
+    {
+      "title": "نماذج SDLC الخمسة",
+      "titleEn": "The Five SDLC Models",
+      "subsections": [
+        {
+          "subtitle": "1. Waterfall Model (النموذج الشلالي)",
+          "subtitleEn": "1. Waterfall Model",
+          "content": "نموذج خطي تسلسلي حيث تتم كل مرحلة بشكل كامل قبل الانتقال للمرحلة التالية",
+          "contentEn": "A linear sequential model where each phase is completed before moving to the next",
+          "list": [
+            "المراحل: التخطيط → التحليل → التصميم → التطوير → الاختبار → النشر → الصيانة",
+            "الميزة: سهل الفهم والإدارة",
+            "العيب: صعب التعامل مع التغييرات"
+          ],
+          "listEn": [
+            "Phases: Planning → Analysis → Design → Development → Testing → Deployment → Maintenance",
+            "Advantage: Easy to understand and manage",
+            "Disadvantage: Difficult to handle changes"
+          ],
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "تطوير نظام محاسبة حكومي ذو متطلبات ثابتة",
+            "contentEn": "Developing a government accounting system with fixed requirements"
+          }
+        },
+        {
+          "subtitle": "2. Iterative Model (النموذج التكراري)",
+          "subtitleEn": "2. Iterative Model",
+          "content": "يتم تطوير النظام على شكل إصدارات متتالية، كل إصدار يضيف ميزات جديدة",
+          "contentEn": "The system is developed in successive releases, each release adds new features",
+          "list": [
+            "العملية: تخطيط → تنفيذ → اختبار → تقييم → (العودة للتخطيط)",
+            "الميزة: يسمح بالتحسين المستمر",
+            "العيب: قد يصعب تتبع التغييرات"
+          ],
+          "listEn": [
+            "Process: Planning → Implementation → Testing → Evaluation → (Back to Planning)",
+            "Advantage: Allows continuous improvement",
+            "Disadvantage: May be difficult to track changes"
+          ],
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "تطوير تطبيق موبايل يضيف ميزات جديدة كل شهر",
+            "contentEn": "Developing a mobile app that adds new features every month"
+          }
+        },
+        {
+          "subtitle": "3. Spiral Model (النموذج الحلزوني)",
+          "subtitleEn": "3. Spiral Model",
+          "content": "يجمع بين النموذج التكراري وإدارة المخاطر، حيث يتم تقييم المخاطر في كل دورة",
+          "contentEn": "Combines the iterative model with risk management, where risks are evaluated in each cycle",
+          "list": [
+            "المراحل: التخطيط → تحليل المخاطر → التطوير → التقييم",
+            "الميزة: إدارة قوية للمخاطر",
+            "العيب: مكلف ومعقد"
+          ],
+          "listEn": [
+            "Phases: Planning → Risk Analysis → Development → Evaluation",
+            "Advantage: Strong risk management",
+            "Disadvantage: Expensive and complex"
+          ],
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "تطوير نظام بنكي يتطلب أمان عالي",
+            "contentEn": "Developing a banking system requiring high security"
+          }
+        },
+        {
+          "subtitle": "4. V-Model (نموذج V)",
+          "subtitleEn": "4. V-Model",
+          "content": "نموذج يربط كل مرحلة تطوير بمرحلة اختبار مقابلة لها",
+          "contentEn": "A model that links each development phase with a corresponding testing phase",
+          "list": [
+            "الجانب الأيسر: المتطلبات → التصميم → الكود",
+            "الجانب الأيمن: اختبار الوحدة → اختبار التكامل → اختبار القبول",
+            "الميزة: تركيز قوي على الاختبار",
+            "العيب: غير مرن مع التغييرات"
+          ],
+          "listEn": [
+            "Left side: Requirements → Design → Code",
+            "Right side: Unit Testing → Integration Testing → Acceptance Testing",
+            "Advantage: Strong focus on testing",
+            "Disadvantage: Not flexible with changes"
+          ],
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "تطوير نظام طبي يتطلب دقة واختبار صارم",
+            "contentEn": "Developing a medical system requiring accuracy and strict testing"
+          }
+        },
+        {
+          "subtitle": "5. Agile Model (النموذج الرشيق)",
+          "subtitleEn": "5. Agile Model",
+          "content": "نموذج مرن يركز على التسليم السريع والتعاون المستمر مع العميل",
+          "contentEn": "A flexible model focusing on fast delivery and continuous collaboration with the client",
+          "list": [
+            "العملية: Sprints قصيرة (1-4 أسابيع)",
+            "المبادئ: التعاون، الاستجابة للتغيير، التسليم المستمر",
+            "الميزة: مرونة عالية وتكيف سريع",
+            "العيب: يحتاج لفريق متمرس"
+          ],
+          "listEn": [
+            "Process: Short sprints (1-4 weeks)",
+            "Principles: Collaboration, responding to change, continuous delivery",
+            "Advantage: High flexibility and fast adaptation",
+            "Disadvantage: Requires an experienced team"
+          ],
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "تطوير منصة تجارة إلكترونية بمتطلبات متغيرة",
+            "contentEn": "Developing an e-commerce platform with changing requirements"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,426 @@
+{
+  "mcq": [
+    {
+      "id": "q1",
+      "question": "ما هو SDLC؟",
+      "questionEn": "What is SDLC?",
+      "options": [
+        "لغة برمجة",
+        "عملية منظمة لتطوير وصيانة أنظمة المعلومات",
+        "نظام تشغيل",
+        "قاعدة بيانات"
+      ],
+      "optionsEn": [
+        "A programming language",
+        "An organized process for developing and maintaining information systems",
+        "An operating system",
+        "A database"
+      ],
+      "correct": "b",
+      "explanation": "SDLC هي عملية منظمة تُستخدم لتطوير وصيانة أنظمة المعلومات",
+      "explanationEn": "SDLC is an organized process used to develop and maintain information systems"
+    },
+    {
+      "id": "q2",
+      "question": "ما هو النموذج الذي يتبع مراحل خطية تسلسلية؟",
+      "questionEn": "Which model follows linear sequential phases?",
+      "options": [
+        "Agile",
+        "Waterfall",
+        "Spiral",
+        "Iterative"
+      ],
+      "optionsEn": [
+        "Agile",
+        "Waterfall",
+        "Spiral",
+        "Iterative"
+      ],
+      "correct": "b",
+      "explanation": "Waterfall Model هو نموذج خطي تسلسلي حيث تتم كل مرحلة بشكل كامل قبل الانتقال للتالية",
+      "explanationEn": "Waterfall Model is a linear sequential model where each phase is completed before moving to the next"
+    },
+    {
+      "id": "q3",
+      "question": "ما الميزة الرئيسية لنموذج Waterfall؟",
+      "questionEn": "What is the main advantage of the Waterfall model?",
+      "options": [
+        "صعب الفهم",
+        "سهل الفهم والإدارة",
+        "مكلف جداً",
+        "غير منظم"
+      ],
+      "optionsEn": [
+        "Difficult to understand",
+        "Easy to understand and manage",
+        "Very expensive",
+        "Unorganized"
+      ],
+      "correct": "b",
+      "explanation": "من أهم ميزات Waterfall أنه سهل الفهم والإدارة",
+      "explanationEn": "One of Waterfall's main advantages is that it's easy to understand and manage"
+    },
+    {
+      "id": "q4",
+      "question": "ما العيب الرئيسي لنموذج Waterfall؟",
+      "questionEn": "What is the main disadvantage of the Waterfall model?",
+      "options": [
+        "سهل جداً",
+        "صعب التعامل مع التغييرات",
+        "رخيص",
+        "سريع"
+      ],
+      "optionsEn": [
+        "Too easy",
+        "Difficult to handle changes",
+        "Cheap",
+        "Fast"
+      ],
+      "correct": "b",
+      "explanation": "العيب الرئيسي لـ Waterfall هو صعوبة التعامل مع التغييرات",
+      "explanationEn": "The main disadvantage of Waterfall is the difficulty of handling changes"
+    },
+    {
+      "id": "q5",
+      "question": "ما هو النموذج الذي يطور النظام على شكل إصدارات متتالية؟",
+      "questionEn": "Which model develops the system in successive releases?",
+      "options": [
+        "Waterfall",
+        "Iterative",
+        "V-Model",
+        "لا شيء مما سبق"
+      ],
+      "optionsEn": [
+        "Waterfall",
+        "Iterative",
+        "V-Model",
+        "None of the above"
+      ],
+      "correct": "b",
+      "explanation": "Iterative Model يطور النظام على شكل إصدارات متتالية، كل إصدار يضيف ميزات جديدة",
+      "explanationEn": "Iterative Model develops the system in successive releases, each release adds new features"
+    },
+    {
+      "id": "q6",
+      "question": "ما الذي يميز Spiral Model عن غيره؟",
+      "questionEn": "What distinguishes the Spiral Model from others?",
+      "options": [
+        "لا يوجد اختبار",
+        "يجمع بين النموذج التكراري وإدارة المخاطر",
+        "رخيص جداً",
+        "لا يحتاج تخطيط"
+      ],
+      "optionsEn": [
+        "No testing",
+        "Combines iterative model with risk management",
+        "Very cheap",
+        "Doesn't need planning"
+      ],
+      "correct": "b",
+      "explanation": "Spiral Model يجمع بين النموذج التكراري وإدارة المخاطر",
+      "explanationEn": "Spiral Model combines the iterative model with risk management"
+    },
+    {
+      "id": "q7",
+      "question": "ما الميزة الرئيسية لـ Spiral Model؟",
+      "questionEn": "What is the main advantage of the Spiral Model?",
+      "options": [
+        "رخيص",
+        "إدارة قوية للمخاطر",
+        "سهل جداً",
+        "لا يحتاج اختبار"
+      ],
+      "optionsEn": [
+        "Cheap",
+        "Strong risk management",
+        "Very easy",
+        "Doesn't need testing"
+      ],
+      "correct": "b",
+      "explanation": "الميزة الرئيسية لـ Spiral Model هي إدارة قوية للمخاطر",
+      "explanationEn": "The main advantage of the Spiral Model is strong risk management"
+    },
+    {
+      "id": "q8",
+      "question": "ما الذي يميز V-Model؟",
+      "questionEn": "What distinguishes the V-Model?",
+      "options": [
+        "لا يوجد اختبار",
+        "يربط كل مرحلة تطوير بمرحلة اختبار مقابلة",
+        "لا يحتاج تصميم",
+        "عشوائي"
+      ],
+      "optionsEn": [
+        "No testing",
+        "Links each development phase with a corresponding testing phase",
+        "Doesn't need design",
+        "Random"
+      ],
+      "correct": "b",
+      "explanation": "V-Model يربط كل مرحلة تطوير بمرحلة اختبار مقابلة لها",
+      "explanationEn": "V-Model links each development phase with a corresponding testing phase"
+    },
+    {
+      "id": "q9",
+      "question": "ما الميزة الرئيسية لـ V-Model؟",
+      "questionEn": "What is the main advantage of the V-Model?",
+      "options": [
+        "لا يوجد اختبار",
+        "تركيز قوي على الاختبار",
+        "مرن جداً",
+        "رخيص"
+      ],
+      "optionsEn": [
+        "No testing",
+        "Strong focus on testing",
+        "Very flexible",
+        "Cheap"
+      ],
+      "correct": "b",
+      "explanation": "الميزة الرئيسية لـ V-Model هي التركيز القوي على الاختبار",
+      "explanationEn": "The main advantage of V-Model is the strong focus on testing"
+    },
+    {
+      "id": "q10",
+      "question": "ما هو Agile Model؟",
+      "questionEn": "What is the Agile Model?",
+      "options": [
+        "نموذج جامد",
+        "نموذج مرن يركز على التسليم السريع",
+        "نموذج بطيء",
+        "نموذج بدون تخطيط"
+      ],
+      "optionsEn": [
+        "A rigid model",
+        "A flexible model focusing on fast delivery",
+        "A slow model",
+        "A model without planning"
+      ],
+      "correct": "b",
+      "explanation": "Agile Model هو نموذج مرن يركز على التسليم السريع والتعاون المستمر",
+      "explanationEn": "Agile Model is a flexible model focusing on fast delivery and continuous collaboration"
+    },
+    {
+      "id": "q11",
+      "question": "كم تستغرق Sprint في Agile عادةً؟",
+      "questionEn": "How long does a Sprint usually take in Agile?",
+      "options": [
+        "6-12 شهر",
+        "1-4 أسابيع",
+        "1 سنة",
+        "1 يوم"
+      ],
+      "optionsEn": [
+        "6-12 months",
+        "1-4 weeks",
+        "1 year",
+        "1 day"
+      ],
+      "correct": "b",
+      "explanation": "Sprint في Agile عادة تستغرق من 1-4 أسابيع",
+      "explanationEn": "A Sprint in Agile usually takes 1-4 weeks"
+    },
+    {
+      "id": "q12",
+      "question": "ما الميزة الرئيسية لـ Agile؟",
+      "questionEn": "What is the main advantage of Agile?",
+      "options": [
+        "جامد",
+        "مرونة عالية وتكيف سريع",
+        "بطيء",
+        "مكلف"
+      ],
+      "optionsEn": [
+        "Rigid",
+        "High flexibility and fast adaptation",
+        "Slow",
+        "Expensive"
+      ],
+      "correct": "b",
+      "explanation": "الميزة الرئيسية لـ Agile هي المرونة العالية والتكيف السريع مع التغييرات",
+      "explanationEn": "The main advantage of Agile is high flexibility and fast adaptation to changes"
+    },
+    {
+      "id": "q13",
+      "question": "متى يُستخدم Waterfall Model بشكل مثالي؟",
+      "questionEn": "When is the Waterfall Model ideally used?",
+      "options": [
+        "مع متطلبات متغيرة",
+        "مع متطلبات ثابتة ومحددة",
+        "مع مشاريع صغيرة فقط",
+        "لا يُستخدم أبداً"
+      ],
+      "optionsEn": [
+        "With changing requirements",
+        "With fixed and defined requirements",
+        "With small projects only",
+        "Never used"
+      ],
+      "correct": "b",
+      "explanation": "Waterfall مثالي للمشاريع ذات المتطلبات الثابتة والمحددة مسبقاً",
+      "explanationEn": "Waterfall is ideal for projects with fixed and predefined requirements"
+    },
+    {
+      "id": "q14",
+      "question": "ما العيب الرئيسي لـ Agile؟",
+      "questionEn": "What is the main disadvantage of Agile?",
+      "options": [
+        "بطيء جداً",
+        "يحتاج لفريق متمرس",
+        "رخيص جداً",
+        "بسيط جداً"
+      ],
+      "optionsEn": [
+        "Very slow",
+        "Requires an experienced team",
+        "Too cheap",
+        "Too simple"
+      ],
+      "correct": "b",
+      "explanation": "Agile يحتاج لفريق متمرس لديه خبرة في العمل بهذه المنهجية",
+      "explanationEn": "Agile requires an experienced team with expertise in working with this methodology"
+    },
+    {
+      "id": "q15",
+      "question": "أي نموذج مناسب لتطوير نظام بنكي يتطلب أمان عالي؟",
+      "questionEn": "Which model is suitable for developing a banking system requiring high security?",
+      "options": [
+        "لا شيء",
+        "Spiral Model",
+        "بدون نموذج",
+        "نموذج عشوائي"
+      ],
+      "optionsEn": [
+        "None",
+        "Spiral Model",
+        "No model",
+        "Random model"
+      ],
+      "correct": "b",
+      "explanation": "Spiral Model مناسب للأنظمة التي تتطلب أمان عالي لأنه يركز على إدارة المخاطر",
+      "explanationEn": "Spiral Model is suitable for systems requiring high security because it focuses on risk management"
+    }
+  ],
+  "trueFalse": [
+    {
+      "id": "tf1",
+      "question": "SDLC هي عملية عشوائية غير منظمة",
+      "questionEn": "SDLC is a random unorganized process",
+      "correct": false,
+      "explanation": "خطأ، SDLC هي عملية منظمة ومنهجية لتطوير النظم",
+      "explanationEn": "False, SDLC is an organized and methodical process for system development"
+    },
+    {
+      "id": "tf2",
+      "question": "Waterfall Model هو نموذج خطي تسلسلي",
+      "questionEn": "Waterfall Model is a linear sequential model",
+      "correct": true,
+      "explanation": "صحيح، Waterfall يتبع مراحل خطية تسلسلية",
+      "explanationEn": "Correct, Waterfall follows linear sequential phases"
+    },
+    {
+      "id": "tf3",
+      "question": "Waterfall Model مرن جداً مع التغييرات",
+      "questionEn": "Waterfall Model is very flexible with changes",
+      "correct": false,
+      "explanation": "خطأ، من عيوب Waterfall صعوبة التعامل مع التغييرات",
+      "explanationEn": "False, one of Waterfall's disadvantages is the difficulty of handling changes"
+    },
+    {
+      "id": "tf4",
+      "question": "Iterative Model يطور النظام على شكل إصدارات متتالية",
+      "questionEn": "Iterative Model develops the system in successive releases",
+      "correct": true,
+      "explanation": "صحيح، Iterative Model يعتمد على التطوير التدريجي بإصدارات متعددة",
+      "explanationEn": "Correct, Iterative Model relies on incremental development with multiple releases"
+    },
+    {
+      "id": "tf5",
+      "question": "Spiral Model لا يهتم بإدارة المخاطر",
+      "questionEn": "Spiral Model doesn't care about risk management",
+      "correct": false,
+      "explanation": "خطأ، Spiral Model يركز بشكل كبير على إدارة المخاطر",
+      "explanationEn": "False, Spiral Model focuses heavily on risk management"
+    },
+    {
+      "id": "tf6",
+      "question": "V-Model يربط كل مرحلة تطوير بمرحلة اختبار",
+      "questionEn": "V-Model links each development phase with a testing phase",
+      "correct": true,
+      "explanation": "صحيح، V-Model يربط كل مرحلة تطوير بمرحلة اختبار مقابلة",
+      "explanationEn": "Correct, V-Model links each development phase with a corresponding testing phase"
+    },
+    {
+      "id": "tf7",
+      "question": "V-Model لا يهتم بالاختبار",
+      "questionEn": "V-Model doesn't care about testing",
+      "correct": false,
+      "explanation": "خطأ، V-Model يركز بشكل قوي على الاختبار",
+      "explanationEn": "False, V-Model has a strong focus on testing"
+    },
+    {
+      "id": "tf8",
+      "question": "Agile Model هو نموذج مرن",
+      "questionEn": "Agile Model is a flexible model",
+      "correct": true,
+      "explanation": "صحيح، Agile Model يتميز بالمرونة العالية",
+      "explanationEn": "Correct, Agile Model is characterized by high flexibility"
+    },
+    {
+      "id": "tf9",
+      "question": "Sprint في Agile تستغرق 6 أشهر عادةً",
+      "questionEn": "A Sprint in Agile usually takes 6 months",
+      "correct": false,
+      "explanation": "خطأ، Sprint في Agile عادة تستغرق من 1-4 أسابيع فقط",
+      "explanationEn": "False, a Sprint in Agile usually takes only 1-4 weeks"
+    },
+    {
+      "id": "tf10",
+      "question": "Agile يركز على التعاون المستمر مع العميل",
+      "questionEn": "Agile focuses on continuous collaboration with the client",
+      "correct": true,
+      "explanation": "صحيح، من مبادئ Agile الأساسية التعاون المستمر مع العميل",
+      "explanationEn": "Correct, continuous collaboration with the client is one of Agile's core principles"
+    },
+    {
+      "id": "tf11",
+      "question": "Spiral Model رخيص وبسيط",
+      "questionEn": "Spiral Model is cheap and simple",
+      "correct": false,
+      "explanation": "خطأ، Spiral Model مكلف ومعقد",
+      "explanationEn": "False, Spiral Model is expensive and complex"
+    },
+    {
+      "id": "tf12",
+      "question": "Waterfall مناسب للمشاريع ذات المتطلبات الثابتة",
+      "questionEn": "Waterfall is suitable for projects with fixed requirements",
+      "correct": true,
+      "explanation": "صحيح، Waterfall يعمل بشكل جيد مع المتطلبات الثابتة والمحددة مسبقاً",
+      "explanationEn": "Correct, Waterfall works well with fixed and predefined requirements"
+    },
+    {
+      "id": "tf13",
+      "question": "Iterative Model يسمح بالتحسين المستمر",
+      "questionEn": "Iterative Model allows continuous improvement",
+      "correct": true,
+      "explanation": "صحيح، Iterative Model يتيح إجراء تحسينات مستمرة في كل إصدار",
+      "explanationEn": "Correct, Iterative Model allows continuous improvements in each release"
+    },
+    {
+      "id": "tf14",
+      "question": "Agile لا يحتاج لفريق متمرس",
+      "questionEn": "Agile doesn't need an experienced team",
+      "correct": false,
+      "explanation": "خطأ، Agile يحتاج لفريق متمرس لديه خبرة في هذه المنهجية",
+      "explanationEn": "False, Agile needs an experienced team with expertise in this methodology"
+    },
+    {
+      "id": "tf15",
+      "question": "V-Model غير مرن مع التغييرات",
+      "questionEn": "V-Model is not flexible with changes",
+      "correct": true,
+      "explanation": "صحيح، من عيوب V-Model أنه غير مرن مع التغييرات",
+      "explanationEn": "Correct, one of V-Model's disadvantages is that it's not flexible with changes"
+    }
+  ]
+}

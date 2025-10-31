@@ -1,0 +1,286 @@
+{
+  "mcq": [
+    {
+      "id": "q1",
+      "question": "ما هو الهدف الرئيسي من SWEBOK؟",
+      "questionEn": "What is the main purpose of SWEBOK?",
+      "options": [
+        "تطوير لغات البرمجة",
+        "تحديد المجالات المعرفية في هندسة البرمجيات",
+        "إدارة قواعد البيانات",
+        "تصميم الواجهات"
+      ],
+      "optionsEn": [
+        "Developing programming languages",
+        "Defining knowledge areas in software engineering",
+        "Managing databases",
+        "Designing interfaces"
+      ],
+      "correct": "b",
+      "explanation": "SWEBOK هو دليل يحدد المجالات المعرفية وأفضل الممارسات في هندسة البرمجيات",
+      "explanationEn": "SWEBOK is a guide that defines knowledge areas and best practices in software engineering"
+    },
+    {
+      "id": "q2",
+      "question": "كم عدد المجالات المعرفية في SWEBOK؟",
+      "questionEn": "How many knowledge areas are in SWEBOK?",
+      "options": [
+        "10",
+        "12",
+        "15",
+        "20"
+      ],
+      "optionsEn": [
+        "10",
+        "12",
+        "15",
+        "20"
+      ],
+      "correct": "c",
+      "explanation": "يحتوي SWEBOK على 15 مجال معرفي أساسي",
+      "explanationEn": "SWEBOK contains 15 fundamental knowledge areas"
+    },
+    {
+      "id": "q3",
+      "question": "أي من التالي يتعلق بـ Software Requirements؟",
+      "questionEn": "Which of the following relates to Software Requirements?",
+      "options": [
+        "كتابة الكود",
+        "جمع وتحليل متطلبات النظام",
+        "اختبار البرمجيات",
+        "نشر التطبيق"
+      ],
+      "optionsEn": [
+        "Writing code",
+        "Gathering and analyzing system requirements",
+        "Testing software",
+        "Deploying the application"
+      ],
+      "correct": "b",
+      "explanation": "Software Requirements يتعلق بجمع وتحليل وتوثيق متطلبات النظام",
+      "explanationEn": "Software Requirements relates to gathering, analyzing, and documenting system requirements"
+    },
+    {
+      "id": "q4",
+      "question": "ما هو دور Software Design؟",
+      "questionEn": "What is the role of Software Design?",
+      "options": [
+        "إصلاح الأخطاء",
+        "تحديد بنية النظام والمكونات",
+        "كتابة التقارير",
+        "إدارة الفريق"
+      ],
+      "optionsEn": [
+        "Fixing bugs",
+        "Defining system architecture and components",
+        "Writing reports",
+        "Managing the team"
+      ],
+      "correct": "b",
+      "explanation": "Software Design يحدد بنية النظام والمكونات والواجهات",
+      "explanationEn": "Software Design defines system architecture, components, and interfaces"
+    },
+    {
+      "id": "q5",
+      "question": "أي أداة تُستخدم في Software Configuration Management؟",
+      "questionEn": "Which tool is used in Software Configuration Management?",
+      "options": [
+        "Photoshop",
+        "Git",
+        "Excel",
+        "PowerPoint"
+      ],
+      "optionsEn": [
+        "Photoshop",
+        "Git",
+        "Excel",
+        "PowerPoint"
+      ],
+      "correct": "b",
+      "explanation": "Git هو أداة شائعة لإدارة التغييرات في مكونات النظام",
+      "explanationEn": "Git is a common tool for managing changes in system components"
+    },
+    {
+      "id": "q6",
+      "question": "ما المقصود بـ Software Maintenance؟",
+      "questionEn": "What is meant by Software Maintenance?",
+      "options": [
+        "شراء البرمجيات",
+        "تحديث وتحسين الأنظمة بعد النشر",
+        "حذف البرمجيات",
+        "تثبيت البرمجيات"
+      ],
+      "optionsEn": [
+        "Purchasing software",
+        "Updating and improving systems after deployment",
+        "Deleting software",
+        "Installing software"
+      ],
+      "correct": "b",
+      "explanation": "Software Maintenance يتعلق بتحديث وتحسين الأنظمة بعد نشرها",
+      "explanationEn": "Software Maintenance relates to updating and improving systems after deployment"
+    },
+    {
+      "id": "q7",
+      "question": "أي من التالي يعتبر من Mathematical Foundations؟",
+      "questionEn": "Which of the following is considered Mathematical Foundations?",
+      "options": [
+        "البرمجة",
+        "المنطق والاحتمالات",
+        "التصميم",
+        "الاختبار"
+      ],
+      "optionsEn": [
+        "Programming",
+        "Logic and probability",
+        "Design",
+        "Testing"
+      ],
+      "correct": "b",
+      "explanation": "Mathematical Foundations يشمل المنطق والاحتمالات والمبادئ الرياضية",
+      "explanationEn": "Mathematical Foundations includes logic, probability, and mathematical principles"
+    },
+    {
+      "id": "q8",
+      "question": "ما هو الهدف من Software Testing؟",
+      "questionEn": "What is the purpose of Software Testing?",
+      "options": [
+        "كتابة الكود",
+        "التحقق والتصديق على وظائف النظام",
+        "تصميم قواعد البيانات",
+        "إدارة المشروع"
+      ],
+      "optionsEn": [
+        "Writing code",
+        "Verification and validation of system functions",
+        "Designing databases",
+        "Project management"
+      ],
+      "correct": "b",
+      "explanation": "Software Testing يهدف للتحقق والتصديق على أن وظائف النظام تعمل بشكل صحيح",
+      "explanationEn": "Software Testing aims to verify and validate that system functions work correctly"
+    },
+    {
+      "id": "q9",
+      "question": "أي منهجية تُعتبر جزء من Software Engineering Process؟",
+      "questionEn": "Which methodology is considered part of Software Engineering Process?",
+      "options": [
+        "Photoshop",
+        "Agile",
+        "Windows",
+        "Android"
+      ],
+      "optionsEn": [
+        "Photoshop",
+        "Agile",
+        "Windows",
+        "Android"
+      ],
+      "correct": "b",
+      "explanation": "Agile هي منهجية تُستخدم في تعريف وتحسين عمليات التطوير",
+      "explanationEn": "Agile is a methodology used in defining and improving development processes"
+    },
+    {
+      "id": "q10",
+      "question": "ما الذي يتعلق بـ Software Quality؟",
+      "questionEn": "What relates to Software Quality?",
+      "options": [
+        "سرعة الإنترنت",
+        "ضمان أن الأنظمة تلبي معايير الجودة",
+        "تصميم الشعارات",
+        "شراء الأجهزة"
+      ],
+      "optionsEn": [
+        "Internet speed",
+        "Ensuring systems meet quality standards",
+        "Logo design",
+        "Hardware purchasing"
+      ],
+      "correct": "b",
+      "explanation": "Software Quality يضمن أن الأنظمة تلبي معايير الجودة مثل ISO",
+      "explanationEn": "Software Quality ensures that systems meet quality standards like ISO"
+    }
+  ],
+  "trueFalse": [
+    {
+      "id": "tf1",
+      "question": "SWEBOK يحتوي على 10 مجالات معرفية فقط",
+      "questionEn": "SWEBOK contains only 10 knowledge areas",
+      "correct": false,
+      "explanation": "SWEBOK يحتوي على 15 مجال معرفي وليس 10",
+      "explanationEn": "SWEBOK contains 15 knowledge areas, not 10"
+    },
+    {
+      "id": "tf2",
+      "question": "Software Requirements يتعلق بجمع وتحليل متطلبات النظام",
+      "questionEn": "Software Requirements relates to gathering and analyzing system requirements",
+      "correct": true,
+      "explanation": "صحيح، Software Requirements يختص بجمع وتحليل وتوثيق متطلبات النظام",
+      "explanationEn": "Correct, Software Requirements specializes in gathering, analyzing, and documenting system requirements"
+    },
+    {
+      "id": "tf3",
+      "question": "Git يُستخدم في Software Configuration Management",
+      "questionEn": "Git is used in Software Configuration Management",
+      "correct": true,
+      "explanation": "صحيح، Git هو أداة شائعة لإدارة التغييرات في مكونات النظام",
+      "explanationEn": "Correct, Git is a common tool for managing changes in system components"
+    },
+    {
+      "id": "tf4",
+      "question": "Software Design يتعلق فقط بكتابة الكود",
+      "questionEn": "Software Design relates only to writing code",
+      "correct": false,
+      "explanation": "خطأ، Software Design يتعلق بتحديد بنية النظام والمكونات والواجهات، وليس كتابة الكود",
+      "explanationEn": "False, Software Design relates to defining system architecture, components, and interfaces, not writing code"
+    },
+    {
+      "id": "tf5",
+      "question": "Agile هي منهجية في Software Engineering Process",
+      "questionEn": "Agile is a methodology in Software Engineering Process",
+      "correct": true,
+      "explanation": "صحيح، Agile تُستخدم في تعريف وتحسين عمليات التطوير",
+      "explanationEn": "Correct, Agile is used in defining and improving development processes"
+    },
+    {
+      "id": "tf6",
+      "question": "Software Maintenance يحدث قبل نشر النظام",
+      "questionEn": "Software Maintenance occurs before system deployment",
+      "correct": false,
+      "explanation": "خطأ، Software Maintenance يتم بعد نشر النظام لتحديثه وتحسينه",
+      "explanationEn": "False, Software Maintenance occurs after system deployment to update and improve it"
+    },
+    {
+      "id": "tf7",
+      "question": "Software Testing يهدف للتحقق من وظائف النظام",
+      "questionEn": "Software Testing aims to verify system functions",
+      "correct": true,
+      "explanation": "صحيح، Software Testing يهدف للتحقق والتصديق على وظائف النظام",
+      "explanationEn": "Correct, Software Testing aims to verify and validate system functions"
+    },
+    {
+      "id": "tf8",
+      "question": "Computing Foundations تشمل الخوارزميات وهياكل البيانات",
+      "questionEn": "Computing Foundations includes algorithms and data structures",
+      "correct": true,
+      "explanation": "صحيح، Computing Foundations تشمل المفاهيم الأساسية في علوم الحاسب مثل الخوارزميات وهياكل البيانات",
+      "explanationEn": "Correct, Computing Foundations includes fundamental computer science concepts like algorithms and data structures"
+    },
+    {
+      "id": "tf9",
+      "question": "Software Quality لا يتعلق بمعايير مثل ISO",
+      "questionEn": "Software Quality is not related to standards like ISO",
+      "correct": false,
+      "explanation": "خطأ، Software Quality يضمن أن الأنظمة تلبي معايير الجودة مثل ISO",
+      "explanationEn": "False, Software Quality ensures that systems meet quality standards like ISO"
+    },
+    {
+      "id": "tf10",
+      "question": "SWEBOK هو دليل معترف به عالمياً",
+      "questionEn": "SWEBOK is a globally recognized guide",
+      "correct": true,
+      "explanation": "صحيح، SWEBOK هو دليل معترف به عالمياً في هندسة البرمجيات",
+      "explanationEn": "Correct, SWEBOK is a globally recognized guide in software engineering"
+    }
+  ]
+}
