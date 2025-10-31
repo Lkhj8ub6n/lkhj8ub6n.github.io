@@ -5,228 +5,234 @@
   "topicTitleEn": "System Analysis and Design (SAD)",
   "sections": [
     {
-      "title": "تعريف SAD",
-      "titleEn": "Definition of SAD",
+      "title": "ما هو SAD؟",
+      "titleEn": "What is SAD?",
       "subsections": [
         {
-          "content": "تحليل وتصميم النظم (System Analysis and Design) هو عملية منهجية لدراسة وتخطيط وتصميم وتنفيذ أنظمة المعلومات لتلبية احتياجات العمل أو المنظمة. يشمل ذلك فهم متطلبات المستخدمين، تحليل الأنظمة الموجودة، وتصميم حلول جديدة أو محسّنة لتعزيز الكفاءة والفعالية.",
-          "contentEn": "System Analysis and Design (SAD) is the process of studying, planning, designing, and implementing information systems to meet business or organizational needs. It involves understanding the requirements of users, analyzing existing systems, and designing new or improved solutions to enhance efficiency and effectiveness."
+          "content": "تحليل وتصميم النظم (SAD) هو عملية منهجية لدراسة وتخطيط وتصميم وتنفيذ أنظمة المعلومات لتلبية احتياجات العمل. يشمل فهم متطلبات المستخدمين، تحليل الأنظمة الموجودة، وتصميم حلول جديدة لتعزيز الكفاءة.",
+          "contentEn": "System Analysis and Design (SAD) is a systematic process for studying, planning, designing, and implementing information systems to meet business needs. It involves understanding user requirements, analyzing existing systems, and designing new solutions to enhance efficiency."
         }
       ]
     },
     {
-      "title": "المكونات الرئيسية لـ SAD",
-      "titleEn": "Key Components of SAD",
+      "title": "المكونات الثلاثة الأساسية",
+      "titleEn": "Three Core Components",
       "subsections": [
         {
-          "subtitle": "1. System Analysis (تحليل النظام)",
-          "subtitleEn": "1. System Analysis",
-          "content": "يشمل جمع المتطلبات، فهم احتياجات العمل، تحديد المشاكل، وتحليل الحلول الممكنة.",
-          "contentEn": "Involves gathering requirements, understanding business needs, identifying problems, and analyzing possible solutions.",
-          "highlight": {
-            "title": "مثال",
-            "titleEn": "Example",
-            "content": "عندما يريد بنك تطوير تطبيق، المحلل يجلس مع الموظفين ويسألهم: ما المشاكل؟ ما الذي تحتاجونه؟",
-            "contentEn": "When a bank wants to develop an application, the analyst sits with employees and asks: What are the problems? What do you need?"
-          }
-        },
-        {
-          "subtitle": "2. System Design (تصميم النظام)",
-          "subtitleEn": "2. System Design",
-          "content": "يركز على تحديد البنية المعمارية، واجهة المستخدم، هياكل البيانات، وسير العمل لتطوير نظام مثالي.",
-          "contentEn": "Focuses on defining the architecture, user interface, data structures, and workflows to develop an optimal system.",
-          "highlight": {
-            "title": "مثال",
-            "titleEn": "Example",
-            "content": "رسم كيف سيبدو التطبيق، أي الأزرار، القوائم، كيف تتصل الشاشات ببعضها.",
-            "contentEn": "Drawing how the app will look - buttons, menus, how screens connect to each other."
-          }
-        },
-        {
-          "subtitle": "3. Implementation (التنفيذ)",
-          "subtitleEn": "3. Implementation",
-          "content": "يشمل كتابة الكود، الاختبار، النشر، والصيانة للنظام.",
-          "contentEn": "Includes coding, testing, deployment, and maintenance of the system.",
-          "highlight": {
-            "title": "مثال",
-            "titleEn": "Example",
-            "content": "المبرمجون يكتبون الكود، يختبرونه، ثم ينشرون التطبيق للمستخدمين.",
-            "contentEn": "Programmers write code, test it, then deploy the application to users."
-          }
-        }
-      ]
-    },
-    {
-      "title": "أهمية تحليل وتصميم النظم",
-      "titleEn": "Importance of System Analysis and Design",
-      "subsections": [
-        {
-          "content": "يعتبر SAD أمراً بالغ الأهمية في صناعة البرمجيات لأنه يضمن تطوير حلول برمجية عالية الجودة، فعّالة، ومتمحورة حول المستخدم. إليك أهميته:",
-          "contentEn": "SAD is crucial in the software industry because it ensures the development of high-quality, efficient, and user-centric software solutions. Here's why it matters:"
-        },
-        {
-          "subtitle": "1. فهم أفضل للمتطلبات (Better Requirement Understanding)",
-          "subtitleEn": "1. Better Requirement Understanding",
+          "subtitle": "المكون الأول: System Analysis (التحليل)",
+          "subtitleEn": "Component 1: System Analysis",
           "list": [
-            "يساعد في تحديد وتوثيق متطلبات العمل بوضوح، مما يقلل من سوء الفهم",
-            "يضمن أن يلبي النظام احتياجات المستخدمين الفعلية"
+            "جمع المتطلبات من المستخدمين",
+            "فهم احتياجات العمل",
+            "تحديد المشاكل الحالية",
+            "تحليل الحلول الممكنة"
           ],
           "listEn": [
-            "Helps in identifying and documenting business requirements clearly, reducing misunderstandings",
-            "Ensures the system meets actual user needs"
+            "Gathering requirements from users",
+            "Understanding business needs",
+            "Identifying current problems",
+            "Analyzing possible solutions"
           ],
           "listType": "ul",
           "highlight": {
-            "title": "مثال",
+            "title": "مثال توضيحي",
             "titleEn": "Example",
-            "content": "في منصة التجارة الإلكترونية، فهم احتياجات المستخدمين يمكن أن يؤدي إلى ميزات مثل التوصيات الشخصية.",
-            "contentEn": "In an e-commerce platform, understanding user needs can lead to features like personalized recommendations."
+            "content": "بنك يريد تطوير تطبيق جديد: المحلل يجلس مع الموظفين ويسأل: ما المشاكل في النظام الحالي؟ ماذا تحتاجون؟",
+            "contentEn": "A bank wants to develop a new app: The analyst sits with employees and asks: What problems exist in the current system? What do you need?"
           }
         },
         {
-          "subtitle": "2. تحسين الكفاءة والإنتاجية (Improved Efficiency and Productivity)",
-          "subtitleEn": "2. Improved Efficiency and Productivity",
+          "subtitle": "المكون الثاني: System Design (التصميم)",
+          "subtitleEn": "Component 2: System Design",
           "list": [
-            "يحسّن عمليات العمل من خلال إزالة المهام الزائدة",
-            "يوفر الوقت ويزيد الإنتاجية"
+            "تحديد البنية المعمارية (Architecture)",
+            "تصميم واجهة المستخدم (UI)",
+            "تصميم قواعد البيانات",
+            "تصميم سير العمل (Workflows)"
           ],
           "listEn": [
-            "Optimizes business processes by eliminating redundant tasks",
-            "Saves time and increases productivity"
+            "Defining system architecture",
+            "Designing user interface (UI)",
+            "Designing databases",
+            "Designing workflows"
           ],
           "listType": "ul",
           "highlight": {
-            "title": "مثال",
+            "title": "مثال توضيحي",
             "titleEn": "Example",
-            "content": "نظام إدارة المستشفيات يؤتمت الاحتفاظ بسجلات المرضى، مما يقلل من الأخطاء اليدوية والأوراق.",
-            "contentEn": "A hospital management system automates patient record-keeping, reducing manual errors and paperwork."
+            "content": "رسم التطبيق: أين الأزرار؟ كيف تبدو القوائم؟ كيف تتصل الشاشات ببعضها؟",
+            "contentEn": "Drawing the app: Where are the buttons? How do menus look? How do screens connect?"
           }
         },
         {
-          "subtitle": "3. تحسين التكلفة والوقت (Cost and Time Optimization)",
-          "subtitleEn": "3. Cost and Time Optimization",
+          "subtitle": "المكون الثالث: Implementation (التنفيذ)",
+          "subtitleEn": "Component 3: Implementation",
           "list": [
-            "يقلل من إعادة العمل ووقت التطوير من خلال ضمان خارطة طريق واضحة",
-            "يوفر الموارد والميزانية"
+            "كتابة الكود البرمجي (Coding)",
+            "الاختبار (Testing)",
+            "النشر (Deployment)",
+            "الصيانة (Maintenance)"
           ],
           "listEn": [
-            "Reduces rework and development time by ensuring a clear roadmap",
-            "Saves resources and budget"
+            "Writing code (Coding)",
+            "Testing",
+            "Deployment",
+            "Maintenance"
           ],
           "listType": "ul",
           "highlight": {
-            "title": "مثال",
+            "title": "مثال توضيحي",
             "titleEn": "Example",
-            "content": "منهجيات Agile تستخدم التصميم التكراري للتكيف مع التغييرات بكفاءة.",
-            "contentEn": "Agile methodologies use iterative design to adapt to changes efficiently."
-          }
-        },
-        {
-          "subtitle": "4. تقليل المخاطر (Risk Reduction)",
-          "subtitleEn": "4. Risk Reduction",
-          "list": [
-            "يحدد المخاطر المحتملة في وقت مبكر من مرحلة التطوير، مما يتجنب الفشل المكلف",
-            "يوفر خطة احتياطية للمشاكل المحتملة"
-          ],
-          "listEn": [
-            "Identifies potential risks early in the development phase, avoiding costly failures",
-            "Provides contingency plans for potential issues"
-          ],
-          "listType": "ul",
-          "highlight": {
-            "title": "مثال",
-            "titleEn": "Example",
-            "content": "البنوك تحلل التهديدات الأمنية في أنظمة الخدمات المصرفية عبر الإنترنت قبل النشر.",
-            "contentEn": "Banks analyze security threats in online banking systems before deployment."
-          }
-        },
-        {
-          "subtitle": "5. قابلية التوسع والتطوير المستقبلي (Scalability and Future-Proofing)",
-          "subtitleEn": "5. Scalability and Future-Proofing",
-          "list": [
-            "يضمن تصميم النظام للتوسع والتعديلات المستقبلية",
-            "يسمح بإضافة ميزات جديدة بسهولة"
-          ],
-          "listEn": [
-            "Ensures the system is designed for future expansion and modifications",
-            "Allows easy addition of new features"
-          ],
-          "listType": "ul",
-          "highlight": {
-            "title": "مثال",
-            "titleEn": "Example",
-            "content": "برامج CRM السحابية يمكن أن تتوسع مع نمو الأعمال.",
-            "contentEn": "Cloud-based CRM software can scale as a business grows."
+            "content": "المبرمجون يكتبون الكود، يختبرونه للتأكد من عمله، ثم ينشرون التطبيق للمستخدمين.",
+            "contentEn": "Programmers write code, test it to ensure it works, then deploy the app to users."
           }
         }
       ]
     },
     {
-      "title": "تأثير SAD على صناعة البرمجيات",
-      "titleEn": "Impact of SAD on the Software Industry",
+      "title": "لماذا SAD مهم؟ (5 أسباب رئيسية)",
+      "titleEn": "Why is SAD Important? (5 Key Reasons)",
       "subsections": [
         {
-          "content": "يلعب SAD دوراً محورياً في تشكيل صناعة البرمجيات من خلال ضمان تطوير أنظمة قوية وقابلة للتوسع وسهلة الاستخدام.",
-          "contentEn": "SAD plays a pivotal role in shaping the software industry by ensuring the development of robust, scalable, and user-friendly systems."
-        },
-        {
-          "subtitle": "1. جودة برمجيات أعلى (Higher Software Quality)",
-          "subtitleEn": "1. Higher Software Quality",
-          "content": "يضمن أن البرمجيات تلبي توقعات العملاء، مما يؤدي إلى رضا أعلى.",
-          "contentEn": "Ensures that software meets customer expectations, leading to higher satisfaction.",
+          "subtitle": "السبب الأول: فهم أفضل للمتطلبات",
+          "subtitleEn": "Reason 1: Better Requirement Understanding",
+          "content": "يساعد في توثيق وتوضيح متطلبات العمل، مما يقلل من سوء الفهم والأخطاء.",
+          "contentEn": "Helps document and clarify business requirements, reducing misunderstandings and errors.",
           "highlight": {
-            "title": "مثال",
-            "titleEn": "Example",
-            "content": "Google Search يتطور باستمرار بناءً على احتياجات المستخدمين وتحليل الأداء.",
-            "contentEn": "Google Search continuously evolves based on user needs and performance analysis."
+            "title": "مثال من الواقع",
+            "titleEn": "Real-World Example",
+            "content": "منصة مثل Amazon تفهم أن المستخدمين يريدون توصيات شخصية للمنتجات بناءً على مشترياتهم السابقة.",
+            "contentEn": "A platform like Amazon understands users want personalized product recommendations based on their previous purchases."
           }
         },
         {
-          "subtitle": "2. التوحيد وأفضل الممارسات (Standardization and Best Practices)",
-          "subtitleEn": "2. Standardization and Best Practices",
-          "content": "يشجع على الالتزام بأنماط التصميم، الأطر، وأفضل الممارسات مثل مخططات UML.",
-          "contentEn": "Encourages adherence to design patterns, frameworks, and best practices like UML diagrams.",
+          "subtitle": "السبب الثاني: تحسين الكفاءة والإنتاجية",
+          "subtitleEn": "Reason 2: Improved Efficiency",
+          "content": "يحسّن عمليات العمل ويزيل المهام المتكررة، مما يوفر الوقت ويزيد الإنتاجية.",
+          "contentEn": "Optimizes business processes and eliminates repetitive tasks, saving time and increasing productivity.",
           "highlight": {
-            "title": "مثال",
-            "titleEn": "Example",
-            "content": "المؤسسات الكبيرة تستخدم تقنيات نمذجة الأنظمة لتصميم حلول ERP.",
-            "contentEn": "Large enterprises use system modeling techniques to design ERP solutions."
+            "title": "مثال من الواقع",
+            "titleEn": "Real-World Example",
+            "content": "نظام إدارة المستشفيات يؤتمت حفظ سجلات المرضى إلكترونياً بدلاً من استخدام الأوراق، مما يقلل الأخطاء.",
+            "contentEn": "A hospital management system automates patient record-keeping electronically instead of using paper, reducing errors."
           }
         },
         {
-          "subtitle": "3. تسهيل Agile و DevOps (Facilitates Agile and DevOps)",
-          "subtitleEn": "3. Facilitates Agile and DevOps",
-          "content": "يدعم المنهجيات الحديثة من خلال دمج دورات التغذية الراجعة والتحسين المستمر.",
-          "contentEn": "Supports modern methodologies by integrating continuous feedback and improvement cycles.",
+          "subtitle": "السبب الثالث: توفير التكلفة والوقت",
+          "subtitleEn": "Reason 3: Cost and Time Savings",
+          "content": "يقلل من إعادة العمل ويوفر خارطة طريق واضحة، مما يوفر الموارد والميزانية.",
+          "contentEn": "Reduces rework and provides a clear roadmap, saving resources and budget.",
           "highlight": {
-            "title": "مثال",
-            "titleEn": "Example",
-            "content": "Spotify يستخدم Agile وبنية الخدمات الصغيرة للتحديثات السريعة للميزات.",
-            "contentEn": "Spotify uses Agile and microservices architecture for rapid feature updates."
+            "title": "مثال من الواقع",
+            "titleEn": "Real-World Example",
+            "content": "منهجيات Agile تستخدم التصميم التكراري (Iterative) للتكيف مع التغييرات بسرعة وكفاءة دون إعادة كل شيء من الصفر.",
+            "contentEn": "Agile methodologies use iterative design to adapt to changes quickly and efficiently without starting from scratch."
           }
         },
         {
-          "subtitle": "4. ميزة تنافسية للشركات (Competitive Advantage for Businesses)",
-          "subtitleEn": "4. Competitive Advantage for Businesses",
-          "content": "يساعد الشركات على البقاء في المقدمة من خلال توفير حلول برمجية مبتكرة وفعّالة.",
-          "contentEn": "Helps companies stay ahead by providing innovative and efficient software solutions.",
+          "subtitle": "السبب الرابع: تقليل المخاطر",
+          "subtitleEn": "Reason 4: Risk Reduction",
+          "content": "يحدد المخاطر والمشاكل المحتملة مبكراً، مما يتجنب الفشل المكلف لاحقاً.",
+          "contentEn": "Identifies potential risks and problems early, avoiding costly failures later.",
           "highlight": {
-            "title": "مثال",
-            "titleEn": "Example",
-            "content": "نظام اللوجستيات في Amazon يتيح تتبع المخزون في الوقت الفعلي والتسليم السريع.",
-            "contentEn": "Amazon's logistics system enables real-time inventory tracking and fast delivery."
+            "title": "مثال من الواقع",
+            "titleEn": "Real-World Example",
+            "content": "البنوك تحلل التهديدات الأمنية وتختبر الأنظمة قبل إطلاق تطبيقات الخدمات المصرفية عبر الإنترنت.",
+            "contentEn": "Banks analyze security threats and test systems before launching online banking applications."
           }
         },
         {
-          "subtitle": "5. الذكاء الاصطناعي واتخاذ القرارات المعتمدة على البيانات (AI and Data-Driven Decision Making)",
-          "subtitleEn": "5. AI and Data-Driven Decision Making",
-          "content": "يمكّن من دمج الذكاء الاصطناعي والبيانات الضخمة للتحليلات التنبؤية والأتمتة.",
-          "contentEn": "Enables the integration of AI and big data for predictive analytics and automation.",
+          "subtitle": "السبب الخامس: قابلية التوسع المستقبلي",
+          "subtitleEn": "Reason 5: Future Scalability",
+          "content": "يضمن تصميم النظام بحيث يمكن توسعته وتطويره في المستقبل بسهولة.",
+          "contentEn": "Ensures the system is designed to be easily expanded and developed in the future.",
           "highlight": {
-            "title": "مثال",
-            "titleEn": "Example",
-            "content": "Netflix يوصي بالمحتوى بناءً على تحليل سلوك المستخدم.",
-            "contentEn": "Netflix recommends content based on user behavior analysis."
+            "title": "مثال من الواقع",
+            "titleEn": "Real-World Example",
+            "content": "أنظمة CRM السحابية (مثل Salesforce) يمكن أن تتوسع تلقائياً مع نمو عدد الموظفين والعملاء.",
+            "contentEn": "Cloud CRM systems (like Salesforce) can scale automatically as the number of employees and customers grows."
+          }
+        }
+      ]
+    },
+    {
+      "title": "تأثير SAD على صناعة البرمجيات (5 تأثيرات)",
+      "titleEn": "Impact of SAD on Software Industry (5 Impacts)",
+      "subsections": [
+        {
+          "subtitle": "التأثير الأول: جودة برمجيات أعلى",
+          "subtitleEn": "Impact 1: Higher Software Quality",
+          "content": "يضمن أن البرمجيات تلبي توقعات العملاء وتعمل بشكل صحيح، مما يؤدي إلى رضا المستخدمين.",
+          "contentEn": "Ensures software meets customer expectations and works correctly, leading to user satisfaction.",
+          "highlight": {
+            "title": "مثال شهير",
+            "titleEn": "Famous Example",
+            "content": "Google Search يتطور باستمرار بناءً على تحليل سلوك المستخدمين واحتياجاتهم لتحسين نتائج البحث.",
+            "contentEn": "Google Search continuously evolves based on user behavior analysis and needs to improve search results."
+          }
+        },
+        {
+          "subtitle": "التأثير الثاني: معايير وأفضل الممارسات",
+          "subtitleEn": "Impact 2: Standards and Best Practices",
+          "content": "يشجع على استخدام أنماط تصميم معروفة وأطر عمل قياسية مثل UML للتوثيق.",
+          "contentEn": "Encourages use of known design patterns and standard frameworks like UML for documentation.",
+          "highlight": {
+            "title": "مثال شهير",
+            "titleEn": "Famous Example",
+            "content": "الشركات الكبرى (مثل SAP وOracle) تستخدم تقنيات نمذجة الأنظمة لتصميم حلول ERP المعقدة.",
+            "contentEn": "Large companies (like SAP and Oracle) use system modeling techniques to design complex ERP solutions."
+          }
+        },
+        {
+          "subtitle": "التأثير الثالث: دعم Agile وDevOps",
+          "subtitleEn": "Impact 3: Supporting Agile and DevOps",
+          "content": "يدعم المنهجيات الحديثة من خلال التحسين المستمر والتطوير السريع.",
+          "contentEn": "Supports modern methodologies through continuous improvement and rapid development.",
+          "highlight": {
+            "title": "مثال شهير",
+            "titleEn": "Famous Example",
+            "content": "Spotify يستخدم Agile وبنية الخدمات الصغيرة (Microservices) لإضافة ميزات جديدة أسبوعياً.",
+            "contentEn": "Spotify uses Agile and microservices architecture to add new features weekly."
+          }
+        },
+        {
+          "subtitle": "التأثير الرابع: ميزة تنافسية للشركات",
+          "subtitleEn": "Impact 4: Competitive Business Advantage",
+          "content": "يساعد الشركات على التفوق من خلال أنظمة مبتكرة وفعّالة تميزها عن المنافسين.",
+          "contentEn": "Helps companies excel through innovative and efficient systems that distinguish them from competitors.",
+          "highlight": {
+            "title": "مثال شهير",
+            "titleEn": "Famous Example",
+            "content": "نظام التوصيل في Amazon يتيح تتبع الطلبات لحظياً والتسليم في نفس اليوم في بعض المدن.",
+            "contentEn": "Amazon's delivery system enables real-time order tracking and same-day delivery in some cities."
+          }
+        },
+        {
+          "subtitle": "التأثير الخامس: الذكاء الاصطناعي والبيانات",
+          "subtitleEn": "Impact 5: AI and Data Analytics",
+          "content": "يمكّن من دمج الذكاء الاصطناعي والبيانات الضخمة للتحليل والتنبؤ والأتمتة.",
+          "contentEn": "Enables integration of AI and big data for analysis, prediction, and automation.",
+          "highlight": {
+            "title": "مثال شهير",
+            "titleEn": "Famous Example",
+            "content": "Netflix يستخدم الذكاء الاصطناعي لتحليل ما تشاهده ويقترح عليك أفلام ومسلسلات قد تعجبك.",
+            "contentEn": "Netflix uses AI to analyze what you watch and suggests movies and series you might like."
+          }
+        }
+      ]
+    },
+    {
+      "title": "ملخص سريع",
+      "titleEn": "Quick Summary",
+      "subsections": [
+        {
+          "content": "تحليل وتصميم النظم = 3 مكونات (تحليل + تصميم + تنفيذ) + 5 فوائد رئيسية + 5 تأثيرات على الصناعة",
+          "contentEn": "System Analysis and Design = 3 components (Analysis + Design + Implementation) + 5 key benefits + 5 industry impacts",
+          "highlight": {
+            "title": "نصيحة للدراسة",
+            "titleEn": "Study Tip",
+            "content": "احفظ الأرقام: 3 مكونات، 5 أسباب للأهمية، 5 تأثيرات. وركز على الأمثلة الشهيرة: Amazon, Netflix, Google, Spotify.",
+            "contentEn": "Remember the numbers: 3 components, 5 importance reasons, 5 impacts. Focus on famous examples: Amazon, Netflix, Google, Spotify."
           }
         }
       ]
