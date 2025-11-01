@@ -141,7 +141,7 @@ class QuizManager {
     }
 
     selectMCQOption(questionIndex, optionIndex) {
-        this.userAnswers.mcq[questionIndex] = optionIndex;
+        this.userAnswers.mcq[questionIndex] = parseInt(optionIndex);
         const questionDiv = document.querySelector('#mcq-container .quiz-question[data-question="' + questionIndex + '"]');
         questionDiv.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
         questionDiv.querySelectorAll('.quiz-option')[optionIndex].classList.add('selected');
