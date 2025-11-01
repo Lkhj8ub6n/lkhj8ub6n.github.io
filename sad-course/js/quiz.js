@@ -20,7 +20,9 @@ class ContentLoader {
         const lang = this.currentLanguage;
 
         data.sections.forEach(section => {
-            html += '<h3>' + (lang === 'ar' ? section.title : section.titleEn) + '</h3>';
+            const sectionTitle = lang === 'ar' ? section.title : section.titleEn;
+            const isSummary = sectionTitle === 'ملخص سريع' || sectionTitle === 'Quick Summary';
+            html += '<h3>' + sectionTitle + '</h3>';
 
             section.subsections.forEach(subsection => {
                 if (subsection.subtitle) {
@@ -28,7 +30,8 @@ class ContentLoader {
                 }
 
                 if (subsection.content) {
-                    html += '<p>' + (lang === 'ar' ? subsection.content : subsection.contentEn) + '</p>';
+                    const contentClass = isSummary ? ' class="highlighted-text"' : '';
+                    html += '<p' + contentClass + '>' + (lang === 'ar' ? subsection.content : subsection.contentEn) + '</p>';
                 }
 
                 if (subsection.list) {

@@ -164,6 +164,13 @@ body {
     font-size: 1.3rem;
 }
 
+.highlighted-text {
+    background: linear-gradient(transparent 0%, transparent 40%, #ffeb3b 40%, #ffeb3b 100%);
+    padding: 2px 0;
+    font-weight: 500;
+    line-height: 2;
+}
+
 .quiz-container {
     background: #f8f9fa;
     border-radius: 15px;
