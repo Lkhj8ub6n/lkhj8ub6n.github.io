@@ -16,7 +16,7 @@
         "Installing hardware",
         "Designing logos"
       ],
-      "correct": "b",
+      "correct": 1,
       "explanation": "SAD يهدف لتطوير وتحسين أنظمة المعلومات لتلبية احتياجات المؤسسات",
       "explanationEn": "SAD aims to develop and improve information systems to meet organizational needs"
     },
@@ -36,7 +36,7 @@
         "4",
         "5"
       ],
-      "correct": "b",
+      "correct": 1,
       "explanation": "SAD يتكون من ثلاثة مكونات رئيسية: التحليل، التصميم، والتنفيذ",
       "explanationEn": "SAD consists of three main components: Analysis, Design, and Implementation"
     },
@@ -56,7 +56,7 @@
         "Deleting data",
         "Designing interfaces"
       ],
-      "correct": "b",
+      "correct": 1,
       "explanation": "التحليل يتضمن دراسة النظام الحالي وتحديد المشاكل والمتطلبات",
       "explanationEn": "Analysis involves studying the current system and identifying problems and requirements"
     },
@@ -76,7 +76,7 @@
         "Purchasing software",
         "Printing documents"
       ],
-      "correct": "b",
+      "correct": 1,
       "explanation": "التصميم يتضمن تخطيط الحل الذي سيلبي المتطلبات المحددة",
       "explanationEn": "Design involves planning the solution that will meet the specified requirements"
     },
@@ -96,7 +96,7 @@
         "Ignoring problems",
         "Purchasing furniture"
       ],
-      "correct": "b",
+      "correct": 1,
       "explanation": "التنفيذ يشمل بناء النظام واختباره ونشره للاستخدام",
       "explanationEn": "Implementation includes building, testing, and deploying the system for use"
     },
@@ -116,7 +116,7 @@
         "Because it complicates processes",
         "Because it deletes data"
       ],
-      "correct": "b",
+      "correct": 1,
       "explanation": "SAD يساعد في تحسين الكفاءة عن طريق تقليل الوقت والموارد المهدرة",
       "explanationEn": "SAD helps improve efficiency by reducing wasted time and resources"
     },
@@ -136,7 +136,7 @@
         "It complicates decisions",
         "It deletes information"
       ],
-      "correct": "b",
+      "correct": 1,
       "explanation": "SAD يوفر معلومات دقيقة وفي الوقت المناسب لدعم اتخاذ قرارات أفضل",
       "explanationEn": "SAD provides accurate and timely information to support better decision-making"
     },
@@ -156,7 +156,7 @@
         "It deletes resources",
         "It doesn't affect costs"
       ],
-      "correct": "b",
+      "correct": 1,
       "explanation": "SAD يساعد في تقليل التكاليف عن طريق تقليل الأخطاء وتحسين استخدام الموارد",
       "explanationEn": "SAD helps reduce costs by minimizing errors and improving resource utilization"
     },
@@ -176,7 +176,7 @@
         "Because it deletes technology",
         "Because it complicates technology"
       ],
-      "correct": "b",
+      "correct": 1,
       "explanation": "SAD يضمن أن النظم تواكب التطورات التكنولوجية الحديثة",
       "explanationEn": "SAD ensures that systems keep pace with modern technological developments"
     },
@@ -196,7 +196,7 @@
         "It complicates the user interface",
         "It deletes interfaces"
       ],
-      "correct": "b",
+      "correct": 1,
       "explanation": "SAD يساعد في تصميم أنظمة سهلة الاستخدام تلبي احتياجات المستخدمين بشكل أفضل",
       "explanationEn": "SAD helps design easy-to-use systems that better meet user needs"
     }

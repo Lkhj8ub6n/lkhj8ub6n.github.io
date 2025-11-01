@@ -141,9 +141,7 @@ class QuizManager {
     }
 
     selectMCQOption(questionIndex, optionIndex) {
-        console.log('DEBUG selectMCQOption - Before parseInt:', questionIndex, optionIndex, typeof optionIndex);
         this.userAnswers.mcq[questionIndex] = parseInt(optionIndex);
-        console.log('DEBUG selectMCQOption - After parseInt:', this.userAnswers.mcq[questionIndex], typeof this.userAnswers.mcq[questionIndex]);
         const questionDiv = document.querySelector('#mcq-container .quiz-question[data-question="' + questionIndex + '"]');
         questionDiv.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
         questionDiv.querySelectorAll('.quiz-option')[optionIndex].classList.add('selected');
@@ -167,7 +165,6 @@ class QuizManager {
             this.quizData.mcq.forEach((question, qIndex) => {
                 const userAnswer = this.userAnswers.mcq[qIndex];
                 const correctAnswer = question.correct;
-                console.log('DEBUG checkAnswers Q' + qIndex + ':', 'userAnswer=', userAnswer, typeof userAnswer, 'correctAnswer=', correctAnswer, typeof correctAnswer, 'match=', userAnswer === correctAnswer);
                 const questionDiv = document.querySelector('#mcq-container .quiz-question[data-question="' + qIndex + '"]');
 
                 questionDiv.querySelectorAll('.quiz-option').forEach((opt, idx) => {
