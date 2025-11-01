@@ -14,29 +14,21 @@ class ContentLoader {
         }
     }
 
-    static applyHighlighting(text) {
-        // Replace [[text]] with <mark class="highlight-mark">text</mark>
-        return text.replace(/\[\[(.*?)\]\]/g, '<mark class="highlight-mark">$1</mark>');
-    }
-
     static renderContent(data) {
         const container = document.getElementById('summary-content');
         let html = '';
         const lang = this.currentLanguage;
 
         data.sections.forEach(section => {
-            const sectionTitle = lang === 'ar' ? section.title : section.titleEn;
-            html += '<h3>' + sectionTitle + '</h3>';
+            html += '<h3>' + (lang === 'ar' ? section.title : section.titleEn) + '</h3>';
 
             section.subsections.forEach(subsection => {
                 if (subsection.subtitle) {
-                    const subtitle = lang === 'ar' ? subsection.subtitle : subsection.subtitleEn;
-                    html += '<h4>' + this.applyHighlighting(subtitle) + '</h4>';
+                    html += '<h4>' + (lang === 'ar' ? subsection.subtitle : subsection.subtitleEn) + '</h4>';
                 }
 
                 if (subsection.content) {
-                    const content = lang === 'ar' ? subsection.content : subsection.contentEn;
-                    html += '<p>' + this.applyHighlighting(content) + '</p>';
+                    html += '<p>' + (lang === 'ar' ? subsection.content : subsection.contentEn) + '</p>';
                 }
 
                 if (subsection.list) {
@@ -44,18 +36,16 @@ class ContentLoader {
                     const listItems = lang === 'ar' ? subsection.list : subsection.listEn;
                     html += '<' + listTag + '>';
                     listItems.forEach(item => {
-                        html += '<li>' + this.applyHighlighting(item) + '</li>';
+                        html += '<li>' + item + '</li>';
                     });
                     html += '</' + listTag + '>';
                 }
 
                 if (subsection.highlight) {
-                    const title = lang === 'ar' ? subsection.highlight.title : subsection.highlight.titleEn;
-                    const content = lang === 'ar' ? subsection.highlight.content : subsection.highlight.contentEn;
                     html += '<div class="highlight-box"><h5>' +
-                        this.applyHighlighting(title) +
+                        (lang === 'ar' ? subsection.highlight.title : subsection.highlight.titleEn) +
                         '</h5><p>' +
-                        this.applyHighlighting(content) +
+                        (lang === 'ar' ? subsection.highlight.content : subsection.highlight.contentEn) +
                         '</p></div>';
                 }
             });

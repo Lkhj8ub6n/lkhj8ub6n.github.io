@@ -9,8 +9,8 @@
       "titleEn": "What is SAD?",
       "subsections": [
         {
-          "content": "تحليل وتصميم النظم (SAD) هو [[عملية منهجية]] لدراسة وتخطيط وتصميم وتنفيذ أنظمة المعلومات لتلبية احتياجات العمل. يشمل فهم متطلبات المستخدمين، تحليل الأنظمة الموجودة، وتصميم حلول جديدة لتعزيز الكفاءة.",
-          "contentEn": "System Analysis and Design (SAD) is a [[systematic process]] for studying, planning, designing, and implementing information systems to meet business needs. It involves understanding user requirements, analyzing existing systems, and designing new solutions to enhance efficiency."
+          "content": "تحليل وتصميم النظم (SAD) هو عملية منهجية لدراسة وتخطيط وتصميم وتنفيذ أنظمة المعلومات لتلبية احتياجات العمل. يشمل فهم متطلبات المستخدمين، تحليل الأنظمة الموجودة، وتصميم حلول جديدة لتعزيز الكفاءة.",
+          "contentEn": "System Analysis and Design (SAD) is a systematic process for studying, planning, designing, and implementing information systems to meet business needs. It involves understanding user requirements, analyzing existing systems, and designing new solutions to enhance efficiency."
         }
       ]
     },
@@ -101,8 +101,8 @@
           "highlight": {
             "title": "مثال من الواقع",
             "titleEn": "Real-World Example",
-            "content": "منصة مثل [[Amazon]] تفهم أن المستخدمين يريدون توصيات شخصية للمنتجات بناءً على مشترياتهم السابقة.",
-            "contentEn": "A platform like [[Amazon]] understands users want personalized product recommendations based on their previous purchases."
+            "content": "منصة مثل Amazon تفهم أن المستخدمين يريدون توصيات شخصية للمنتجات بناءً على مشترياتهم السابقة.",
+            "contentEn": "A platform like Amazon understands users want personalized product recommendations based on their previous purchases."
           }
         },
         {
@@ -226,13 +226,13 @@
       "titleEn": "Quick Summary",
       "subsections": [
         {
-          "content": "تحليل وتصميم النظم = [[3 مكونات]] (تحليل + تصميم + تنفيذ) + [[5 فوائد رئيسية]] + [[5 تأثيرات]] على الصناعة",
-          "contentEn": "System Analysis and Design = [[3 components]] (Analysis + Design + Implementation) + [[5 key benefits]] + [[5 industry impacts]]",
+          "content": "تحليل وتصميم النظم = 3 مكونات (تحليل + تصميم + تنفيذ) + 5 فوائد رئيسية + 5 تأثيرات على الصناعة",
+          "contentEn": "System Analysis and Design = 3 components (Analysis + Design + Implementation) + 5 key benefits + 5 industry impacts",
           "highlight": {
             "title": "نصيحة للدراسة",
             "titleEn": "Study Tip",
-            "content": "احفظ الأرقام: [[3 مكونات]]، [[5 أسباب للأهمية]]، [[5 تأثيرات]]. وركز على الأمثلة الشهيرة: [[Amazon]], [[Netflix]], [[Google]], [[Spotify]].",
-            "contentEn": "Remember the numbers: [[3 components]], [[5 importance reasons]], [[5 impacts]]. Focus on famous examples: [[Amazon]], [[Netflix]], [[Google]], [[Spotify]]."
+            "content": "احفظ الأرقام: 3 مكونات، 5 أسباب للأهمية، 5 تأثيرات. وركز على الأمثلة الشهيرة: Amazon, Netflix, Google, Spotify.",
+            "contentEn": "Remember the numbers: 3 components, 5 importance reasons, 5 impacts. Focus on famous examples: Amazon, Netflix, Google, Spotify."
           }
         }
       ]
