@@ -169,11 +169,13 @@ class QuizManager {
 
                 questionDiv.querySelectorAll('.quiz-option').forEach((opt, idx) => {
                     opt.classList.remove('correct', 'incorrect');
-                    if (idx === correctAnswer) {
-                        opt.classList.add('correct');
-                    }
-                    if (userAnswer !== undefined && idx === userAnswer && userAnswer !== correctAnswer) {
-                        opt.classList.add('incorrect');
+                    if (userAnswer !== undefined) {
+                        if (idx === correctAnswer) {
+                            opt.classList.add('correct');
+                        }
+                        if (idx === userAnswer && userAnswer !== correctAnswer) {
+                            opt.classList.add('incorrect');
+                        }
                     }
                 });
 
@@ -192,11 +194,13 @@ class QuizManager {
                 questionDiv.querySelectorAll('.tf-btn').forEach((btn, idx) => {
                     btn.classList.remove('correct', 'incorrect');
                     const btnValue = idx === 0;
-                    if (btnValue === correctAnswer) {
-                        btn.classList.add('correct');
-                    }
-                    if (userAnswer !== undefined && btnValue === userAnswer && userAnswer !== correctAnswer) {
-                        btn.classList.add('incorrect');
+                    if (userAnswer !== undefined) {
+                        if (btnValue === correctAnswer) {
+                            btn.classList.add('correct');
+                        }
+                        if (btnValue === userAnswer && userAnswer !== correctAnswer) {
+                            btn.classList.add('incorrect');
+                        }
                     }
                 });
 
