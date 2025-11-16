@@ -1,0 +1,216 @@
+{
+  "chapterId": "file1",
+  "topicId": "topic2",
+  "topicTitle": "تعريفات قواعد البيانات الأساسية",
+  "topicTitleEn": "Basic Database Definitions",
+  "sections": [
+    {
+      "title": "ما هي قاعدة البيانات؟",
+      "titleEn": "What is a Database?",
+      "subsections": [
+        {
+          "content": "قاعدة البيانات (Database) هي مجموعة منظمة من البيانات المترابطة التي يتم تخزينها وإدارتها بطريقة منهجية تسمح بالوصول إليها، استرجاعها، وتحديثها بسهولة وكفاءة.",
+          "contentEn": "A database is an organized collection of interrelated data that is stored and managed in a systematic way allowing easy and efficient access, retrieval, and updating.",
+          "highlight": {
+            "title": "مثال بسيط",
+            "titleEn": "Simple Example",
+            "content": "فكر في قاعدة البيانات كخزانة ملفات ضخمة منظمة. بدلاً من البحث في أكوام الأوراق، كل شيء مرتب في أدراج وملفات يسهل الوصول إليها.",
+            "contentEn": "Think of a database as a huge organized filing cabinet. Instead of searching through piles of papers, everything is arranged in drawers and files that are easy to access."
+          }
+        }
+      ]
+    },
+    {
+      "title": "المفاهيم الأساسية",
+      "titleEn": "Basic Concepts",
+      "subsections": [
+        {
+          "subtitle": "Data (البيانات)",
+          "subtitleEn": "Data",
+          "content": "البيانات هي الحقائق الخام غير المعالجة التي يتم تخزينها في قاعدة البيانات. مثل الأرقام، النصوص، التواريخ، والصور.",
+          "contentEn": "Data is raw, unprocessed facts stored in a database. Such as numbers, text, dates, and images.",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "اسم الطالب: أحمد، العمر: 20، التخصص: علوم حاسوب - هذه بيانات خام",
+            "contentEn": "Student name: Ahmad, Age: 20, Major: Computer Science - this is raw data"
+          }
+        },
+        {
+          "subtitle": "Information (المعلومات)",
+          "subtitleEn": "Information",
+          "content": "المعلومات هي البيانات بعد معالجتها وتنظيمها بطريقة ذات معنى ومفيدة لاتخاذ القرارات.",
+          "contentEn": "Information is data after being processed and organized in a meaningful and useful way for decision-making.",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "تقرير يوضح أن 75% من الطلاب في تخصص علوم الحاسوب أعمارهم بين 18-22 - هذه معلومات مفيدة",
+            "contentEn": "A report showing that 75% of Computer Science students are aged 18-22 - this is useful information"
+          }
+        },
+        {
+          "subtitle": "Database (قاعدة البيانات)",
+          "subtitleEn": "Database",
+          "content": "قاعدة البيانات هي مجموعة من الجداول المترابطة التي تخزن البيانات بطريقة منظمة.",
+          "contentEn": "A database is a collection of interrelated tables that store data in an organized manner.",
+          "list": [
+            "تخزين كميات كبيرة من البيانات",
+            "تنظيم البيانات في جداول وعلاقات",
+            "سهولة البحث والاسترجاع",
+            "منع التكرار والتناقض",
+            "ضمان أمان وسلامة البيانات"
+          ],
+          "listEn": [
+            "Store large amounts of data",
+            "Organize data in tables and relationships",
+            "Easy search and retrieval",
+            "Prevent duplication and inconsistency",
+            "Ensure data security and integrity"
+          ],
+          "listType": "ul"
+        },
+        {
+          "subtitle": "DBMS - نظام إدارة قواعد البيانات",
+          "subtitleEn": "DBMS - Database Management System",
+          "content": "DBMS هو برنامج يستخدم لإنشاء، إدارة، والتحكم في قواعد البيانات. يوفر واجهة للمستخدمين للتعامل مع البيانات.",
+          "contentEn": "DBMS is software used to create, manage, and control databases. It provides an interface for users to interact with data.",
+          "list": [
+            "Oracle Database",
+            "MySQL",
+            "Microsoft SQL Server",
+            "PostgreSQL",
+            "MongoDB"
+          ],
+          "listEn": [
+            "Oracle Database",
+            "MySQL",
+            "Microsoft SQL Server",
+            "PostgreSQL",
+            "MongoDB"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "تشبيه بسيط",
+            "titleEn": "Simple Analogy",
+            "content": "DBMS هو كأمين المكتبة الذي ينظم الكتب، يساعدك في البحث، ويضمن أن لا أحد يتلف الكتب",
+            "contentEn": "DBMS is like a librarian who organizes books, helps you search, and ensures no one damages the books"
+          }
+        }
+      ]
+    },
+    {
+      "title": "أنواع قواعد البيانات",
+      "titleEn": "Types of Databases",
+      "subsections": [
+        {
+          "subtitle": "قواعد البيانات العلائقية (Relational Databases)",
+          "subtitleEn": "Relational Databases",
+          "content": "تخزن البيانات في جداول ثنائية الأبعاد (صفوف وأعمدة) مع علاقات بين الجداول. تستخدم SQL للتعامل معها.",
+          "contentEn": "Store data in two-dimensional tables (rows and columns) with relationships between tables. Use SQL to interact with them.",
+          "list": [
+            "Oracle",
+            "MySQL",
+            "SQL Server",
+            "PostgreSQL"
+          ],
+          "listEn": [
+            "Oracle",
+            "MySQL",
+            "SQL Server",
+            "PostgreSQL"
+          ],
+          "listType": "ul"
+        },
+        {
+          "subtitle": "قواعد البيانات غير العلائقية (NoSQL Databases)",
+          "subtitleEn": "NoSQL Databases",
+          "content": "لا تستخدم الجداول التقليدية، بل تخزن البيانات بأشكال مختلفة كالوثائق، المفاتيح والقيم، أو الرسوم البيانية.",
+          "contentEn": "Don't use traditional tables but store data in different forms like documents, key-value pairs, or graphs.",
+          "list": [
+            "MongoDB (Document-based)",
+            "Redis (Key-Value)",
+            "Cassandra (Column-based)",
+            "Neo4j (Graph-based)"
+          ],
+          "listEn": [
+            "MongoDB (Document-based)",
+            "Redis (Key-Value)",
+            "Cassandra (Column-based)",
+            "Neo4j (Graph-based)"
+          ],
+          "listType": "ul"
+        }
+      ]
+    },
+    {
+      "title": "مميزات استخدام قواعد البيانات",
+      "titleEn": "Advantages of Using Databases",
+      "subsections": [
+        {
+          "list": [
+            "تقليل التكرار (Data Redundancy): تخزين كل معلومة مرة واحدة فقط",
+            "ضمان الدقة والاتساق (Data Consistency): البيانات موحدة في جميع أنحاء النظام",
+            "سهولة الوصول (Easy Access): استرجاع البيانات بسرعة باستخدام الاستعلامات",
+            "الأمان (Security): التحكم في صلاحيات الوصول للبيانات",
+            "النسخ الاحتياطي والاستعادة (Backup & Recovery): حماية البيانات من الفقدان",
+            "دعم المستخدمين المتعددين (Multi-user Support): عدة أشخاص يعملون في نفس الوقت",
+            "سلامة البيانات (Data Integrity): فرض قواعد للحفاظ على صحة البيانات"
+          ],
+          "listEn": [
+            "Reduce redundancy (Data Redundancy): Store each piece of information only once",
+            "Ensure accuracy and consistency (Data Consistency): Uniform data throughout the system",
+            "Easy access (Easy Access): Retrieve data quickly using queries",
+            "Security: Control access permissions to data",
+            "Backup and Recovery: Protect data from loss",
+            "Multi-user support: Multiple people working simultaneously",
+            "Data Integrity: Enforce rules to maintain data correctness"
+          ],
+          "listType": "ul"
+        }
+      ]
+    },
+    {
+      "title": "مصطلحات أساسية يجب معرفتها",
+      "titleEn": "Essential Terms to Know",
+      "subsections": [
+        {
+          "list": [
+            "Table (جدول): مجموعة من الصفوف والأعمدة لتخزين نوع معين من البيانات",
+            "Row/Record (صف/سجل): سطر واحد في الجدول يمثل كيان واحد",
+            "Column/Field (عمود/حقل): خاصية أو صفة معينة للبيانات",
+            "Schema (المخطط): البنية الكلية لقاعدة البيانات وتعريف الجداول",
+            "Query (استعلام): أمر لاسترجاع أو تعديل البيانات",
+            "Index (فهرس): هيكل لتسريع عمليات البحث",
+            "Transaction (معاملة): مجموعة من العمليات تنفذ كوحدة واحدة"
+          ],
+          "listEn": [
+            "Table: A collection of rows and columns to store a specific type of data",
+            "Row/Record: One line in a table representing one entity",
+            "Column/Field: A specific attribute or property of data",
+            "Schema: The overall structure of the database and table definitions",
+            "Query: A command to retrieve or modify data",
+            "Index: A structure to speed up search operations",
+            "Transaction: A group of operations executed as one unit"
+          ],
+          "listType": "ul"
+        }
+      ]
+    },
+    {
+      "title": "ملخص سريع",
+      "titleEn": "Quick Summary",
+      "subsections": [
+        {
+          "content": "قاعدة البيانات = مجموعة منظمة من الجداول المترابطة. DBMS = البرنامج الذي يدير قاعدة البيانات. Data = حقائق خام، Information = بيانات معالجة ذات معنى.",
+          "contentEn": "Database = organized collection of interrelated tables. DBMS = software that manages the database. Data = raw facts, Information = processed meaningful data.",
+          "highlight": {
+            "title": "نصيحة للدراسة",
+            "titleEn": "Study Tip",
+            "content": "افهم الفرق بين Database و DBMS، والفرق بين Data و Information. هذه أسئلة شائعة في الامتحانات",
+            "contentEn": "Understand the difference between Database and DBMS, and between Data and Information. These are common exam questions"
+          }
+        }
+      ]
+    }
+  ]
+}

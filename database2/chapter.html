@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database II - الملف</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #295340 0%, #222222 100%);
+            min-height: 100vh;
+            direction: rtl;
+            padding: 20px 0;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            color: #295340;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #295340;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .back-btn:hover {
+            background: #1a3328;
+            color: white;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .topic-number {
+            background: linear-gradient(135deg, #295340 0%, #222222 100%);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .topic-title {
+            color: #295340;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .topic-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px 0;
+            }
+
+            .main-container {
+                padding: 0 10px;
+            }
+
+            .header {
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+                line-height: 1.4;
+            }
+
+            .header p {
+                font-size: 1rem;
+            }
+
+            .topics-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .topic-card {
+                padding: 18px;
+            }
+
+            .topic-title {
+                font-size: 1.15rem;
+                line-height: 1.4;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            <a href="index.html" class="back-btn">
+                <i class="fas fa-arrow-right"></i> العودة للرئيسية
+            </a>
+            <h1 id="chapter-title"><i class="fas fa-spinner fa-spin"></i> جاري التحميل...</h1>
+            <p id="chapter-subtitle"></p>
+        </div>
+
+        <div class="topics-grid" id="topics-container">
+            <div class="loading">
+                <i class="fas fa-spinner fa-spin"></i> جاري تحميل المواضيع...
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const chapterId = urlParams.get('chapter');
+
+        const chaptersData = {
+            file1: {
+                title: "الملف 1: نظرة عامة على قواعد البيانات و SQL",
+                subtitle: "Database Systems Overview & SQL Basics",
+                description: "يغطي المفاهيم الأساسية لقواعد البيانات، SDLC، DBMS، النماذج العلائقية، وأساسيات SQL",
+                topics: [
+                    {
+                        id: "topic1",
+                        number: "الموضوع 1",
+                        title: "System Development Life Cycle (SDLC)",
+                        description: "دورة حياة تطوير الأنظمة ومراحلها الرئيسية: التخطيط، التحليل، التصميم، التطوير، الاختبار، التطبيق، والصيانة"
+                    },
+                    {
+                        id: "topic2",
+                        number: "الموضوع 2",
+                        title: "Database Definitions and Concepts",
+                        description: "تعريفات قواعد البيانات، DBMS، RDBMS، والفرق بين أنظمة إدارة قواعد البيانات المختلفة"
+                    },
+                    {
+                        id: "topic3",
+                        number: "الموضوع 3",
+                        title: "Database Objects",
+                        description: "كائنات قواعد البيانات: Tables, Views, Sequences, Indexes, Synonyms وكيفية استخدامها"
+                    },
+                    {
+                        id: "topic4",
+                        number: "الموضوع 4",
+                        title: "Entity-Relationship Model (ERM)",
+                        description: "نموذج الكيان والعلاقة، الكيانات، الصفات، والعلاقات بين الكيانات المختلفة"
+                    },
+                    {
+                        id: "topic5",
+                        number: "الموضوع 5",
+                        title: "Primary and Foreign Keys",
+                        description: "المفاتيح الأساسية والأجنبية ودورها في ربط الجداول وضمان سلامة البيانات"
+                    },
+                    {
+                        id: "topic6",
+                        number: "الموضوع 6",
+                        title: "SQL Types and Classifications",
+                        description: "أنواع لغة SQL: DDL, DML, DCL, TCL وتطبيقاتها المختلفة"
+                    },
+                    {
+                        id: "topic7",
+                        number: "الموضوع 7",
+                        title: "Oracle Data Types",
+                        description: "أنواع البيانات في Oracle: VARCHAR2, NUMBER, DATE, CHAR وخصائصها"
+                    },
+                    {
+                        id: "topic8",
+                        number: "الموضوع 8",
+                        title: "HR Schema Overview",
+                        description: "نظرة عامة على مخطط HR والجداول الرئيسية: EMPLOYEES, DEPARTMENTS, JOBS, LOCATIONS"
+                    }
+                ]
+            },
+            file2: {
+                title: "الملف 2: لغة تعريف البيانات و لغة معالجة البيانات",
+                subtitle: "Data Definition Language (DDL) & Data Manipulation Language (DML)",
+                description: "يركز على عمليات DDL و DML، إدارة المستخدمين، القيود، والمعاملات",
+                topics: [
+                    {
+                        id: "topic1",
+                        number: "الموضوع 1",
+                        title: "Database Connection Methods",
+                        description: "طرق الاتصال بقاعدة البيانات: SQL*Plus, SQL Developer, SQL Command Line"
+                    },
+                    {
+                        id: "topic2",
+                        number: "الموضوع 2",
+                        title: "CREATE USER Statement",
+                        description: "إنشاء المستخدمين في Oracle وتحديد كلمات المرور والجداول الافتراضية"
+                    },
+                    {
+                        id: "topic3",
+                        number: "الموضوع 3",
+                        title: "GRANT Command",
+                        description: "منح الصلاحيات والامتيازات للمستخدمين: CONNECT, RESOURCE, DBA"
+                    },
+                    {
+                        id: "topic4",
+                        number: "الموضوع 4",
+                        title: "DDL Statements",
+                        description: "عمليات DDL: CREATE TABLE, ALTER TABLE, DROP TABLE, TRUNCATE TABLE"
+                    },
+                    {
+                        id: "topic5",
+                        number: "الموضوع 5",
+                        title: "Database Constraints",
+                        description: "القيود: NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY, CHECK"
+                    },
+                    {
+                        id: "topic6",
+                        number: "الموضوع 6",
+                        title: "DML Statements",
+                        description: "عمليات DML: INSERT, UPDATE, DELETE, وأمثلة تطبيقية متنوعة"
+                    },
+                    {
+                        id: "topic7",
+                        number: "الموضوع 7",
+                        title: "Transaction Control (TCL)",
+                        description: "التحكم في المعاملات: COMMIT, ROLLBACK, SAVEPOINT لضمان سلامة البيانات"
+                    }
+                ]
+            },
+            file4: {
+                title: "الملف 4: برمجة PL/SQL",
+                subtitle: "PL/SQL Programming",
+                description: "مقدمة شاملة لبرمجة PL/SQL، البلوكات، المتغيرات، وأنواع البيانات",
+                topics: [
+                    {
+                        id: "topic1",
+                        number: "الموضوع 1",
+                        title: "PL/SQL Introduction",
+                        description: "ما هي PL/SQL؟ الفرق بين SQL و PL/SQL، ومميزات البرمجة الإجرائية في قواعد البيانات"
+                    },
+                    {
+                        id: "topic2",
+                        number: "الموضوع 2",
+                        title: "PL/SQL Block Structure",
+                        description: "بنية بلوكات PL/SQL: DECLARE, BEGIN, EXCEPTION, END وكيفية كتابة برنامج كامل"
+                    },
+                    {
+                        id: "topic3",
+                        number: "الموضوع 3",
+                        title: "PL/SQL Block Types",
+                        description: "أنواع البلوكات: Anonymous Blocks, Procedures, Functions, Packages, Triggers"
+                    },
+                    {
+                        id: "topic4",
+                        number: "الموضوع 4",
+                        title: "Variables in PL/SQL",
+                        description: "المتغيرات في PL/SQL: التعريف، التهيئة، النطاق، وأفضل الممارسات"
+                    },
+                    {
+                        id: "topic5",
+                        number: "الموضوع 5",
+                        title: "PL/SQL Data Types",
+                        description: "أنواع البيانات: Scalar, Composite, Reference, LOB وخصائصها"
+                    },
+                    {
+                        id: "topic6",
+                        number: "الموضوع 6",
+                        title: "%TYPE Attribute",
+                        description: "استخدام %TYPE للربط مع أنواع البيانات من الجداول وضمان التوافق"
+                    }
+                ]
+            }
+        };
+
+        function loadChapter() {
+            if (!chapterId || !chaptersData[chapterId]) {
+                document.getElementById('chapter-title').innerHTML =
+                    '<i class="fas fa-exclamation-triangle"></i> الملف غير موجود';
+                document.getElementById('topics-container').innerHTML =
+                    '<div class="loading">الملف المطلوب غير متوفر</div>';
+                return;
+            }
+
+            const chapter = chaptersData[chapterId];
+            document.title = chapter.title;
+            document.getElementById('chapter-title').innerHTML =
+                `<i class="fas fa-database"></i> ${chapter.title}`;
+            document.getElementById('chapter-subtitle').textContent = chapter.subtitle;
+
+            const topicsContainer = document.getElementById('topics-container');
+            let topicsHTML = '';
+
+            chapter.topics.forEach(topic => {
+                topicsHTML += `
+                    <a href="chapters/${chapterId}-${topic.id}.html" class="topic-card">
+                        <div class="topic-number">${topic.number}</div>
+                        <div class="topic-title">${topic.title}</div>
+                        <div class="topic-description">${topic.description}</div>
+                    </a>
+                `;
+            });
+
+            topicsContainer.innerHTML = topicsHTML;
+        }
+
+        document.addEventListener('DOMContentLoaded', loadChapter);
+    </script>
+</body>
+</html>

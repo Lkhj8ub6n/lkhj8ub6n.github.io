@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قواعد البيانات 2 - Database II</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --primary-color: #295340;
+            --secondary-color: #dddcea;
+            --dark-bg: #222222;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-bg) 100%);
+            min-height: 100vh;
+            padding: 2rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .chapters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .chapter-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .chapter-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .chapter-number {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), #1a3d2e);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .chapter-title {
+            color: var(--dark-bg);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .chapter-description {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .chapter-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .chapter-meta i {
+            margin-left: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .chapters-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>قواعد البيانات 2</h1>
+            <p class="subtitle">Database II - Advanced Concepts</p>
+        </div>
+
+        <div class="chapters-grid">
+            <!-- الملف 1: نظرة عامة على قواعد البيانات و SQL -->
+            <div class="chapter-card" onclick="window.location.href='chapter.html?chapter=file1'">
+                <div class="chapter-number">الملف 1</div>
+                <h2 class="chapter-title">نظرة عامة على قواعد البيانات و SQL</h2>
+                <p class="chapter-description">
+                    يغطي هذا الملف المفاهيم الأساسية لقواعد البيانات بما في ذلك دورة حياة تطوير الأنظمة (SDLC)، أنظمة إدارة قواعد البيانات (DBMS)، النماذج العلائقية، المفاتيح الأساسية والأجنبية، وأساسيات لغة SQL.
+                </p>
+                <div class="chapter-meta">
+                    <span><i class="fas fa-book"></i> 8 مواضيع</span>
+                    <span><i class="fas fa-clock"></i> 45 دقيقة</span>
+                </div>
+            </div>
+
+            <!-- الملف 2: DDL و DML -->
+            <div class="chapter-card" onclick="window.location.href='chapter.html?chapter=file2'">
+                <div class="chapter-number">الملف 2</div>
+                <h2 class="chapter-title">لغة تعريف البيانات و لغة معالجة البيانات</h2>
+                <p class="chapter-description">
+                    يركز هذا الملف على عمليات DDL (لغة تعريف البيانات) و DML (لغة معالجة البيانات)، بما في ذلك إنشاء المستخدمين، الصلاحيات، القيود، وإدارة المعاملات في قواعد البيانات.
+                </p>
+                <div class="chapter-meta">
+                    <span><i class="fas fa-book"></i> 7 مواضيع</span>
+                    <span><i class="fas fa-clock"></i> 50 دقيقة</span>
+                </div>
+            </div>
+
+            <!-- الملف 4: برمجة PL/SQL -->
+            <div class="chapter-card" onclick="window.location.href='chapter.html?chapter=file4'">
+                <div class="chapter-number">الملف 4</div>
+                <h2 class="chapter-title">برمجة PL/SQL</h2>
+                <p class="chapter-description">
+                    يقدم هذا الملف مقدمة شاملة لبرمجة PL/SQL، بما في ذلك بنية البلوكات، المتغيرات، أنواع البيانات، استخدام %TYPE، وكيفية كتابة برامج قواعد بيانات فعالة.
+                </p>
+                <div class="chapter-meta">
+                    <span><i class="fas fa-book"></i> 6 مواضيع</span>
+                    <span><i class="fas fa-clock"></i> 40 دقيقة</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

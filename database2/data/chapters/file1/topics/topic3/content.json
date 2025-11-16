@@ -1,0 +1,263 @@
+{
+  "chapterId": "file1",
+  "topicId": "topic3",
+  "topicTitle": "كائنات قاعدة البيانات",
+  "topicTitleEn": "Database Objects",
+  "sections": [
+    {
+      "title": "ما هي كائنات قاعدة البيانات؟",
+      "titleEn": "What are Database Objects?",
+      "subsections": [
+        {
+          "content": "كائنات قاعدة البيانات (Database Objects) هي المكونات الأساسية التي تشكل قاعدة البيانات. كل كائن له دور ووظيفة محددة في تخزين وإدارة البيانات.",
+          "contentEn": "Database Objects are the fundamental components that make up a database. Each object has a specific role and function in storing and managing data."
+        }
+      ]
+    },
+    {
+      "title": "الكائنات الرئيسية في قاعدة البيانات",
+      "titleEn": "Main Database Objects",
+      "subsections": [
+        {
+          "subtitle": "1. Table (الجدول)",
+          "subtitleEn": "1. Table",
+          "content": "الجدول هو الكائن الأساسي لتخزين البيانات. يتكون من صفوف وأعمدة تحتوي على البيانات الفعلية.",
+          "contentEn": "A table is the basic object for storing data. It consists of rows and columns containing actual data.",
+          "list": [
+            "يحتوي على صفوف (Rows) وأعمدة (Columns)",
+            "كل صف يمثل سجل واحد (Record)",
+            "كل عمود يمثل حقل بيانات (Field)",
+            "له اسم فريد في قاعدة البيانات",
+            "يحدد نوع البيانات لكل عمود"
+          ],
+          "listEn": [
+            "Contains rows and columns",
+            "Each row represents one record",
+            "Each column represents a data field",
+            "Has a unique name in the database",
+            "Defines data type for each column"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال: جدول الطلاب",
+            "titleEn": "Example: Students Table",
+            "content": "جدول STUDENTS يحتوي على أعمدة: STUDENT_ID، NAME، MAJOR، GPA. كل صف يمثل طالب واحد.",
+            "contentEn": "STUDENTS table contains columns: STUDENT_ID, NAME, MAJOR, GPA. Each row represents one student."
+          }
+        },
+        {
+          "subtitle": "2. View (العرض/الإطلالة)",
+          "subtitleEn": "2. View",
+          "content": "العرض هو جدول افتراضي (Virtual Table) يتم إنشاؤه من استعلام على جدول أو أكثر. لا يخزن البيانات بل يعرضها.",
+          "contentEn": "A view is a virtual table created from a query on one or more tables. It doesn't store data but displays it.",
+          "list": [
+            "جدول افتراضي وليس فعلي",
+            "يستخدم لتبسيط الاستعلامات المعقدة",
+            "يوفر مستوى أمان إضافي",
+            "يخفي تعقيد البيانات عن المستخدمين",
+            "يتم تحديثه تلقائياً عند تغيير الجداول الأصلية"
+          ],
+          "listEn": [
+            "Virtual table, not physical",
+            "Used to simplify complex queries",
+            "Provides additional security level",
+            "Hides data complexity from users",
+            "Automatically updated when source tables change"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال توضيحي",
+            "titleEn": "Example",
+            "content": "بدلاً من السماح للمستخدمين برؤية جدول الموظفين الكامل بما فيه الرواتب، تنشئ View تعرض فقط الاسم والقسم دون الراتب.",
+            "contentEn": "Instead of allowing users to see the complete employees table including salaries, create a View showing only name and department without salary."
+          }
+        },
+        {
+          "subtitle": "3. Index (الفهرس)",
+          "subtitleEn": "3. Index",
+          "content": "الفهرس هو هيكل بيانات يسرع عمليات البحث والاسترجاع في الجداول الكبيرة.",
+          "contentEn": "An index is a data structure that speeds up search and retrieval operations in large tables.",
+          "list": [
+            "يسرع عمليات البحث بشكل كبير",
+            "يشبه فهرس الكتاب الذي يساعدك في إيجاد الصفحات بسرعة",
+            "يستهلك مساحة تخزين إضافية",
+            "قد يبطئ عمليات الإدخال والتحديث",
+            "يُنشأ تلقائياً على المفاتيح الأساسية"
+          ],
+          "listEn": [
+            "Significantly speeds up search operations",
+            "Like a book index that helps you find pages quickly",
+            "Consumes additional storage space",
+            "May slow down insert and update operations",
+            "Automatically created on primary keys"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "تشبيه بسيط",
+            "titleEn": "Simple Analogy",
+            "content": "الفهرس كفهرس الكتاب: بدلاً من تصفح 500 صفحة للبحث عن موضوع، تذهب للفهرس مباشرة وتجد رقم الصفحة.",
+            "contentEn": "Index is like a book index: instead of browsing 500 pages to search for a topic, you go directly to the index and find the page number."
+          }
+        },
+        {
+          "subtitle": "4. Sequence (التسلسل)",
+          "subtitleEn": "4. Sequence",
+          "content": "التسلسل هو كائن يولد أرقام فريدة متتالية، يُستخدم غالباً للمفاتيح الأساسية.",
+          "contentEn": "A sequence is an object that generates unique sequential numbers, often used for primary keys.",
+          "list": [
+            "يولد أرقام فريدة ومتسلسلة",
+            "يستخدم للمفاتيح الأساسية (Primary Keys)",
+            "يمكن تحديد قيمة البداية والزيادة",
+            "مستقل عن الجداول",
+            "يمكن استخدامه في أكثر من جدول"
+          ],
+          "listEn": [
+            "Generates unique sequential numbers",
+            "Used for primary keys",
+            "Can define start value and increment",
+            "Independent of tables",
+            "Can be used in multiple tables"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "إنشاء sequence باسم STUDENT_SEQ يبدأ من 1 ويزيد بمقدار 1. عند إدخال طالب جديد، يأخذ الرقم التالي تلقائياً: 1، 2، 3، إلخ.",
+            "contentEn": "Create a sequence named STUDENT_SEQ starting from 1 and incrementing by 1. When inserting a new student, it automatically takes the next number: 1, 2, 3, etc."
+          }
+        },
+        {
+          "subtitle": "5. Synonym (الاسم المستعار)",
+          "subtitleEn": "5. Synonym",
+          "content": "الاسم المستعار هو اسم بديل لكائن في قاعدة البيانات، يسهل الوصول للكائنات.",
+          "contentEn": "A synonym is an alternative name for a database object, making it easier to access objects.",
+          "list": [
+            "اسم بديل لجدول أو كائن آخر",
+            "يسهل الوصول للكائنات",
+            "يخفي الموقع الفعلي للكائن",
+            "مفيد عند تغيير أسماء الكائنات",
+            "يستخدم للتوافق مع التطبيقات القديمة"
+          ],
+          "listEn": [
+            "Alternative name for a table or other object",
+            "Facilitates access to objects",
+            "Hides actual object location",
+            "Useful when changing object names",
+            "Used for compatibility with old applications"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "بدلاً من كتابة HR.EMPLOYEES (الاسم الكامل)، تنشئ synonym اسمه EMP يشير لنفس الجدول.",
+            "contentEn": "Instead of writing HR.EMPLOYEES (full name), create a synonym named EMP pointing to the same table."
+          }
+        },
+        {
+          "subtitle": "6. Stored Procedure (الإجراء المخزن)",
+          "subtitleEn": "6. Stored Procedure",
+          "content": "الإجراء المخزن هو مجموعة من أوامر SQL محفوظة في قاعدة البيانات يمكن تنفيذها كوحدة واحدة.",
+          "contentEn": "A stored procedure is a set of SQL commands saved in the database that can be executed as one unit.",
+          "list": [
+            "مجموعة أوامر SQL محفوظة",
+            "يمكن قبول معاملات (Parameters)",
+            "يحسن الأداء لأنه مترجم مسبقاً",
+            "يقلل من حركة البيانات على الشبكة",
+            "يسهل الصيانة والتحديث"
+          ],
+          "listEn": [
+            "Set of saved SQL commands",
+            "Can accept parameters",
+            "Improves performance as it's pre-compiled",
+            "Reduces network traffic",
+            "Facilitates maintenance and updates"
+          ],
+          "listType": "ul"
+        },
+        {
+          "subtitle": "7. Function (الدالة)",
+          "subtitleEn": "7. Function",
+          "content": "الدالة هي كائن مشابه للإجراء المخزن لكنها ترجع قيمة واحدة.",
+          "contentEn": "A function is an object similar to a stored procedure but returns a single value.",
+          "list": [
+            "ترجع قيمة واحدة",
+            "يمكن استخدامها في استعلامات SQL",
+            "تقبل معاملات (Parameters)",
+            "تستخدم للحسابات والعمليات المعقدة",
+            "يمكن استخدامها في SELECT، WHERE، إلخ"
+          ],
+          "listEn": [
+            "Returns a single value",
+            "Can be used in SQL queries",
+            "Accepts parameters",
+            "Used for calculations and complex operations",
+            "Can be used in SELECT, WHERE, etc."
+          ],
+          "listType": "ul"
+        },
+        {
+          "subtitle": "8. Trigger (المحفز/المشغل)",
+          "subtitleEn": "8. Trigger",
+          "content": "المحفز هو إجراء يتم تنفيذه تلقائياً عند حدوث حدث معين (إدخال، تحديث، حذف).",
+          "contentEn": "A trigger is a procedure that executes automatically when a specific event occurs (insert, update, delete).",
+          "list": [
+            "يعمل تلقائياً عند حدث معين",
+            "يستخدم لفرض قواعد العمل",
+            "يحفظ سجل التغييرات (Audit Trail)",
+            "يمنع العمليات غير المصرح بها",
+            "ينفذ قبل أو بعد الحدث"
+          ],
+          "listEn": [
+            "Executes automatically on specific event",
+            "Used to enforce business rules",
+            "Maintains audit trail",
+            "Prevents unauthorized operations",
+            "Executes before or after the event"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "عند حذف طالب من جدول STUDENTS، trigger يحفظ تلقائياً بيانات الطالب المحذوف في جدول DELETED_STUDENTS للأرشفة.",
+            "contentEn": "When deleting a student from STUDENTS table, a trigger automatically saves the deleted student's data in DELETED_STUDENTS table for archiving."
+          }
+        }
+      ]
+    },
+    {
+      "title": "ملخص الكائنات",
+      "titleEn": "Objects Summary",
+      "subsections": [
+        {
+          "list": [
+            "Table: تخزين البيانات الفعلية",
+            "View: جدول افتراضي للعرض",
+            "Index: تسريع البحث",
+            "Sequence: توليد أرقام فريدة",
+            "Synonym: اسم مستعار للكائنات",
+            "Stored Procedure: مجموعة أوامر محفوظة",
+            "Function: دالة ترجع قيمة",
+            "Trigger: إجراء تلقائي عند حدث"
+          ],
+          "listEn": [
+            "Table: Store actual data",
+            "View: Virtual table for display",
+            "Index: Speed up search",
+            "Sequence: Generate unique numbers",
+            "Synonym: Alias for objects",
+            "Stored Procedure: Saved commands set",
+            "Function: Returns a value",
+            "Trigger: Automatic action on event"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "نصيحة للدراسة",
+            "titleEn": "Study Tip",
+            "content": "احفظ الكائنات الثمانية ووظيفة كل منها. ركز على الفرق بين View و Table، وبين Procedure و Function.",
+            "contentEn": "Memorize the eight objects and the function of each. Focus on the difference between View and Table, and between Procedure and Function."
+          }
+        }
+      ]
+    }
+  ]
+}

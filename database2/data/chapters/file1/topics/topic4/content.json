@@ -1,0 +1,215 @@
+{
+  "chapterId": "file1",
+  "topicId": "topic4",
+  "topicTitle": "نموذج العلاقات بين الكيانات (ERM)",
+  "topicTitleEn": "Entity Relationship Model (ERM)",
+  "sections": [
+    {
+      "title": "ما هو نموذج العلاقات بين الكيانات؟",
+      "titleEn": "What is Entity Relationship Model?",
+      "subsections": [
+        {
+          "content": "نموذج العلاقات بين الكيانات (ERM) هو طريقة لتمثيل وتصميم قاعدة البيانات بصرياً. يوضح الكيانات (Entities)، الصفات (Attributes)، والعلاقات (Relationships) بينها.",
+          "contentEn": "Entity Relationship Model (ERM) is a method to visually represent and design a database. It shows entities, attributes, and relationships between them.",
+          "highlight": {
+            "title": "لماذا نستخدم ERM؟",
+            "titleEn": "Why Use ERM?",
+            "content": "لتصميم قاعدة البيانات بطريقة واضحة ومفهومة قبل البدء في كتابة الأكواد، مما يقلل الأخطاء ويسهل التواصل بين الفريق.",
+            "contentEn": "To design the database in a clear and understandable way before starting to write code, reducing errors and facilitating team communication."
+          }
+        }
+      ]
+    },
+    {
+      "title": "المكونات الأساسية لـ ERM",
+      "titleEn": "Basic Components of ERM",
+      "subsections": [
+        {
+          "subtitle": "1. Entity (الكيان)",
+          "subtitleEn": "1. Entity",
+          "content": "الكيان هو شيء أو كائن له وجود مستقل في العالم الحقيقي يمكن تمييزه عن غيره. يمثل بمستطيل في المخطط.",
+          "contentEn": "An entity is a thing or object with independent existence in the real world that can be distinguished from others. Represented by a rectangle in the diagram.",
+          "list": [
+            "أمثلة: طالب، موظف، منتج، طلبية",
+            "له اسم فريد",
+            "يصبح جدول (Table) في قاعدة البيانات",
+            "كل كيان له صفات (Attributes)",
+            "يرسم كمستطيل في ERD"
+          ],
+          "listEn": [
+            "Examples: Student, Employee, Product, Order",
+            "Has unique name",
+            "Becomes a table in database",
+            "Each entity has attributes",
+            "Drawn as rectangle in ERD"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "في نظام جامعة: الكيانات هي STUDENT، COURSE، INSTRUCTOR، DEPARTMENT",
+            "contentEn": "In university system: entities are STUDENT, COURSE, INSTRUCTOR, DEPARTMENT"
+          }
+        },
+        {
+          "subtitle": "2. Attribute (الصفة/الخاصية)",
+          "subtitleEn": "2. Attribute",
+          "content": "الصفة هي خاصية أو معلومة تصف الكيان. تمثل بشكل بيضاوي في المخطط.",
+          "contentEn": "An attribute is a property or information describing the entity. Represented by an oval in the diagram.",
+          "list": [
+            "أمثلة: الاسم، العمر، العنوان، الراتب",
+            "تصبح عمود (Column) في الجدول",
+            "لكل صفة نوع بيانات محدد",
+            "ترسم كشكل بيضاوي",
+            "مرتبطة بالكيان بخط"
+          ],
+          "listEn": [
+            "Examples: Name, Age, Address, Salary",
+            "Becomes a column in table",
+            "Each attribute has specific data type",
+            "Drawn as oval",
+            "Connected to entity by line"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "كيان STUDENT له صفات: STUDENT_ID، NAME، MAJOR، GPA، PHONE",
+            "contentEn": "STUDENT entity has attributes: STUDENT_ID, NAME, MAJOR, GPA, PHONE"
+          }
+        },
+        {
+          "subtitle": "3. Relationship (العلاقة)",
+          "subtitleEn": "3. Relationship",
+          "content": "العلاقة توضح كيف ترتبط الكيانات ببعضها. تمثل بشكل معين (Diamond) في المخطط.",
+          "contentEn": "A relationship shows how entities are connected to each other. Represented by a diamond in the diagram.",
+          "list": [
+            "أمثلة: يدرس، يعمل في، يشتري، يملك",
+            "تربط كيانين أو أكثر",
+            "ترسم كمعين",
+            "لها نوع (One-to-One، One-to-Many، Many-to-Many)",
+            "قد تصبح جدول منفصل في قاعدة البيانات"
+          ],
+          "listEn": [
+            "Examples: Studies, Works in, Buys, Owns",
+            "Connects two or more entities",
+            "Drawn as diamond",
+            "Has type (One-to-One, One-to-Many, Many-to-Many)",
+            "May become separate table in database"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "علاقة 'يدرس' (ENROLLS) تربط بين STUDENT و COURSE",
+            "contentEn": "Relationship 'ENROLLS' connects STUDENT and COURSE"
+          }
+        },
+        {
+          "subtitle": "4. Primary Key (المفتاح الأساسي)",
+          "subtitleEn": "4. Primary Key",
+          "content": "المفتاح الأساسي هو صفة أو مجموعة صفات تميز كل سجل بشكل فريد في الجدول.",
+          "contentEn": "Primary key is an attribute or set of attributes that uniquely identifies each record in the table.",
+          "list": [
+            "يميز كل سجل بشكل فريد",
+            "لا يمكن أن يكون NULL",
+            "لا يتكرر",
+            "يوضع تحته خط في ERD",
+            "مثال: STUDENT_ID، EMPLOYEE_ID"
+          ],
+          "listEn": [
+            "Uniquely identifies each record",
+            "Cannot be NULL",
+            "No duplicates",
+            "Underlined in ERD",
+            "Example: STUDENT_ID, EMPLOYEE_ID"
+          ],
+          "listType": "ul"
+        }
+      ]
+    },
+    {
+      "title": "أنواع العلاقات",
+      "titleEn": "Types of Relationships",
+      "subsections": [
+        {
+          "subtitle": "1. One-to-One (1:1) - واحد لواحد",
+          "subtitleEn": "1. One-to-One (1:1)",
+          "content": "كل سجل في الكيان الأول يرتبط بسجل واحد فقط في الكيان الثاني والعكس صحيح.",
+          "contentEn": "Each record in the first entity is related to only one record in the second entity and vice versa.",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "كل موظف له مكتب واحد فقط، وكل مكتب لموظف واحد فقط. EMPLOYEE (1:1) OFFICE",
+            "contentEn": "Each employee has only one office, and each office for only one employee. EMPLOYEE (1:1) OFFICE"
+          }
+        },
+        {
+          "subtitle": "2. One-to-Many (1:N) - واحد لمتعدد",
+          "subtitleEn": "2. One-to-Many (1:N)",
+          "content": "كل سجل في الكيان الأول يمكن أن يرتبط بأكثر من سجل في الكيان الثاني، لكن العكس غير صحيح.",
+          "contentEn": "Each record in the first entity can be related to multiple records in the second entity, but not vice versa.",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "قسم واحد يحتوي على عدة موظفين، لكن كل موظف ينتمي لقسم واحد. DEPARTMENT (1:N) EMPLOYEE",
+            "contentEn": "One department contains several employees, but each employee belongs to one department. DEPARTMENT (1:N) EMPLOYEE"
+          }
+        },
+        {
+          "subtitle": "3. Many-to-Many (N:M) - متعدد لمتعدد",
+          "subtitleEn": "3. Many-to-Many (N:M)",
+          "content": "كل سجل في الكيان الأول يمكن أن يرتبط بأكثر من سجل في الكيان الثاني والعكس صحيح.",
+          "contentEn": "Each record in the first entity can be related to multiple records in the second entity and vice versa.",
+          "highlight": {
+            "title": "مثال",
+            "titleEn": "Example",
+            "content": "كل طالب يدرس عدة مواد، وكل مادة يدرسها عدة طلاب. STUDENT (N:M) COURSE. تحتاج لجدول وسيط ENROLLMENT",
+            "contentEn": "Each student studies several courses, and each course is studied by several students. STUDENT (N:M) COURSE. Needs intermediate table ENROLLMENT"
+          }
+        }
+      ]
+    },
+    {
+      "title": "ERD - مخطط العلاقات بين الكيانات",
+      "titleEn": "ERD - Entity Relationship Diagram",
+      "subsections": [
+        {
+          "content": "مخطط ERD هو التمثيل البصري لنموذج ERM. يستخدم أشكال هندسية لتوضيح الكيانات والعلاقات.",
+          "contentEn": "ERD is the visual representation of ERM model. Uses geometric shapes to illustrate entities and relationships.",
+          "list": [
+            "مستطيل = كيان (Entity)",
+            "بيضاوي = صفة (Attribute)",
+            "معين = علاقة (Relationship)",
+            "خط = رابط بين الكيان والصفة",
+            "الصفات ذات الخط تحتها = مفاتيح أساسية"
+          ],
+          "listEn": [
+            "Rectangle = Entity",
+            "Oval = Attribute",
+            "Diamond = Relationship",
+            "Line = Link between entity and attribute",
+            "Underlined attributes = Primary keys"
+          ],
+          "listType": "ul"
+        }
+      ]
+    },
+    {
+      "title": "ملخص سريع",
+      "titleEn": "Quick Summary",
+      "subsections": [
+        {
+          "content": "ERM = نموذج تصميم قاعدة البيانات بصرياً. الكيانات تصبح جداول، الصفات تصبح أعمدة، العلاقات توضح كيف ترتبط الجداول.",
+          "contentEn": "ERM = visual database design model. Entities become tables, attributes become columns, relationships show how tables are connected.",
+          "highlight": {
+            "title": "نصيحة للدراسة",
+            "titleEn": "Study Tip",
+            "content": "احفظ الأشكال: مستطيل للكيان، بيضاوي للصفة، معين للعلاقة. افهم الفرق بين أنواع العلاقات الثلاثة (1:1، 1:N، N:M)",
+            "contentEn": "Memorize shapes: rectangle for entity, oval for attribute, diamond for relationship. Understand difference between three relationship types (1:1, 1:N, N:M)"
+          }
+        }
+      ]
+    }
+  ]
+}

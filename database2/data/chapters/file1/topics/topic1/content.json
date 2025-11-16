@@ -1,0 +1,254 @@
+{
+  "chapterId": "file1",
+  "topicId": "topic1",
+  "topicTitle": "دورة حياة تطوير الأنظمة (SDLC)",
+  "topicTitleEn": "System Development Life Cycle (SDLC)",
+  "sections": [
+    {
+      "title": "ما هي دورة حياة تطوير الأنظمة؟",
+      "titleEn": "What is SDLC?",
+      "subsections": [
+        {
+          "content": "دورة حياة تطوير الأنظمة (SDLC) هي عملية منهجية ومنظمة لتطوير أنظمة المعلومات من البداية إلى النهاية. تتكون من مراحل متسلسلة تبدأ بالتخطيط وتنتهي بالصيانة، مما يضمن بناء أنظمة عالية الجودة تلبي احتياجات المستخدمين.",
+          "contentEn": "The System Development Life Cycle (SDLC) is a systematic and organized process for developing information systems from start to finish. It consists of sequential phases starting with planning and ending with maintenance, ensuring the construction of high-quality systems that meet user needs."
+        }
+      ]
+    },
+    {
+      "title": "مراحل دورة حياة تطوير الأنظمة",
+      "titleEn": "SDLC Phases",
+      "subsections": [
+        {
+          "subtitle": "المرحلة الأولى: التخطيط (Planning)",
+          "subtitleEn": "Phase 1: Planning",
+          "content": "مرحلة التخطيط هي نقطة البداية لأي مشروع نظام معلومات. في هذه المرحلة يتم تحديد أهداف المشروع، دراسة الجدوى، وتخصيص الموارد اللازمة.",
+          "contentEn": "The planning phase is the starting point for any information system project. In this phase, project objectives are defined, feasibility is studied, and necessary resources are allocated.",
+          "list": [
+            "تحديد أهداف المشروع والنتائج المتوقعة",
+            "دراسة الجدوى (تقنية، اقتصادية، تشغيلية)",
+            "تقدير التكاليف والوقت المطلوب",
+            "تحديد نطاق المشروع وحدوده",
+            "تشكيل فريق العمل وتوزيع المهام"
+          ],
+          "listEn": [
+            "Define project goals and expected outcomes",
+            "Conduct feasibility study (technical, economic, operational)",
+            "Estimate costs and required time",
+            "Define project scope and boundaries",
+            "Form the team and distribute tasks"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال من الواقع",
+            "titleEn": "Real-World Example",
+            "content": "بنك يريد تطوير تطبيق موبايل للخدمات المصرفية. في مرحلة التخطيط: يحددون الأهداف (تسهيل التحويلات، دفع الفواتير)، يدرسون الجدوى (هل التكلفة مناسبة؟ هل البنية التحتية جاهزة؟)، ويقدرون أن المشروع سيستغرق 6 أشهر بتكلفة 200 ألف دولار.",
+            "contentEn": "A bank wants to develop a mobile banking app. In the planning phase: they define goals (facilitate transfers, bill payments), study feasibility (is the cost appropriate? is infrastructure ready?), and estimate the project will take 6 months at a cost of $200,000."
+          }
+        },
+        {
+          "subtitle": "المرحلة الثانية: التحليل (Analysis)",
+          "subtitleEn": "Phase 2: Analysis",
+          "content": "في هذه المرحلة يتم جمع وتحليل المتطلبات بالتفصيل، دراسة النظام الحالي، وتحديد المشاكل التي يجب حلها.",
+          "contentEn": "In this phase, requirements are gathered and analyzed in detail, the current system is studied, and problems to be solved are identified.",
+          "list": [
+            "جمع المتطلبات من المستخدمين والإدارة",
+            "دراسة وتحليل النظام الحالي",
+            "تحديد المشاكل والفجوات الموجودة",
+            "توثيق المتطلبات الوظيفية وغير الوظيفية",
+            "إنشاء نماذج وتقارير التحليل"
+          ],
+          "listEn": [
+            "Gather requirements from users and management",
+            "Study and analyze the current system",
+            "Identify existing problems and gaps",
+            "Document functional and non-functional requirements",
+            "Create analysis models and reports"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال من الواقع",
+            "titleEn": "Real-World Example",
+            "content": "مستشفى يريد تطوير نظام إدارة المرضى. فريق التحليل يجري مقابلات مع الأطباء والممرضات والإداريين، يدرس النظام الورقي الحالي، يكتشف مشاكل مثل: ضياع الملفات، تكرار الفحوصات، صعوبة الوصول للمعلومات. يوثق المتطلبات: النظام يجب أن يسمح بحجز المواعيد، تسجيل التشخيصات، وطباعة التقارير.",
+            "contentEn": "A hospital wants to develop a patient management system. The analysis team conducts interviews with doctors, nurses, and administrators, studies the current paper system, discovers problems like: lost files, duplicate tests, difficulty accessing information. Documents requirements: the system must allow appointment booking, recording diagnoses, and printing reports."
+          }
+        },
+        {
+          "subtitle": "المرحلة الثالثة: التصميم (Design)",
+          "subtitleEn": "Phase 3: Design",
+          "content": "مرحلة التصميم تحول المتطلبات إلى مخططات وتصاميم تقنية تفصيلية. يتم فيها تصميم قاعدة البيانات، واجهات المستخدم، والبنية المعمارية للنظام.",
+          "contentEn": "The design phase transforms requirements into detailed technical blueprints and designs. Database, user interfaces, and system architecture are designed.",
+          "list": [
+            "تصميم قاعدة البيانات (الجداول، العلاقات، المفاتيح)",
+            "تصميم واجهات المستخدم (Screens، Forms)",
+            "تصميم البنية المعمارية للنظام",
+            "تصميم خوارزميات المعالجة",
+            "إعداد المخططات التقنية (ERD، DFD، UML)"
+          ],
+          "listEn": [
+            "Design database (tables, relationships, keys)",
+            "Design user interfaces (screens, forms)",
+            "Design system architecture",
+            "Design processing algorithms",
+            "Prepare technical diagrams (ERD, DFD, UML)"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال من الواقع",
+            "titleEn": "Real-World Example",
+            "content": "لنظام المستشفى: يصمم فريق التصميم قاعدة بيانات تحتوي على جداول (المرضى، الأطباء، المواعيد، الفحوصات)، يرسمون واجهات الشاشات (شاشة التسجيل، شاشة الحجز، شاشة التقارير)، يقررون استخدام بنية Client-Server، ويرسمون مخطط ERD لتوضيح العلاقات بين الجداول.",
+            "contentEn": "For the hospital system: the design team designs a database containing tables (patients, doctors, appointments, tests), draws screen interfaces (registration screen, booking screen, reports screen), decides to use Client-Server architecture, and draws an ERD diagram to illustrate table relationships."
+          }
+        },
+        {
+          "subtitle": "المرحلة الرابعة: التطوير (Development)",
+          "subtitleEn": "Phase 4: Development",
+          "content": "في هذه المرحلة يتم تحويل التصاميم إلى كود برمجي فعلي. المبرمجون يكتبون الأكواد، ينشئون قواعد البيانات، ويبنون النظام حسب المواصفات.",
+          "contentEn": "In this phase, designs are transformed into actual code. Programmers write code, create databases, and build the system according to specifications.",
+          "list": [
+            "كتابة الأكواد البرمجية (Coding)",
+            "إنشاء قاعدة البيانات والجداول",
+            "تطوير الوحدات والمكونات",
+            "دمج المكونات المختلفة",
+            "توثيق الكود البرمجي"
+          ],
+          "listEn": [
+            "Write programming code (Coding)",
+            "Create database and tables",
+            "Develop modules and components",
+            "Integrate different components",
+            "Document the code"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال من الواقع",
+            "titleEn": "Real-World Example",
+            "content": "لنظام المستشفى: المبرمجون يستخدمون لغة C# وقاعدة بيانات Oracle. ينشئون الجداول بأوامر CREATE TABLE، يكتبون الأكواد للشاشات، يطورون وحدات (وحدة الحجز، وحدة التقارير، وحدة الفواتير)، ويدمجونها معاً لتعمل كنظام واحد متكامل.",
+            "contentEn": "For the hospital system: programmers use C# language and Oracle database. They create tables with CREATE TABLE commands, write code for screens, develop modules (booking module, reports module, billing module), and integrate them to work as one integrated system."
+          }
+        },
+        {
+          "subtitle": "المرحلة الخامسة: الاختبار (Testing)",
+          "subtitleEn": "Phase 5: Testing",
+          "content": "مرحلة الاختبار تضمن أن النظام يعمل بشكل صحيح وخالٍ من الأخطاء. يتم اختبار جميع الوظائف والأداء والأمان قبل النشر.",
+          "contentEn": "The testing phase ensures the system works correctly and is error-free. All functions, performance, and security are tested before deployment.",
+          "list": [
+            "اختبار الوحدات (Unit Testing)",
+            "اختبار التكامل (Integration Testing)",
+            "اختبار النظام (System Testing)",
+            "اختبار قبول المستخدم (UAT)",
+            "اختبار الأداء والأمان"
+          ],
+          "listEn": [
+            "Unit Testing",
+            "Integration Testing",
+            "System Testing",
+            "User Acceptance Testing (UAT)",
+            "Performance and Security Testing"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال من الواقع",
+            "titleEn": "Real-World Example",
+            "content": "لنظام المستشفى: يختبر المطورون كل وحدة على حدة، ثم يختبرون تكامل الوحدات، يجرون اختبار كامل للنظام بإدخال بيانات وهمية، يطلبون من الأطباء والممرضات تجربة النظام (UAT)، ويختبرون إذا كان النظام يتحمل 100 مستخدم في نفس الوقت.",
+            "contentEn": "For the hospital system: developers test each module separately, then test module integration, conduct full system testing by entering dummy data, ask doctors and nurses to try the system (UAT), and test if the system can handle 100 simultaneous users."
+          }
+        },
+        {
+          "subtitle": "المرحلة السادسة: التنفيذ (Implementation/Deployment)",
+          "subtitleEn": "Phase 6: Implementation/Deployment",
+          "content": "في هذه المرحلة يتم نشر النظام للاستخدام الفعلي في بيئة العمل الحقيقية. يشمل ذلك تركيب النظام، تدريب المستخدمين، ونقل البيانات.",
+          "contentEn": "In this phase, the system is deployed for actual use in the real work environment. This includes system installation, user training, and data migration.",
+          "list": [
+            "تركيب النظام على الخوادم",
+            "نقل البيانات من النظام القديم",
+            "تدريب المستخدمين",
+            "إعداد دليل الاستخدام",
+            "تشغيل النظام رسمياً"
+          ],
+          "listEn": [
+            "Install system on servers",
+            "Migrate data from old system",
+            "Train users",
+            "Prepare user manual",
+            "Launch system officially"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال من الواقع",
+            "titleEn": "Real-World Example",
+            "content": "لنظام المستشفى: يركب فريق IT النظام على خوادم المستشفى، ينقلون بيانات المرضى من الملفات الورقية إلى قاعدة البيانات، يعقدون دورات تدريبية للموظفين على مدى أسبوعين، يعدون دليل استخدام مصور، وفي اليوم المحدد يبدأون استخدام النظام رسمياً.",
+            "contentEn": "For the hospital system: IT team installs the system on hospital servers, migrates patient data from paper files to the database, holds training sessions for staff over two weeks, prepares an illustrated user manual, and on the specified day begins officially using the system."
+          }
+        },
+        {
+          "subtitle": "المرحلة السابعة: الصيانة (Maintenance)",
+          "subtitleEn": "Phase 7: Maintenance",
+          "content": "الصيانة هي المرحلة المستمرة التي تلي التنفيذ. تشمل إصلاح الأخطاء، إضافة ميزات جديدة، وتحديث النظام باستمرار.",
+          "contentEn": "Maintenance is the ongoing phase that follows implementation. It includes fixing bugs, adding new features, and continuously updating the system.",
+          "list": [
+            "الصيانة التصحيحية (إصلاح الأخطاء)",
+            "الصيانة التكيفية (التكيف مع التغييرات)",
+            "الصيانة التحسينية (إضافة ميزات جديدة)",
+            "الصيانة الوقائية (منع المشاكل المستقبلية)",
+            "الدعم الفني المستمر"
+          ],
+          "listEn": [
+            "Corrective maintenance (fixing bugs)",
+            "Adaptive maintenance (adapting to changes)",
+            "Perfective maintenance (adding new features)",
+            "Preventive maintenance (preventing future problems)",
+            "Continuous technical support"
+          ],
+          "listType": "ul",
+          "highlight": {
+            "title": "مثال من الواقع",
+            "titleEn": "Real-World Example",
+            "content": "لنظام المستشفى: بعد التشغيل، يكتشف المستخدمون خطأ في حساب الفواتير فيصلحه المطورون (صيانة تصحيحية)، تصدر الحكومة قانون جديد لحفظ السجلات فيعدلون النظام ليتوافق معه (صيانة تكيفية)، الإدارة تطلب إضافة تطبيق موبايل فيطورونه (صيانة تحسينية).",
+            "contentEn": "For the hospital system: after launch, users discover a billing calculation error so developers fix it (corrective maintenance), government issues new record-keeping law so they modify the system to comply (adaptive maintenance), management requests adding a mobile app so they develop it (perfective maintenance)."
+          }
+        }
+      ]
+    },
+    {
+      "title": "أهمية SDLC في تطوير قواعد البيانات",
+      "titleEn": "Importance of SDLC in Database Development",
+      "subsections": [
+        {
+          "content": "تطبيق SDLC في تطوير أنظمة قواعد البيانات يضمن بناء أنظمة منظمة، قابلة للصيانة، وتلبي احتياجات العمل بكفاءة.",
+          "contentEn": "Applying SDLC in database system development ensures building organized, maintainable systems that efficiently meet business needs.",
+          "list": [
+            "يضمن التخطيط السليم لبنية قاعدة البيانات",
+            "يقلل من الأخطاء في التصميم والتطوير",
+            "يحسن جودة وأداء قاعدة البيانات",
+            "يسهل صيانة وتطوير النظام مستقبلاً",
+            "يوفر الوقت والتكاليف على المدى الطويل"
+          ],
+          "listEn": [
+            "Ensures proper planning of database structure",
+            "Reduces errors in design and development",
+            "Improves database quality and performance",
+            "Facilitates future system maintenance and development",
+            "Saves time and costs in the long run"
+          ],
+          "listType": "ul"
+        }
+      ]
+    },
+    {
+      "title": "ملخص سريع",
+      "titleEn": "Quick Summary",
+      "subsections": [
+        {
+          "content": "دورة حياة تطوير الأنظمة (SDLC) = 7 مراحل متسلسلة: التخطيط، التحليل، التصميم، التطوير، الاختبار، التنفيذ، والصيانة. كل مرحلة مهمة ولا يمكن تجاوزها لضمان نجاح المشروع.",
+          "contentEn": "System Development Life Cycle (SDLC) = 7 sequential phases: Planning, Analysis, Design, Development, Testing, Implementation, and Maintenance. Each phase is important and cannot be skipped to ensure project success.",
+          "highlight": {
+            "title": "نصيحة للدراسة",
+            "titleEn": "Study Tip",
+            "content": "احفظ المراحل السبع بالترتيب، وركز على فهم ما يحدث في كل مرحلة وليس فقط حفظ الأسماء. استخدم الأمثلة الواقعية لتسهيل الحفظ.",
+            "contentEn": "Memorize the seven phases in order, and focus on understanding what happens in each phase, not just memorizing names. Use real-world examples to facilitate memorization."
+          }
+        }
+      ]
+    }
+  ]
+}

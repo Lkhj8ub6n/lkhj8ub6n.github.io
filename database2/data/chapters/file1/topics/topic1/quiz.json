@@ -1,0 +1,286 @@
+{
+  "mcq": [
+    {
+      "id": "q1",
+      "question": "كم عدد المراحل الرئيسية في دورة حياة تطوير الأنظمة (SDLC)؟",
+      "questionEn": "How many main phases are in the System Development Life Cycle (SDLC)?",
+      "options": [
+        "5 مراحل",
+        "6 مراحل",
+        "7 مراحل",
+        "8 مراحل"
+      ],
+      "optionsEn": [
+        "5 phases",
+        "6 phases",
+        "7 phases",
+        "8 phases"
+      ],
+      "correct": 2,
+      "explanation": "دورة حياة تطوير الأنظمة تتكون من 7 مراحل رئيسية: التخطيط، التحليل، التصميم، التطوير، الاختبار، التنفيذ، والصيانة",
+      "explanationEn": "The System Development Life Cycle consists of 7 main phases: Planning, Analysis, Design, Development, Testing, Implementation, and Maintenance"
+    },
+    {
+      "id": "q2",
+      "question": "ما هي المرحلة الأولى في SDLC؟",
+      "questionEn": "What is the first phase in SDLC?",
+      "options": [
+        "التحليل",
+        "التخطيط",
+        "التصميم",
+        "التطوير"
+      ],
+      "optionsEn": [
+        "Analysis",
+        "Planning",
+        "Design",
+        "Development"
+      ],
+      "correct": 1,
+      "explanation": "التخطيط هو المرحلة الأولى في SDLC حيث يتم تحديد أهداف المشروع ودراسة الجدوى",
+      "explanationEn": "Planning is the first phase in SDLC where project goals are defined and feasibility is studied"
+    },
+    {
+      "id": "q3",
+      "question": "ماذا يتم في مرحلة التحليل (Analysis)؟",
+      "questionEn": "What happens in the Analysis phase?",
+      "options": [
+        "كتابة الأكواد البرمجية",
+        "جمع وتحليل المتطلبات",
+        "اختبار النظام",
+        "نشر النظام"
+      ],
+      "optionsEn": [
+        "Writing code",
+        "Gathering and analyzing requirements",
+        "Testing the system",
+        "Deploying the system"
+      ],
+      "correct": 1,
+      "explanation": "في مرحلة التحليل يتم جمع المتطلبات من المستخدمين، دراسة النظام الحالي، وتحديد المشاكل",
+      "explanationEn": "In the Analysis phase, requirements are gathered from users, the current system is studied, and problems are identified"
+    },
+    {
+      "id": "q4",
+      "question": "أي مما يلي يتم في مرحلة التصميم (Design)؟",
+      "questionEn": "Which of the following occurs in the Design phase?",
+      "options": [
+        "تدريب المستخدمين",
+        "تصميم قاعدة البيانات والواجهات",
+        "إصلاح الأخطاء",
+        "دراسة الجدوى"
+      ],
+      "optionsEn": [
+        "Training users",
+        "Designing database and interfaces",
+        "Fixing bugs",
+        "Studying feasibility"
+      ],
+      "correct": 1,
+      "explanation": "في مرحلة التصميم يتم تصميم قاعدة البيانات، واجهات المستخدم، والبنية المعمارية للنظام",
+      "explanationEn": "In the Design phase, database, user interfaces, and system architecture are designed"
+    },
+    {
+      "id": "q5",
+      "question": "ما هو الهدف الرئيسي من مرحلة الاختبار (Testing)؟",
+      "questionEn": "What is the main goal of the Testing phase?",
+      "options": [
+        "كتابة الكود",
+        "التأكد من خلو النظام من الأخطاء",
+        "تصميم الواجهات",
+        "جمع المتطلبات"
+      ],
+      "optionsEn": [
+        "Writing code",
+        "Ensuring the system is error-free",
+        "Designing interfaces",
+        "Gathering requirements"
+      ],
+      "correct": 1,
+      "explanation": "مرحلة الاختبار تهدف للتأكد من أن النظام يعمل بشكل صحيح وخالٍ من الأخطاء قبل النشر",
+      "explanationEn": "The Testing phase aims to ensure the system works correctly and is error-free before deployment"
+    },
+    {
+      "id": "q6",
+      "question": "أي نوع من أنواع الاختبار يتم إجراؤه من قبل المستخدمين النهائيين؟",
+      "questionEn": "Which type of testing is performed by end users?",
+      "options": [
+        "Unit Testing",
+        "Integration Testing",
+        "User Acceptance Testing (UAT)",
+        "System Testing"
+      ],
+      "optionsEn": [
+        "Unit Testing",
+        "Integration Testing",
+        "User Acceptance Testing (UAT)",
+        "System Testing"
+      ],
+      "correct": 2,
+      "explanation": "اختبار قبول المستخدم (UAT) هو الاختبار الذي يجريه المستخدمون النهائيون للتأكد من أن النظام يلبي احتياجاتهم",
+      "explanationEn": "User Acceptance Testing (UAT) is the testing performed by end users to ensure the system meets their needs"
+    },
+    {
+      "id": "q7",
+      "question": "ماذا يحدث في مرحلة التنفيذ (Implementation)؟",
+      "questionEn": "What happens in the Implementation phase?",
+      "options": [
+        "تصميم قاعدة البيانات",
+        "نشر النظام وتدريب المستخدمين",
+        "كتابة الكود",
+        "جمع المتطلبات"
+      ],
+      "optionsEn": [
+        "Designing database",
+        "Deploying system and training users",
+        "Writing code",
+        "Gathering requirements"
+      ],
+      "correct": 1,
+      "explanation": "في مرحلة التنفيذ يتم نشر النظام للاستخدام الفعلي، تدريب المستخدمين، ونقل البيانات",
+      "explanationEn": "In the Implementation phase, the system is deployed for actual use, users are trained, and data is migrated"
+    },
+    {
+      "id": "q8",
+      "question": "ما هي الصيانة التصحيحية (Corrective Maintenance)؟",
+      "questionEn": "What is Corrective Maintenance?",
+      "options": [
+        "إضافة ميزات جديدة",
+        "إصلاح الأخطاء والمشاكل",
+        "تحسين الأداء",
+        "التكيف مع التغييرات"
+      ],
+      "optionsEn": [
+        "Adding new features",
+        "Fixing bugs and problems",
+        "Improving performance",
+        "Adapting to changes"
+      ],
+      "correct": 1,
+      "explanation": "الصيانة التصحيحية تعني إصلاح الأخطاء والمشاكل التي تظهر بعد تشغيل النظام",
+      "explanationEn": "Corrective maintenance means fixing bugs and problems that appear after system launch"
+    },
+    {
+      "id": "q9",
+      "question": "في أي مرحلة يتم إنشاء مخططات ERD و UML؟",
+      "questionEn": "In which phase are ERD and UML diagrams created?",
+      "options": [
+        "التخطيط",
+        "التحليل",
+        "التصميم",
+        "التطوير"
+      ],
+      "optionsEn": [
+        "Planning",
+        "Analysis",
+        "Design",
+        "Development"
+      ],
+      "correct": 2,
+      "explanation": "مخططات ERD و UML يتم إنشاؤها في مرحلة التصميم لتوضيح بنية النظام والعلاقات",
+      "explanationEn": "ERD and UML diagrams are created in the Design phase to illustrate system structure and relationships"
+    },
+    {
+      "id": "q10",
+      "question": "لماذا تعتبر مرحلة التخطيط مهمة في SDLC؟",
+      "questionEn": "Why is the Planning phase important in SDLC?",
+      "options": [
+        "لأنها تحدد أهداف المشروع وجدواه",
+        "لأنها تصلح الأخطاء",
+        "لأنها تكتب الكود",
+        "لأنها تدرب المستخدمين"
+      ],
+      "optionsEn": [
+        "Because it defines project goals and feasibility",
+        "Because it fixes bugs",
+        "Because it writes code",
+        "Because it trains users"
+      ],
+      "correct": 0,
+      "explanation": "مرحلة التخطيط مهمة لأنها تحدد أهداف المشروع، تدرس الجدوى، وتضع الأساس لجميع المراحل اللاحقة",
+      "explanationEn": "The Planning phase is important because it defines project goals, studies feasibility, and lays the foundation for all subsequent phases"
+    }
+  ],
+  "trueFalse": [
+    {
+      "id": "tf1",
+      "question": "SDLC تتكون من 5 مراحل فقط",
+      "questionEn": "SDLC consists of only 5 phases",
+      "correct": false,
+      "explanation": "خطأ، SDLC تتكون من 7 مراحل رئيسية",
+      "explanationEn": "False, SDLC consists of 7 main phases"
+    },
+    {
+      "id": "tf2",
+      "question": "مرحلة التحليل تأتي قبل مرحلة التخطيط",
+      "questionEn": "The Analysis phase comes before the Planning phase",
+      "correct": false,
+      "explanation": "خطأ، التخطيط هو المرحلة الأولى ثم يليها التحليل",
+      "explanationEn": "False, Planning is the first phase followed by Analysis"
+    },
+    {
+      "id": "tf3",
+      "question": "في مرحلة التصميم يتم تصميم قاعدة البيانات والواجهات",
+      "questionEn": "In the Design phase, database and interfaces are designed",
+      "correct": true,
+      "explanation": "صحيح، مرحلة التصميم تشمل تصميم قاعدة البيانات، الواجهات، والبنية المعمارية",
+      "explanationEn": "Correct, the Design phase includes designing database, interfaces, and architecture"
+    },
+    {
+      "id": "tf4",
+      "question": "كتابة الكود البرمجي تتم في مرحلة التطوير",
+      "questionEn": "Code writing occurs in the Development phase",
+      "correct": true,
+      "explanation": "صحيح، مرحلة التطوير هي المرحلة التي يتم فيها كتابة الأكواد البرمجية",
+      "explanationEn": "Correct, the Development phase is when programming code is written"
+    },
+    {
+      "id": "tf5",
+      "question": "مرحلة الاختبار تأتي بعد مرحلة التنفيذ",
+      "questionEn": "The Testing phase comes after the Implementation phase",
+      "correct": false,
+      "explanation": "خطأ، الاختبار يأتي قبل التنفيذ للتأكد من خلو النظام من الأخطاء قبل نشره",
+      "explanationEn": "False, Testing comes before Implementation to ensure the system is error-free before deployment"
+    },
+    {
+      "id": "tf6",
+      "question": "UAT اختصار لـ User Acceptance Testing",
+      "questionEn": "UAT stands for User Acceptance Testing",
+      "correct": true,
+      "explanation": "صحيح، UAT هو اختبار قبول المستخدم الذي يجريه المستخدمون النهائيون",
+      "explanationEn": "Correct, UAT is User Acceptance Testing performed by end users"
+    },
+    {
+      "id": "tf7",
+      "question": "مرحلة الصيانة تنتهي بعد شهر من تشغيل النظام",
+      "questionEn": "The Maintenance phase ends one month after system launch",
+      "correct": false,
+      "explanation": "خطأ، الصيانة مرحلة مستمرة طوال فترة استخدام النظام",
+      "explanationEn": "False, Maintenance is an ongoing phase throughout the system's usage period"
+    },
+    {
+      "id": "tf8",
+      "question": "دراسة الجدوى تتم في مرحلة التخطيط",
+      "questionEn": "Feasibility study is conducted in the Planning phase",
+      "correct": true,
+      "explanation": "صحيح، دراسة الجدوى (التقنية والاقتصادية) جزء أساسي من مرحلة التخطيط",
+      "explanationEn": "Correct, feasibility study (technical and economic) is an essential part of the Planning phase"
+    },
+    {
+      "id": "tf9",
+      "question": "الصيانة التحسينية تعني إصلاح الأخطاء فقط",
+      "questionEn": "Perfective maintenance means only fixing bugs",
+      "correct": false,
+      "explanation": "خطأ، الصيانة التحسينية تعني إضافة ميزات جديدة وتحسينات على النظام",
+      "explanationEn": "False, Perfective maintenance means adding new features and improvements to the system"
+    },
+    {
+      "id": "tf10",
+      "question": "ERD يستخدم لتوضيح العلاقات بين جداول قاعدة البيانات",
+      "questionEn": "ERD is used to illustrate relationships between database tables",
+      "correct": true,
+      "explanation": "صحيح، مخطط ERD (Entity Relationship Diagram) يوضح الكيانات والعلاقات في قاعدة البيانات",
+      "explanationEn": "Correct, ERD (Entity Relationship Diagram) shows entities and relationships in the database"
+    }
+  ]
+}

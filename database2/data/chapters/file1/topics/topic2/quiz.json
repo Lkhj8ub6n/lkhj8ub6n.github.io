@@ -1,0 +1,286 @@
+{
+  "mcq": [
+    {
+      "id": "q1",
+      "question": "ما هي قاعدة البيانات؟",
+      "questionEn": "What is a database?",
+      "options": [
+        "برنامج حاسوب",
+        "مجموعة منظمة من البيانات المترابطة",
+        "لغة برمجة",
+        "نظام تشغيل"
+      ],
+      "optionsEn": [
+        "A computer program",
+        "An organized collection of interrelated data",
+        "A programming language",
+        "An operating system"
+      ],
+      "correct": 1,
+      "explanation": "قاعدة البيانات هي مجموعة منظمة من البيانات المترابطة التي يتم تخزينها وإدارتها بطريقة منهجية",
+      "explanationEn": "A database is an organized collection of interrelated data that is stored and managed systematically"
+    },
+    {
+      "id": "q2",
+      "question": "ما الفرق بين Data و Information؟",
+      "questionEn": "What is the difference between Data and Information?",
+      "options": [
+        "لا يوجد فرق",
+        "Data هي حقائق خام، Information هي بيانات معالجة ذات معنى",
+        "Data أكبر من Information",
+        "Information هي حقائق خام"
+      ],
+      "optionsEn": [
+        "There is no difference",
+        "Data is raw facts, Information is processed meaningful data",
+        "Data is larger than Information",
+        "Information is raw facts"
+      ],
+      "correct": 1,
+      "explanation": "البيانات (Data) هي حقائق خام، بينما المعلومات (Information) هي بيانات تم معالجتها وتنظيمها لتصبح ذات معنى",
+      "explanationEn": "Data is raw facts, while Information is data that has been processed and organized to become meaningful"
+    },
+    {
+      "id": "q3",
+      "question": "ما هو DBMS؟",
+      "questionEn": "What is DBMS?",
+      "options": [
+        "نوع من قواعد البيانات",
+        "برنامج لإدارة قواعد البيانات",
+        "لغة استعلام",
+        "جدول في قاعدة البيانات"
+      ],
+      "optionsEn": [
+        "A type of database",
+        "Software for managing databases",
+        "A query language",
+        "A table in a database"
+      ],
+      "correct": 1,
+      "explanation": "DBMS هو برنامج (Database Management System) يستخدم لإنشاء وإدارة والتحكم في قواعد البيانات",
+      "explanationEn": "DBMS is software (Database Management System) used to create, manage, and control databases"
+    },
+    {
+      "id": "q4",
+      "question": "أي من التالي يعتبر مثال على DBMS؟",
+      "questionEn": "Which of the following is an example of DBMS?",
+      "options": [
+        "Microsoft Word",
+        "Oracle Database",
+        "Google Chrome",
+        "Windows 10"
+      ],
+      "optionsEn": [
+        "Microsoft Word",
+        "Oracle Database",
+        "Google Chrome",
+        "Windows 10"
+      ],
+      "correct": 1,
+      "explanation": "Oracle Database هو نظام إدارة قواعد بيانات، بينما الخيارات الأخرى برامج من أنواع مختلفة",
+      "explanationEn": "Oracle Database is a database management system, while other options are different types of software"
+    },
+    {
+      "id": "q5",
+      "question": "ما هي قواعد البيانات العلائقية؟",
+      "questionEn": "What are relational databases?",
+      "options": [
+        "قواعد بيانات تخزن الصور فقط",
+        "قواعد بيانات تخزن البيانات في جداول مترابطة",
+        "قواعد بيانات لا تستخدم SQL",
+        "قواعد بيانات قديمة"
+      ],
+      "optionsEn": [
+        "Databases that store only images",
+        "Databases that store data in interrelated tables",
+        "Databases that don't use SQL",
+        "Old databases"
+      ],
+      "correct": 1,
+      "explanation": "قواعد البيانات العلائقية تخزن البيانات في جداول ثنائية الأبعاد مع علاقات بين الجداول",
+      "explanationEn": "Relational databases store data in two-dimensional tables with relationships between tables"
+    },
+    {
+      "id": "q6",
+      "question": "ما هي إحدى مميزات استخدام قواعد البيانات؟",
+      "questionEn": "What is one advantage of using databases?",
+      "options": [
+        "زيادة التكرار",
+        "تقليل التكرار وضمان الاتساق",
+        "صعوبة الوصول للبيانات",
+        "عدم الأمان"
+      ],
+      "optionsEn": [
+        "Increase redundancy",
+        "Reduce redundancy and ensure consistency",
+        "Difficulty accessing data",
+        "Lack of security"
+      ],
+      "correct": 1,
+      "explanation": "من أهم مميزات قواعد البيانات تقليل التكرار وضمان اتساق ودقة البيانات",
+      "explanationEn": "One of the main advantages of databases is reducing redundancy and ensuring data consistency and accuracy"
+    },
+    {
+      "id": "q7",
+      "question": "ما المقصود بـ Table في قاعدة البيانات؟",
+      "questionEn": "What is meant by Table in a database?",
+      "options": [
+        "صفحة ويب",
+        "مجموعة من الصفوف والأعمدة لتخزين البيانات",
+        "برنامج",
+        "ملف نصي"
+      ],
+      "optionsEn": [
+        "A web page",
+        "A collection of rows and columns to store data",
+        "A program",
+        "A text file"
+      ],
+      "correct": 1,
+      "explanation": "الجدول (Table) هو مجموعة من الصفوف والأعمدة المنظمة لتخزين نوع معين من البيانات",
+      "explanationEn": "A table is a collection of organized rows and columns to store a specific type of data"
+    },
+    {
+      "id": "q8",
+      "question": "ما الفرق بين Row و Column؟",
+      "questionEn": "What is the difference between Row and Column?",
+      "options": [
+        "لا يوجد فرق",
+        "Row صف أفقي، Column عمود رأسي",
+        "Row عمود، Column صف",
+        "Row للأرقام، Column للنصوص"
+      ],
+      "optionsEn": [
+        "There is no difference",
+        "Row is horizontal, Column is vertical",
+        "Row is column, Column is row",
+        "Row for numbers, Column for text"
+      ],
+      "correct": 1,
+      "explanation": "الصف (Row) هو سطر أفقي يمثل سجل واحد، والعمود (Column) هو خط رأسي يمثل خاصية معينة",
+      "explanationEn": "A row is a horizontal line representing one record, and a column is a vertical line representing a specific attribute"
+    },
+    {
+      "id": "q9",
+      "question": "أي من التالي يعتبر قاعدة بيانات NoSQL؟",
+      "questionEn": "Which of the following is a NoSQL database?",
+      "options": [
+        "Oracle",
+        "MySQL",
+        "MongoDB",
+        "SQL Server"
+      ],
+      "optionsEn": [
+        "Oracle",
+        "MySQL",
+        "MongoDB",
+        "SQL Server"
+      ],
+      "correct": 2,
+      "explanation": "MongoDB هي قاعدة بيانات NoSQL من نوع Document-based، بينما الباقي قواعد بيانات علائقية",
+      "explanationEn": "MongoDB is a NoSQL database of type Document-based, while the rest are relational databases"
+    },
+    {
+      "id": "q10",
+      "question": "ما المقصود بـ Schema؟",
+      "questionEn": "What is meant by Schema?",
+      "options": [
+        "نوع من البيانات",
+        "البنية الكلية لقاعدة البيانات وتعريف الجداول",
+        "لغة برمجة",
+        "برنامج"
+      ],
+      "optionsEn": [
+        "A type of data",
+        "The overall structure of the database and table definitions",
+        "A programming language",
+        "A program"
+      ],
+      "correct": 1,
+      "explanation": "المخطط (Schema) هو البنية الكلية لقاعدة البيانات وتعريف جميع الجداول والعلاقات والقيود",
+      "explanationEn": "Schema is the overall structure of the database and definition of all tables, relationships, and constraints"
+    }
+  ],
+  "trueFalse": [
+    {
+      "id": "tf1",
+      "question": "قاعدة البيانات هي نفسها DBMS",
+      "questionEn": "Database is the same as DBMS",
+      "correct": false,
+      "explanation": "خطأ، قاعدة البيانات هي مجموعة البيانات، بينما DBMS هو البرنامج الذي يدير قاعدة البيانات",
+      "explanationEn": "False, database is the collection of data, while DBMS is the software that manages the database"
+    },
+    {
+      "id": "tf2",
+      "question": "Data هي بيانات معالجة ذات معنى",
+      "questionEn": "Data is processed meaningful data",
+      "correct": false,
+      "explanation": "خطأ، Data هي الحقائق الخام، أما Information هي البيانات المعالجة ذات المعنى",
+      "explanationEn": "False, Data is raw facts, while Information is processed meaningful data"
+    },
+    {
+      "id": "tf3",
+      "question": "Oracle هو مثال على DBMS",
+      "questionEn": "Oracle is an example of DBMS",
+      "correct": true,
+      "explanation": "صحيح، Oracle Database هو نظام إدارة قواعد بيانات شهير",
+      "explanationEn": "Correct, Oracle Database is a famous database management system"
+    },
+    {
+      "id": "tf4",
+      "question": "قواعد البيانات تقلل من تكرار البيانات",
+      "questionEn": "Databases reduce data redundancy",
+      "correct": true,
+      "explanation": "صحيح، من أهم مميزات قواعد البيانات تقليل التكرار عن طريق تخزين كل معلومة مرة واحدة",
+      "explanationEn": "Correct, one of the main advantages of databases is reducing redundancy by storing each piece of information once"
+    },
+    {
+      "id": "tf5",
+      "question": "Table يتكون من صفوف وأعمدة",
+      "questionEn": "Table consists of rows and columns",
+      "correct": true,
+      "explanation": "صحيح، الجدول في قاعدة البيانات يتكون من صفوف (سجلات) وأعمدة (حقول)",
+      "explanationEn": "Correct, a table in a database consists of rows (records) and columns (fields)"
+    },
+    {
+      "id": "tf6",
+      "question": "NoSQL قواعد بيانات لا تستخدم الجداول التقليدية",
+      "questionEn": "NoSQL databases don't use traditional tables",
+      "correct": true,
+      "explanation": "صحيح، قواعد بيانات NoSQL تخزن البيانات بأشكال مختلفة مثل الوثائق أو المفاتيح والقيم",
+      "explanationEn": "Correct, NoSQL databases store data in different forms like documents or key-value pairs"
+    },
+    {
+      "id": "tf7",
+      "question": "MongoDB هي قاعدة بيانات علائقية",
+      "questionEn": "MongoDB is a relational database",
+      "correct": false,
+      "explanation": "خطأ، MongoDB هي قاعدة بيانات NoSQL من نوع Document-based",
+      "explanationEn": "False, MongoDB is a NoSQL database of type Document-based"
+    },
+    {
+      "id": "tf8",
+      "question": "Row يسمى أيضاً Record",
+      "questionEn": "Row is also called Record",
+      "correct": true,
+      "explanation": "صحيح، الصف (Row) في الجدول يسمى أيضاً سجل (Record)",
+      "explanationEn": "Correct, a row in a table is also called a record"
+    },
+    {
+      "id": "tf9",
+      "question": "قواعد البيانات لا توفر أماناً للبيانات",
+      "questionEn": "Databases don't provide data security",
+      "correct": false,
+      "explanation": "خطأ، قواعد البيانات توفر مستويات عالية من الأمان والتحكم في صلاحيات الوصول",
+      "explanationEn": "False, databases provide high levels of security and access control"
+    },
+    {
+      "id": "tf10",
+      "question": "Schema هو البنية الكلية لقاعدة البيانات",
+      "questionEn": "Schema is the overall structure of the database",
+      "correct": true,
+      "explanation": "صحيح، Schema يحدد البنية الكلية لقاعدة البيانات وتعريف جميع الجداول",
+      "explanationEn": "Correct, Schema defines the overall structure of the database and all table definitions"
+    }
+  ]
+}

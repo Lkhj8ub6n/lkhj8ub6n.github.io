@@ -1,0 +1,286 @@
+{
+  "mcq": [
+    {
+      "id": "q1",
+      "question": "ما هو الكائن الأساسي لتخزين البيانات في قاعدة البيانات؟",
+      "questionEn": "What is the basic object for storing data in a database?",
+      "options": [
+        "View",
+        "Table",
+        "Index",
+        "Sequence"
+      ],
+      "optionsEn": [
+        "View",
+        "Table",
+        "Index",
+        "Sequence"
+      ],
+      "correct": 1,
+      "explanation": "الجدول (Table) هو الكائن الأساسي لتخزين البيانات الفعلية في قاعدة البيانات",
+      "explanationEn": "Table is the basic object for storing actual data in a database"
+    },
+    {
+      "id": "q2",
+      "question": "ما هو View؟",
+      "questionEn": "What is a View?",
+      "options": [
+        "جدول فعلي يخزن البيانات",
+        "جدول افتراضي لا يخزن البيانات",
+        "نوع من البيانات",
+        "برنامج"
+      ],
+      "optionsEn": [
+        "Physical table that stores data",
+        "Virtual table that doesn't store data",
+        "A data type",
+        "A program"
+      ],
+      "correct": 1,
+      "explanation": "View هو جدول افتراضي يتم إنشاؤه من استعلام، لا يخزن البيانات بل يعرضها فقط",
+      "explanationEn": "View is a virtual table created from a query, doesn't store data but only displays it"
+    },
+    {
+      "id": "q3",
+      "question": "ما الغرض من Index؟",
+      "questionEn": "What is the purpose of Index?",
+      "options": [
+        "تخزين البيانات",
+        "تسريع عمليات البحث",
+        "حذف البيانات",
+        "إنشاء جداول جديدة"
+      ],
+      "optionsEn": [
+        "Store data",
+        "Speed up search operations",
+        "Delete data",
+        "Create new tables"
+      ],
+      "correct": 1,
+      "explanation": "الفهرس (Index) يستخدم لتسريع عمليات البحث والاسترجاع في الجداول الكبيرة",
+      "explanationEn": "Index is used to speed up search and retrieval operations in large tables"
+    },
+    {
+      "id": "q4",
+      "question": "ما وظيفة Sequence؟",
+      "questionEn": "What is the function of Sequence?",
+      "options": [
+        "عرض البيانات",
+        "توليد أرقام فريدة متتالية",
+        "حذف البيانات",
+        "تخزين الصور"
+      ],
+      "optionsEn": [
+        "Display data",
+        "Generate unique sequential numbers",
+        "Delete data",
+        "Store images"
+      ],
+      "correct": 1,
+      "explanation": "Sequence يولد أرقام فريدة ومتسلسلة، يُستخدم غالباً للمفاتيح الأساسية",
+      "explanationEn": "Sequence generates unique sequential numbers, often used for primary keys"
+    },
+    {
+      "id": "q5",
+      "question": "ما هو Synonym؟",
+      "questionEn": "What is a Synonym?",
+      "options": [
+        "جدول جديد",
+        "اسم مستعار لكائن في قاعدة البيانات",
+        "نوع بيانات",
+        "أمر SQL"
+      ],
+      "optionsEn": [
+        "A new table",
+        "Alternative name for a database object",
+        "A data type",
+        "SQL command"
+      ],
+      "correct": 1,
+      "explanation": "Synonym هو اسم بديل لكائن في قاعدة البيانات، يسهل الوصول للكائنات",
+      "explanationEn": "Synonym is an alternative name for a database object, facilitating access to objects"
+    },
+    {
+      "id": "q6",
+      "question": "ما الفرق بين Stored Procedure و Function؟",
+      "questionEn": "What is the difference between Stored Procedure and Function?",
+      "options": [
+        "لا يوجد فرق",
+        "Function ترجع قيمة، Procedure لا ترجع بالضرورة",
+        "Procedure أسرع",
+        "Function لا تقبل معاملات"
+      ],
+      "optionsEn": [
+        "No difference",
+        "Function returns a value, Procedure doesn't necessarily",
+        "Procedure is faster",
+        "Function doesn't accept parameters"
+      ],
+      "correct": 1,
+      "explanation": "الدالة (Function) ترجع قيمة واحدة بينما الإجراء (Procedure) لا يرجع قيمة بالضرورة",
+      "explanationEn": "Function returns a single value while Procedure doesn't necessarily return a value"
+    },
+    {
+      "id": "q7",
+      "question": "ما هو Trigger؟",
+      "questionEn": "What is a Trigger?",
+      "options": [
+        "جدول",
+        "إجراء يتم تنفيذه تلقائياً عند حدث معين",
+        "نوع بيانات",
+        "مستخدم"
+      ],
+      "optionsEn": [
+        "A table",
+        "Procedure that executes automatically on specific event",
+        "A data type",
+        "A user"
+      ],
+      "correct": 1,
+      "explanation": "Trigger هو إجراء يتم تنفيذه تلقائياً عند حدوث حدث معين مثل إدخال أو تحديث أو حذف",
+      "explanationEn": "Trigger is a procedure that executes automatically when a specific event occurs like insert, update, or delete"
+    },
+    {
+      "id": "q8",
+      "question": "متى يتم إنشاء Index تلقائياً؟",
+      "questionEn": "When is Index created automatically?",
+      "options": [
+        "عند إنشاء View",
+        "على المفاتيح الأساسية (Primary Keys)",
+        "عند حذف جدول",
+        "عند إدخال بيانات"
+      ],
+      "optionsEn": [
+        "When creating a View",
+        "On Primary Keys",
+        "When deleting a table",
+        "When inserting data"
+      ],
+      "correct": 1,
+      "explanation": "يتم إنشاء Index تلقائياً على المفاتيح الأساسية (Primary Keys) في الجداول",
+      "explanationEn": "Index is automatically created on Primary Keys in tables"
+    },
+    {
+      "id": "q9",
+      "question": "أي كائن يستخدم لإخفاء تعقيد البيانات عن المستخدمين؟",
+      "questionEn": "Which object is used to hide data complexity from users?",
+      "options": [
+        "Table",
+        "View",
+        "Sequence",
+        "Trigger"
+      ],
+      "optionsEn": [
+        "Table",
+        "View",
+        "Sequence",
+        "Trigger"
+      ],
+      "correct": 1,
+      "explanation": "View يستخدم لإخفاء تعقيد البيانات وتبسيط الاستعلامات المعقدة للمستخدمين",
+      "explanationEn": "View is used to hide data complexity and simplify complex queries for users"
+    },
+    {
+      "id": "q10",
+      "question": "ما فائدة Stored Procedure الرئيسية؟",
+      "questionEn": "What is the main benefit of Stored Procedure?",
+      "options": [
+        "يبطئ الأداء",
+        "يحسن الأداء ويقلل حركة البيانات",
+        "يحذف البيانات",
+        "ينشئ جداول"
+      ],
+      "optionsEn": [
+        "Slows performance",
+        "Improves performance and reduces data traffic",
+        "Deletes data",
+        "Creates tables"
+      ],
+      "correct": 1,
+      "explanation": "Stored Procedure يحسن الأداء لأنه مترجم مسبقاً ويقلل من حركة البيانات على الشبكة",
+      "explanationEn": "Stored Procedure improves performance as it's pre-compiled and reduces network data traffic"
+    }
+  ],
+  "trueFalse": [
+    {
+      "id": "tf1",
+      "question": "Table هو جدول افتراضي لا يخزن البيانات",
+      "questionEn": "Table is a virtual table that doesn't store data",
+      "correct": false,
+      "explanation": "خطأ، Table جدول فعلي يخزن البيانات الحقيقية، View هو الجدول الافتراضي",
+      "explanationEn": "False, Table is a physical table that stores real data, View is the virtual table"
+    },
+    {
+      "id": "tf2",
+      "question": "Index يسرع عمليات البحث في الجداول الكبيرة",
+      "questionEn": "Index speeds up search operations in large tables",
+      "correct": true,
+      "explanation": "صحيح، الفهرس يسرع عمليات البحث والاسترجاع بشكل كبير",
+      "explanationEn": "Correct, Index significantly speeds up search and retrieval operations"
+    },
+    {
+      "id": "tf3",
+      "question": "View يخزن البيانات مثل Table",
+      "questionEn": "View stores data like Table",
+      "correct": false,
+      "explanation": "خطأ، View جدول افتراضي لا يخزن البيانات بل يعرضها فقط من الجداول الأصلية",
+      "explanationEn": "False, View is a virtual table that doesn't store data but only displays it from source tables"
+    },
+    {
+      "id": "tf4",
+      "question": "Sequence يستخدم لتوليد أرقام فريدة",
+      "questionEn": "Sequence is used to generate unique numbers",
+      "correct": true,
+      "explanation": "صحيح، Sequence يولد أرقام فريدة ومتسلسلة، غالباً للمفاتيح الأساسية",
+      "explanationEn": "Correct, Sequence generates unique sequential numbers, often for primary keys"
+    },
+    {
+      "id": "tf5",
+      "question": "Trigger ينفذ تلقائياً عند حدوث حدث معين",
+      "questionEn": "Trigger executes automatically when a specific event occurs",
+      "correct": true,
+      "explanation": "صحيح، Trigger هو إجراء يعمل تلقائياً عند إدخال أو تحديث أو حذف",
+      "explanationEn": "Correct, Trigger is a procedure that works automatically on insert, update, or delete"
+    },
+    {
+      "id": "tf6",
+      "question": "Function لا يمكنها إرجاع قيمة",
+      "questionEn": "Function cannot return a value",
+      "correct": false,
+      "explanation": "خطأ، Function ترجع قيمة واحدة، وهذا هو الفرق الرئيسي عن Stored Procedure",
+      "explanationEn": "False, Function returns a single value, this is the main difference from Stored Procedure"
+    },
+    {
+      "id": "tf7",
+      "question": "Synonym هو اسم مستعار لكائن في قاعدة البيانات",
+      "questionEn": "Synonym is an alternative name for a database object",
+      "correct": true,
+      "explanation": "صحيح، Synonym يوفر اسم بديل يسهل الوصول للكائنات",
+      "explanationEn": "Correct, Synonym provides an alternative name that facilitates access to objects"
+    },
+    {
+      "id": "tf8",
+      "question": "Index يتم إنشاؤه تلقائياً على جميع الأعمدة",
+      "questionEn": "Index is automatically created on all columns",
+      "correct": false,
+      "explanation": "خطأ، Index يتم إنشاؤه تلقائياً فقط على المفاتيح الأساسية، وليس جميع الأعمدة",
+      "explanationEn": "False, Index is automatically created only on primary keys, not all columns"
+    },
+    {
+      "id": "tf9",
+      "question": "Stored Procedure يحسن الأداء لأنه مترجم مسبقاً",
+      "questionEn": "Stored Procedure improves performance because it's pre-compiled",
+      "correct": true,
+      "explanation": "صحيح، Stored Procedure محفوظ ومترجم مسبقاً مما يحسن الأداء",
+      "explanationEn": "Correct, Stored Procedure is saved and pre-compiled which improves performance"
+    },
+    {
+      "id": "tf10",
+      "question": "يمكن استخدام Sequence في جدول واحد فقط",
+      "questionEn": "Sequence can be used in only one table",
+      "correct": false,
+      "explanation": "خطأ، Sequence مستقل عن الجداول ويمكن استخدامه في أكثر من جدول",
+      "explanationEn": "False, Sequence is independent of tables and can be used in multiple tables"
+    }
+  ]
+}
