@@ -1,0 +1,18 @@
+{
+  "chapterId": "file4",
+  "topicId": "topic1",
+  "topicTitle": "مقدمة في PL/SQL",
+  "topicTitleEn": "PL/SQL Introduction",
+  "sections": [
+    {
+      "title": "مقدمة في مقدمة في PL/SQL",
+      "titleEn": "Introduction to PL/SQL Introduction",
+      "subsections": [
+        {
+          "content": "ما هي PL/SQL ومميزاتها",
+          "contentEn": "What is PL/SQL and its features"
+        }
+      ]
+    }
+  ]
+}

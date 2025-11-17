@@ -1,0 +1,286 @@
+{
+  "mcq": [
+    {
+      "id": "q1",
+      "question": "ما هو الهدف الرئيسي من استخدام SQL في قواعد البيانات؟",
+      "questionEn": "What is the main purpose of using SQL in databases?",
+      "options": [
+        "تصميم الواجهات الرسومية",
+        "إدارة والاستعلام عن البيانات في قواعد البيانات",
+        "إنشاء تطبيقات الويب",
+        "تصميم الشبكات"
+      ],
+      "optionsEn": [
+        "Designing graphical interfaces",
+        "Managing and querying data in databases",
+        "Creating web applications",
+        "Designing networks"
+      ],
+      "correct": 1,
+      "explanation": "SQL هي لغة قياسية مصممة خصيصاً لإدارة والاستعلام عن البيانات في قواعد البيانات العلائقية",
+      "explanationEn": "SQL is a standard language specifically designed for managing and querying data in relational databases"
+    },
+    {
+      "id": "q2",
+      "question": "ماذا يعني اختصار SQL؟",
+      "questionEn": "What does SQL stand for?",
+      "options": [
+        "Simple Query Language",
+        "Structured Query Language",
+        "Standard Quality Logic",
+        "System Query List"
+      ],
+      "optionsEn": [
+        "Simple Query Language",
+        "Structured Query Language",
+        "Standard Quality Logic",
+        "System Query List"
+      ],
+      "correct": 1,
+      "explanation": "SQL تعني Structured Query Language أي لغة الاستعلام البنيوية",
+      "explanationEn": "SQL stands for Structured Query Language"
+    },
+    {
+      "id": "q3",
+      "question": "أي من الأوامر التالية يستخدم لاستخراج البيانات من قاعدة البيانات؟",
+      "questionEn": "Which of the following commands is used to retrieve data from a database?",
+      "options": [
+        "INSERT",
+        "UPDATE",
+        "SELECT",
+        "DELETE"
+      ],
+      "optionsEn": [
+        "INSERT",
+        "UPDATE",
+        "SELECT",
+        "DELETE"
+      ],
+      "correct": 2,
+      "explanation": "أمر SELECT يستخدم لاستخراج واسترجاع البيانات من الجداول في قاعدة البيانات",
+      "explanationEn": "The SELECT command is used to retrieve and extract data from tables in the database"
+    },
+    {
+      "id": "q4",
+      "question": "ما هو الأمر المستخدم لإضافة بيانات جديدة إلى جدول؟",
+      "questionEn": "What command is used to add new data to a table?",
+      "options": [
+        "ADD",
+        "INSERT",
+        "CREATE",
+        "APPEND"
+      ],
+      "optionsEn": [
+        "ADD",
+        "INSERT",
+        "CREATE",
+        "APPEND"
+      ],
+      "correct": 1,
+      "explanation": "أمر INSERT يستخدم لإضافة صفوف جديدة من البيانات إلى جدول موجود",
+      "explanationEn": "The INSERT command is used to add new rows of data to an existing table"
+    },
+    {
+      "id": "q5",
+      "question": "أي من الأوامر التالية يستخدم لتعديل البيانات الموجودة؟",
+      "questionEn": "Which command is used to modify existing data?",
+      "options": [
+        "MODIFY",
+        "CHANGE",
+        "UPDATE",
+        "ALTER"
+      ],
+      "optionsEn": [
+        "MODIFY",
+        "CHANGE",
+        "UPDATE",
+        "ALTER"
+      ],
+      "correct": 2,
+      "explanation": "أمر UPDATE يستخدم لتعديل وتحديث البيانات الموجودة في الجدول",
+      "explanationEn": "The UPDATE command is used to modify and update existing data in a table"
+    },
+    {
+      "id": "q6",
+      "question": "ما هو الأمر المستخدم لحذف البيانات من جدول؟",
+      "questionEn": "What command is used to delete data from a table?",
+      "options": [
+        "REMOVE",
+        "DROP",
+        "DELETE",
+        "CLEAR"
+      ],
+      "optionsEn": [
+        "REMOVE",
+        "DROP",
+        "DELETE",
+        "CLEAR"
+      ],
+      "correct": 2,
+      "explanation": "أمر DELETE يستخدم لحذف صفوف محددة من البيانات من الجدول",
+      "explanationEn": "The DELETE command is used to remove specific rows of data from a table"
+    },
+    {
+      "id": "q7",
+      "question": "ما هي الجملة المستخدمة لترتيب نتائج الاستعلام؟",
+      "questionEn": "What clause is used to sort query results?",
+      "options": [
+        "SORT BY",
+        "ARRANGE BY",
+        "ORDER BY",
+        "GROUP BY"
+      ],
+      "optionsEn": [
+        "SORT BY",
+        "ARRANGE BY",
+        "ORDER BY",
+        "GROUP BY"
+      ],
+      "correct": 2,
+      "explanation": "جملة ORDER BY تستخدم لترتيب نتائج الاستعلام بشكل تصاعدي أو تنازلي",
+      "explanationEn": "The ORDER BY clause is used to sort query results in ascending or descending order"
+    },
+    {
+      "id": "q8",
+      "question": "ما هي الجملة المستخدمة لتصفية البيانات في استعلام SELECT؟",
+      "questionEn": "What clause is used to filter data in a SELECT query?",
+      "options": [
+        "FILTER",
+        "WHERE",
+        "HAVING",
+        "IF"
+      ],
+      "optionsEn": [
+        "FILTER",
+        "WHERE",
+        "HAVING",
+        "IF"
+      ],
+      "correct": 1,
+      "explanation": "جملة WHERE تستخدم لتحديد شروط تصفية البيانات في استعلام SELECT",
+      "explanationEn": "The WHERE clause is used to specify conditions for filtering data in a SELECT query"
+    },
+    {
+      "id": "q9",
+      "question": "ما هي الدالة التي تحسب عدد الصفوف في جدول؟",
+      "questionEn": "What function counts the number of rows in a table?",
+      "options": [
+        "SUM()",
+        "COUNT()",
+        "TOTAL()",
+        "NUM()"
+      ],
+      "optionsEn": [
+        "SUM()",
+        "COUNT()",
+        "TOTAL()",
+        "NUM()"
+      ],
+      "correct": 1,
+      "explanation": "دالة COUNT() تستخدم لحساب عدد الصفوف في جدول أو نتيجة استعلام",
+      "explanationEn": "The COUNT() function is used to count the number of rows in a table or query result"
+    },
+    {
+      "id": "q10",
+      "question": "ما هو الأمر المستخدم لإنشاء جدول جديد؟",
+      "questionEn": "What command is used to create a new table?",
+      "options": [
+        "NEW TABLE",
+        "MAKE TABLE",
+        "CREATE TABLE",
+        "BUILD TABLE"
+      ],
+      "optionsEn": [
+        "NEW TABLE",
+        "MAKE TABLE",
+        "CREATE TABLE",
+        "BUILD TABLE"
+      ],
+      "correct": 2,
+      "explanation": "أمر CREATE TABLE يستخدم لإنشاء جدول جديد في قاعدة البيانات",
+      "explanationEn": "The CREATE TABLE command is used to create a new table in the database"
+    }
+  ],
+  "trueFalse": [
+    {
+      "id": "tf1",
+      "question": "SQL هي لغة برمجة كاملة مثل Java أو Python",
+      "questionEn": "SQL is a complete programming language like Java or Python",
+      "correct": false,
+      "explanation": "خطأ، SQL هي لغة استعلام متخصصة لقواعد البيانات وليست لغة برمجة كاملة",
+      "explanationEn": "False, SQL is a specialized database query language, not a complete programming language"
+    },
+    {
+      "id": "tf2",
+      "question": "أمر SELECT يستخدم لاستخراج البيانات من قاعدة البيانات",
+      "questionEn": "The SELECT command is used to retrieve data from a database",
+      "correct": true,
+      "explanation": "صحيح، SELECT هو الأمر الأساسي لاستخراج البيانات من الجداول",
+      "explanationEn": "Correct, SELECT is the primary command for retrieving data from tables"
+    },
+    {
+      "id": "tf3",
+      "question": "يمكن استخدام أمر DELETE لحذف جدول كامل من قاعدة البيانات",
+      "questionEn": "The DELETE command can be used to remove an entire table from the database",
+      "correct": false,
+      "explanation": "خطأ، DELETE يحذف الصفوف من الجدول، أما DROP TABLE فيحذف الجدول بالكامل",
+      "explanationEn": "False, DELETE removes rows from a table, while DROP TABLE removes the entire table"
+    },
+    {
+      "id": "tf4",
+      "question": "جملة WHERE تستخدم لتصفية البيانات حسب شروط معينة",
+      "questionEn": "The WHERE clause is used to filter data based on specific conditions",
+      "correct": true,
+      "explanation": "صحيح، WHERE تحدد الشروط التي يجب أن تتحقق لاختيار الصفوف",
+      "explanationEn": "Correct, WHERE specifies conditions that must be met to select rows"
+    },
+    {
+      "id": "tf5",
+      "question": "أمر INSERT يستخدم لتعديل البيانات الموجودة",
+      "questionEn": "The INSERT command is used to modify existing data",
+      "correct": false,
+      "explanation": "خطأ، INSERT يضيف بيانات جديدة، أما UPDATE فيعدل البيانات الموجودة",
+      "explanationEn": "False, INSERT adds new data, while UPDATE modifies existing data"
+    },
+    {
+      "id": "tf6",
+      "question": "دالة COUNT() تحسب عدد الصفوف في نتيجة الاستعلام",
+      "questionEn": "The COUNT() function calculates the number of rows in a query result",
+      "correct": true,
+      "explanation": "صحيح، COUNT() هي دالة تجميعية تحسب عدد الصفوف",
+      "explanationEn": "Correct, COUNT() is an aggregate function that counts the number of rows"
+    },
+    {
+      "id": "tf7",
+      "question": "جملة ORDER BY يجب أن تأتي قبل جملة WHERE في الاستعلام",
+      "questionEn": "The ORDER BY clause must come before the WHERE clause in a query",
+      "correct": false,
+      "explanation": "خطأ، ORDER BY تأتي بعد WHERE في ترتيب جملة SQL",
+      "explanationEn": "False, ORDER BY comes after WHERE in the SQL statement order"
+    },
+    {
+      "id": "tf8",
+      "question": "SQL حساسة لحالة الأحرف عند كتابة الأوامر",
+      "questionEn": "SQL is case-sensitive when writing commands",
+      "correct": false,
+      "explanation": "خطأ، معظم أنظمة قواعد البيانات تتعامل مع أوامر SQL بغض النظر عن حالة الأحرف",
+      "explanationEn": "False, most database systems treat SQL commands regardless of case"
+    },
+    {
+      "id": "tf9",
+      "question": "أمر CREATE TABLE يستخدم لإنشاء جدول جديد في قاعدة البيانات",
+      "questionEn": "The CREATE TABLE command is used to create a new table in the database",
+      "correct": true,
+      "explanation": "صحيح، CREATE TABLE هو الأمر المستخدم لإنشاء جداول جديدة",
+      "explanationEn": "Correct, CREATE TABLE is the command used to create new tables"
+    },
+    {
+      "id": "tf10",
+      "question": "يمكن استخدام عدة شروط في جملة WHERE باستخدام AND و OR",
+      "questionEn": "Multiple conditions can be used in a WHERE clause using AND and OR",
+      "correct": true,
+      "explanation": "صحيح، يمكن ربط عدة شروط باستخدام المعاملات المنطقية AND و OR",
+      "explanationEn": "Correct, multiple conditions can be combined using the logical operators AND and OR"
+    }
+  ]
+}

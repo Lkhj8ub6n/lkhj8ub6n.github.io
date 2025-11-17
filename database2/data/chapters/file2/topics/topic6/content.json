@@ -1,0 +1,18 @@
+{
+  "chapterId": "file2",
+  "topicId": "topic6",
+  "topicTitle": "أوامر DML",
+  "topicTitleEn": "DML Statements",
+  "sections": [
+    {
+      "title": "مقدمة في أوامر DML",
+      "titleEn": "Introduction to DML Statements",
+      "subsections": [
+        {
+          "content": "INSERT, UPDATE, DELETE, SELECT",
+          "contentEn": "INSERT, UPDATE, DELETE, SELECT"
+        }
+      ]
+    }
+  ]
+}

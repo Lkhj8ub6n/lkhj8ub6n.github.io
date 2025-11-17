@@ -1,0 +1,18 @@
+{
+  "chapterId": "file4",
+  "topicId": "topic2",
+  "topicTitle": "بنية بلوكات PL/SQL",
+  "topicTitleEn": "PL/SQL Block Structure",
+  "sections": [
+    {
+      "title": "مقدمة في بنية بلوكات PL/SQL",
+      "titleEn": "Introduction to PL/SQL Block Structure",
+      "subsections": [
+        {
+          "content": "DECLARE, BEGIN, EXCEPTION, END",
+          "contentEn": "DECLARE, BEGIN, EXCEPTION, END"
+        }
+      ]
+    }
+  ]
+}

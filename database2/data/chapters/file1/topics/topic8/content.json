@@ -1,0 +1,18 @@
+{
+  "chapterId": "file1",
+  "topicId": "topic8",
+  "topicTitle": "مخطط HR",
+  "topicTitleEn": "HR Schema",
+  "sections": [
+    {
+      "title": "مقدمة في مخطط HR",
+      "titleEn": "Introduction to HR Schema",
+      "subsections": [
+        {
+          "content": "جداول EMPLOYEES و DEPARTMENTS والعلاقات بينها",
+          "contentEn": "EMPLOYEES and DEPARTMENTS tables and relationships"
+        }
+      ]
+    }
+  ]
+}

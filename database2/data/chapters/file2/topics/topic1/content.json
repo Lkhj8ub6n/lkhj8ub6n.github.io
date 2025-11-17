@@ -1,0 +1,18 @@
+{
+  "chapterId": "file2",
+  "topicId": "topic1",
+  "topicTitle": "طرق الاتصال بقاعدة البيانات",
+  "topicTitleEn": "Connection Methods",
+  "sections": [
+    {
+      "title": "مقدمة في طرق الاتصال بقاعدة البيانات",
+      "titleEn": "Introduction to Connection Methods",
+      "subsections": [
+        {
+          "content": "SQL*Plus و SQL Developer للاتصال بـ Oracle",
+          "contentEn": "SQL*Plus and SQL Developer to connect to Oracle"
+        }
+      ]
+    }
+  ]
+}

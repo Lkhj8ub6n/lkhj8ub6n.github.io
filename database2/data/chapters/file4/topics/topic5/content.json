@@ -1,0 +1,18 @@
+{
+  "chapterId": "file4",
+  "topicId": "topic5",
+  "topicTitle": "أنواع البيانات في PL/SQL",
+  "topicTitleEn": "PL/SQL Data Types",
+  "sections": [
+    {
+      "title": "مقدمة في أنواع البيانات في PL/SQL",
+      "titleEn": "Introduction to PL/SQL Data Types",
+      "subsections": [
+        {
+          "content": "Scalar, Composite, Reference, LOB",
+          "contentEn": "Scalar, Composite, Reference, LOB"
+        }
+      ]
+    }
+  ]
+}

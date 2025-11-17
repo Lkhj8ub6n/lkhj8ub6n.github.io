@@ -1,0 +1,18 @@
+{
+  "chapterId": "file4",
+  "topicId": "topic4",
+  "topicTitle": "المتغيرات في PL/SQL",
+  "topicTitleEn": "Variables in PL/SQL",
+  "sections": [
+    {
+      "title": "مقدمة في المتغيرات في PL/SQL",
+      "titleEn": "Introduction to Variables in PL/SQL",
+      "subsections": [
+        {
+          "content": "تعريف المتغيرات واستخدامها",
+          "contentEn": "Defining and using variables"
+        }
+      ]
+    }
+  ]
+}

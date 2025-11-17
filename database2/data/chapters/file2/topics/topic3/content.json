@@ -1,0 +1,18 @@
+{
+  "chapterId": "file2",
+  "topicId": "topic3",
+  "topicTitle": "أمر GRANT",
+  "topicTitleEn": "GRANT Command",
+  "sections": [
+    {
+      "title": "مقدمة في أمر GRANT",
+      "titleEn": "Introduction to GRANT Command",
+      "subsections": [
+        {
+          "content": "منح الصلاحيات للمستخدمين",
+          "contentEn": "Granting privileges to users"
+        }
+      ]
+    }
+  ]
+}

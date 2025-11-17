@@ -1,0 +1,18 @@
+{
+  "chapterId": "file2",
+  "topicId": "topic4",
+  "topicTitle": "أوامر DDL",
+  "topicTitleEn": "DDL Statements",
+  "sections": [
+    {
+      "title": "مقدمة في أوامر DDL",
+      "titleEn": "Introduction to DDL Statements",
+      "subsections": [
+        {
+          "content": "CREATE, ALTER, DROP, TRUNCATE",
+          "contentEn": "CREATE, ALTER, DROP, TRUNCATE"
+        }
+      ]
+    }
+  ]
+}

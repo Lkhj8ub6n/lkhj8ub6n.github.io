@@ -1,0 +1,18 @@
+{
+  "chapterId": "file1",
+  "topicId": "topic6",
+  "topicTitle": "أنواع لغة SQL",
+  "topicTitleEn": "SQL Types",
+  "sections": [
+    {
+      "title": "مقدمة في أنواع لغة SQL",
+      "titleEn": "Introduction to SQL Types",
+      "subsections": [
+        {
+          "content": "تصنيف أوامر SQL إلى DDL و DML و DCL و TCL",
+          "contentEn": "Classification of SQL commands into DDL, DML, DCL, and TCL"
+        }
+      ]
+    }
+  ]
+}
