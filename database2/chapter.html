@@ -177,149 +177,15 @@
 
         const chaptersData = {
             file1: {
-                title: "الملف 1: نظرة عامة على قواعد البيانات و SQL",
-                subtitle: "Database Systems Overview & SQL Basics",
-                description: "يغطي المفاهيم الأساسية لقواعد البيانات، SDLC، DBMS، النماذج العلائقية، وأساسيات SQL",
+                title: "Review",
+                subtitle: "Database 2 - Comprehensive Review Test",
+                description: "Complete review test covering all Database 2 topics",
                 topics: [
                     {
-                        id: "topic1",
-                        number: "الموضوع 1",
-                        title: "System Development Life Cycle (SDLC)",
-                        description: "دورة حياة تطوير الأنظمة ومراحلها الرئيسية: التخطيط، التحليل، التصميم، التطوير، الاختبار، التطبيق، والصيانة"
-                    },
-                    {
-                        id: "topic2",
-                        number: "الموضوع 2",
-                        title: "Database Definitions and Concepts",
-                        description: "تعريفات قواعد البيانات، DBMS، RDBMS، والفرق بين أنظمة إدارة قواعد البيانات المختلفة"
-                    },
-                    {
-                        id: "topic3",
-                        number: "الموضوع 3",
-                        title: "Database Objects",
-                        description: "كائنات قواعد البيانات: Tables, Views, Sequences, Indexes, Synonyms وكيفية استخدامها"
-                    },
-                    {
-                        id: "topic4",
-                        number: "الموضوع 4",
-                        title: "Entity-Relationship Model (ERM)",
-                        description: "نموذج الكيان والعلاقة، الكيانات، الصفات، والعلاقات بين الكيانات المختلفة"
-                    },
-                    {
-                        id: "topic5",
-                        number: "الموضوع 5",
-                        title: "Primary and Foreign Keys",
-                        description: "المفاتيح الأساسية والأجنبية ودورها في ربط الجداول وضمان سلامة البيانات"
-                    },
-                    {
-                        id: "topic6",
-                        number: "الموضوع 6",
-                        title: "SQL Types and Classifications",
-                        description: "أنواع لغة SQL: DDL, DML, DCL, TCL وتطبيقاتها المختلفة"
-                    },
-                    {
-                        id: "topic7",
-                        number: "الموضوع 7",
-                        title: "Oracle Data Types",
-                        description: "أنواع البيانات في Oracle: VARCHAR2, NUMBER, DATE, CHAR وخصائصها"
-                    },
-                    {
-                        id: "topic8",
-                        number: "الموضوع 8",
-                        title: "HR Schema Overview",
-                        description: "نظرة عامة على مخطط HR والجداول الرئيسية: EMPLOYEES, DEPARTMENTS, JOBS, LOCATIONS"
-                    }
-                ]
-            },
-            file2: {
-                title: "الملف 2: لغة تعريف البيانات و لغة معالجة البيانات",
-                subtitle: "Data Definition Language (DDL) & Data Manipulation Language (DML)",
-                description: "يركز على عمليات DDL و DML، إدارة المستخدمين، القيود، والمعاملات",
-                topics: [
-                    {
-                        id: "topic1",
-                        number: "الموضوع 1",
-                        title: "Database Connection Methods",
-                        description: "طرق الاتصال بقاعدة البيانات: SQL*Plus, SQL Developer, SQL Command Line"
-                    },
-                    {
-                        id: "topic2",
-                        number: "الموضوع 2",
-                        title: "CREATE USER Statement",
-                        description: "إنشاء المستخدمين في Oracle وتحديد كلمات المرور والجداول الافتراضية"
-                    },
-                    {
-                        id: "topic3",
-                        number: "الموضوع 3",
-                        title: "GRANT Command",
-                        description: "منح الصلاحيات والامتيازات للمستخدمين: CONNECT, RESOURCE, DBA"
-                    },
-                    {
-                        id: "topic4",
-                        number: "الموضوع 4",
-                        title: "DDL Statements",
-                        description: "عمليات DDL: CREATE TABLE, ALTER TABLE, DROP TABLE, TRUNCATE TABLE"
-                    },
-                    {
-                        id: "topic5",
-                        number: "الموضوع 5",
-                        title: "Database Constraints",
-                        description: "القيود: NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY, CHECK"
-                    },
-                    {
-                        id: "topic6",
-                        number: "الموضوع 6",
-                        title: "DML Statements",
-                        description: "عمليات DML: INSERT, UPDATE, DELETE, وأمثلة تطبيقية متنوعة"
-                    },
-                    {
-                        id: "topic7",
-                        number: "الموضوع 7",
-                        title: "Transaction Control (TCL)",
-                        description: "التحكم في المعاملات: COMMIT, ROLLBACK, SAVEPOINT لضمان سلامة البيانات"
-                    }
-                ]
-            },
-            file4: {
-                title: "الملف 4: برمجة PL/SQL",
-                subtitle: "PL/SQL Programming",
-                description: "مقدمة شاملة لبرمجة PL/SQL، البلوكات، المتغيرات، وأنواع البيانات",
-                topics: [
-                    {
-                        id: "topic1",
-                        number: "الموضوع 1",
-                        title: "PL/SQL Introduction",
-                        description: "ما هي PL/SQL؟ الفرق بين SQL و PL/SQL، ومميزات البرمجة الإجرائية في قواعد البيانات"
-                    },
-                    {
-                        id: "topic2",
-                        number: "الموضوع 2",
-                        title: "PL/SQL Block Structure",
-                        description: "بنية بلوكات PL/SQL: DECLARE, BEGIN, EXCEPTION, END وكيفية كتابة برنامج كامل"
-                    },
-                    {
-                        id: "topic3",
-                        number: "الموضوع 3",
-                        title: "PL/SQL Block Types",
-                        description: "أنواع البلوكات: Anonymous Blocks, Procedures, Functions, Packages, Triggers"
-                    },
-                    {
-                        id: "topic4",
-                        number: "الموضوع 4",
-                        title: "Variables in PL/SQL",
-                        description: "المتغيرات في PL/SQL: التعريف، التهيئة، النطاق، وأفضل الممارسات"
-                    },
-                    {
-                        id: "topic5",
-                        number: "الموضوع 5",
-                        title: "PL/SQL Data Types",
-                        description: "أنواع البيانات: Scalar, Composite, Reference, LOB وخصائصها"
-                    },
-                    {
-                        id: "topic6",
-                        number: "الموضوع 6",
-                        title: "%TYPE Attribute",
-                        description: "استخدام %TYPE للربط مع أنواع البيانات من الجداول وضمان التوافق"
+                        id: "topic9",
+                        number: "Review Test",
+                        title: "Review Test",
+                        description: "50 comprehensive questions covering RDBMS, Oracle, DDL, DML, Constraints, Keys, Data Types, SDLC, and more"
                     }
                 ]
             }
