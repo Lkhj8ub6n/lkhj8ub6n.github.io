@@ -1,0 +1,26 @@
+{
+  "chapterId": "file1",
+  "topicId": "topic9",
+  "topicTitle": "مراجعة شاملة",
+  "topicTitleEn": "Comprehensive Review",
+  "sections": [
+    {
+      "title": "مراجعة شاملة لمحتوى Database 2",
+      "titleEn": "Comprehensive Review of Database 2 Content",
+      "subsections": [
+        {
+          "content": "هذا القسم يحتوي على مراجعة شاملة لجميع المواضيع التي تم تغطيتها في مادة قواعد البيانات 2",
+          "contentEn": "This section contains a comprehensive review of all topics covered in Database 2 course"
+        },
+        {
+          "content": "المواضيع المشمولة: SDLC، RDBMS، Oracle، DDL، DML، القيود، المفاتيح، أنواع البيانات، وغيرها",
+          "contentEn": "Topics covered: SDLC, RDBMS, Oracle, DDL, DML, Constraints, Keys, Data Types, and more"
+        },
+        {
+          "content": "يرجى الإجابة على الأسئلة في قسم الاختبار لتقييم فهمك الشامل للمادة",
+          "contentEn": "Please answer the questions in the quiz section to assess your comprehensive understanding of the material"
+        }
+      ]
+    }
+  ]
+}
