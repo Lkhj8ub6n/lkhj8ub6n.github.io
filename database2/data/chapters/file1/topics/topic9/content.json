@@ -5,20 +5,16 @@
   "topicTitleEn": "Review Test",
   "sections": [
     {
-      "title": "مراجعة شاملة لمحتوى Database 2",
-      "titleEn": "Comprehensive Review of Database 2 Content",
+      "title": "Review Test Questions",
+      "titleEn": "Review Test Questions",
       "subsections": [
         {
-          "content": "هذا القسم يحتوي على مراجعة شاملة لجميع المواضيع التي تم تغطيتها في مادة قواعد البيانات 2",
-          "contentEn": "This section contains a comprehensive review of all topics covered in Database 2 course"
+          "content": "Questions on Review_1 file",
+          "contentEn": "Questions on Review_1 file"
         },
         {
-          "content": "المواضيع المشمولة: SDLC، RDBMS، Oracle، DDL، DML، القيود، المفاتيح، أنواع البيانات، وغيرها",
-          "contentEn": "Topics covered: SDLC, RDBMS, Oracle, DDL, DML, Constraints, Keys, Data Types, and more"
-        },
-        {
-          "content": "يرجى الإجابة على الأسئلة في قسم الاختبار لتقييم فهمك الشامل للمادة",
-          "contentEn": "Please answer the questions in the quiz section to assess your comprehensive understanding of the material"
+          "content": "Questions on Review_2 file",
+          "contentEn": "Questions on Review_2 file"
         }
       ]
     }

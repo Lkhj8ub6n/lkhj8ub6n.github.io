@@ -2,705 +2,455 @@
   "mcq": [
     {
       "id": "q1",
-      "question": "أي مما يلي يعتبر RDBMS؟",
-      "questionEn": "Which of the following is considered an RDBMS?",
+      "question": "Which of the following is considered an RDBMS?",
       "options": [
         "Microsoft Word",
         "Oracle Database",
         "Windows Operating System",
         "Google Chrome"
       ],
-      "optionsEn": [
-        "Microsoft Word",
-        "Oracle Database",
-        "Windows Operating System",
-        "Google Chrome"
-      ],
       "correct": 1,
-      "explanation": "Oracle Database هو نظام إدارة قواعد بيانات علائقي (RDBMS)",
-      "explanationEn": "Oracle Database is a Relational Database Management System (RDBMS)"
+      "explanation": "Oracle Database is a Relational Database Management System (RDBMS)"
     },
     {
       "id": "q2",
-      "question": "ما هو الأمر المستخدم لإنشاء مستخدم جديد في Oracle؟",
-      "questionEn": "What is the command used to create a new user in Oracle?",
+      "question": "What is the command used to create a new user in Oracle?",
       "options": [
         "NEW USER",
         "ADD USER",
         "CREATE USER",
         "INSERT USER"
       ],
-      "optionsEn": [
-        "NEW USER",
-        "ADD USER",
-        "CREATE USER",
-        "INSERT USER"
-      ],
       "correct": 2,
-      "explanation": "الأمر CREATE USER يستخدم لإنشاء مستخدم جديد في Oracle",
-      "explanationEn": "The CREATE USER command is used to create a new user in Oracle"
+      "explanation": "The CREATE USER command is used to create a new user in Oracle"
     },
     {
       "id": "q3",
-      "question": "أي نوع بيانات يستخدم لتخزين النصوص ذات الطول المتغير؟",
-      "questionEn": "Which data type is used to store variable-length text?",
+      "question": "Which data type is used to store variable-length text?",
       "options": [
         "CHAR",
         "VARCHAR2",
         "NUMBER",
         "DATE"
       ],
-      "optionsEn": [
-        "CHAR",
-        "VARCHAR2",
-        "NUMBER",
-        "DATE"
-      ],
       "correct": 1,
-      "explanation": "VARCHAR2 يستخدم لتخزين نصوص بطول متغير حتى 4000 بايت",
-      "explanationEn": "VARCHAR2 is used to store variable-length text up to 4000 bytes"
+      "explanation": "VARCHAR2 is used to store variable-length text up to 4000 bytes"
     },
     {
       "id": "q4",
-      "question": "ما هي الصلاحيات التي يجب منحها لمستخدم جديد للاتصال بقاعدة البيانات؟",
-      "questionEn": "What privileges must be granted to a new user to connect to the database?",
+      "question": "What privileges must be granted to a new user to connect to the database?",
       "options": [
-        "SELECT, INSERT",
-        "CONNECT, RESOURCE",
-        "CREATE, DROP",
-        "UPDATE, DELETE"
-      ],
-      "optionsEn": [
         "SELECT, INSERT",
         "CONNECT, RESOURCE",
         "CREATE, DROP",
         "UPDATE, DELETE"
       ],
       "correct": 1,
-      "explanation": "CONNECT و RESOURCE هي الصلاحيات الأساسية للاتصال بقاعدة البيانات واستخدام الموارد",
-      "explanationEn": "CONNECT and RESOURCE are the basic privileges to connect to the database and use resources"
+      "explanation": "CONNECT and RESOURCE are the basic privileges to connect to the database and use resources"
     },
     {
       "id": "q5",
-      "question": "أي من الأوامر التالية ينتمي إلى DDL؟",
-      "questionEn": "Which of the following commands belongs to DDL?",
+      "question": "Which of the following commands belongs to DDL?",
       "options": [
-        "SELECT",
-        "INSERT",
-        "CREATE",
-        "COMMIT"
-      ],
-      "optionsEn": [
         "SELECT",
         "INSERT",
         "CREATE",
         "COMMIT"
       ],
       "correct": 2,
-      "explanation": "CREATE هو أمر من أوامر DDL (Data Definition Language) المستخدمة لتعريف بنية قاعدة البيانات",
-      "explanationEn": "CREATE is a DDL (Data Definition Language) command used to define database structure"
+      "explanation": "CREATE is a DDL (Data Definition Language) command used to define database structure"
     },
     {
       "id": "q6",
-      "question": "ما هو الفرق الرئيسي بين DDL و DML؟",
-      "questionEn": "What is the main difference between DDL and DML?",
+      "question": "What is the main difference between DDL and DML?",
       "options": [
-        "DDL يغير البنية، DML يغير البيانات",
-        "DDL يغير البيانات، DML يغير البنية",
-        "لا يوجد فرق",
-        "DDL للقراءة فقط"
-      ],
-      "optionsEn": [
         "DDL changes structure, DML changes data",
         "DDL changes data, DML changes structure",
         "There is no difference",
         "DDL is read-only"
       ],
       "correct": 0,
-      "explanation": "DDL يستخدم لتغيير بنية قاعدة البيانات (الجداول، الأعمدة)، بينما DML يستخدم لتغيير البيانات نفسها",
-      "explanationEn": "DDL is used to change database structure (tables, columns), while DML is used to change the data itself"
+      "explanation": "DDL is used to change database structure (tables, columns), while DML is used to change the data itself"
     },
     {
       "id": "q7",
-      "question": "أي قيد يمنع القيم المكررة في عمود؟",
-      "questionEn": "Which constraint prevents duplicate values in a column?",
+      "question": "Which constraint prevents duplicate values in a column?",
       "options": [
-        "NOT NULL",
-        "CHECK",
-        "UNIQUE",
-        "FOREIGN KEY"
-      ],
-      "optionsEn": [
         "NOT NULL",
         "CHECK",
         "UNIQUE",
         "FOREIGN KEY"
       ],
       "correct": 2,
-      "explanation": "قيد UNIQUE يضمن عدم تكرار القيم في العمود",
-      "explanationEn": "UNIQUE constraint ensures no duplicate values in the column"
+      "explanation": "UNIQUE constraint ensures no duplicate values in the column"
     },
     {
       "id": "q8",
-      "question": "ما هو المفتاح الأساسي (Primary Key)؟",
-      "questionEn": "What is a Primary Key?",
+      "question": "What is a Primary Key?",
       "options": [
-        "عمود يمكن أن يحتوي على قيم مكررة",
-        "عمود يحدد كل صف بشكل فريد",
-        "عمود يمكن أن يكون NULL",
-        "عمود يربط جدولين"
-      ],
-      "optionsEn": [
         "A column that can contain duplicate values",
         "A column that uniquely identifies each row",
         "A column that can be NULL",
         "A column that links two tables"
       ],
       "correct": 1,
-      "explanation": "المفتاح الأساسي هو عمود أو مجموعة أعمدة تحدد كل صف في الجدول بشكل فريد",
-      "explanationEn": "A Primary Key is a column or set of columns that uniquely identifies each row in a table"
+      "explanation": "A Primary Key is a column or set of columns that uniquely identifies each row in a table"
     },
     {
       "id": "q9",
-      "question": "في نموذج العلاقات (ERM)، ما هو الكيان (Entity)؟",
-      "questionEn": "In ERM, what is an Entity?",
+      "question": "In ERM, what is an Entity?",
       "options": [
-        "خاصية تصف البيانات",
-        "علاقة بين جدولين",
-        "كائن من العالم الحقيقي يمكن تعريفه",
-        "قيد على البيانات"
-      ],
-      "optionsEn": [
         "An attribute that describes data",
         "A relationship between two tables",
         "A real-world object that can be identified",
         "A constraint on data"
       ],
       "correct": 2,
-      "explanation": "الكيان في نموذج العلاقات هو كائن من العالم الحقيقي له خصائص يمكن تخزينها",
-      "explanationEn": "An entity in ERM is a real-world object with properties that can be stored"
+      "explanation": "An entity in ERM is a real-world object with properties that can be stored"
     },
     {
       "id": "q10",
-      "question": "أي أمر يستخدم لحذف جميع الصفوف بسرعة من جدول بدون إمكانية التراجع؟",
-      "questionEn": "Which command is used to quickly delete all rows from a table without rollback capability?",
+      "question": "Which command is used to quickly delete all rows from a table without rollback capability?",
       "options": [
-        "DELETE",
-        "DROP",
-        "TRUNCATE",
-        "REMOVE"
-      ],
-      "optionsEn": [
         "DELETE",
         "DROP",
         "TRUNCATE",
         "REMOVE"
       ],
       "correct": 2,
-      "explanation": "TRUNCATE يحذف جميع الصفوف بسرعة ولا يمكن التراجع عنه، بينما DELETE يمكن التراجع عنه",
-      "explanationEn": "TRUNCATE deletes all rows quickly and cannot be rolled back, while DELETE can be rolled back"
+      "explanation": "TRUNCATE deletes all rows quickly and cannot be rolled back, while DELETE can be rolled back"
     },
     {
       "id": "q11",
-      "question": "ما هو التركيب الصحيح لإضافة عمود جديد إلى جدول موجود؟",
-      "questionEn": "What is the correct syntax to add a new column to an existing table?",
+      "question": "What is the correct syntax to add a new column to an existing table?",
       "options": [
         "ALTER TABLE emp NEW COLUMN sal NUMBER;",
         "ALTER TABLE emp ADD sal NUMBER;",
         "CREATE COLUMN sal IN emp;",
         "INSERT COLUMN sal INTO emp;"
       ],
-      "optionsEn": [
-        "ALTER TABLE emp NEW COLUMN sal NUMBER;",
-        "ALTER TABLE emp ADD sal NUMBER;",
-        "CREATE COLUMN sal IN emp;",
-        "INSERT COLUMN sal INTO emp;"
-      ],
       "correct": 1,
-      "explanation": "ALTER TABLE table_name ADD column_name datatype; هو التركيب الصحيح لإضافة عمود جديد",
-      "explanationEn": "ALTER TABLE table_name ADD column_name datatype; is the correct syntax to add a new column"
+      "explanation": "ALTER TABLE table_name ADD column_name datatype; is the correct syntax to add a new column"
     },
     {
       "id": "q12",
-      "question": "أي أمر يستخدم لحفظ التغييرات بشكل دائم في عمليات DML؟",
-      "questionEn": "Which command is used to permanently save changes in DML operations?",
+      "question": "Which command is used to permanently save changes in DML operations?",
       "options": [
-        "SAVE",
-        "COMMIT",
-        "FINISH",
-        "END"
-      ],
-      "optionsEn": [
         "SAVE",
         "COMMIT",
         "FINISH",
         "END"
       ],
       "correct": 1,
-      "explanation": "COMMIT يستخدم لحفظ جميع التغييرات في المعاملة الحالية بشكل دائم",
-      "explanationEn": "COMMIT is used to permanently save all changes in the current transaction"
+      "explanation": "COMMIT is used to permanently save all changes in the current transaction"
     },
     {
       "id": "q13",
-      "question": "ماذا يفعل أمر ROLLBACK؟",
-      "questionEn": "What does ROLLBACK do?",
+      "question": "What does ROLLBACK do?",
       "options": [
-        "يحفظ جميع التغييرات",
-        "يحذف الجدول",
-        "يتراجع عن التغييرات غير المحفوظة",
-        "ينشئ نسخة احتياطية"
-      ],
-      "optionsEn": [
         "Saves all changes",
         "Deletes the table",
         "Undoes uncommitted changes",
         "Creates a backup"
       ],
       "correct": 2,
-      "explanation": "ROLLBACK يلغي جميع التغييرات التي تمت منذ آخر COMMIT",
-      "explanationEn": "ROLLBACK cancels all changes made since the last COMMIT"
+      "explanation": "ROLLBACK cancels all changes made since the last COMMIT"
     },
     {
       "id": "q14",
-      "question": "أي قيد يشير إلى مفتاح أساسي في جدول آخر؟",
-      "questionEn": "Which constraint references a primary key in another table?",
+      "question": "Which constraint references a primary key in another table?",
       "options": [
-        "PRIMARY KEY",
-        "FOREIGN KEY",
-        "UNIQUE",
-        "CHECK"
-      ],
-      "optionsEn": [
         "PRIMARY KEY",
         "FOREIGN KEY",
         "UNIQUE",
         "CHECK"
       ],
       "correct": 1,
-      "explanation": "المفتاح الخارجي (FOREIGN KEY) يشير إلى المفتاح الأساسي في جدول آخر لإنشاء علاقة",
-      "explanationEn": "FOREIGN KEY references a primary key in another table to create a relationship"
+      "explanation": "FOREIGN KEY references a primary key in another table to create a relationship"
     },
     {
       "id": "q15",
-      "question": "ما هو الحجم الأقصى لنوع البيانات VARCHAR2 في المواد؟",
-      "questionEn": "What is the maximum size for VARCHAR2 data type in the materials?",
+      "question": "What is the maximum size for VARCHAR2 data type in the materials?",
       "options": [
-        "حتى 255 بايت",
-        "حتى 2000 بايت",
-        "حتى 4000 بايت",
-        "غير محدود"
-      ],
-      "optionsEn": [
         "Up to 255 bytes",
         "Up to 2000 bytes",
         "Up to 4000 bytes",
         "Unlimited"
       ],
       "correct": 2,
-      "explanation": "VARCHAR2 يمكن أن يخزن حتى 4000 بايت في Oracle",
-      "explanationEn": "VARCHAR2 can store up to 4000 bytes in Oracle"
+      "explanation": "VARCHAR2 can store up to 4000 bytes in Oracle"
     },
     {
       "id": "q16",
-      "question": "أي جملة SQL تستخدم لاسترجاع البيانات من قاعدة البيانات؟",
-      "questionEn": "Which SQL statement is used to retrieve data from a database?",
+      "question": "Which SQL statement is used to retrieve data from a database?",
       "options": [
-        "GET",
-        "RETRIEVE",
-        "SELECT",
-        "FETCH"
-      ],
-      "optionsEn": [
         "GET",
         "RETRIEVE",
         "SELECT",
         "FETCH"
       ],
       "correct": 2,
-      "explanation": "SELECT هو الأمر المستخدم لاسترجاع البيانات من الجداول",
-      "explanationEn": "SELECT is the command used to retrieve data from tables"
+      "explanation": "SELECT is the command used to retrieve data from tables"
     },
     {
       "id": "q17",
-      "question": "ماذا تعني النجمة (*) في: SELECT * FROM employees;",
-      "questionEn": "What does the asterisk (*) mean in: SELECT * FROM employees;",
+      "question": "What does the asterisk (*) mean in: SELECT * FROM employees;",
       "options": [
-        "ضرب جميع القيم",
-        "اختيار جميع الأعمدة",
-        "حذف جميع الصفوف",
-        "عد جميع الصفوف"
-      ],
-      "optionsEn": [
         "Multiply all values",
         "Select all columns",
         "Delete all rows",
         "Count all rows"
       ],
       "correct": 1,
-      "explanation": "النجمة (*) تعني اختيار جميع الأعمدة من الجدول",
-      "explanationEn": "The asterisk (*) means select all columns from the table"
+      "explanation": "The asterisk (*) means select all columns from the table"
     },
     {
       "id": "q18",
-      "question": "أي جملة تستخدم لتصفية الصفوف في جملة SELECT؟",
-      "questionEn": "Which clause is used to filter rows in a SELECT statement?",
+      "question": "Which clause is used to filter rows in a SELECT statement?",
       "options": [
-        "FILTER",
-        "HAVING",
-        "WHERE",
-        "IF"
-      ],
-      "optionsEn": [
         "FILTER",
         "HAVING",
         "WHERE",
         "IF"
       ],
       "correct": 2,
-      "explanation": "WHERE تستخدم لتصفية الصفوف بناءً على شرط معين",
-      "explanationEn": "WHERE is used to filter rows based on a specific condition"
+      "explanation": "WHERE is used to filter rows based on a specific condition"
     },
     {
       "id": "q19",
-      "question": "ما هي اتفاقية التسمية الصحيحة للقيود؟",
-      "questionEn": "What is the correct naming convention for constraints?",
+      "question": "What is the correct naming convention for constraints?",
       "options": [
-        "constraint_table_column",
-        "table_column_constrainttype",
-        "column_table_type",
-        "أي اسم مقبول"
-      ],
-      "optionsEn": [
         "constraint_table_column",
         "table_column_constrainttype",
         "column_table_type",
         "Any name is acceptable"
       ],
       "correct": 1,
-      "explanation": "الاتفاقية الشائعة هي: اسم_الجدول_اسم_العمود_نوع_القيد",
-      "explanationEn": "The common convention is: table_column_constrainttype"
+      "explanation": "The common convention is: table_column_constrainttype"
     },
     {
       "id": "q20",
-      "question": "أي كائن في قاعدة البيانات يولد قيم رقمية؟",
-      "questionEn": "Which database object generates numeric values?",
+      "question": "Which database object generates numeric values?",
       "options": [
-        "Table",
-        "View",
-        "Sequence",
-        "Index"
-      ],
-      "optionsEn": [
         "Table",
         "View",
         "Sequence",
         "Index"
       ],
       "correct": 2,
-      "explanation": "Sequence هو كائن يولد أرقام متسلسلة تلقائياً",
-      "explanationEn": "Sequence is an object that automatically generates sequential numbers"
+      "explanation": "Sequence is an object that automatically generates sequential numbers"
     },
     {
       "id": "q21",
-      "question": "ما هو View في مصطلحات قواعد البيانات؟",
-      "questionEn": "What is a View in database terminology?",
+      "question": "What is a View in database terminology?",
       "options": [
-        "جدول فعلي",
-        "تمثيل منطقي للبيانات من جدول أو أكثر",
-        "واجهة مستخدم",
-        "نسخة احتياطية"
-      ],
-      "optionsEn": [
         "A physical table",
         "A logical representation of data from one or more tables",
         "A user interface",
         "A backup copy"
       ],
       "correct": 1,
-      "explanation": "View هو جدول افتراضي يعرض البيانات من جدول أو أكثر دون تخزينها فعلياً",
-      "explanationEn": "A View is a virtual table that displays data from one or more tables without physically storing it"
+      "explanation": "A View is a virtual table that displays data from one or more tables without physically storing it"
     },
     {
       "id": "q22",
-      "question": "أي مرحلة تأتي أولاً في دورة حياة تطوير البرمجيات (SDLC)؟",
-      "questionEn": "Which phase comes first in the Software Development Life Cycle (SDLC)?",
+      "question": "Which phase comes first in the Software Development Life Cycle (SDLC)?",
       "options": [
-        "التنفيذ",
-        "الاختبار",
-        "التخطيط",
-        "الصيانة"
-      ],
-      "optionsEn": [
         "Implementation",
         "Testing",
         "Planning",
         "Maintenance"
       ],
       "correct": 2,
-      "explanation": "التخطيط هو المرحلة الأولى في SDLC",
-      "explanationEn": "Planning is the first phase in SDLC"
+      "explanation": "Planning is the first phase in SDLC"
     },
     {
       "id": "q23",
-      "question": "ماذا يعني DBMS؟",
-      "questionEn": "What does DBMS stand for?",
+      "question": "What does DBMS stand for?",
       "options": [
-        "Database Management System",
-        "Data Basic Management Software",
-        "Digital Base Management System",
-        "Database Multiple Systems"
-      ],
-      "optionsEn": [
         "Database Management System",
         "Data Basic Management Software",
         "Digital Base Management System",
         "Database Multiple Systems"
       ],
       "correct": 0,
-      "explanation": "DBMS اختصار لـ Database Management System (نظام إدارة قواعد البيانات)",
-      "explanationEn": "DBMS stands for Database Management System"
+      "explanation": "DBMS stands for Database Management System"
     },
     {
       "id": "q24",
-      "question": "أي نوع بيانات يستخدم لتخزين قيم التاريخ والوقت؟",
-      "questionEn": "Which data type is used for storing date and time values?",
+      "question": "Which data type is used for storing date and time values?",
       "options": [
-        "DATETIME",
-        "DATE",
-        "TIME",
-        "TIMESTAMP"
-      ],
-      "optionsEn": [
         "DATETIME",
         "DATE",
         "TIME",
         "TIMESTAMP"
       ],
       "correct": 1,
-      "explanation": "DATE هو نوع البيانات المستخدم في Oracle لتخزين التاريخ والوقت",
-      "explanationEn": "DATE is the data type used in Oracle to store date and time"
+      "explanation": "DATE is the data type used in Oracle to store date and time"
     },
     {
       "id": "q25",
-      "question": "ما هو الغرض من الكلمة المفتاحية DISTINCT؟",
-      "questionEn": "What is the purpose of the DISTINCT keyword?",
+      "question": "What is the purpose of the DISTINCT keyword?",
       "options": [
-        "لحذف الصفوف المكررة",
-        "لإزالة القيم المكررة من مجموعة النتائج",
-        "لإنشاء قيود فريدة",
-        "لترتيب البيانات"
-      ],
-      "optionsEn": [
         "To delete duplicate rows",
         "To remove duplicate values from result set",
         "To create unique constraints",
         "To sort data"
       ],
       "correct": 1,
-      "explanation": "DISTINCT تزيل القيم المكررة من نتيجة الاستعلام",
-      "explanationEn": "DISTINCT removes duplicate values from the query result"
+      "explanation": "DISTINCT removes duplicate values from the query result"
     }
   ],
   "trueFalse": [
     {
       "id": "tf1",
-      "question": "المفاتيح الأساسية يمكن أن تحتوي على قيم مكررة",
-      "questionEn": "Primary keys can contain duplicate values",
+      "question": "Primary keys can contain duplicate values",
       "correct": false,
-      "explanation": "خطأ، المفاتيح الأساسية يجب أن تكون فريدة ولا تقبل القيم المكررة",
-      "explanationEn": "False, primary keys must be unique and cannot contain duplicate values"
+      "explanation": "False, primary keys must be unique and cannot contain duplicate values"
     },
     {
       "id": "tf2",
-      "question": "أوامر DDL يتم حفظها تلقائياً (auto-commit)",
-      "questionEn": "DDL commands are automatically committed",
+      "question": "DDL commands are automatically committed",
       "correct": true,
-      "explanation": "صحيح، أوامر DDL يتم حفظها تلقائياً ولا تحتاج إلى COMMIT",
-      "explanationEn": "Correct, DDL commands are automatically committed and don't require COMMIT"
+      "explanation": "Correct, DDL commands are automatically committed and don't require COMMIT"
     },
     {
       "id": "tf3",
-      "question": "يمكن أن يكون للجدول عدة مفاتيح أساسية",
-      "questionEn": "A table can have multiple primary keys",
+      "question": "A table can have multiple primary keys",
       "correct": false,
-      "explanation": "خطأ، يمكن أن يكون للجدول مفتاح أساسي واحد فقط (قد يتكون من عدة أعمدة)",
-      "explanationEn": "False, a table can have only one primary key (which may consist of multiple columns)"
+      "explanation": "False, a table can have only one primary key (which may consist of multiple columns)"
     },
     {
       "id": "tf4",
-      "question": "قيم المفتاح الخارجي يجب أن تطابق قيمة مفتاح أساسي موجود أو تكون NULL",
-      "questionEn": "Foreign key values must match an existing primary key value or be NULL",
+      "question": "Foreign key values must match an existing primary key value or be NULL",
       "correct": true,
-      "explanation": "صحيح، المفتاح الخارجي يجب أن يشير إلى قيمة موجودة في المفتاح الأساسي أو يكون NULL",
-      "explanationEn": "Correct, a foreign key must reference an existing primary key value or be NULL"
+      "explanation": "Correct, a foreign key must reference an existing primary key value or be NULL"
     },
     {
       "id": "tf5",
-      "question": "يمكن التراجع عن أمر DELETE إذا لم يتم حفظه",
-      "questionEn": "The DELETE command can be rolled back if not committed",
+      "question": "The DELETE command can be rolled back if not committed",
       "correct": true,
-      "explanation": "صحيح، DELETE هو أمر DML ويمكن التراجع عنه باستخدام ROLLBACK قبل COMMIT",
-      "explanationEn": "Correct, DELETE is a DML command and can be rolled back using ROLLBACK before COMMIT"
+      "explanation": "Correct, DELETE is a DML command and can be rolled back using ROLLBACK before COMMIT"
     },
     {
       "id": "tf6",
-      "question": "يمكن التراجع عن أمر TRUNCATE",
-      "questionEn": "TRUNCATE command can be rolled back",
+      "question": "TRUNCATE command can be rolled back",
       "correct": false,
-      "explanation": "خطأ، TRUNCATE هو أمر DDL ولا يمكن التراجع عنه",
-      "explanationEn": "False, TRUNCATE is a DDL command and cannot be rolled back"
+      "explanation": "False, TRUNCATE is a DDL command and cannot be rolled back"
     },
     {
       "id": "tf7",
-      "question": "يجب أن تبدأ أسماء الجداول بحرف",
-      "questionEn": "Table names must begin with a letter",
+      "question": "Table names must begin with a letter",
       "correct": true,
-      "explanation": "صحيح، أسماء الجداول في Oracle يجب أن تبدأ بحرف",
-      "explanationEn": "Correct, table names in Oracle must begin with a letter"
+      "explanation": "Correct, table names in Oracle must begin with a letter"
     },
     {
       "id": "tf8",
-      "question": "يمكن أن تكون أسماء الجداول حتى 50 حرفاً",
-      "questionEn": "Table names can be up to 50 characters long",
+      "question": "Table names can be up to 50 characters long",
       "correct": false,
-      "explanation": "خطأ، أسماء الجداول في Oracle يمكن أن تكون حتى 30 حرفاً (128 في الإصدارات الحديثة)",
-      "explanationEn": "False, table names in Oracle can be up to 30 characters (128 in newer versions)"
+      "explanation": "False, table names in Oracle can be up to 30 characters (128 in newer versions)"
     },
     {
       "id": "tf9",
-      "question": "قيد NOT NULL يسمح بالقيم الفارغة في العمود",
-      "questionEn": "The NOT NULL constraint allows empty values in a column",
+      "question": "The NOT NULL constraint allows empty values in a column",
       "correct": false,
-      "explanation": "خطأ، قيد NOT NULL يمنع القيم الفارغة في العمود",
-      "explanationEn": "False, the NOT NULL constraint prevents empty values in the column"
+      "explanation": "False, the NOT NULL constraint prevents empty values in the column"
     },
     {
       "id": "tf10",
-      "question": "جمل DML تتطلب COMMIT صريح لحفظ التغييرات بشكل دائم",
-      "questionEn": "DML statements require explicit COMMIT to save changes permanently",
+      "question": "DML statements require explicit COMMIT to save changes permanently",
       "correct": true,
-      "explanation": "صحيح، عمليات DML (INSERT, UPDATE, DELETE) تحتاج إلى COMMIT لحفظ التغييرات نهائياً",
-      "explanationEn": "Correct, DML operations (INSERT, UPDATE, DELETE) need COMMIT to save changes permanently"
+      "explanation": "Correct, DML operations (INSERT, UPDATE, DELETE) need COMMIT to save changes permanently"
     },
     {
       "id": "tf11",
-      "question": "يمكن للمفتاح الخارجي أن يشير إلى عمود مفتاح أساسي أو عمود فريد",
-      "questionEn": "A foreign key can reference either a primary key or a unique key column",
+      "question": "A foreign key can reference either a primary key or a unique key column",
       "correct": true,
-      "explanation": "صحيح، المفتاح الخارجي يمكن أن يشير إلى PRIMARY KEY أو UNIQUE constraint",
-      "explanationEn": "Correct, a foreign key can reference a PRIMARY KEY or UNIQUE constraint"
+      "explanation": "Correct, a foreign key can reference a PRIMARY KEY or UNIQUE constraint"
     },
     {
       "id": "tf12",
-      "question": "يمكن استخدام قيد CHECK لتحديد القيم في عمود",
-      "questionEn": "The CHECK constraint can be used to limit values in a column",
+      "question": "The CHECK constraint can be used to limit values in a column",
       "correct": true,
-      "explanation": "صحيح، CHECK constraint يستخدم لتحديد شروط معينة للقيم المسموح بها",
-      "explanationEn": "Correct, CHECK constraint is used to specify conditions for allowed values"
+      "explanation": "Correct, CHECK constraint is used to specify conditions for allowed values"
     },
     {
       "id": "tf13",
-      "question": "أمر DROP TABLE يحذف البيانات فقط وليس بنية الجدول",
-      "questionEn": "DROP TABLE command deletes only the data, not the table structure",
+      "question": "DROP TABLE command deletes only the data, not the table structure",
       "correct": false,
-      "explanation": "خطأ، DROP TABLE يحذف الجدول بالكامل (البنية والبيانات)",
-      "explanationEn": "False, DROP TABLE deletes the entire table (structure and data)"
+      "explanation": "False, DROP TABLE deletes the entire table (structure and data)"
     },
     {
       "id": "tf14",
-      "question": "يمكن استخدام ORDER BY لترتيب نتائج الاستعلام تصاعدياً أو تنازلياً",
-      "questionEn": "You can use ORDER BY to sort query results in ascending or descending order",
+      "question": "You can use ORDER BY to sort query results in ascending or descending order",
       "correct": true,
-      "explanation": "صحيح، ORDER BY يستخدم لترتيب النتائج باستخدام ASC (تصاعدي) أو DESC (تنازلي)",
-      "explanationEn": "Correct, ORDER BY is used to sort results using ASC (ascending) or DESC (descending)"
+      "explanation": "Correct, ORDER BY is used to sort results using ASC (ascending) or DESC (descending)"
     },
     {
       "id": "tf15",
-      "question": "الخاصية (Attribute) في نموذج العلاقات تصف خصائص الكيان",
-      "questionEn": "An attribute in ERM describes characteristics of an entity",
+      "question": "An attribute in ERM describes characteristics of an entity",
       "correct": true,
-      "explanation": "صحيح، الخصائص (Attributes) تمثل التفاصيل والمعلومات عن الكيان",
-      "explanationEn": "Correct, attributes represent details and information about the entity"
+      "explanation": "Correct, attributes represent details and information about the entity"
     },
     {
       "id": "tf16",
-      "question": "نوع البيانات CHAR يخزن بيانات نصية متغيرة الطول",
-      "questionEn": "CHAR data type stores variable-length character data",
+      "question": "CHAR data type stores variable-length character data",
       "correct": false,
-      "explanation": "خطأ، CHAR يخزن بيانات ثابتة الطول، بينما VARCHAR2 يخزن بيانات متغيرة الطول",
-      "explanationEn": "False, CHAR stores fixed-length data, while VARCHAR2 stores variable-length data"
+      "explanation": "False, CHAR stores fixed-length data, while VARCHAR2 stores variable-length data"
     },
     {
       "id": "tf17",
-      "question": "كلمة المرور الافتراضية لحساب 'system' هي 'system'",
-      "questionEn": "The default password for the 'system' account is 'system'",
+      "question": "The default password for the 'system' account is 'system'",
       "correct": true,
-      "explanation": "صحيح، في التثبيت الافتراضي لـ Oracle، كلمة مرور حساب system هي system",
-      "explanationEn": "Correct, in default Oracle installation, the system account password is system"
+      "explanation": "Correct, in default Oracle installation, the system account password is system"
     },
     {
       "id": "tf18",
-      "question": "يجب الاتصال كـ SYSDBA لإنشاء مستخدمين جدد",
-      "questionEn": "You must be connected as SYSDBA to create new users",
+      "question": "You must be connected as SYSDBA to create new users",
       "correct": true,
-      "explanation": "صحيح، إنشاء مستخدمين يتطلب صلاحيات إدارية مثل SYSDBA",
-      "explanationEn": "Correct, creating users requires administrative privileges like SYSDBA"
+      "explanation": "Correct, creating users requires administrative privileges like SYSDBA"
     },
     {
       "id": "tf19",
-      "question": "العلاقة (Relationship) في نموذج العلاقات تربط كيانين أو أكثر",
-      "questionEn": "A relationship in ERM connects two or more entities",
+      "question": "A relationship in ERM connects two or more entities",
       "correct": true,
-      "explanation": "صحيح، العلاقة توضح كيف ترتبط الكيانات ببعضها",
-      "explanationEn": "Correct, a relationship shows how entities are connected to each other"
+      "explanation": "Correct, a relationship shows how entities are connected to each other"
     },
     {
       "id": "tf20",
-      "question": "أمر INSERT ينتمي إلى فئة DDL",
-      "questionEn": "INSERT command belongs to DDL category",
+      "question": "INSERT command belongs to DDL category",
       "correct": false,
-      "explanation": "خطأ، INSERT ينتمي إلى DML (Data Manipulation Language)",
-      "explanationEn": "False, INSERT belongs to DML (Data Manipulation Language)"
+      "explanation": "False, INSERT belongs to DML (Data Manipulation Language)"
     },
     {
       "id": "tf21",
-      "question": "يمكن تعديل نوع بيانات العمود باستخدام ALTER TABLE MODIFY",
-      "questionEn": "You can modify a column's data type using ALTER TABLE MODIFY",
+      "question": "You can modify a column's data type using ALTER TABLE MODIFY",
       "correct": true,
-      "explanation": "صحيح، ALTER TABLE ... MODIFY يستخدم لتعديل خصائص الأعمدة بما في ذلك نوع البيانات",
-      "explanationEn": "Correct, ALTER TABLE ... MODIFY is used to modify column properties including data type"
+      "explanation": "Correct, ALTER TABLE ... MODIFY is used to modify column properties including data type"
     },
     {
       "id": "tf22",
-      "question": "SAVEPOINT يسمح بالتراجع إلى نقطة محددة في المعاملة",
-      "questionEn": "SAVEPOINT allows you to rollback to a specific point in a transaction",
+      "question": "SAVEPOINT allows you to rollback to a specific point in a transaction",
       "correct": true,
-      "explanation": "صحيح، SAVEPOINT يحفظ نقطة معينة يمكن الرجوع إليها باستخدام ROLLBACK TO SAVEPOINT",
-      "explanationEn": "Correct, SAVEPOINT saves a specific point that can be returned to using ROLLBACK TO SAVEPOINT"
+      "explanation": "Correct, SAVEPOINT saves a specific point that can be returned to using ROLLBACK TO SAVEPOINT"
     },
     {
       "id": "tf23",
-      "question": "نوع البيانات BLOB يستخدم لتخزين البيانات الثنائية حتى 4 GB",
-      "questionEn": "BLOB data type is used to store binary data up to 4 GB",
+      "question": "BLOB data type is used to store binary data up to 4 GB",
       "correct": true,
-      "explanation": "صحيح، BLOB (Binary Large Object) يخزن بيانات ثنائية كبيرة حتى 4 جيجابايت",
-      "explanationEn": "Correct, BLOB (Binary Large Object) stores large binary data up to 4 GB"
+      "explanation": "Correct, BLOB (Binary Large Object) stores large binary data up to 4 GB"
     },
     {
       "id": "tf24",
-      "question": "المفاتيح الأساسية بشكل عام لا يمكن تغييرها",
-      "questionEn": "Primary keys generally cannot be changed",
+      "question": "Primary keys generally cannot be changed",
       "correct": true,
-      "explanation": "صحيح، من أفضل الممارسات عدم تغيير قيم المفتاح الأساسي لأنها تستخدم في العلاقات",
-      "explanationEn": "Correct, it's a best practice not to change primary key values as they're used in relationships"
+      "explanation": "Correct, it's a best practice not to change primary key values as they're used in relationships"
     },
     {
       "id": "tf25",
-      "question": "عند إنشاء جداول بمفاتيح خارجية، يجب إنشاء الجدول المشار إليه أولاً",
-      "questionEn": "When creating tables with foreign keys, you must create the referenced table first",
+      "question": "When creating tables with foreign keys, you must create the referenced table first",
       "correct": true,
-      "explanation": "صحيح، الجدول الذي يحتوي على المفتاح الأساسي يجب أن يوجد قبل إنشاء الجدول الذي يشير إليه",
-      "explanationEn": "Correct, the table containing the primary key must exist before creating the table that references it"
+      "explanation": "Correct, the table containing the primary key must exist before creating the table that references it"
     }
   ]
 }
