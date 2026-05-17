@@ -5,28 +5,25 @@ layout: nil
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title>Yazeid Blog</title>
-  <subtitle>Personal blog by Yazeid – Linux, Projects, and Thoughts</subtitle>
-  <link href="https://lkhj8ub6n.github.io/"/>
-  <link type="application/atom+xml" rel="self" href="https://lkhj8ub6n.github.io/atom.xml"/>
+  <title>{{ site.title }}</title>
+  <subtitle>{{ site.description }}</subtitle>
+  <link href="{{ site.url }}/"/>
+  <link type="application/atom+xml" rel="self" href="{{ site.url }}/atom.xml"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
   <author>
-    <name>Yazeid</name>
+    <name>{{ site.author }}</name>
+    <email>{{ site.email }}</email>
   </author>
-  <id>https://lkhj8ub6n.github.io/</id>
+  <id>{{ site.url }}/</id>
 
 {% for post in site.posts limit:20 %}
-  <entry>
+  <entry{% if post.lang %} xml:lang="{{ post.lang }}"{% endif %}>
     <title>{{ post.title | xml_escape }}</title>
-    <link href="https://lkhj8ub6n.github.io{{ post.url }}"/>
-    <id>https://lkhj8ub6n.github.io{{ post.id }}</id>
+    <link href="{{ site.url }}{{ post.url }}"/>
+    <id>{{ site.url }}{{ post.id }}</id>
     <published>{{ post.date | date_to_xmlschema }}</published>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
-    <content type="xhtml">
-      <div xmlns="http://www.w3.org/1999/xhtml">
-        <p>{{ post.content }}</p>
-      </div>
-    </content>
+    <content type="html"><![CDATA[{{ post.content }}]]></content>
   </entry>
 {% endfor %}
 
