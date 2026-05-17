@@ -29,7 +29,7 @@ a:hover {
 	line-height: 0.75em;
 	vertical-align: -15%;
 }
-.fa-rss:before      { content: "\f143"; }
+.fa-rss:before      { content: "\f09e"; }
 .fa-home:before     { content: "\f015"; }
 .fa-previous:before { content: "\f190"; }
 .fa-next:before     { content: "\f18e"; }
