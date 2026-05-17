@@ -1,11 +1,7 @@
 # Jekyll Configuration for Yazeid's Personal Website
 
 title: "Yazeid's Personal Site"
-description: "Personal website of Yazeid — blog posts, projects, course notes, and contact info."
-author: "Yazeid"
-email: "yazeidhdeab@gmail.com"
-url: "https://www.yazeid.site"
-lang: "en"
+description: "My personal website for blogs, projects, and contact"
 markdown: kramdown
 highlighter: rouge
 
