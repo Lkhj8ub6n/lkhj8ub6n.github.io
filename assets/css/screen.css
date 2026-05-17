@@ -98,13 +98,15 @@ pre code {
   text-align: right;
 }
 
-.rtl h1, .rtl h2, .rtl h3, .rtl h4, .rtl h5 {
-  text-align: right;
-}
-
-.rtl p {
+[dir="rtl"] p, [dir="rtl"] li,
+.rtl p, .rtl li {
   font-size: 18px;
   line-height: 1.8;
+}
+
+/* Arabic-friendly tabular date — used for post timestamps in RTL contexts */
+.post-date {
+  font-variant-numeric: tabular-nums;
 }
 
 

@@ -31,9 +31,9 @@ layout: default
     </div>
   </div>
 
-  <div class="post" {% if page.lang == "ar" %}dir="rtl" style="text-align: right; font-size: 18px;"{% endif %}>
-    <h4>{{ page.date | date: "%Y-%m-%d" }}</h4>
-    <h2 {% if page.lang == "ar" %}dir="rtl" style="text-align: right;"{% endif %}>{{ page.title }}</h2>
+  <div class="post"{% if page.lang == "ar" %} dir="rtl"{% endif %}>
+    <h4 class="post-date">{{ page.date | date: "%Y-%m-%d" }}</h4>
+    <h2>{{ page.title }}</h2>
     {{ content }}
   </div>
 </div>
