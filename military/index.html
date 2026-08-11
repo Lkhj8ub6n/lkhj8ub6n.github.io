@@ -309,6 +309,34 @@
     let ALL_QUESTIONS = [];
     let SECTIONS = [];      // [{ name, subsections: [{name, questions:[]}], count }]
 
+    // الترتيب المطلوب للأقسام حسب تسلسل "الباب الأول" (من الأطول للأدق لفض التشابه)
+    const SECTION_ORDER = [
+        'المملكة الأردنية الهاشمية',
+        'مراحل تطور وبناء المملكة الأردنية الهاشمية',
+        'نشأة وتطور القوات المسلحة',
+        'أسلحة المناورة',
+        'أسلحة الإسناد',
+        'أسلحة الخدمات',
+        'وحدات حرس الحدود',
+        'القوة البحرية والزوارق',
+        'سلاح الجو الملكي',
+        'المخابرات العامة'
+    ];
+
+    // رتبة القسم = فهرس أطول عبارة مطابقة (ليقع "مراحل تطور..." بعد "المملكة..." الصرفة)
+    function sectionRank(name) {
+        let rank = SECTION_ORDER.length, bestLen = -1;
+        SECTION_ORDER.forEach((kw, i) => {
+            if (name.includes(kw) && kw.length > bestLen) { bestLen = kw.length; rank = i; }
+        });
+        return rank;
+    }
+
+    // إزالة بادئة "القسم الأول:" المكررة لعرض العنوان كما في الصورة
+    function displaySectionName(name) {
+        return name.replace(/^\s*القسم\s+[^:：\-–]*[:：\-–]\s*/, '').trim() || name;
+    }
+
     const app = document.getElementById('app');
 
     // ---------- تحميل البيانات ----------
@@ -365,6 +393,12 @@
             const count = subsections.reduce((s, x) => s + x.questions.length, 0);
             return { name, subsections, count };
         });
+        // رتّب الأقسام حسب تسلسل الصورة، مع إبقاء غير المذكورة في نهايتها بترتيبها الطبيعي
+        SECTIONS.forEach((s, i) => { s._origIndex = i; });
+        SECTIONS.sort((a, b) => {
+            const ra = sectionRank(a.name), rb = sectionRank(b.name);
+            return ra !== rb ? ra - rb : a._origIndex - b._origIndex;
+        });
     }
 
     // ---------- عرض الأقسام ----------
@@ -374,7 +408,7 @@
             html += `
                 <div class="subject-card" onclick="renderSubsections(${i})">
                     <div class="card-badge">القسم ${i + 1}</div>
-                    <div class="card-title">${escapeHtml(sec.name)}</div>
+                    <div class="card-title">${escapeHtml(displaySectionName(sec.name))}</div>
                     <div class="card-meta">
                         <i class="fas fa-layer-group"></i>
                         <span>${sec.subsections.length} مواضيع</span>
@@ -397,7 +431,7 @@
                 <i class="fas fa-arrow-right"></i> رجوع للأقسام
             </a>
             <div class="header" style="margin-bottom:1.5rem">
-                <h1 style="font-size:1.6rem">${escapeHtml(sec.name)}</h1>
+                <h1 style="font-size:1.6rem">${escapeHtml(displaySectionName(sec.name))}</h1>
             </div>
             <div class="cards-grid">`;
 
