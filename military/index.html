@@ -276,14 +276,32 @@
                 `${SUPABASE_URL}/rest/v1/${TABLE}?select=*&order=id.asc`,
                 { headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` } }
             );
-            if (!res.ok) throw new Error('HTTP ' + res.status);
-            ALL_QUESTIONS = await res.json();
+            const body = await res.text();
+            if (!res.ok) {
+                app.innerHTML = `<div class="state-msg">
+                    <i class="fas fa-triangle-exclamation"></i> فشل الطلب من Supabase (HTTP ${res.status}).<br>
+                    <small style="opacity:.85;word-break:break-word">${escapeHtml(body).slice(0, 300)}</small>
+                </div>`;
+                return;
+            }
+            ALL_QUESTIONS = JSON.parse(body);
+            if (!Array.isArray(ALL_QUESTIONS) || ALL_QUESTIONS.length === 0) {
+                app.innerHTML = `<div class="state-msg">
+                    <i class="fas fa-circle-info"></i> تم الاتصال بنجاح لكن لم تُرجَع أي أسئلة (0 صف).<br>
+                    <small style="opacity:.85">
+                        غالباً بسبب Row Level Security: الجدول مفعّل عليه RLS بدون سياسة قراءة عامة،
+                        لذا يمنع القراءة عبر المفتاح العام. فعّل سياسة SELECT للعموم على جدول
+                        <code>${TABLE}</code>.
+                    </small>
+                </div>`;
+                return;
+            }
             groupData();
             renderSections();
         } catch (err) {
             app.innerHTML = `<div class="state-msg">
-                <i class="fas fa-triangle-exclamation"></i> تعذّر تحميل الأسئلة من Supabase.<br>
-                <small>${err.message}</small>
+                <i class="fas fa-triangle-exclamation"></i> تعذّر الاتصال بـ Supabase (مشكلة شبكة أو CORS).<br>
+                <small style="opacity:.85">${escapeHtml(err.message)}</small>
             </div>`;
         }
     }
