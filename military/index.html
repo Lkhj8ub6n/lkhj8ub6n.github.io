@@ -118,6 +118,43 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
+        .summary-badge {
+            background: linear-gradient(135deg, #7a5901, #b98a00) !important;
+        }
+        .summary-card::before {
+            background: linear-gradient(90deg, #b98a00, #ffe08a) !important;
+        }
+
+        /* تنسيق محتوى الملخص (Markdown) */
+        .md-content { line-height: 1.9; color: #2b2b2b; font-size: 1.05rem; }
+        .md-content h1, .md-content h2, .md-content h3,
+        .md-content h4 { color: var(--primary-color); margin: 1.4rem 0 0.7rem; font-weight: 700; }
+        .md-content h1 { font-size: 1.8rem; border-bottom: 2px solid var(--secondary-color); padding-bottom: 0.4rem; }
+        .md-content h2 { font-size: 1.45rem; }
+        .md-content h3 { font-size: 1.2rem; }
+        .md-content p { margin: 0.7rem 0; }
+        .md-content ul, .md-content ol { padding-inline-start: 1.6rem; margin: 0.7rem 0; }
+        .md-content li { margin: 0.35rem 0; }
+        .md-content a { color: var(--primary-color); text-decoration: underline; }
+        .md-content code {
+            background: #f0f2f1; padding: 0.15rem 0.4rem; border-radius: 5px;
+            font-family: monospace; direction: ltr; display: inline-block;
+        }
+        .md-content pre {
+            background: #1e1e1e; color: #eaeaea; padding: 1rem; border-radius: 10px;
+            overflow-x: auto; direction: ltr; text-align: left;
+        }
+        .md-content pre code { background: transparent; color: inherit; padding: 0; }
+        .md-content blockquote {
+            border-inline-start: 4px solid var(--primary-color);
+            background: #f4f8f6; margin: 1rem 0; padding: 0.6rem 1rem; border-radius: 6px; color: #444;
+        }
+        .md-content table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+        .md-content th, .md-content td { border: 1px solid #ddd; padding: 0.5rem 0.8rem; text-align: right; }
+        .md-content th { background: var(--primary-color); color: white; }
+        .md-content img { max-width: 100%; height: auto; border-radius: 8px; }
+        .md-content hr { border: none; border-top: 1px solid #e2e2e2; margin: 1.5rem 0; }
+
         .loading, .state-msg {
             text-align: center;
             padding: 3rem 1rem;
@@ -299,6 +336,7 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
     // ===== إعدادات Supabase =====
     const SUPABASE_URL = 'https://nytuekgasognqvzxemsh.supabase.co';
@@ -308,6 +346,7 @@
     const OPTION_KEYS = ['a', 'b', 'c', 'd'];
     let ALL_QUESTIONS = [];
     let SECTIONS = [];      // [{ name, subsections: [{name, questions:[]}], count }]
+    let SUMMARIES = [];     // [{ section, title, file }] من summaries/summaries.json
 
     // الترتيب المطلوب للأقسام حسب تسلسل "الباب الأول" (من الأطول للأدق لفض التشابه)
     const SECTION_ORDER = [
@@ -367,6 +406,7 @@
                 return;
             }
             groupData();
+            await loadSummaries();
             renderSections();
         } catch (err) {
             app.innerHTML = `<div class="state-msg">
@@ -374,6 +414,37 @@
                 <small style="opacity:.85">${escapeHtml(err.message)}</small>
             </div>`;
         }
+    }
+
+    // تحميل قائمة الملخصات (اختياري — لا يُفشل الصفحة إن لم تكن موجودة)
+    async function loadSummaries() {
+        try {
+            const res = await fetch('summaries/summaries.json', { cache: 'no-cache' });
+            if (!res.ok) return;
+            const data = await res.json();
+            if (Array.isArray(data)) SUMMARIES = data.filter(s => s && s.file);
+        } catch (_) { /* لا توجد ملخصات بعد */ }
+    }
+
+    // القسم المستهدف لعبارة ملخص: مطابقة كاملة، وإلا أدق مطابقة جزئية (أقصر اسم)
+    function summaryTargetSection(phrase) {
+        if (!phrase) return null;                       // فارغ => يظهر في كل الأقسام
+        const exact = SECTIONS.find(s => s.name === phrase);
+        if (exact) return exact.name;
+        const matches = SECTIONS.filter(s => s.name.includes(phrase));
+        if (matches.length === 0) return undefined;     // لا يطابق أي قسم
+        matches.sort((a, b) => a.name.length - b.name.length);
+        return matches[0].name;                         // الأدق = الأقصر اسماً
+    }
+
+    // ملخصات قسم معيّن
+    function summariesForSection(sectionName) {
+        return SUMMARIES
+            .map((s, idx) => ({ ...s, _idx: idx }))
+            .filter(s => {
+                const target = summaryTargetSection(s.section);
+                return target === null ? true : target === sectionName;
+            });
     }
 
     function groupData() {
@@ -446,6 +517,19 @@
                 </div>
             </div>`;
 
+        // بطاقات الملخصات الخاصة بهذا القسم
+        summariesForSection(sec.name).forEach(sm => {
+            html += `
+                <div class="subject-card summary-card" onclick="renderSummaryReader(${sm._idx}, ${secIndex})">
+                    <div class="card-badge summary-badge"><i class="fas fa-book-open"></i> ملخص</div>
+                    <div class="card-title">${escapeHtml(sm.title || 'ملخص')}</div>
+                    <div class="card-meta">
+                        <i class="fas fa-file-lines"></i>
+                        <span>اضغط للقراءة</span>
+                    </div>
+                </div>`;
+        });
+
         sec.subsections.forEach((sub, j) => {
             html += `
                 <div class="subject-card" onclick="startQuiz(${secIndex}, ${j})">
@@ -460,6 +544,38 @@
         html += `</div>`;
         app.innerHTML = html;
         window.scrollTo(0, 0);
+    }
+
+    // ---------- قارئ الملخص ----------
+    async function renderSummaryReader(summaryIndex, secIndex) {
+        const sm = SUMMARIES[summaryIndex];
+        app.innerHTML = `
+            <a class="back-btn" onclick="renderSubsections(${secIndex})">
+                <i class="fas fa-arrow-right"></i> رجوع للمواضيع
+            </a>
+            <div class="panel md-content" id="md-view">
+                <p class="text-center" style="color:var(--primary-color)">
+                    <i class="fas fa-spinner fa-spin"></i> جاري تحميل الملخص...
+                </p>
+            </div>`;
+        window.scrollTo(0, 0);
+        const view = document.getElementById('md-view');
+        try {
+            const res = await fetch(sm.file, { cache: 'no-cache' });
+            if (!res.ok) throw new Error('HTTP ' + res.status);
+            const text = await res.text();
+            if (window.marked && typeof marked.parse === 'function') {
+                view.innerHTML = marked.parse(text);
+            } else {
+                // احتياط لو تعذّر تحميل مكتبة marked
+                view.innerHTML = '<pre style="white-space:pre-wrap">' + escapeHtml(text) + '</pre>';
+            }
+        } catch (err) {
+            view.innerHTML = `<p class="text-danger">
+                <i class="fas fa-triangle-exclamation"></i>
+                تعذّر تحميل الملف: <code>${escapeHtml(sm.file)}</code> (${escapeHtml(err.message)})
+            </p>`;
+        }
     }
 
     // ---------- الاختبار ----------
