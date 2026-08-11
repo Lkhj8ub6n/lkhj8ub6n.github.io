@@ -1,7 +1,67 @@
 [
   {
+    "section": "المملكة الأردنية الهاشمية",
+    "title": "ملخص: المملكة الأردنية الهاشمية",
+    "file": "summaries/hashemite-kingdom.md"
+  },
+  {
+    "section": "المملكة الأردنية الهاشمية",
+    "title": "ملحق: أهم الأرقام والتواريخ — الباب الأول",
+    "file": "summaries/appendix-bab1-numbers.md"
+  },
+  {
+    "section": "مراحل تطور وبناء",
+    "title": "ملخص: مراحل تطور وبناء المملكة",
+    "file": "summaries/kingdom-development.md"
+  },
+  {
+    "section": "نشأة وتطور القوات المسلحة",
+    "title": "ملخص: نشأة وتطور القوات المسلحة الأردنية – الجيش العربي",
+    "file": "summaries/armed-forces-origin.md"
+  },
+  {
+    "section": "الرتب ومصادر التجنيد",
+    "title": "ملخص: الرتب ومصادر التجنيد",
+    "file": "summaries/ranks-recruitment.md"
+  },
+  {
+    "section": "أسلحة المناورة",
+    "title": "ملخص: أسلحة المناورة",
+    "file": "summaries/maneuver-weapons.md"
+  },
+  {
+    "section": "أسلحة الإسناد",
+    "title": "ملخص: أسلحة الإسناد",
+    "file": "summaries/support-weapons.md"
+  },
+  {
     "section": "وحدات حرس الحدود",
-    "title": "ملخص: مقدمة ومهمة وحدات حرس الحدود",
-    "file": "summaries/border-guards-intro.md"
+    "title": "ملخص: وحدات حرس الحدود",
+    "file": "summaries/border-guards.md"
+  },
+  {
+    "section": "وحدات حرس الحدود",
+    "title": "ورقة الأرقام والتواريخ الحرجة",
+    "file": "summaries/appendix-critical-numbers.md"
+  },
+  {
+    "section": "القوة البحرية والزوارق",
+    "title": "ملخص: القوة البحرية والزوارق الملكية",
+    "file": "summaries/naval-force.md"
+  },
+  {
+    "section": "أسلحة الخدمات",
+    "title": "ملخص: أسلحة الخدمات",
+    "file": "summaries/service-weapons.md"
+  },
+  {
+    "section": "المخابرات العامة",
+    "title": "ملخص: دائرة المخابرات العامة",
+    "file": "summaries/intelligence.md"
+  },
+  {
+    "section": "سلاح الجو الملكي",
+    "title": "ملخص: سلاح الجو الملكي",
+    "file": "summaries/air-force.md"
   }
 ]
