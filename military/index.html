@@ -459,6 +459,43 @@
         } catch (_) { return null; }
     }
 
+    // استنتاج الجهاز/النظام/المتصفح من user agent (تقريبي)
+    function parseUA(ua) {
+        ua = ua || '';
+        const device = /iPad|Tablet/i.test(ua) ? 'tablet'
+            : /Mobi|Android|iPhone|iPod/i.test(ua) ? 'mobile' : 'desktop';
+        let os = 'غير معروف';
+        if (/Windows/i.test(ua)) os = 'Windows';
+        else if (/Android/i.test(ua)) os = 'Android';
+        else if (/iPhone|iPad|iPod/i.test(ua)) os = 'iOS';
+        else if (/Mac OS X|Macintosh/i.test(ua)) os = 'macOS';
+        else if (/Linux/i.test(ua)) os = 'Linux';
+        let browser = 'غير معروف';
+        if (/Edg/i.test(ua)) browser = 'Edge';
+        else if (/OPR|Opera/i.test(ua)) browser = 'Opera';
+        else if (/Chrome|CriOS/i.test(ua)) browser = 'Chrome';
+        else if (/Firefox|FxiOS/i.test(ua)) browser = 'Firefox';
+        else if (/Safari/i.test(ua)) browser = 'Safari';
+        return { device, os, browser };
+    }
+
+    function collectMeta() {
+        const ua = navigator.userAgent || '';
+        const p = parseUA(ua);
+        let tz = '';
+        try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (_) {}
+        return {
+            user_agent: ua,
+            language: navigator.language || '',
+            screen: (window.screen ? screen.width + 'x' + screen.height : ''),
+            timezone: tz,
+            referrer: document.referrer || '',
+            device: p.device,
+            os: p.os,
+            browser: p.browser
+        };
+    }
+
     function logVisit() {
         try {
             fetch(`${SUPABASE_URL}/rest/v1/rpc/log_visit`, {
@@ -468,7 +505,11 @@
                     Authorization: `Bearer ${SUPABASE_KEY}`,
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ p_page: PAGE_KEY, p_visitor: getVisitorId() }),
+                body: JSON.stringify({
+                    p_page: PAGE_KEY,
+                    p_visitor: getVisitorId(),
+                    p_meta: collectMeta()
+                }),
                 keepalive: true
             }).catch(() => {});
         } catch (_) { /* تجاهل */ }
