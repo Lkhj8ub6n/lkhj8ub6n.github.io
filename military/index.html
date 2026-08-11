@@ -132,6 +132,41 @@
             margin-bottom: 1rem;
             font-size: 1.05rem;
         }
+        .instant-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+            margin-bottom: 1.2rem;
+            background: rgba(255,255,255,0.12);
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.22);
+        }
+        .instant-toggle input { display: none; }
+        .instant-toggle .switch {
+            position: relative;
+            width: 44px; height: 24px;
+            background: rgba(255,255,255,0.35);
+            border-radius: 24px;
+            transition: background 0.25s;
+            flex: 0 0 auto;
+        }
+        .instant-toggle .switch::before {
+            content: '';
+            position: absolute;
+            top: 3px; right: 3px;
+            width: 18px; height: 18px;
+            background: white;
+            border-radius: 50%;
+            transition: transform 0.25s;
+        }
+        .instant-toggle input:checked + .switch { background: #ffc107; }
+        .instant-toggle input:checked + .switch::before { transform: translateX(-20px); }
+
         .quiz-question {
             background: white;
             border-radius: 12px;
@@ -139,6 +174,13 @@
             margin-bottom: 1.2rem;
             box-shadow: 0 5px 15px rgba(0,0,0,0.12);
         }
+        .quiz-question.answered .quiz-option { cursor: default; }
+        .quiz-question.answered .quiz-option:hover {
+            border-color: #e6e6e6; background: white;
+        }
+        .quiz-question.answered .quiz-option.selected:hover { background: #e8f1ec; }
+        .quiz-question.answered .quiz-option.correct:hover { background: #d4edda; border-color: #1e7e34; }
+        .quiz-question.answered .quiz-option.incorrect:hover { background: #f8d7da; border-color: #c82333; }
         .q-text {
             font-weight: 700;
             color: var(--dark-bg);
@@ -389,6 +431,15 @@
     // ---------- الاختبار ----------
     let currentQuestions = [];
     let userAnswers = {};   // qIndex -> option key
+    let instantMode = false;
+
+    function setInstantMode(on) {
+        instantMode = on;
+        // عند التبديل، أعد بناء الأسئلة لتطبيق/إلغاء القفل والتلوين
+        renderQuestions();
+        const box = document.getElementById('results');
+        if (box) box.style.display = 'none';
+    }
 
     function startQuiz(secIndex, subIndex) {
         const sec = SECTIONS[secIndex];
@@ -408,6 +459,12 @@
                 <i class="fas fa-pen-to-square"></i> ${escapeHtml(title)}
                 &mdash; ${currentQuestions.length} سؤال
             </div>
+            <label class="instant-toggle">
+                <input type="checkbox" id="instant-mode" ${instantMode ? 'checked' : ''}
+                    onchange="setInstantMode(this.checked)">
+                <span class="switch"></span>
+                <span><i class="fas fa-bolt"></i> التصحيح الفوري</span>
+            </label>
             <div id="results" class="results"></div>
             <div id="questions-list"></div>
             <div class="quiz-controls">
@@ -447,13 +504,46 @@
             html += `</div>`;
         });
         list.innerHTML = html;
+
+        // إعادة تطبيق حالة الإجابات المختارة مسبقاً بعد إعادة البناء
+        currentQuestions.forEach((q, qi) => {
+            const userKey = userAnswers[qi];
+            if (userKey === undefined) return;
+            const qDiv = document.querySelector(`.quiz-question[data-q="${qi}"]`);
+            const sel = qDiv.querySelector(`.quiz-option[data-opt="${userKey}"]`);
+            if (sel) sel.classList.add('selected');
+            if (instantMode) markQuestion(qi);
+        });
     }
 
     function selectOption(qi, key) {
-        userAnswers[qi] = key;
         const qDiv = document.querySelector(`.quiz-question[data-q="${qi}"]`);
+        // في النمط الفوري: لا يُسمح بتغيير الإجابة بعد اختيارها
+        if (instantMode && userAnswers[qi] !== undefined) return;
+
+        userAnswers[qi] = key;
         qDiv.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
         qDiv.querySelector(`.quiz-option[data-opt="${key}"]`).classList.add('selected');
+
+        if (instantMode) markQuestion(qi);
+    }
+
+    // تلوين سؤال واحد بالصحيح/الخطأ + إظهار الشرح وقفله
+    function markQuestion(qi) {
+        const q = currentQuestions[qi];
+        const qDiv = document.querySelector(`.quiz-question[data-q="${qi}"]`);
+        const userKey = userAnswers[qi];
+        const correctKey = (q.correct_option || '').toLowerCase();
+
+        qDiv.classList.add('answered');
+        qDiv.querySelectorAll('.quiz-option').forEach(o => {
+            o.classList.remove('correct', 'incorrect');
+            const k = o.getAttribute('data-opt');
+            if (k === correctKey) o.classList.add('correct');
+            if (k === userKey && userKey !== correctKey) o.classList.add('incorrect');
+        });
+        const expDiv = qDiv.querySelector('.explanation');
+        if (expDiv) expDiv.classList.add('show');
     }
 
     function checkAnswers() {
@@ -493,6 +583,7 @@
 
     function resetQuiz() {
         userAnswers = {};
+        document.querySelectorAll('.quiz-question').forEach(q => q.classList.remove('answered'));
         document.querySelectorAll('.quiz-option').forEach(o =>
             o.classList.remove('selected', 'correct', 'incorrect'));
         document.querySelectorAll('.explanation').forEach(e => e.classList.remove('show'));
