@@ -118,6 +118,21 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
+        .card-subtitle {
+            color: #666;
+            margin: -0.3rem 0 0.7rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .bab-badge {
+            background: linear-gradient(135deg, #1c3f5f, #2a6f97) !important;
+        }
+        .bab-card::before {
+            background: linear-gradient(90deg, #2a6f97, #a9d6e5) !important;
+        }
+        .bab-card .card-title { font-size: 1.5rem; }
+
         .summary-badge {
             background: linear-gradient(135deg, #7a5901, #b98a00) !important;
         }
@@ -348,6 +363,31 @@
     let SECTIONS = [];      // [{ name, subsections: [{name, questions:[]}], count }]
     let SUMMARIES = [];     // [{ section, title, file }] من summaries/summaries.json
 
+    // ===== الأبواب =====
+    // كل قسم يقع في أول باب تُطابقه إحدى عباراته؛ 'sections: "*"' = يلتقط كل ما تبقّى.
+    // لإضافة باب جديد لاحقاً: أضف عنصراً بعبارات أقسامه، والباب صاحب "*" يبقى ملاذاً للباقي.
+    const BABS = [
+        {
+            title: 'الباب الأول',
+            subtitle: 'أساسيات القوات المسلحة الأردنية ووحداتها',
+            sections: '*'
+        }
+        // مثال باب ثانٍ مستقبلاً:
+        // { title: 'الباب الثاني', subtitle: '...', sections: ['عبارة قسم', 'عبارة أخرى'] }
+    ];
+    let BAB_GROUPS = [];    // [{ title, subtitle, sectionIndexes: [] }]
+
+    // فهرس الباب الذي يخصّ اسم قسم: الأبواب المحددة أولاً، ثم الملاذ "*"
+    function babIndexForSection(name) {
+        let catchAll = -1;
+        for (let i = 0; i < BABS.length; i++) {
+            const s = BABS[i].sections;
+            if (s === '*') { if (catchAll === -1) catchAll = i; continue; }
+            if (Array.isArray(s) && s.some(p => name.includes(p))) return i;
+        }
+        return catchAll;
+    }
+
     // الترتيب المطلوب للأقسام حسب تسلسل "الباب الأول" (من الأطول للأدق لفض التشابه)
     const SECTION_ORDER = [
         'المملكة الأردنية الهاشمية',
@@ -407,7 +447,7 @@
             }
             groupData();
             await loadSummaries();
-            renderSections();
+            renderBabs();
         } catch (err) {
             app.innerHTML = `<div class="state-msg">
                 <i class="fas fa-triangle-exclamation"></i> تعذّر الاتصال بـ Supabase (مشكلة شبكة أو CORS).<br>
@@ -470,14 +510,56 @@
             const ra = sectionRank(a.name), rb = sectionRank(b.name);
             return ra !== rb ? ra - rb : a._origIndex - b._origIndex;
         });
+        // وزّع الأقسام على الأبواب (بالترتيب المُرتَّب أعلاه)
+        BAB_GROUPS = BABS.map(b => ({ title: b.title, subtitle: b.subtitle, sectionIndexes: [] }));
+        SECTIONS.forEach((sec, i) => {
+            const bi = babIndexForSection(sec.name);
+            sec._babIndex = bi;
+            if (bi >= 0) BAB_GROUPS[bi].sectionIndexes.push(i);
+        });
     }
 
-    // ---------- عرض الأقسام ----------
-    function renderSections() {
+    // ---------- عرض الأبواب ----------
+    function renderBabs() {
         let html = `<div class="cards-grid">`;
-        SECTIONS.forEach((sec, i) => {
+        BAB_GROUPS.forEach((bab, bi) => {
+            if (!bab.sectionIndexes.length) return;
+            const secCount = bab.sectionIndexes.length;
+            const qCount = bab.sectionIndexes.reduce((s, idx) => s + SECTIONS[idx].count, 0);
             html += `
-                <div class="subject-card" onclick="renderSubsections(${i})">
+                <div class="subject-card bab-card" onclick="renderSections(${bi})">
+                    <div class="card-badge bab-badge"><i class="fas fa-book-bookmark"></i> باب</div>
+                    <div class="card-title">${escapeHtml(bab.title)}</div>
+                    ${bab.subtitle ? `<p class="card-subtitle">${escapeHtml(bab.subtitle)}</p>` : ''}
+                    <div class="card-meta">
+                        <i class="fas fa-layer-group"></i>
+                        <span>${secCount} أقسام</span>
+                        <span style="margin-inline-start:auto">
+                            <i class="fas fa-circle-question"></i> ${qCount} سؤال
+                        </span>
+                    </div>
+                </div>`;
+        });
+        html += `</div>`;
+        app.innerHTML = html;
+        window.scrollTo(0, 0);
+    }
+
+    // ---------- عرض الأقسام داخل باب ----------
+    function renderSections(babIndex) {
+        const bab = BAB_GROUPS[babIndex];
+        let html = `
+            <a class="back-btn" onclick="renderBabs()">
+                <i class="fas fa-arrow-right"></i> رجوع للأبواب
+            </a>
+            <div class="header" style="margin-bottom:1.5rem">
+                <h1 style="font-size:1.7rem"><i class="fas fa-book-bookmark"></i> ${escapeHtml(bab.title)}</h1>
+            </div>
+            <div class="cards-grid">`;
+        bab.sectionIndexes.forEach((secIdx, i) => {
+            const sec = SECTIONS[secIdx];
+            html += `
+                <div class="subject-card" onclick="renderSubsections(${secIdx})">
                     <div class="card-badge">القسم ${i + 1}</div>
                     <div class="card-title">${escapeHtml(displaySectionName(sec.name))}</div>
                     <div class="card-meta">
@@ -498,7 +580,7 @@
     function renderSubsections(secIndex) {
         const sec = SECTIONS[secIndex];
         let html = `
-            <a class="back-btn" onclick="renderSections()">
+            <a class="back-btn" onclick="renderSections(${sec._babIndex})">
                 <i class="fas fa-arrow-right"></i> رجوع للأقسام
             </a>
             <div class="header" style="margin-bottom:1.5rem">
