@@ -357,6 +357,8 @@
     const SUPABASE_URL = 'https://nytuekgasognqvzxemsh.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_DssZGrSuDi2u9sqTBvtI9A_r1INTSwW';
     const TABLE = 'questions';
+    const CONFIG_TABLE = 'app_config';   // مفتاح الإغلاق/الفتح
+    const PAGE_KEY = 'military';
 
     const OPTION_KEYS = ['a', 'b', 'c', 'd'];
     let ALL_QUESTIONS = [];
@@ -418,9 +420,35 @@
 
     const app = document.getElementById('app');
 
+    // ---------- مفتاح الإغلاق ----------
+    // يقرأ صفاً واحداً من app_config؛ إن كان enabled=false تُغلق الصفحة.
+    // (افتراضياً مفتوحة لو تعذّر الفحص أو لم يوجد المفتاح، تجنّباً لإغلاق غير مقصود)
+    async function isPageOpen() {
+        try {
+            const res = await fetch(
+                `${SUPABASE_URL}/rest/v1/${CONFIG_TABLE}?key=eq.${PAGE_KEY}&select=enabled`,
+                { headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` } }
+            );
+            if (res.ok) {
+                const rows = await res.json();
+                if (Array.isArray(rows) && rows.length && rows[0].enabled === false) return false;
+            }
+        } catch (_) { /* تجاهل: تبقى مفتوحة */ }
+        return true;
+    }
+
+    function renderClosed() {
+        app.innerHTML = `<div class="state-msg">
+            <div style="font-size:3.2rem;margin-bottom:1rem"><i class="fas fa-lock"></i></div>
+            الصفحة مغلقة مؤقتاً
+            <div><small style="opacity:.85">يرجى المحاولة لاحقاً</small></div>
+        </div>`;
+    }
+
     // ---------- تحميل البيانات ----------
     async function loadData() {
         try {
+            if (!(await isPageOpen())) { renderClosed(); return; }
             const res = await fetch(
                 `${SUPABASE_URL}/rest/v1/${TABLE}?select=*&order=id.asc`,
                 { headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` } }
