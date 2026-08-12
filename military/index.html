@@ -1123,7 +1123,8 @@
                 const sel = qDiv.querySelector(`.quiz-option[data-opt="${userKey}"]`);
                 if (sel) { sel.classList.add('selected'); sel.setAttribute('aria-checked', 'true'); }
             }
-            if (instantMode || quizChecked) markQuestion(qi);
+            // بعد احتساب النتيجة نُظهر التصحيح؛ أما التصحيح الفوري فيظهر عند الإجابة فقط
+            if (quizChecked) markQuestion(qi);
         });
 
         updateProgressBar();
