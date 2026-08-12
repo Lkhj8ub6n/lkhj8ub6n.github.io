@@ -329,11 +329,90 @@
         .grade-mid { color: #d39e00; }
         .grade-fail { color: #c82333; }
 
+        /* ===== تحسينات UX ===== */
+        .top-actions {
+            display: flex;
+            justify-content: flex-start;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.2rem;
+        }
+        .pill-btn, .link-btn, .chip { font-family: inherit; cursor: pointer; }
+        .pill-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(255,255,255,0.15); color: #fff;
+            border: 1px solid rgba(255,255,255,0.25);
+            padding: 0.55rem 1.1rem; border-radius: 25px;
+            font-weight: 600; transition: all 0.2s;
+        }
+        .pill-btn:hover { background: rgba(255,255,255,0.28); }
+
+        .quiz-toggles { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+
+        .saved-note {
+            color: #fff; background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.22);
+            padding: 0.55rem 1rem; border-radius: 10px;
+            margin-bottom: 1rem; font-size: 0.95rem;
+            display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+        }
+        .link-btn {
+            background: none; border: none; color: #ffd76a;
+            text-decoration: underline; padding: 0;
+            font-weight: 600; font-size: inherit;
+        }
+
+        .quiz-progressbar {
+            position: sticky; top: 0; z-index: 20;
+            background: rgba(20,30,25,0.92);
+            backdrop-filter: blur(4px);
+            padding: 0.7rem 0.9rem; border-radius: 12px;
+            margin-bottom: 1.2rem; border: 1px solid rgba(255,255,255,0.15);
+        }
+        .qp-track { height: 8px; background: rgba(255,255,255,0.2); border-radius: 8px; overflow: hidden; }
+        .qp-fill { height: 100%; width: 0; background: linear-gradient(90deg, #ffc107, #ffe08a); transition: width 0.3s; }
+        .qp-meta {
+            display: flex; justify-content: space-between; align-items: center;
+            color: #fff; font-weight: 600; font-size: 0.9rem; margin-top: 0.5rem;
+            gap: 0.5rem; flex-wrap: wrap;
+        }
+
+        .res-breakdown { display: flex; gap: 1rem; justify-content: center; margin: 0.8rem 0; flex-wrap: wrap; }
+        .rb { font-weight: 700; font-size: 1rem; }
+        .rb.ok { color: #1e7e34; }
+        .rb.bad { color: #c82333; }
+        .res-actions { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; margin-top: 0.5rem; }
+        .chip {
+            border: 2px solid var(--primary-color); background: #fff;
+            color: var(--primary-color); padding: 0.45rem 1rem;
+            border-radius: 25px; font-weight: 700; font-size: 0.9rem; transition: all 0.2s;
+        }
+        .chip.active { background: var(--primary-color); color: #fff; }
+
+        .history-list { display: flex; flex-direction: column; gap: 0.6rem; }
+        .history-row {
+            display: flex; justify-content: space-between; align-items: center;
+            gap: 1rem; padding: 0.7rem 0.9rem; border: 1px solid #eee;
+            border-radius: 10px; background: #fafafa; flex-wrap: wrap;
+        }
+        .hr-title { font-weight: 700; color: var(--dark-bg); }
+        .hr-meta { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+        .hr-score { font-weight: 700; }
+        .hr-date { color: #888; font-size: 0.85rem; }
+
+        /* إتاحة الوصول: إبراز العنصر المركّز عليه */
+        [data-activate]:focus-visible, .quiz-btn:focus-visible,
+        .chip:focus-visible, .link-btn:focus-visible, .pill-btn:focus-visible {
+            outline: 3px solid #ffd76a; outline-offset: 2px;
+        }
+        .quiz-option:focus-visible { outline: 3px solid var(--primary-color); outline-offset: 2px; }
+
         @media (max-width: 768px) {
             body { padding: 1rem 0; }
             .header h1 { font-size: 1.7rem; }
             .cards-grid { grid-template-columns: 1fr; }
             .quiz-btn { min-width: 100%; }
+            .quiz-toggles { flex-direction: column; }
         }
     </style>
 </head>
@@ -364,6 +443,29 @@
     let ALL_QUESTIONS = [];
     let SECTIONS = [];      // [{ name, subsections: [{name, questions:[]}], count }]
     let SUMMARIES = [];     // [{ section, title, file }] من summaries/summaries.json
+    let dataReady = false;  // صار جاهزاً للتوجيه (routing) بعد تحميل البيانات
+
+    // ===== تخزين محلي (حفظ التقدّم، التفضيلات، سجل النتائج) =====
+    const LS_PREFS    = 'mil_prefs';      // { instant, shuffle }
+    const LS_PROGRESS = 'mil_progress';   // { [quizKey]: { answers, checked, title, t } }
+    const LS_HISTORY  = 'mil_history';    // [{ t, key, title, correct, total }]
+
+    function loadPrefs()    { try { return JSON.parse(localStorage.getItem(LS_PREFS)) || {}; } catch (_) { return {}; } }
+    function savePrefs(p)   { try { localStorage.setItem(LS_PREFS, JSON.stringify(p)); } catch (_) {} }
+    function loadProgress() { try { return JSON.parse(localStorage.getItem(LS_PROGRESS)) || {}; } catch (_) { return {}; } }
+    function saveProgress(a){ try { localStorage.setItem(LS_PROGRESS, JSON.stringify(a)); } catch (_) {} }
+    function loadHistory()  { try { return JSON.parse(localStorage.getItem(LS_HISTORY)) || []; } catch (_) { return []; } }
+    function saveHistory(h) { try { localStorage.setItem(LS_HISTORY, JSON.stringify(h)); } catch (_) {} }
+
+    // خلط عناصر مصفوفة (Fisher–Yates) دون تعديل الأصل
+    function shuffled(arr) {
+        const a = arr.slice();
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
 
     // ===== الأبواب =====
     // كل قسم يقع في أول باب تُطابقه إحدى عباراته؛ 'sections: "*"' = يلتقط كل ما تبقّى.
@@ -561,7 +663,8 @@
             }
             groupData();
             await loadSummaries();
-            renderBabs();
+            dataReady = true;
+            route();   // اعرض حسب عنوان الصفحة الحالي (يدعم زر الرجوع في المتصفح)
         } catch (err) {
             app.innerHTML = `<div class="state-msg">
                 <i class="fas fa-triangle-exclamation"></i> تعذّر الاتصال بـ Supabase (مشكلة شبكة أو CORS).<br>
@@ -635,13 +738,21 @@
 
     // ---------- عرض الأبواب ----------
     function renderBabs() {
-        let html = `<div class="cards-grid">`;
+        let html = `
+            <div class="top-actions">
+                <button class="pill-btn" data-activate tabindex="0" role="button"
+                    onclick="location.hash='#/history'">
+                    <i class="fas fa-clock-rotate-left"></i> سجل النتائج
+                </button>
+            </div>
+            <div class="cards-grid">`;
         BAB_GROUPS.forEach((bab, bi) => {
             if (!bab.sectionIndexes.length) return;
             const secCount = bab.sectionIndexes.length;
             const qCount = bab.sectionIndexes.reduce((s, idx) => s + SECTIONS[idx].count, 0);
             html += `
-                <div class="subject-card bab-card" onclick="renderSections(${bi})">
+                <div class="subject-card bab-card" data-activate tabindex="0" role="button"
+                    aria-label="${escapeHtml(bab.title)}" onclick="location.hash='#/bab/${bi}'">
                     <div class="card-badge bab-badge"><i class="fas fa-book-bookmark"></i> باب</div>
                     <div class="card-title">${escapeHtml(bab.title)}</div>
                     ${bab.subtitle ? `<p class="card-subtitle">${escapeHtml(bab.subtitle)}</p>` : ''}
@@ -662,8 +773,9 @@
     // ---------- عرض الأقسام داخل باب ----------
     function renderSections(babIndex) {
         const bab = BAB_GROUPS[babIndex];
+        if (!bab) return renderBabs();
         let html = `
-            <a class="back-btn" onclick="renderBabs()">
+            <a class="back-btn" data-activate tabindex="0" role="button" onclick="location.hash='#/'">
                 <i class="fas fa-arrow-right"></i> رجوع للأبواب
             </a>
             <div class="header" style="margin-bottom:1.5rem">
@@ -673,7 +785,8 @@
         bab.sectionIndexes.forEach((secIdx, i) => {
             const sec = SECTIONS[secIdx];
             html += `
-                <div class="subject-card" onclick="renderSubsections(${secIdx})">
+                <div class="subject-card" data-activate tabindex="0" role="button"
+                    aria-label="${escapeHtml(displaySectionName(sec.name))}" onclick="location.hash='#/sec/${secIdx}'">
                     <div class="card-badge">القسم ${i + 1}</div>
                     <div class="card-title">${escapeHtml(displaySectionName(sec.name))}</div>
                     <div class="card-meta">
@@ -693,8 +806,10 @@
     // ---------- عرض المواضيع ----------
     function renderSubsections(secIndex) {
         const sec = SECTIONS[secIndex];
+        if (!sec) return renderBabs();
+        const progress = loadProgress();
         let html = `
-            <a class="back-btn" onclick="renderSections(${sec._babIndex})">
+            <a class="back-btn" data-activate tabindex="0" role="button" onclick="location.hash='#/bab/${sec._babIndex}'">
                 <i class="fas fa-arrow-right"></i> رجوع للأقسام
             </a>
             <div class="header" style="margin-bottom:1.5rem">
@@ -703,20 +818,24 @@
             <div class="cards-grid">`;
 
         // بطاقة اختبار كامل القسم
+        const allKey = sec.name + '::*ALL*';
         html += `
-            <div class="subject-card" onclick="startQuiz(${secIndex}, -1)" style="background:#f4f8f6">
+            <div class="subject-card" data-activate tabindex="0" role="button"
+                aria-label="اختبار كامل القسم" onclick="location.hash='#/quiz/${secIndex}/-1'" style="background:#f4f8f6">
                 <div class="card-badge"><i class="fas fa-list-check"></i> شامل</div>
                 <div class="card-title">اختبار كامل القسم</div>
                 <div class="card-meta">
                     <i class="fas fa-circle-question"></i>
                     <span>${sec.count} سؤال من كل المواضيع</span>
+                    ${savedBadge(progress[allKey])}
                 </div>
             </div>`;
 
         // بطاقات الملخصات الخاصة بهذا القسم
         summariesForSection(sec.name).forEach(sm => {
             html += `
-                <div class="subject-card summary-card" onclick="renderSummaryReader(${sm._idx}, ${secIndex})">
+                <div class="subject-card summary-card" data-activate tabindex="0" role="button"
+                    aria-label="${escapeHtml(sm.title || 'ملخص')}" onclick="location.hash='#/summary/${sm._idx}/${secIndex}'">
                     <div class="card-badge summary-badge"><i class="fas fa-book-open"></i> ملخص</div>
                     <div class="card-title">${escapeHtml(sm.title || 'ملخص')}</div>
                     <div class="card-meta">
@@ -727,13 +846,16 @@
         });
 
         sec.subsections.forEach((sub, j) => {
+            const subKey = sec.name + '::' + sub.name;
             html += `
-                <div class="subject-card" onclick="startQuiz(${secIndex}, ${j})">
+                <div class="subject-card" data-activate tabindex="0" role="button"
+                    aria-label="${escapeHtml(sub.name)}" onclick="location.hash='#/quiz/${secIndex}/${j}'">
                     <div class="card-badge">موضوع ${j + 1}</div>
                     <div class="card-title">${escapeHtml(sub.name)}</div>
                     <div class="card-meta">
                         <i class="fas fa-circle-question"></i>
                         <span>${sub.questions.length} سؤال</span>
+                        ${savedBadge(progress[subKey])}
                     </div>
                 </div>`;
         });
@@ -742,11 +864,22 @@
         window.scrollTo(0, 0);
     }
 
+    // شارة صغيرة تُظهر أن هناك تقدّماً محفوظاً لهذا الاختبار
+    function savedBadge(rec) {
+        if (!rec || !rec.answers) return '';
+        const n = Object.keys(rec.answers).length;
+        if (!n) return '';
+        const label = rec.checked ? 'مكتمل' : `${n} محفوظة`;
+        return `<span style="margin-inline-start:auto;color:#b98a00">
+            <i class="fas fa-floppy-disk"></i> ${label}</span>`;
+    }
+
     // ---------- قارئ الملخص ----------
     async function renderSummaryReader(summaryIndex, secIndex) {
         const sm = SUMMARIES[summaryIndex];
+        if (!sm) return renderBabs();
         app.innerHTML = `
-            <a class="back-btn" onclick="renderSubsections(${secIndex})">
+            <a class="back-btn" data-activate tabindex="0" role="button" onclick="location.hash='#/sec/${secIndex}'">
                 <i class="fas fa-arrow-right"></i> رجوع للمواضيع
             </a>
             <div class="panel md-content" id="md-view">
@@ -774,43 +907,161 @@
         }
     }
 
+    // ---------- سجل النتائج ----------
+    function renderHistory() {
+        const h = loadHistory();
+        let html = `
+            <a class="back-btn" data-activate tabindex="0" role="button" onclick="location.hash='#/'">
+                <i class="fas fa-arrow-right"></i> رجوع
+            </a>
+            <div class="header" style="margin-bottom:1.2rem">
+                <h1 style="font-size:1.6rem"><i class="fas fa-clock-rotate-left"></i> سجل النتائج</h1>
+            </div>`;
+        if (!h.length) {
+            html += `<div class="panel" style="text-align:center;color:#666">
+                لا توجد محاولات محفوظة بعد. أكمِل اختباراً واضغط «تحقّق من الإجابات» ليظهر هنا.
+            </div>`;
+            app.innerHTML = html;
+            window.scrollTo(0, 0);
+            return;
+        }
+        html += `<div class="panel">
+            <div style="text-align:left;margin-bottom:0.8rem">
+                <button class="link-btn" onclick="clearHistory()"><i class="fas fa-trash"></i> مسح السجل</button>
+            </div>
+            <div class="history-list">`;
+        h.forEach(rec => {
+            const pct = rec.total ? Math.round(rec.correct / rec.total * 100) : 0;
+            const cls = pct >= 80 ? 'grade-pass' : pct >= 60 ? 'grade-mid' : 'grade-fail';
+            let ds;
+            try { ds = new Date(rec.t).toLocaleString('ar'); }
+            catch (_) { ds = new Date(rec.t).toLocaleString(); }
+            html += `<div class="history-row">
+                <div class="hr-title">${escapeHtml(rec.title || 'اختبار')}</div>
+                <div class="hr-meta">
+                    <span class="hr-score ${cls}">${rec.correct}/${rec.total} (${pct}%)</span>
+                    <span class="hr-date">${escapeHtml(ds)}</span>
+                </div>
+            </div>`;
+        });
+        html += `</div></div>`;
+        app.innerHTML = html;
+        window.scrollTo(0, 0);
+    }
+
+    function clearHistory() {
+        if (confirm('مسح كل سجل النتائج؟')) { saveHistory([]); renderHistory(); }
+    }
+
     // ---------- الاختبار ----------
-    let currentQuestions = [];
-    let userAnswers = {};   // qIndex -> option key
-    let instantMode = false;
+    let currentQuestions = [];      // بترتيب العرض (قد يكون عشوائياً)
+    let optionOrders = {};          // qid -> ترتيب مفاتيح الخيارات المعروضة
+    let userAnswers = {};           // qid -> مفتاح الخيار
+    let currentSecIndex = -1, currentSubIndex = -1;
+    let currentQuizKey = '', currentQuizTitle = '';
+    let quizChecked = false;        // هل احتُسبت النتيجة؟
+    let reviewWrongOnly = false;    // عرض الأخطاء فقط
+    let instantMode = (loadPrefs().instant === true);
+    let shuffleMode = (loadPrefs().shuffle === true);
+
+    // تهيئة حالة اختبار: ترتيب الأسئلة/الخيارات واستعادة الإجابات المحفوظة
+    function initQuizState(secIndex, subIndex) {
+        const sec = SECTIONS[secIndex];
+        const base = subIndex === -1
+            ? sec.subsections.flatMap(s => s.questions)
+            : sec.subsections[subIndex].questions;
+
+        currentQuestions = shuffleMode ? shuffled(base) : base.slice();
+        optionOrders = {};
+        currentQuestions.forEach(q => {
+            const keys = OPTION_KEYS.filter(k => q['option_' + k] != null && q['option_' + k] !== '');
+            optionOrders[q.id] = shuffleMode ? shuffled(keys) : keys;
+        });
+
+        currentSecIndex = secIndex;
+        currentSubIndex = subIndex;
+        currentQuizKey = sec.name + '::' + (subIndex === -1 ? '*ALL*' : sec.subsections[subIndex].name);
+        currentQuizTitle = subIndex === -1
+            ? 'اختبار كامل القسم — ' + displaySectionName(sec.name)
+            : sec.subsections[subIndex].name;
+
+        const saved = loadProgress()[currentQuizKey];
+        userAnswers = (saved && saved.answers) ? { ...saved.answers } : {};
+        quizChecked = !!(saved && saved.checked);
+        reviewWrongOnly = false;
+    }
+
+    function persistCurrent() {
+        const all = loadProgress();
+        all[currentQuizKey] = {
+            answers: userAnswers, checked: quizChecked,
+            title: currentQuizTitle, t: Date.now()
+        };
+        saveProgress(all);
+    }
 
     function setInstantMode(on) {
         instantMode = on;
-        // عند التبديل، أعد بناء الأسئلة لتطبيق/إلغاء القفل والتلوين
+        const pr = loadPrefs(); pr.instant = on; savePrefs(pr);
+        renderQuestions();
+        const box = document.getElementById('results');
+        if (box) box.style.display = 'none';
+    }
+
+    function setShuffleMode(on) {
+        shuffleMode = on;
+        const pr = loadPrefs(); pr.shuffle = on; savePrefs(pr);
+        // أعِد ترتيب الأسئلة/الخيارات مع الحفاظ على الإجابات المحفوظة
+        initQuizState(currentSecIndex, currentSubIndex);
         renderQuestions();
         const box = document.getElementById('results');
         if (box) box.style.display = 'none';
     }
 
     function startQuiz(secIndex, subIndex) {
-        const sec = SECTIONS[secIndex];
-        currentQuestions = subIndex === -1
-            ? sec.subsections.flatMap(s => s.questions)
-            : sec.subsections[subIndex].questions;
-        userAnswers = {};
+        if (!SECTIONS[secIndex]) return renderBabs();
+        // تحقّق من صحّة رقم الموضوع
+        if (subIndex !== -1 && !SECTIONS[secIndex].subsections[subIndex]) return renderSubsections(secIndex);
 
-        const title = subIndex === -1 ? 'اختبار كامل القسم' : sec.subsections[subIndex].name;
-        const backAction = `renderSubsections(${secIndex})`;
+        initQuizState(secIndex, subIndex);
+        const saved = loadProgress()[currentQuizKey];
+        const hasSaved = saved && saved.answers && Object.keys(saved.answers).length;
 
         let html = `
-            <a class="back-btn" onclick="${backAction}">
+            <a class="back-btn" data-activate tabindex="0" role="button" onclick="location.hash='#/sec/${secIndex}'">
                 <i class="fas fa-arrow-right"></i> رجوع للمواضيع
             </a>
             <div class="quiz-progress">
-                <i class="fas fa-pen-to-square"></i> ${escapeHtml(title)}
+                <i class="fas fa-pen-to-square"></i> ${escapeHtml(currentQuizTitle)}
                 &mdash; ${currentQuestions.length} سؤال
             </div>
-            <label class="instant-toggle">
-                <input type="checkbox" id="instant-mode" ${instantMode ? 'checked' : ''}
-                    onchange="setInstantMode(this.checked)">
-                <span class="switch"></span>
-                <span><i class="fas fa-bolt"></i> التصحيح الفوري</span>
-            </label>
+            <div class="quiz-toggles">
+                <label class="instant-toggle">
+                    <input type="checkbox" id="instant-mode" ${instantMode ? 'checked' : ''}
+                        onchange="setInstantMode(this.checked)">
+                    <span class="switch"></span>
+                    <span><i class="fas fa-bolt"></i> التصحيح الفوري</span>
+                </label>
+                <label class="instant-toggle">
+                    <input type="checkbox" id="shuffle-mode" ${shuffleMode ? 'checked' : ''}
+                        onchange="setShuffleMode(this.checked)">
+                    <span class="switch"></span>
+                    <span><i class="fas fa-shuffle"></i> ترتيب عشوائي</span>
+                </label>
+            </div>
+            ${hasSaved ? `<div class="saved-note">
+                <i class="fas fa-floppy-disk"></i> تمّت استعادة إجاباتك المحفوظة.
+                <button class="link-btn" onclick="resetQuiz()">ابدأ من جديد</button>
+            </div>` : ''}
+            <div class="quiz-progressbar" id="qp-bar">
+                <div class="qp-track"><div class="qp-fill" id="qp-fill"></div></div>
+                <div class="qp-meta">
+                    <span><i class="fas fa-list-check"></i> <span id="qp-text">0 / ${currentQuestions.length}</span></span>
+                    <button class="link-btn" onclick="jumpToUnanswered()">
+                        <i class="fas fa-forward"></i> أول سؤال غير مُجاب
+                    </button>
+                </div>
+            </div>
             <div id="results" class="results"></div>
             <div id="questions-list"></div>
             <div class="quiz-controls">
@@ -823,20 +1074,33 @@
             </div>`;
         app.innerHTML = html;
         renderQuestions();
+
+        // اختيار الإجابة بمفاتيح A/B/C/D أو 1/2/3/4 (إتاحة الوصول)
+        document.getElementById('questions-list').addEventListener('keydown', quizKeyHandler);
+
         window.scrollTo(0, 0);
+
+        // إن كان الاختبار محفوظاً كمكتمل، أعِد إظهار النتيجة
+        if (quizChecked) {
+            const correct = currentQuestions.filter(q =>
+                userAnswers[q.id] === (q.correct_option || '').toLowerCase()).length;
+            showResults(correct, currentQuestions.length);
+        }
     }
 
     function renderQuestions() {
         const list = document.getElementById('questions-list');
         let html = '';
         currentQuestions.forEach((q, qi) => {
-            html += `<div class="quiz-question" data-q="${qi}">
+            html += `<div class="quiz-question" data-q="${qi}" role="radiogroup"
+                aria-label="${escapeHtml('سؤال ' + (qi + 1))}">
                 <div class="q-text"><span class="q-num">${qi + 1}.</span> ${escapeHtml(q.question)}</div>`;
-            OPTION_KEYS.forEach(key => {
+            (optionOrders[q.id] || OPTION_KEYS).forEach(key => {
                 const text = q['option_' + key];
                 if (text == null || text === '') return;
                 html += `
-                    <div class="quiz-option" data-opt="${key}" onclick="selectOption(${qi}, '${key}')">
+                    <div class="quiz-option" data-opt="${key}" role="radio" aria-checked="false"
+                        tabindex="0" data-activate onclick="selectOption(${qi}, '${key}')">
                         <span class="opt-letter">${key.toUpperCase()}</span>
                         <span>${escapeHtml(text)}</span>
                     </div>`;
@@ -851,34 +1115,59 @@
         });
         list.innerHTML = html;
 
-        // إعادة تطبيق حالة الإجابات المختارة مسبقاً بعد إعادة البناء
+        // إعادة تطبيق الإجابات المحفوظة/المختارة + التلوين إن لزم
         currentQuestions.forEach((q, qi) => {
-            const userKey = userAnswers[qi];
-            if (userKey === undefined) return;
-            const qDiv = document.querySelector(`.quiz-question[data-q="${qi}"]`);
-            const sel = qDiv.querySelector(`.quiz-option[data-opt="${userKey}"]`);
-            if (sel) sel.classList.add('selected');
-            if (instantMode) markQuestion(qi);
+            const userKey = userAnswers[q.id];
+            const qDiv = list.querySelector(`.quiz-question[data-q="${qi}"]`);
+            if (userKey !== undefined) {
+                const sel = qDiv.querySelector(`.quiz-option[data-opt="${userKey}"]`);
+                if (sel) { sel.classList.add('selected'); sel.setAttribute('aria-checked', 'true'); }
+            }
+            if (instantMode || quizChecked) markQuestion(qi);
         });
+
+        updateProgressBar();
+        applyReviewFilter();
     }
 
     function selectOption(qi, key) {
+        const q = currentQuestions[qi];
         const qDiv = document.querySelector(`.quiz-question[data-q="${qi}"]`);
-        // في النمط الفوري: لا يُسمح بتغيير الإجابة بعد اختيارها
-        if (instantMode && userAnswers[qi] !== undefined) return;
+        // بعد التصحيح الفوري أو احتساب النتيجة: لا يُسمح بتغيير الإجابة
+        if ((instantMode || quizChecked) && userAnswers[q.id] !== undefined) return;
 
-        userAnswers[qi] = key;
-        qDiv.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
-        qDiv.querySelector(`.quiz-option[data-opt="${key}"]`).classList.add('selected');
+        userAnswers[q.id] = key;
+        qDiv.querySelectorAll('.quiz-option').forEach(o => {
+            o.classList.remove('selected'); o.setAttribute('aria-checked', 'false');
+        });
+        const optEl = qDiv.querySelector(`.quiz-option[data-opt="${key}"]`);
+        optEl.classList.add('selected'); optEl.setAttribute('aria-checked', 'true');
 
         if (instantMode) markQuestion(qi);
+        persistCurrent();
+        updateProgressBar();
     }
 
-    // تلوين سؤال واحد بالصحيح/الخطأ + إظهار الشرح وقفله
+    // اختيار الخيار عبر لوحة المفاتيح داخل قائمة الأسئلة
+    function quizKeyHandler(e) {
+        const qEl = e.target.closest('.quiz-question');
+        if (!qEl) return;
+        const key = (e.key || '').toLowerCase();
+        let sel = null;
+        if (['a', 'b', 'c', 'd'].includes(key)) sel = key;
+        else if (['1', '2', '3', '4'].includes(key)) sel = OPTION_KEYS[+key - 1];
+        if (sel) {
+            const opt = qEl.querySelector(`.quiz-option[data-opt="${sel}"]`);
+            if (opt) { e.preventDefault(); opt.click(); opt.focus(); }
+        }
+    }
+
+    // تلوين سؤال واحد بالصحيح/الخطأ + إظهار الشرح
     function markQuestion(qi) {
         const q = currentQuestions[qi];
         const qDiv = document.querySelector(`.quiz-question[data-q="${qi}"]`);
-        const userKey = userAnswers[qi];
+        if (!qDiv) return;
+        const userKey = userAnswers[q.id];
         const correctKey = (q.correct_option || '').toLowerCase();
 
         qDiv.classList.add('answered');
@@ -892,24 +1181,49 @@
         if (expDiv) expDiv.classList.add('show');
     }
 
+    // تحديث شريط التقدّم (عدد المُجاب / الكل)
+    function updateProgressBar() {
+        const total = currentQuestions.length;
+        const answered = currentQuestions.filter(q => userAnswers[q.id] !== undefined).length;
+        const fill = document.getElementById('qp-fill');
+        const txt = document.getElementById('qp-text');
+        if (fill) fill.style.width = (total ? (answered / total) * 100 : 0) + '%';
+        if (txt) txt.textContent = `${answered} / ${total}`;
+    }
+
+    // الانتقال لأول سؤال غير مُجاب
+    function jumpToUnanswered() {
+        const idx = currentQuestions.findIndex(q => userAnswers[q.id] === undefined);
+        if (idx === -1) return;
+        const el = document.querySelector(`.quiz-question[data-q="${idx}"]`);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            const opt = el.querySelector('.quiz-option');
+            if (opt) opt.focus();
+        }
+    }
+
     function checkAnswers() {
+        const unanswered = currentQuestions.filter(q => userAnswers[q.id] === undefined).length;
+        if (unanswered > 0 &&
+            !confirm(`لديك ${unanswered} سؤالاً غير مُجاب سيُحتسب خطأً. هل تريد احتساب النتيجة الآن؟`)) {
+            return;
+        }
         let correct = 0;
         currentQuestions.forEach((q, qi) => {
-            const qDiv = document.querySelector(`.quiz-question[data-q="${qi}"]`);
-            const userKey = userAnswers[qi];
-            const correctKey = (q.correct_option || '').toLowerCase();
-
-            qDiv.querySelectorAll('.quiz-option').forEach(o => {
-                o.classList.remove('correct', 'incorrect');
-                const k = o.getAttribute('data-opt');
-                if (k === correctKey) o.classList.add('correct');
-                if (k === userKey && userKey !== correctKey) o.classList.add('incorrect');
-            });
-            const expDiv = qDiv.querySelector('.explanation');
-            if (expDiv) expDiv.classList.add('show');
-            if (userKey === correctKey) correct++;
+            markQuestion(qi);
+            if (userAnswers[q.id] === (q.correct_option || '').toLowerCase()) correct++;
         });
+        quizChecked = true;
+        persistCurrent();
+        addHistory(correct, currentQuestions.length);
         showResults(correct, currentQuestions.length);
+    }
+
+    function addHistory(correct, total) {
+        const h = loadHistory();
+        h.unshift({ t: Date.now(), key: currentQuizKey, title: currentQuizTitle, correct, total });
+        saveHistory(h.slice(0, 50));
     }
 
     function showResults(correct, total) {
@@ -918,23 +1232,62 @@
         if (pct >= 80)      { cls = 'grade-pass'; msg = 'ممتاز!'; }
         else if (pct >= 60) { cls = 'grade-mid';  msg = 'جيد'; }
         else                { cls = 'grade-fail'; msg = 'يحتاج مراجعة'; }
+        const wrong = total - correct;
 
         const box = document.getElementById('results');
         box.innerHTML = `
             <div class="score">${correct} / ${total}</div>
-            <div class="grade ${cls}">${msg} (${Math.round(pct)}%)</div>`;
+            <div class="grade ${cls}">${msg} (${Math.round(pct)}%)</div>
+            <div class="res-breakdown">
+                <span class="rb ok"><i class="fas fa-check"></i> صحيحة: ${correct}</span>
+                <span class="rb bad"><i class="fas fa-xmark"></i> خاطئة: ${wrong}</span>
+            </div>
+            ${wrong > 0 ? `<div class="res-actions">
+                <button class="chip ${reviewWrongOnly ? 'active' : ''}" id="rw-btn" data-activate tabindex="0"
+                    onclick="toggleReview(true)"><i class="fas fa-filter"></i> راجع الأخطاء فقط</button>
+                <button class="chip ${!reviewWrongOnly ? 'active' : ''}" id="all-btn" data-activate tabindex="0"
+                    onclick="toggleReview(false)"><i class="fas fa-list"></i> أظهر الكل</button>
+            </div>` : ''}`;
         box.style.display = 'block';
         box.scrollIntoView({ behavior: 'smooth' });
     }
 
+    // إظهار/إخفاء الأسئلة الصحيحة عند مراجعة الأخطاء
+    function applyReviewFilter() {
+        currentQuestions.forEach((q, qi) => {
+            const el = document.querySelector(`.quiz-question[data-q="${qi}"]`);
+            if (!el) return;
+            if (reviewWrongOnly && quizChecked) {
+                const isWrong = userAnswers[q.id] !== (q.correct_option || '').toLowerCase();
+                el.style.display = isWrong ? '' : 'none';
+            } else {
+                el.style.display = '';
+            }
+        });
+    }
+
+    function toggleReview(on) {
+        reviewWrongOnly = on;
+        applyReviewFilter();
+        const rw = document.getElementById('rw-btn'), al = document.getElementById('all-btn');
+        if (rw) rw.classList.toggle('active', on);
+        if (al) al.classList.toggle('active', !on);
+        const list = document.getElementById('questions-list');
+        if (list) list.scrollIntoView({ behavior: 'smooth' });
+    }
+
     function resetQuiz() {
+        // امسح التقدّم المحفوظ لهذا الاختبار وابدأ من جديد (بترتيب جديد إن كان عشوائياً)
+        const all = loadProgress();
+        delete all[currentQuizKey];
+        saveProgress(all);
+        initQuizState(currentSecIndex, currentSubIndex);
         userAnswers = {};
-        document.querySelectorAll('.quiz-question').forEach(q => q.classList.remove('answered'));
-        document.querySelectorAll('.quiz-option').forEach(o =>
-            o.classList.remove('selected', 'correct', 'incorrect'));
-        document.querySelectorAll('.explanation').forEach(e => e.classList.remove('show'));
+        quizChecked = false;
+        reviewWrongOnly = false;
+        renderQuestions();
         const box = document.getElementById('results');
-        box.style.display = 'none';
+        if (box) box.style.display = 'none';
         window.scrollTo(0, 0);
     }
 
@@ -944,6 +1297,34 @@
             .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
             .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     }
+
+    // ---------- التوجيه (routing) بعنوان الصفحة #hash ----------
+    // يتيح استخدام زر الرجوع/التقدّم في المتصفح ومشاركة الروابط المباشرة.
+    function route() {
+        if (!dataReady) return;
+        const raw = (location.hash || '').replace(/^#\/?/, '');
+        const p = raw.split('/').filter(Boolean);
+        const n = p.slice(1).map(Number);
+        try {
+            switch (p[0]) {
+                case undefined: renderBabs(); break;
+                case 'bab':     renderSections(n[0]); break;
+                case 'sec':     renderSubsections(n[0]); break;
+                case 'quiz':    startQuiz(n[0], n[1]); break;
+                case 'summary': renderSummaryReader(n[0], n[1]); break;
+                case 'history': renderHistory(); break;
+                default:        renderBabs();
+            }
+        } catch (e) { renderBabs(); }
+    }
+    window.addEventListener('hashchange', route);
+
+    // تفعيل البطاقات/الأزرار بلوحة المفاتيح (Enter/Space) — إتاحة الوصول
+    app.addEventListener('keydown', e => {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        const t = e.target.closest('[data-activate]');
+        if (t) { e.preventDefault(); t.click(); }
+    });
 
     document.addEventListener('DOMContentLoaded', loadData);
     </script>
