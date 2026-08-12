@@ -63,5 +63,36 @@
     "section": "سلاح الجو الملكي",
     "title": "ملخص: سلاح الجو الملكي",
     "file": "summaries/air-force.md"
+  },
+
+  {
+    "section": "الثورة العربية",
+    "title": "ملخص: الثورة العربية الكبرى",
+    "file": "summaries/arab-revolt.md"
+  },
+  {
+    "section": "الثورة العربية",
+    "title": "ملحق: جدول الأرقام والتواريخ — الباب الثاني",
+    "file": "summaries/appendix-bab2-numbers.md"
+  },
+  {
+    "section": "الحروب العربية",
+    "title": "ملخص: الحروب العربية الإسرائيلية",
+    "file": "summaries/arab-israeli-wars.md"
+  },
+  {
+    "section": "التنمية الوطنية",
+    "title": "ملخص: دور القوات المسلحة في التنمية الوطنية الشاملة",
+    "file": "summaries/armed-forces-development.md"
+  },
+  {
+    "section": "المرأة",
+    "title": "ملخص: دور المرأة في القوات المسلحة الأردنية",
+    "file": "summaries/women-in-forces.md"
+  },
+  {
+    "section": "متقاعدين",
+    "title": "ملخص: المؤسسة الاقتصادية والاجتماعية للمتقاعدين العسكريين",
+    "file": "summaries/veterans-institution.md"
   }
 ]
