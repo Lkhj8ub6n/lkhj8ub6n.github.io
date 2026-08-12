@@ -346,6 +346,12 @@
             font-weight: 600; transition: all 0.2s;
         }
         .pill-btn:hover { background: rgba(255,255,255,0.28); }
+        .count-pill {
+            display: inline-flex; align-items: center; justify-content: center;
+            min-width: 22px; height: 22px; padding: 0 6px;
+            background: #ffc107; color: #4a3800; border-radius: 12px;
+            font-size: 0.8rem; font-weight: 700; margin-inline-start: 0.3rem;
+        }
 
         .quiz-toggles { display: flex; gap: 0.8rem; flex-wrap: wrap; }
 
@@ -449,6 +455,7 @@
     const LS_PREFS    = 'mil_prefs';      // { instant, shuffle }
     const LS_PROGRESS = 'mil_progress';   // { [quizKey]: { answers, checked, title, t } }
     const LS_HISTORY  = 'mil_history';    // [{ t, key, title, correct, total }]
+    const LS_REVIEW   = 'mil_review';     // [ سؤال أُجيب خطأً بعد التسليم (مع _title) ]
 
     function loadPrefs()    { try { return JSON.parse(localStorage.getItem(LS_PREFS)) || {}; } catch (_) { return {}; } }
     function savePrefs(p)   { try { localStorage.setItem(LS_PREFS, JSON.stringify(p)); } catch (_) {} }
@@ -456,6 +463,20 @@
     function saveProgress(a){ try { localStorage.setItem(LS_PROGRESS, JSON.stringify(a)); } catch (_) {} }
     function loadHistory()  { try { return JSON.parse(localStorage.getItem(LS_HISTORY)) || []; } catch (_) { return []; } }
     function saveHistory(h) { try { localStorage.setItem(LS_HISTORY, JSON.stringify(h)); } catch (_) {} }
+    function loadReview()   { try { return JSON.parse(localStorage.getItem(LS_REVIEW)) || []; } catch (_) { return []; } }
+    function saveReview(a)  { try { localStorage.setItem(LS_REVIEW, JSON.stringify(a)); } catch (_) {} }
+
+    // إضافة سؤال أُجيب خطأً إلى بنك المراجعة (دون تكرار)
+    function addWrongToReview(q, title) {
+        const bank = loadReview();
+        if (!bank.some(x => x.id === q.id)) { bank.push({ ...q, _title: title || '' }); saveReview(bank); }
+    }
+    // إزالة سؤال من بنك المراجعة (عند إجابته صحيحاً)
+    function removeFromReview(id) {
+        const bank = loadReview();
+        const next = bank.filter(x => x.id !== id);
+        if (next.length !== bank.length) saveReview(next);
+    }
 
     // خلط عناصر مصفوفة (Fisher–Yates) دون تعديل الأصل
     function shuffled(arr) {
@@ -738,8 +759,13 @@
 
     // ---------- عرض الأبواب ----------
     function renderBabs() {
+        const reviewCount = loadReview().length;
         let html = `
             <div class="top-actions">
+                <button class="pill-btn" data-activate tabindex="0" role="button"
+                    onclick="location.hash='#/review'">
+                    <i class="fas fa-flag-checkered"></i> مراجعة الأخطاء${reviewCount ? ` <span class="count-pill">${reviewCount}</span>` : ''}
+                </button>
                 <button class="pill-btn" data-activate tabindex="0" role="button"
                     onclick="location.hash='#/history'">
                     <i class="fas fa-clock-rotate-left"></i> سجل النتائج
@@ -953,6 +979,81 @@
         if (confirm('مسح كل سجل النتائج؟')) { saveHistory([]); renderHistory(); }
     }
 
+    // ---------- قسم مراجعة الأخطاء ----------
+    // يجمع كل سؤال أُجيب خطأً بعد «تحقّق من الإجابات»؛ ما يُجاب صحيحاً لاحقاً يخرج تلقائياً.
+    function renderReview() {
+        const bank = loadReview();
+        const backLink = `
+            <a class="back-btn" data-activate tabindex="0" role="button" onclick="location.hash='#/'">
+                <i class="fas fa-arrow-right"></i> رجوع
+            </a>`;
+        if (!bank.length) {
+            app.innerHTML = backLink + `
+                <div class="header" style="margin-bottom:1.2rem">
+                    <h1 style="font-size:1.6rem"><i class="fas fa-flag-checkered"></i> مراجعة الأخطاء</h1>
+                </div>
+                <div class="panel" style="text-align:center;color:#666">
+                    لا توجد أخطاء للمراجعة حالياً. أي سؤال تُجيبه خطأً بعد «تحقّق من الإجابات» يظهر هنا تلقائياً.
+                </div>`;
+            window.scrollTo(0, 0);
+            return;
+        }
+
+        isReviewMode = true;
+        currentQuestions = shuffleMode ? shuffled(bank) : bank.slice();
+        optionOrders = {};
+        currentQuestions.forEach(q => {
+            const keys = OPTION_KEYS.filter(k => q['option_' + k] != null && q['option_' + k] !== '');
+            optionOrders[q.id] = shuffleMode ? shuffled(keys) : keys;
+        });
+        currentSecIndex = -1;
+        currentSubIndex = -1;
+        currentQuizKey = '*REVIEW*';
+        currentQuizTitle = 'مراجعة الأخطاء';
+        userAnswers = {};
+        quizChecked = false;
+        reviewWrongOnly = false;
+
+        app.innerHTML = backLink + `
+            <div class="quiz-progress">
+                <i class="fas fa-flag-checkered"></i> مراجعة الأخطاء &mdash; ${currentQuestions.length} سؤال
+            </div>
+            <div class="saved-note">
+                <i class="fas fa-circle-info"></i>
+                هذه أسئلة أخطأت فيها سابقاً. أجب من جديد واضغط «تحقّق»، وسنُزيل ما تُجيبه صحيحاً من قائمة المراجعة.
+            </div>
+            <div class="quiz-toggles">
+                <label class="instant-toggle">
+                    <input type="checkbox" id="instant-mode" ${instantMode ? 'checked' : ''}
+                        onchange="setInstantMode(this.checked)">
+                    <span class="switch"></span>
+                    <span><i class="fas fa-bolt"></i> التصحيح الفوري</span>
+                </label>
+            </div>
+            <div class="quiz-progressbar" id="qp-bar">
+                <div class="qp-track"><div class="qp-fill" id="qp-fill"></div></div>
+                <div class="qp-meta">
+                    <span><i class="fas fa-list-check"></i> <span id="qp-text">0 / ${currentQuestions.length}</span></span>
+                    <button class="link-btn" onclick="jumpToUnanswered()">
+                        <i class="fas fa-forward"></i> أول سؤال غير مُجاب
+                    </button>
+                </div>
+            </div>
+            <div id="results" class="results"></div>
+            <div id="questions-list"></div>
+            <div class="quiz-controls">
+                <button class="quiz-btn check" onclick="checkAnswers()">
+                    <i class="fas fa-check"></i> تحقّق من الإجابات
+                </button>
+                <button class="quiz-btn reset" onclick="resetQuiz()">
+                    <i class="fas fa-rotate-right"></i> إعادة
+                </button>
+            </div>`;
+        renderQuestions();
+        document.getElementById('questions-list').addEventListener('keydown', quizKeyHandler);
+        window.scrollTo(0, 0);
+    }
+
     // ---------- الاختبار ----------
     let currentQuestions = [];      // بترتيب العرض (قد يكون عشوائياً)
     let optionOrders = {};          // qid -> ترتيب مفاتيح الخيارات المعروضة
@@ -961,6 +1062,7 @@
     let currentQuizKey = '', currentQuizTitle = '';
     let quizChecked = false;        // هل احتُسبت النتيجة؟
     let reviewWrongOnly = false;    // عرض الأخطاء فقط
+    let isReviewMode = false;       // نحن داخل قسم «مراجعة الأخطاء»
     let instantMode = (loadPrefs().instant === true);
     let shuffleMode = (loadPrefs().shuffle === true);
 
@@ -989,6 +1091,7 @@
         userAnswers = (saved && saved.answers) ? { ...saved.answers } : {};
         quizChecked = !!(saved && saved.checked);
         reviewWrongOnly = false;
+        isReviewMode = false;
     }
 
     function persistCurrent() {
@@ -1213,11 +1316,17 @@
         let correct = 0;
         currentQuestions.forEach((q, qi) => {
             markQuestion(qi);
-            if (userAnswers[q.id] === (q.correct_option || '').toLowerCase()) correct++;
+            const isCorrect = userAnswers[q.id] === (q.correct_option || '').toLowerCase();
+            if (isCorrect) {
+                correct++;
+                removeFromReview(q.id);                 // أُجيب صحيحاً => يخرج من المراجعة
+            } else if (userAnswers[q.id] !== undefined && !isReviewMode) {
+                addWrongToReview(q, q.subsection || currentQuizTitle);  // أُجيب خطأً => للمراجعة
+            }
         });
         quizChecked = true;
         persistCurrent();
-        addHistory(correct, currentQuestions.length);
+        if (!isReviewMode) addHistory(correct, currentQuestions.length);
         showResults(correct, currentQuestions.length);
     }
 
@@ -1278,6 +1387,17 @@
     }
 
     function resetQuiz() {
+        // في وضع المراجعة: أعِد المحاولة على نفس مجموعة الأخطاء الحالية دون لمس البنك
+        if (isReviewMode) {
+            userAnswers = {};
+            quizChecked = false;
+            reviewWrongOnly = false;
+            renderQuestions();
+            const rb = document.getElementById('results');
+            if (rb) rb.style.display = 'none';
+            window.scrollTo(0, 0);
+            return;
+        }
         // امسح التقدّم المحفوظ لهذا الاختبار وابدأ من جديد (بترتيب جديد إن كان عشوائياً)
         const all = loadProgress();
         delete all[currentQuizKey];
@@ -1314,6 +1434,7 @@
                 case 'quiz':    startQuiz(n[0], n[1]); break;
                 case 'summary': renderSummaryReader(n[0], n[1]); break;
                 case 'history': renderHistory(); break;
+                case 'review':  renderReview(); break;
                 default:        renderBabs();
             }
         } catch (e) { renderBabs(); }
