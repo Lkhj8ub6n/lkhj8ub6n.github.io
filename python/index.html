@@ -239,7 +239,27 @@
             font-size: 1.1rem;
             margin-bottom: 1rem;
             line-height: 1.7;
+            /* الحفاظ على الأسطر والمسافات البادئة في أسئلة الكود، مع اتجاه تلقائي لكل سطر */
+            white-space: pre-wrap;
+            unicode-bidi: plaintext;
         }
+        /* أسطر الكود داخل السؤال تُعرض بخط أحادي المسافة وباتجاه إنجليزي */
+        .q-text .code-block {
+            display: block;
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            direction: ltr;
+            text-align: left;
+            background: #f4f6f8;
+            border: 1px solid #e3e7ea;
+            border-radius: 8px;
+            padding: 0.6rem 0.8rem;
+            margin-top: 0.6rem;
+            font-size: 0.98rem;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+        .q-text .q-prompt { white-space: pre-wrap; }
         .q-num {
             color: var(--primary-color);
             font-weight: 700;
@@ -426,7 +446,7 @@
     <div class="container">
         <div class="header">
             <h1><i class="fab fa-python"></i> أساسيات بايثون</h1>
-            <p class="subtitle">بنك الأسئلة والشروحات — تدرّب حسب الشابتر والموضوع</p>
+            <p class="subtitle">Python for Everybody — بنك الأسئلة والشروحات حسب الشابتر ونوع السؤال</p>
         </div>
 
         <div id="app">
@@ -439,9 +459,11 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
     // ===== إعدادات =====
-    // الأسئلة تُحمّل من ملف CSV محلي (questions.csv) بدل قاعدة بيانات خارجية.
-    const QUESTIONS_CSV = 'questions.csv';
-    // إعدادات Supabase تُستخدم فقط لمفتاح الإغلاق/الفتح وتسجيل الزيارات (اختياري — تتحمّل الفشل بسلاسة).
+    // مصدر الأسئلة: يحاول Supabase أولاً (جدول python_questions)، وإن فشل أو كان فارغاً
+    // يرجع تلقائياً لملف CSV المحلي — فالصفحة تعمل قبل إنشاء الجدول وبعده دون أي تعديل.
+    const USE_SUPABASE   = true;                 // اجعلها false لاستخدام ملف CSV فقط
+    const QUESTIONS_TABLE = 'python_questions';   // جدول Supabase الخاص بأسئلة بايثون
+    const QUESTIONS_CSV   = 'questions.csv';      // ملف CSV المحلي (احتياطي/افتراضي)
     const SUPABASE_URL = 'https://nytuekgasognqvzxemsh.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_DssZGrSuDi2u9sqTBvtI9A_r1INTSwW';
     const CONFIG_TABLE = 'app_config';   // مفتاح الإغلاق/الفتح
@@ -495,16 +517,15 @@
     // لإضافة باب جديد لاحقاً: أضف عنصراً بعبارات أقسامه، والباب صاحب "*" يبقى ملاذاً للباقي.
     const BABS = [
         {
-            title: 'الشابتر الأول',
-            subtitle: 'مقدمة إلى بايثون: التعريف باللغة والطباعة والتعليقات',
+            title: 'الشابتر الثاني',
+            subtitle: 'المتغيرات والتعبيرات والجُمل — Variables, Expressions & Statements',
             sections: [
-                'التعريف بلغة بايثون',
-                'أول برنامج'
+                'المتغيرات والتعبيرات'
             ]
         },
         {
-            title: 'الشابتر الثاني',
-            subtitle: 'المتغيرات وأنواع البيانات والعمليات',
+            title: 'الشابتر الثالث',
+            subtitle: 'التنفيذ الشرطي — Conditional Execution',
             sections: '*'
         }
     ];
@@ -523,13 +544,8 @@
 
     // الترتيب المطلوب للأقسام حسب تسلسل الدروس
     const SECTION_ORDER = [
-        // الشابتر الأول
-        'التعريف بلغة بايثون',
-        'أول برنامج: الطباعة والتعليقات',
-        // الشابتر الثاني
-        'المتغيرات والإدخال',
-        'أنواع البيانات والتحويل',
-        'العمليات والمعاملات'
+        'المتغيرات والتعبيرات والجُمل',   // الشابتر الثاني
+        'التنفيذ الشرطي'                  // الشابتر الثالث
     ];
 
     // رتبة القسم = فهرس أطول عبارة مطابقة (ليقع "مراحل تطور..." بعد "المملكة..." الصرفة)
@@ -683,28 +699,50 @@
         });
     }
 
+    // محاولة تحميل الأسئلة من جدول Supabase — تُرجع مصفوفة عند النجاح أو null عند الفشل/الفراغ
+    async function loadFromSupabase() {
+        try {
+            const res = await fetch(
+                `${SUPABASE_URL}/rest/v1/${QUESTIONS_TABLE}?select=*&order=id.asc`,
+                { headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` } }
+            );
+            if (!res.ok) return null;                         // الجدول غير موجود/غير مقروء بعد
+            const rows = await res.json();
+            return (Array.isArray(rows) && rows.length) ? rows : null;
+        } catch (_) { return null; }                         // مشكلة شبكة/CORS => نرجع للـ CSV
+    }
+
+    // تحميل الأسئلة من ملف CSV المحلي — تُرجع مصفوفة أو null
+    async function loadFromCSV() {
+        try {
+            const res = await fetch(QUESTIONS_CSV, { cache: 'no-cache' });
+            if (!res.ok) return null;
+            const rows = csvToQuestions(await res.text());
+            return (Array.isArray(rows) && rows.length) ? rows : null;
+        } catch (_) { return null; }
+    }
+
     // ---------- تحميل البيانات ----------
     async function loadData() {
         try {
             if (!(await isPageOpen())) { renderClosed(); return; }
             logVisit();   // تسجيل صامت بعد التأكد أن الصفحة مفتوحة
-            const res = await fetch(QUESTIONS_CSV, { cache: 'no-cache' });
-            if (!res.ok) {
+
+            // المصدر الأساسي: Supabase (إن كان مفعّلاً)، مع رجوع تلقائي لملف CSV المحلي
+            let questions = USE_SUPABASE ? await loadFromSupabase() : null;
+            if (!questions) questions = await loadFromCSV();
+
+            if (!Array.isArray(questions) || questions.length === 0) {
                 app.innerHTML = `<div class="state-msg">
-                    <i class="fas fa-triangle-exclamation"></i> تعذّر تحميل ملف الأسئلة
-                    <code>${escapeHtml(QUESTIONS_CSV)}</code> (HTTP ${res.status}).
+                    <i class="fas fa-circle-info"></i> لم يُعثر على أي أسئلة.<br>
+                    <small style="opacity:.85">
+                        تأكد من وجود جدول <code>${escapeHtml(QUESTIONS_TABLE)}</code> على Supabase
+                        (مع سياسة قراءة عامة)، أو من ملف <code>${escapeHtml(QUESTIONS_CSV)}</code>.
+                    </small>
                 </div>`;
                 return;
             }
-            const body = await res.text();
-            ALL_QUESTIONS = csvToQuestions(body);
-            if (!Array.isArray(ALL_QUESTIONS) || ALL_QUESTIONS.length === 0) {
-                app.innerHTML = `<div class="state-msg">
-                    <i class="fas fa-circle-info"></i> لم يُعثر على أي أسئلة داخل ملف
-                    <code>${escapeHtml(QUESTIONS_CSV)}</code>.
-                </div>`;
-                return;
-            }
+            ALL_QUESTIONS = questions;
             groupData();
             await loadSummaries();
             dataReady = true;
@@ -797,7 +835,7 @@
             <div class="cards-grid">`;
         BAB_GROUPS.forEach((bab, bi) => {
             if (!bab.sectionIndexes.length) return;
-            const secCount = bab.sectionIndexes.length;
+            const subCount = bab.sectionIndexes.reduce((s, idx) => s + SECTIONS[idx].subsections.length, 0);
             const qCount = bab.sectionIndexes.reduce((s, idx) => s + SECTIONS[idx].count, 0);
             html += `
                 <div class="subject-card bab-card" data-activate tabindex="0" role="button"
@@ -807,7 +845,7 @@
                     ${bab.subtitle ? `<p class="card-subtitle">${escapeHtml(bab.subtitle)}</p>` : ''}
                     <div class="card-meta">
                         <i class="fas fa-layer-group"></i>
-                        <span>${secCount} أقسام</span>
+                        <span>${subCount} أنواع أسئلة</span>
                         <span style="margin-inline-start:auto">
                             <i class="fas fa-circle-question"></i> ${qCount} سؤال
                         </span>
@@ -1214,13 +1252,24 @@
         }
     }
 
+    // صياغة نص السؤال: السطر الأول نص/سؤال، وأي أسطر تالية تُعرض ككتلة كود (LTR أحادي المسافة)
+    function formatQuestionText(raw) {
+        const text = String(raw == null ? '' : raw).replace(/\r/g, '');
+        const nl = text.indexOf('\n');
+        if (nl === -1) return `<span class="q-prompt">${escapeHtml(text)}</span>`;
+        const prompt = text.slice(0, nl).trimEnd();
+        const code = text.slice(nl + 1).replace(/\s+$/, '');
+        return `<span class="q-prompt">${escapeHtml(prompt)}</span>` +
+               `<code class="code-block">${escapeHtml(code)}</code>`;
+    }
+
     function renderQuestions() {
         const list = document.getElementById('questions-list');
         let html = '';
         currentQuestions.forEach((q, qi) => {
             html += `<div class="quiz-question" data-q="${qi}" role="radiogroup"
                 aria-label="${escapeHtml('سؤال ' + (qi + 1))}">
-                <div class="q-text"><span class="q-num">${qi + 1}.</span> ${escapeHtml(q.question)}</div>`;
+                <div class="q-text"><span class="q-num">${qi + 1}.</span> ${formatQuestionText(q.question)}</div>`;
             (optionOrders[q.id] || OPTION_KEYS).forEach(key => {
                 const text = q['option_' + key];
                 if (text == null || text === '') return;
