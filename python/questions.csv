@@ -310,3 +310,226 @@ try:
 except:
     print('Error caught')
 print('End')",OK then End,Error caught then End,OK then Error caught then End,ZeroDivisionError,b,أول سطر نجح لكن القسمة على صفر رمت خطأً فقُفز إلى except ولم تُطبع OK، ثم أكمل البرنامج للسطر الأخير.
+109,الدوال (Functions),أسئلة الدوال والتكرار,What is a function in Python?,A built-in Python command,A reusable block of code that performs a specific task,A loop that repeats multiple times,A variable that holds a string,b,الدالة كتلة كود قابلة لإعادة الاستخدام تؤدي مهمة محددة. الخيار A ناقص لأن الدوال ليست كلها built-in، والخيار C يصف الحلقات، والخيار D يصف المتغيرات.
+110,الدوال (Functions),أسئلة الدوال والتكرار,What keyword is used to define a function in Python?,function,define,def,func,c,الكلمة المحجوزة def هي الوحيدة المستخدمة لتعريف الدوال في Python. باقي الكلمات من لغات أخرى مثل JavaScript وPHP وSwift.
+111,الدوال (Functions),أسئلة الدوال والتكرار,Which of the following is a built-in function in Python?,max(),print(),input(),All of the above,d,الدوال print و input و max و type و float و int كلها built-in تأتي جاهزة مع Python دون الحاجة لتعريفها.
+112,الدوال (Functions),أسئلة الدوال والتكرار,How many kinds of functions are there in Python according to the chapter?,One kind only,Two: built-in and user-defined,"Three: built-in, user-defined and recursive",Four,b,الفصل يقسمها لنوعين فقط: دوال مبنية جاهزة، ودوال نعرّفها بأنفسنا. الـ recursion ليست نوعاً ثالثاً بل أسلوب استدعاء داخل دالة معرّفة.
+113,الدوال (Functions),أسئلة الدوال والتكرار,What is the correct way to define a function with parameters?,"def function_name(parameter1, parameter2):","function function_name(parameter1, parameter2):","define function_name(parameter1, parameter2):","func function_name(parameter1, parameter2):",a,الصيغة الصحيحة هي def ثم الاسم ثم الأقواس بداخلها الـ parameters ثم النقطتين. باقي الكلمات ليست محجوزة في Python وتعطي SyntaxError.
+114,الدوال (Functions),أسئلة الدوال والتكرار,Why do we treat function names as 'new' reserved words?,Because Python forbids using them,To avoid using them as variable names and destroying the function,Because they are stored in memory,Because they are uppercase,b,تقنياً يمكنك كتابة print = 5 دون خطأ نحوي لكنها تدمر الدالة الأصلية، لذلك نتجنب أسماء الدوال كأسماء متغيرات كأنها محجوزة.
+115,الدوال (Functions),أسئلة الدوال والتكرار,What happens when Python executes a def statement?,It runs the body of the function immediately,It defines the function but does not execute its body,It prints the function name,It returns None,b,جملة def تُسجّل الدالة في الذاكرة فقط، ومحتواها لا يُنفَّذ إطلاقاً حتى يتم استدعاؤها بالاسم مع الأقواس.
+116,الدوال (Functions),أسئلة الدوال والتكرار,How do we call or invoke a function?,By writing its name only,By writing its name followed by parentheses and arguments if needed,By writing def before its name,By writing return before its name,b,الأقواس هي ما يُنفّذ الدالة فعلياً. كتابة الاسم وحده بدون أقواس تشير للدالة ككائن ولا تنفذها.
+117,الدوال (Functions),أسئلة الدوال والتكرار,What is the difference between a parameter and an argument?,They are exactly the same,"A parameter is in the definition, an argument is the value passed at the call","A parameter is passed, an argument is defined",A parameter must be a number,b,الـ parameter متغير يُكتب في سطر تعريف الدالة، والـ argument القيمة الفعلية التي نمررها وقت الاستدعاء. الخيار C يعكس التعريفين.
+118,الدوال (Functions),أسئلة الدوال والتكرار,"In the call greet('es'), what is 'es' called?",Parameter,Argument,Return value,Keyword,b,القيمة المكتوبة داخل أقواس الاستدعاء تُسمى argument. أما lang في سطر التعريف def greet(lang) فهي الـ parameter.
+119,الدوال (Functions),أسئلة الدوال والتكرار,"In def greet(lang):, what is lang called?",Argument,Parameter,Result,Global variable,b,المتغير المكتوب في سطر تعريف الدالة هو parameter، وهو المقبض الذي يستقبل قيمة الـ argument عند الاستدعاء.
+120,الدوال (Functions),أسئلة الدوال والتكرار,Which keyword sends a result back from a function?,print,send,return,output,c,الكلمة return هي التي تُرجع القيمة لمكان الاستدعاء. أما print فتطبع على الشاشة فقط ولا تُرجع قيمة قابلة للتخزين.
+121,الدوال (Functions),أسئلة الدوال والتكرار,A function that produces a result is called:,A void function,A fruitful function,A recursive function,A built-in function,b,المصطلح fruitful يعني أن الدالة تُرجع قيمة عبر return. أما void فهي التي لا تُرجع شيئاً وتوصف بأنها not fruitful.
+122,الدوال (Functions),أسئلة الدوال والتكرار,A function that does NOT return a value is called:,Fruitful,Void (non-fruitful),Empty,Static,b,الدالة التي لا تحتوي return تُسمى void أو non-fruitful، وهي في الحقيقة تُرجع None ضمنياً.
+123,الدوال (Functions),أسئلة الدوال والتكرار,What does the return statement do besides sending back a value?,It prints the value,It ends the function execution immediately,It restarts the function,It converts the value to string,b,جملة return تُنهي تنفيذ الدالة فوراً، وأي سطر بعدها داخل نفس الدالة لن يُنفَّذ إطلاقاً.
+124,الدوال (Functions),أسئلة الدوال والتكرار,"When calling a function with multiple parameters, what must match?",Only the number of arguments,Only the order of arguments,Both the number and the order of arguments,The names of the variables,c,يجب تطابق العدد والترتيب معاً بين الـ arguments والـ parameters. أسماء المتغيرات خارج الدالة لا علاقة لها بالمطابقة.
+125,الدوال (Functions),أسئلة الدوال والتكرار,What does the max() function do when applied to a string?,Returns the longest word,Returns the highest ASCII value character,Returns the first character of the string,Converts the string to uppercase,b,الدالة max على نص تقارن الأحرف حسب قيمها في ASCII وتُرجع الحرف الأعلى. الأحرف الصغيرة قيمتها أعلى من الكبيرة.
+126,الدوال (Functions),أسئلة الدوال والتكرار,What does the float() function do?,Converts a string to a float,Converts an integer to a float,Both A and B,It does nothing,c,الدالة float تقبل النصوص الرقمية والأعداد الصحيحة وتحوّلها لعدد عشري. لكنها ترمي ValueError إذا كان النص غير رقمي.
+127,الدوال (Functions),أسئلة الدوال والتكرار,Why should we use functions in our programs?,To make the program run faster,To avoid repeating code and organize logic into named chunks,Because Python requires them,To use less memory,b,الفائدة الأساسية تنظيمية: لا تكرر نفسك واكتب الكود مرة وأعد استخدامه. السرعة والذاكرة ليستا السبب الرئيسي المذكور في الفصل.
+128,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+def add(a, b):
+    return a + b
+print(add(3, 5))",None,8,3 + 5,Error,b,الدالة تُرجع ناتج الجمع 8 فتطبعه print. لو استُبدلت return بـ print داخل الدالة لطُبع 8 ثم None.
+129,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+def multiply(a, b):
+    return a * b
+print(multiply(4, 5))",20,9,45,Error,a,الدالة تُرجع حاصل الضرب 4 × 5 = 20. الخيار B ناتج جمع والخيار C مجرد لصق الرقمين.
+130,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+def addtwo(a, b):
+    added = a + b
+    return added
+x = addtwo(3, 5)
+print(x)",3 5,35,8,None,c,القيمتان تُمرَّران بالترتيب فتصبح a=3 و b=5، والناتج 8 يُخزَّن في x. المتغير added محلي داخل الدالة فقط.
+131,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+def thing():
+    print('Hello')
+    print('Fun')
+thing()
+print('Guys')
+thing()",Hello Fun Guys,Hello Fun Guys Hello Fun,Guys Hello Fun,Hello Fun Hello Fun Guys,b,الاستدعاء الأول يطبع سطرين ثم يُطبع Guys ثم الاستدعاء الثاني يطبع السطرين مجدداً، وهذا جوهر نمط التخزين وإعادة الاستخدام.
+132,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+x = 5
+print('Hello')
+def print_lyrics():
+    print('Lumberjack')
+print('Yo')
+x = x + 2
+print(x)",Hello Yo Lumberjack 7,Hello Yo 7,Hello Lumberjack Yo 7,Lumberjack only,b,الدالة عُرِّفت ولم تُستدعَ أبداً فلم يُنفَّذ محتواها إطلاقاً. مجرد وجود def لا يعني التنفيذ.
+133,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+x = 5
+print('Hello')
+def print_lyrics():
+    print('Lumberjack')
+print('Yo')
+print_lyrics()
+x = x + 2
+print(x)",Hello Yo 7,Hello Yo Lumberjack 7,Hello Lumberjack Yo 7,Error,b,هنا تم الاستدعاء بعد Yo فنُفِّذ محتوى الدالة في مكانه بالضبط ثم عاد التنفيذ للسطر التالي.
+134,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+def greet():
+    return 'Hello'
+print(greet(), 'Glenn')",Hello Glenn,HelloGlenn,"Hello, Glenn",None Glenn,a,القيمة المُرجَعة تحل محل استدعاء الدالة، والفاصلة في print تضيف مسافة تلقائية بين القيمتين.
+135,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+def greet(lang):
+    if lang == 'es':
+        return 'Hola'
+    elif lang == 'fr':
+        return 'Bonjour'
+    else:
+        return 'Hello'
+print(greet('fr'), 'Michael')",Hello Michael,Hola Michael,Bonjour Michael,None Michael,c,الشرط الأول خاطئ والثاني صحيح فأُرجعت Bonjour وانتهت الدالة فوراً دون فحص else.
+136,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+def greet(lang):
+    if lang == 'es':
+        return 'Hola'
+    else:
+        return 'Hello'
+print(greet('en'), 'Glenn')",Hola Glenn,Hello Glenn,en Glenn,Error,b,القيمة en لا تطابق es فنُفِّذ فرع else وأُرجعت Hello. المقارنة بين النصوص تتم بـ == عادي.
+137,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+>>> big = max('Hello world')
+>>> print(big)",H,o,w,d,c,الحرف w قيمته 119 في ASCII وهي الأعلى بين كل أحرف النص. الأحرف الصغيرة أعلى من الكبيرة والمسافة هي الأدنى.
+138,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+>>> tiny = min('Hello world')
+>>> print(tiny)",H,d,A space character,e,c,المسافة قيمتها 32 في ASCII وهي الأدنى بين كل الأحرف الموجودة، لذلك تُرجعها min. لو لم تكن هناك مسافة لكانت الإجابة H.
+139,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+print(max('Hello World'))",H,W,r,o,c,الحرف r قيمته 114 وهي الأعلى في النص، بينما W قيمتها 87 فقط لأن الأحرف الكبيرة أدنى من الصغيرة في ASCII. تنبيه: إجابة السلايد W غير دقيقة، وPython الفعلية تُرجع r.
+140,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+def fun(text):
+    return max(text)
+print(fun('Python'))",P,t,y,n,c,الحرف y قيمته 121 وهي الأعلى في كلمة Python، وحرف P كبير قيمته 80 فقط. تنبيه: إجابة السلايد t غير دقيقة والصحيح y.
+141,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+def check(num):
+    if num > 10:
+        return 'Greater than 10'
+    elif num == 10:
+        return 'Equal to 10'
+    else:
+        return 'Less than 10'
+print(check(15))",Greater than 10,Equal to 10,Less than 10,None,a,القيمة 15 أكبر من 10 فتحقق الشرط الأول وأُرجعت الجملة الأولى وانتهت الدالة مباشرة.
+142,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+def compare(a, b):
+    return max(a, b) - min(a, b)
+print(compare(10, 20))",30,10,-10,20,b,دالتا max و min تعملان على الأرقام أيضاً، فالناتج 20 - 10 = 10 وهو الفرق المطلق بين القيمتين.
+143,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+print(float(99) / 100)",0.99,99.0,1,Error,a,التحويل يجعل القيمة 99.0 ثم القسمة على 100 تعطي 0.99. حتى بدون float كانت النتيجة نفسها لأن / تُرجع float دائماً.
+144,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+print(1 + 2 * float(3) / 4 - 5)",-2.5,2.5,-1.5,0.5,a,يُحسب 2 * 3.0 = 6.0 ثم 6.0 / 4 = 1.5 ثم 1 + 1.5 - 5 = -2.5. الضرب والقسمة قبل الجمع والطرح.
+145,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+sval = '123'
+ival = int(sval)
+print(ival + 1)",1231,124,TypeError,ValueError,b,بعد التحويل صارت القيمة عدداً صحيحاً فالجمع حسابي وينتج 124. بدون التحويل كان print(sval + 1) يعطي TypeError.
+146,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+def f(a, b):
+    return a - b
+print(f(5, 3), f(3, 5))",2 2,2 -2,-2 2,8 8,b,ترتيب الـ arguments يهم: الاستدعاء الأول 5-3=2 والثاني 3-5=-2. عكس الترتيب يعكس النتيجة.
+147,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+def show(x):
+    print(x)
+result = show(7)
+print(result)",7 then 7,7 then None,None then 7,Error,b,الدالة void تطبع 7 لكنها لا تحتوي return فتُرجع None ضمنياً، لذلك طُبعت None في السطر الثاني.
+148,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+def f():
+    return 1
+    return 2
+print(f())",1,2,1 2,Error,a,أول return يُنهي تنفيذ الدالة فوراً، والسطر الثاني كود ميت لا يُنفَّذ إطلاقاً.
+149,الدوال (Functions),أسئلة الدوال والتكرار,"Find the bug:
+function add(a, b):
+    return a + b",return must be print,The keyword must be def not function,Parameters must be strings,There is no bug,b,الكلمة function غير موجودة في Python والصحيح def، والنتيجة SyntaxError. هذه الكلمة من JavaScript.
+150,الدوال (Functions),أسئلة الدوال والتكرار,"Find the bug:
+def greet():
+    print('Hello')
+greet",Nothing is printed because the call needs parentheses,greet must be uppercase,print needs a return,SyntaxError,a,كتابة الاسم بدون أقواس تشير للدالة ككائن ولا تنفذها، فلا يُطبع شيء. الصحيح greet() بالأقواس.
+151,الدوال (Functions),أسئلة الدوال والتكرار,"Find the bug:
+def print_lyrics():
+print('Hello')",Missing colon,IndentationError because the body is not indented,print is a reserved word,There is no bug,b,جسم الدالة يجب أن يكون مُزاحاً بعد النقطتين، وغياب الإزاحة يعطي IndentationError: expected an indented block.
+152,الدوال (Functions),أسئلة الدوال والتكرار,"Find the bug:
+def addtwo(a, b):
+    return a + b
+print(addtwo(3))",TypeError: missing 1 required positional argument,It prints 3,It prints None,There is no bug,a,الدالة تتوقع وسيطين لكن مُرِّر واحد فقط، فيجب مطابقة العدد والترتيب وإلا TypeError.
+153,الدوال (Functions),أسئلة الدوال والتكرار,"Find the bug:
+def add(a, b):
+    print(a + b)
+x = add(2, 3)
+print(x + 1)",It prints 6,TypeError because add returns None not a number,SyntaxError,There is no bug,b,استُخدمت print بدل return فالدالة void وتُرجع None، وجمع None مع رقم يعطي TypeError. الحل استبدال print بـ return.
+154,الدوال (Functions),أسئلة الدوال والتكرار,"Find the bug:
+def f(x):
+    return x * 2
+print(y)",f was never called and y is undefined so NameError,TypeError,The function needs two parameters,There is no bug,a,المتغير y لم يُعرَّف إطلاقاً فالنتيجة NameError، كما أن الدالة نفسها لم تُستدعَ.
+155,الدوال (Functions),أسئلة الدوال والتكرار,A student wants a function that returns the tax rate. Which line is correct inside the function?,print('Tax is 30%'),return 'Tax is 30%',output 'Tax is 30%',send 'Tax is 30%',b,إذا أردنا قيمة قابلة للتخزين والاستخدام لاحقاً نستخدم return. أما print فتعرض النص فقط ولا يمكن الاستفادة منه في حسابات لاحقة.
+156,الدوال (Functions),أسئلة الدوال والتكرار,What is recursion in Python?,A function that calls another function,A function that calls itself,A loop that runs until a condition is met,A function that never executes,b,الـ recursion هو استدعاء الدالة لنفسها من داخل جسمها. استدعاء دالة لدالة أخرى هو استدعاء عادي وليس تكراراً ذاتياً.
+157,الدوال (Functions),أسئلة الدوال والتكرار,What will happen if a recursive function does not have a stopping condition?,It will execute once and stop,It will cause an infinite loop,It will return 0,It will throw a syntax error,b,بدون شرط توقف تستدعي الدالة نفسها بلا نهاية حتى ينفد المكدس وتظهر RecursionError. ليس خطأً نحوياً لأن الكود سليم نحوياً.
+158,الدوال (Functions),أسئلة الدوال والتكرار,What is the base case in a recursive function?,The case that stops further recursive calls,The case where recursion starts,The case where the function returns itself,The first call to the function,a,الـ base case هي الحالة التي تُرجع قيمة مباشرة دون استدعاء جديد فتوقف السلسلة. بدونها لا تنتهي العملية أبداً.
+159,الدوال (Functions),أسئلة الدوال والتكرار,Which statement is generally used to stop recursion?,for statement,while statement,if...else statement,try...except statement,c,نستخدم if لفحص شرط التوقف و else للاستدعاء التكراري. هذا هو النمط القياسي المذكور في الفصل.
+160,الدوال (Functions),أسئلة الدوال والتكرار,"In the code: if num == 1: return 1 else: return num + calculate_sum(num - 1), which part is the recursive call?",return 1,num == 1,calculate_sum(num - 1),The print statement,c,الاستدعاء التكراري هو حيث تنادي الدالة نفسها باسمها مع قيمة أصغر. أما return 1 فهي الـ base case.
+161,الدوال (Functions),أسئلة الدوال والتكرار,Why must the argument change on each recursive call?,To make the code shorter,So the function eventually reaches the base case,Because Python requires it,To save memory,b,لو بقي الوسيط ثابتاً لما وصلنا لشرط التوقف أبداً واستمر الاستدعاء بلا نهاية. لهذا نستخدم num - 1 مثلاً.
+162,الدوال (Functions),أسئلة الدوال والتكرار,What error does Python raise when recursion goes too deep?,ValueError,TypeError,RecursionError,IndentationError,c,عند تجاوز الحد الأقصى لعمق الاستدعاءات تظهر RecursionError: maximum recursion depth exceeded كحماية من انهيار الذاكرة.
+163,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+print(factorial(5))",10,15,120,25,c,المضروب هو 5×4×3×2×1 = 120. الخيار A هو مجموع الأعداد وليس مضروبها.
+164,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+def calculate_sum(num):
+    if num == 1:
+        return 1
+    return num + calculate_sum(num - 1)
+result = calculate_sum(4)
+print(result)",4,10,24,1,b,الدالة تجمع 4+3+2+1 = 10 عبر الاستدعاءات المتتالية حتى تصل للـ base case عند 1. الخيار C هو المضروب وليس المجموع.
+165,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+def count_down(n):
+    if n == 0:
+        return
+    print(n)
+    count_down(n - 1)
+count_down(3)",3 2 1,1 2 3,3 2 1 0,Error,a,الطباعة تحدث قبل الاستدعاء التكراري فتنزل تنازلياً، وعند وصول n للصفر ترجع return فوراً دون طباعة الصفر.
+166,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output when calling print_number(2)?
+def print_number(number):
+    print(number)
+    if number == 0:
+        print('Stop Printing')
+    else:
+        print_number(number - 1)",2 1 0 Stop Printing,0 Stop Printing 2 1,Stop Printing 2 1,Error,a,الطباعة تسبق الفحص فتُطبع 2 ثم 1 ثم 0، وعند الصفر يتحقق الشرط فتُطبع Stop Printing وتنتهي السلسلة.
+167,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+def f(n):
+    if n == 0:
+        return
+    f(n - 1)
+    print(n)
+f(3)",3 2 1,1 2 3,0 1 2 3,Nothing,b,هنا الاستدعاء يسبق الطباعة فتتراكم الاستدعاءات حتى الصفر ثم تُطبع أثناء العودة تصاعدياً. مقارنة هذا بالسؤال السابق تكشف أهمية ترتيب السطرين.
+168,الدوال (Functions),أسئلة الدوال والتكرار,"What is the output?
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n - 1)
+print(factorial(0))",0,1,None,RecursionError,b,القيمة صفر تطابق الـ base case مباشرة فتُرجع 1 دون أي استدعاء تكراري، وهذا يتوافق مع التعريف الرياضي للمضروب.
+169,الدوال (Functions),أسئلة الدوال والتكرار,"How many times is the function body executed?
+def calculate_sum(num):
+    if num == 1:
+        return 1
+    return num + calculate_sum(num - 1)
+calculate_sum(4)",1 time,3 times,4 times,10 times,c,الاستدعاءات هي 4 و 3 و 2 و 1 فيكون المجموع أربع مرات، والأخيرة هي التي تحقق شرط التوقف.
+170,الدوال (Functions),أسئلة الدوال والتكرار,"Find the bug:
+def greet():
+    print('Hello')
+    greet()
+greet()",SyntaxError,No stopping condition so it recurses infinitely until RecursionError,greet cannot call itself,It prints Hello once,b,الدالة تستدعي نفسها بلا شرط توقف فتطبع Hello مراراً حتى ينفد عمق الاستدعاء وتظهر RecursionError.
+171,الدوال (Functions),أسئلة الدوال والتكرار,"Find the bug:
+def f(n):
+    if n == 0:
+        return 1
+    return n * f(n)",The argument never decreases so it never reaches the base case,Missing colon,return 1 should be return 0,There is no bug,a,الاستدعاء يمرر n نفسها دون إنقاص فلا نصل للـ base case أبداً. الصحيح f(n - 1).
+172,الدوال (Functions),أسئلة الدوال والتكرار,"Find the bug:
+def fact(n):
+    return n * fact(n - 1)
+print(fact(5))",Missing base case so RecursionError,It prints 120,TypeError,SyntaxError,a,لا يوجد شرط توقف فتستمر الاستدعاءات بأرقام سالبة بلا نهاية. الحل إضافة if n == 0: return 1 في البداية.
+173,الدوال (Functions),أسئلة الدوال والتكرار,"Find the bug:
+def s(n):
+    if n == 1:
+        return 1
+    n + s(n - 1)
+print(s(4))",It prints 10,It prints None because the recursive line has no return,RecursionError,SyntaxError,b,السطر الأخير يحسب القيمة لكنه لا يُرجعها، فالدالة تُرجع None ضمنياً. الحل كتابة return n + s(n - 1).
+174,الدوال (Functions),أسئلة الدوال والتكرار,A student wants factorial of 5 using recursion. Which base case is correct?,if n == 5: return 5,if n == 0: return 1,if n == 1: return 0,No base case is needed,b,الـ base case الصحيح هو مضروب الصفر الذي يساوي 1 لأنه يوقف السلسلة بقيمة محايدة للضرب. الخيار C يجعل الناتج صفراً دائماً.
+175,الدوال (Functions),أسئلة الدوال والتكرار,Which is TRUE about recursion versus a normal function call?,Recursion never uses memory,Each recursive call adds a new frame on the call stack,Recursion is always faster than loops,Recursion cannot return values,b,كل استدعاء يحجز إطاراً جديداً في المكدس، ولهذا يوجد حد أقصى للعمق. التكرار بالحلقات غالباً أوفر في الذاكرة.

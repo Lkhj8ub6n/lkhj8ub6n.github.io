@@ -530,6 +530,13 @@
         {
             title: 'الشابتر الثالث',
             subtitle: 'التنفيذ الشرطي — Conditional Execution',
+            sections: [
+                'التنفيذ الشرطي'
+            ]
+        },
+        {
+            title: 'الشابتر الرابع',
+            subtitle: 'الدوال والتكرار — Functions & Recursion',
             sections: '*'
         }
     ];
@@ -549,7 +556,8 @@
     // الترتيب المطلوب للأقسام حسب تسلسل الدروس
     const SECTION_ORDER = [
         'المتغيرات والتعبيرات والجُمل',   // الشابتر الثاني
-        'التنفيذ الشرطي'                  // الشابتر الثالث
+        'التنفيذ الشرطي',                 // الشابتر الثالث
+        'الدوال (Functions)'             // الشابتر الرابع
     ];
 
     // رتبة القسم = فهرس أطول عبارة مطابقة (ليقع "مراحل تطور..." بعد "المملكة..." الصرفة)
@@ -908,19 +916,21 @@
             </div>
             <div class="cards-grid">`;
 
-        // بطاقة اختبار كامل القسم
-        const allKey = sec.name + '::*ALL*';
-        html += `
-            <div class="subject-card" data-activate tabindex="0" role="button"
-                aria-label="اختبار كامل القسم" onclick="location.hash='#/quiz/${secIndex}/-1'" style="background:#f4f8f6">
-                <div class="card-badge"><i class="fas fa-list-check"></i> شامل</div>
-                <div class="card-title">اختبار كامل القسم</div>
-                <div class="card-meta">
-                    <i class="fas fa-circle-question"></i>
-                    <span>${sec.count} سؤال من كل المواضيع</span>
-                    ${savedBadge(progress[allKey])}
-                </div>
-            </div>`;
+        // بطاقة اختبار كامل القسم — تظهر فقط عند وجود أكثر من موضوع (وإلا فهي تكرار للموضوع الوحيد)
+        if (sec.subsections.length > 1) {
+            const allKey = sec.name + '::*ALL*';
+            html += `
+                <div class="subject-card" data-activate tabindex="0" role="button"
+                    aria-label="اختبار كامل القسم" onclick="location.hash='#/quiz/${secIndex}/-1'" style="background:#f4f8f6">
+                    <div class="card-badge"><i class="fas fa-list-check"></i> شامل</div>
+                    <div class="card-title">اختبار كامل القسم</div>
+                    <div class="card-meta">
+                        <i class="fas fa-circle-question"></i>
+                        <span>${sec.count} سؤال من كل المواضيع</span>
+                        ${savedBadge(progress[allKey])}
+                    </div>
+                </div>`;
+        }
 
         // بطاقات الملخصات الخاصة بهذا القسم
         summariesForSection(sec.name).forEach(sm => {
