@@ -1,27 +1,12 @@
 [
   {
-    "section": "التعريف بلغة بايثون",
-    "title": "شرح: التعريف بلغة بايثون",
-    "file": "summaries/intro-python.md"
+    "section": "المتغيرات والتعبيرات والجُمل",
+    "title": "شرح شامل: المتغيرات والتعبيرات والجُمل (شابتر 2)",
+    "file": "summaries/ch02-expressions.md"
   },
   {
-    "section": "أول برنامج: الطباعة والتعليقات",
-    "title": "شرح: الطباعة والتعليقات",
-    "file": "summaries/print-comments.md"
-  },
-  {
-    "section": "المتغيرات والإدخال",
-    "title": "شرح: المتغيرات والإدخال",
-    "file": "summaries/variables-input.md"
-  },
-  {
-    "section": "أنواع البيانات والتحويل",
-    "title": "شرح: أنواع البيانات والتحويل",
-    "file": "summaries/datatypes.md"
-  },
-  {
-    "section": "العمليات والمعاملات",
-    "title": "شرح: العمليات والمعاملات",
-    "file": "summaries/operators.md"
+    "section": "التنفيذ الشرطي",
+    "title": "شرح شامل: التنفيذ الشرطي (شابتر 3)",
+    "file": "summaries/ch03-conditional.md"
   }
 ]
