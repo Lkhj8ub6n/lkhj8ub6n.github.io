@@ -275,7 +275,11 @@
             cursor: pointer;
             transition: all 0.2s;
             font-size: 1rem;
+            /* عرض الخيارات من اليسار لليمين (الحرف على اليسار ثم النص) */
+            direction: ltr;
+            text-align: left;
         }
+        .quiz-option > span:last-child { flex: 1; }
         .quiz-option:hover { border-color: var(--primary-color); background: #f4f8f6; }
         .quiz-option.selected { border-color: var(--primary-color); background: #e8f1ec; }
         .quiz-option.correct { border-color: #1e7e34; background: #d4edda; }
