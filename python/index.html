@@ -459,9 +459,11 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
     // ===== إعدادات =====
-    // الأسئلة تُحمّل من ملف CSV محلي (questions.csv) بدل قاعدة بيانات خارجية.
-    const QUESTIONS_CSV = 'questions.csv';
-    // إعدادات Supabase تُستخدم فقط لمفتاح الإغلاق/الفتح وتسجيل الزيارات (اختياري — تتحمّل الفشل بسلاسة).
+    // مصدر الأسئلة: يحاول Supabase أولاً (جدول python_questions)، وإن فشل أو كان فارغاً
+    // يرجع تلقائياً لملف CSV المحلي — فالصفحة تعمل قبل إنشاء الجدول وبعده دون أي تعديل.
+    const USE_SUPABASE   = true;                 // اجعلها false لاستخدام ملف CSV فقط
+    const QUESTIONS_TABLE = 'python_questions';   // جدول Supabase الخاص بأسئلة بايثون
+    const QUESTIONS_CSV   = 'questions.csv';      // ملف CSV المحلي (احتياطي/افتراضي)
     const SUPABASE_URL = 'https://nytuekgasognqvzxemsh.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_DssZGrSuDi2u9sqTBvtI9A_r1INTSwW';
     const CONFIG_TABLE = 'app_config';   // مفتاح الإغلاق/الفتح
@@ -697,28 +699,50 @@
         });
     }
 
+    // محاولة تحميل الأسئلة من جدول Supabase — تُرجع مصفوفة عند النجاح أو null عند الفشل/الفراغ
+    async function loadFromSupabase() {
+        try {
+            const res = await fetch(
+                `${SUPABASE_URL}/rest/v1/${QUESTIONS_TABLE}?select=*&order=id.asc`,
+                { headers: { apikey: SUPABASE_KEY, Authorization: `Bearer ${SUPABASE_KEY}` } }
+            );
+            if (!res.ok) return null;                         // الجدول غير موجود/غير مقروء بعد
+            const rows = await res.json();
+            return (Array.isArray(rows) && rows.length) ? rows : null;
+        } catch (_) { return null; }                         // مشكلة شبكة/CORS => نرجع للـ CSV
+    }
+
+    // تحميل الأسئلة من ملف CSV المحلي — تُرجع مصفوفة أو null
+    async function loadFromCSV() {
+        try {
+            const res = await fetch(QUESTIONS_CSV, { cache: 'no-cache' });
+            if (!res.ok) return null;
+            const rows = csvToQuestions(await res.text());
+            return (Array.isArray(rows) && rows.length) ? rows : null;
+        } catch (_) { return null; }
+    }
+
     // ---------- تحميل البيانات ----------
     async function loadData() {
         try {
             if (!(await isPageOpen())) { renderClosed(); return; }
             logVisit();   // تسجيل صامت بعد التأكد أن الصفحة مفتوحة
-            const res = await fetch(QUESTIONS_CSV, { cache: 'no-cache' });
-            if (!res.ok) {
+
+            // المصدر الأساسي: Supabase (إن كان مفعّلاً)، مع رجوع تلقائي لملف CSV المحلي
+            let questions = USE_SUPABASE ? await loadFromSupabase() : null;
+            if (!questions) questions = await loadFromCSV();
+
+            if (!Array.isArray(questions) || questions.length === 0) {
                 app.innerHTML = `<div class="state-msg">
-                    <i class="fas fa-triangle-exclamation"></i> تعذّر تحميل ملف الأسئلة
-                    <code>${escapeHtml(QUESTIONS_CSV)}</code> (HTTP ${res.status}).
+                    <i class="fas fa-circle-info"></i> لم يُعثر على أي أسئلة.<br>
+                    <small style="opacity:.85">
+                        تأكد من وجود جدول <code>${escapeHtml(QUESTIONS_TABLE)}</code> على Supabase
+                        (مع سياسة قراءة عامة)، أو من ملف <code>${escapeHtml(QUESTIONS_CSV)}</code>.
+                    </small>
                 </div>`;
                 return;
             }
-            const body = await res.text();
-            ALL_QUESTIONS = csvToQuestions(body);
-            if (!Array.isArray(ALL_QUESTIONS) || ALL_QUESTIONS.length === 0) {
-                app.innerHTML = `<div class="state-msg">
-                    <i class="fas fa-circle-info"></i> لم يُعثر على أي أسئلة داخل ملف
-                    <code>${escapeHtml(QUESTIONS_CSV)}</code>.
-                </div>`;
-                return;
-            }
+            ALL_QUESTIONS = questions;
             groupData();
             await loadSummaries();
             dataReady = true;
