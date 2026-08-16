@@ -533,3 +533,274 @@ def s(n):
 print(s(4))",It prints 10,It prints None because the recursive line has no return,RecursionError,SyntaxError,b,السطر الأخير يحسب القيمة لكنه لا يُرجعها، فالدالة تُرجع None ضمنياً. الحل كتابة return n + s(n - 1).
 174,الدوال (Functions),أسئلة الدوال والتكرار,A student wants factorial of 5 using recursion. Which base case is correct?,if n == 5: return 5,if n == 0: return 1,if n == 1: return 0,No base case is needed,b,الـ base case الصحيح هو مضروب الصفر الذي يساوي 1 لأنه يوقف السلسلة بقيمة محايدة للضرب. الخيار C يجعل الناتج صفراً دائماً.
 175,الدوال (Functions),أسئلة الدوال والتكرار,Which is TRUE about recursion versus a normal function call?,Recursion never uses memory,Each recursive call adds a new frame on the call stack,Recursion is always faster than loops,Recursion cannot return values,b,كل استدعاء يحجز إطاراً جديداً في المكدس، ولهذا يوجد حد أقصى للعمق. التكرار بالحلقات غالباً أوفر في الذاكرة.
+176,التكرار (Iteration),أسئلة التكرار,What is an iteration variable in a loop?,A constant that never changes,A variable that changes each time through the loop,The name of the loop,A variable defined after the loop,b,متغير التكرار يتغير في كل دورة وهو ما يقود الحلقة نحو نهايتها. إذا لم يتغير أبداً تصبح الحلقة لا نهائية.
+177,التكرار (Iteration),أسئلة التكرار,While loops are called:,Definite loops,Indefinite loops,Nested loops,Fixed loops,b,حلقة while تُسمى indefinite لأننا لا نعرف مسبقاً عدد الدورات، فهي تستمر حتى يصبح الشرط False. أما for فهي definite لأنها تنفذ عدداً محدداً من المرات.
+178,التكرار (Iteration),أسئلة التكرار,For loops are called definite loops because:,They run forever,They execute an exact number of times over a set,They need a break statement,They only work with numbers,b,حلقة for تمر على أعضاء مجموعة معروفة الحجم فيكون عدد الدورات محدداً سلفاً. الخيار D خاطئ لأنها تعمل مع النصوص والقوائم أيضاً.
+179,التكرار (Iteration),أسئلة التكرار,"In a while loop, when does the loop stop executing?",When the condition becomes True,When the condition becomes False,When the loop reaches 10 iterations,When the user presses Enter,b,الحلقة تستمر ما دام الشرط True وتتوقف عند أول فحص يعطي False. لا يوجد حد افتراضي لعدد الدورات.
+180,التكرار (Iteration),أسئلة التكرار,What causes an infinite loop in a while statement?,Using a for loop instead,The condition never becomes False because nothing updates it,Using print inside the loop,Forgetting the colon,b,إذا لم يتغير المتغير المستخدم في الشرط داخل جسم الحلقة يبقى الشرط True للأبد. نسيان النقطتين يعطي SyntaxError وليس حلقة لا نهائية.
+181,التكرار (Iteration),أسئلة التكرار,What keyword ends the current loop entirely and jumps past it?,continue,break,stop,exit,b,الكلمة break تُنهي الحلقة كاملة وتنتقل لأول سطر بعدها. الكلمة continue لا تنهي الحلقة بل الدورة الحالية فقط.
+182,التكرار (Iteration),أسئلة التكرار,What keyword is used to stop the current iteration and move to the next one in a loop?,continue,break,stop,next,a,الكلمة continue تُنهي الدورة الحالية فقط وتقفز لأعلى الحلقة لبدء الدورة التالية. أما break فتخرج من الحلقة نهائياً.
+183,التكرار (Iteration),أسئلة التكرار,What is the difference between break and continue?,They are identical,"break exits the loop, continue skips to the next iteration","break skips one iteration, continue exits",continue only works in for loops,b,الخيار C يعكس التعريفين تماماً. كلاهما يعمل في while و for على حد سواء.
+184,التكرار (Iteration),أسئلة التكرار,Why do we write while True in some programs?,Because it is faster,When we do not know in advance how many times the loop should run,Because Python requires it,To avoid using break,b,نستخدمها عندما يكون التوقف مرتبطاً بحدث داخل الحلقة مثل إدخال المستخدم لكلمة معينة، ونخرج منها بـ break. بدون break تصبح لا نهائية.
+185,التكرار (Iteration),أسئلة التكرار,"In the code while True: ... , what stops the loop?",The condition becoming False,A break statement inside the body,The continue statement,Nothing can stop it,b,القيمة True ثابتة ولا تصبح False أبداً، لذلك الخروج الوحيد يكون عبر break داخل جسم الحلقة.
+186,التكرار (Iteration),أسئلة التكرار,What does the None constant represent in Python?,The number zero,An empty string,A special value meaning no value yet,False,c,القيمة None نوع خاص يدل على غياب القيمة، وهي ليست صفراً ولا نصاً فارغاً ولا False رغم أنها تُعامل كقيمة كاذبة منطقياً.
+187,التكرار (Iteration),أسئلة التكرار,Which operator means 'is the same as' in Python?,==,is,=,in,b,العامل is يفحص التطابق في الهوية ويُستخدم عادة مع None. العامل == يقارن القيم فقط.
+188,التكرار (Iteration),أسئلة التكرار,Why do we initialize smallest = None instead of smallest = -1?,None is faster,Because -1 may be smaller than every value in the list and would never be replaced,Because None is a number,There is no difference,b,إذا بدأنا بـ -1 وكل الأرقام موجبة فلن يتحقق الشرط أبداً وتبقى النتيجة -1 خاطئة. أما None فتجعلنا نأخذ أول قيمة كبداية صحيحة.
+189,التكرار (Iteration),أسئلة التكرار,"What is the output?
+n = 5
+while n > 0:
+    print(n)
+    n = n - 1
+print('Blastoff!')
+print(n)",5 4 3 2 1 Blastoff! 0,5 4 3 2 1 0 Blastoff!,5 4 3 2 1 Blastoff!,Infinite loop,a,الحلقة تطبع من 5 حتى 1 وتتوقف عندما تصبح n صفراً لأن الشرط 0 > 0 كاذب، ثم يُطبع Blastoff ثم قيمة n وهي 0.
+190,التكرار (Iteration),أسئلة التكرار,"What happens?
+n = 5
+while n > 0:
+    print('Lather')
+    print('Rinse')
+print('Dry off!')",It prints Lather Rinse once,It prints Dry off only,Infinite loop because n never changes,SyntaxError,c,لا يوجد أي سطر يُنقص n داخل الحلقة فيبقى الشرط 5 > 0 صحيحاً للأبد. سطر Dry off لن يُنفَّذ إطلاقاً.
+191,التكرار (Iteration),أسئلة التكرار,"What is the output?
+n = 0
+while n > 0:
+    print('Lather')
+    print('Rinse')
+print('Dry off!')",Lather Rinse Dry off!,Dry off!,Infinite loop,Nothing,b,الشرط 0 > 0 كاذب من أول فحص فلم يُنفَّذ جسم الحلقة ولا مرة واحدة. هذا يوضح أن while قد تنفذ صفر مرات.
+192,التكرار (Iteration),أسئلة التكرار,"What is the result?
+x = 0
+while x < 3:
+    print(x)
+    x += 1",1 2 3,0 1 2,0 1 2 3,Infinite loop,b,تبدأ من الصفر وتتوقف عند 3 لأن الشرط 3 < 3 كاذب، فتُطبع 0 و 1 و 2. الاختصار x += 1 يعني x = x + 1.
+193,التكرار (Iteration),أسئلة التكرار,"What is the final value of x after this loop ends?
+x = 0
+while x < 5:
+    x += 2",4,5,6,2,c,القيم تتوالى 0 ثم 2 ثم 4 ثم 6، وعند 6 يصبح الشرط كاذباً فتتوقف. القيمة النهائية تتجاوز 5 لأن الزيادة بمقدار 2.
+194,التكرار (Iteration),أسئلة التكرار,"What is the output?
+for i in [5, 4, 3, 2, 1]:
+    print(i)
+print('Blastoff!')",1 2 3 4 5 Blastoff!,5 4 3 2 1 Blastoff!,Blastoff! only,Error,b,حلقة for تمر على عناصر القائمة بترتيبها الأصلي كما كُتبت وليس بترتيب تصاعدي، ثم يُطبع السطر الأخير خارج الحلقة.
+195,التكرار (Iteration),أسئلة التكرار,"What is the output?
+friends = ['Joseph', 'Glenn', 'Sally']
+for friend in friends:
+    print('Happy New Year:', friend)
+print('Done!')",One line then Done!,Three lines then Done!,Done! only,Error,b,جسم الحلقة يُنفَّذ مرة لكل عنصر أي ثلاث مرات، ثم يُطبع Done مرة واحدة لأنه خارج الحلقة.
+196,التكرار (Iteration),أسئلة التكرار,"What is the output?
+zork = 0
+for thing in [9, 41, 12, 3, 74, 15]:
+    zork = zork + 1
+print('After', zork)",After 0,After 6,After 154,After 15,b,هذا نمط العدّ counting فالمتغير يزيد بمقدار واحد لكل عنصر بغض النظر عن قيمته، والقائمة فيها ستة عناصر.
+197,التكرار (Iteration),أسئلة التكرار,"What is the output?
+zork = 0
+for thing in [9, 41, 12, 3, 74, 15]:
+    zork = zork + thing
+print('After', zork)",After 6,After 154,After 74,After 0,b,هذا نمط الجمع summing فتُضاف قيمة كل عنصر للمجموع: 9+41+12+3+74+15 = 154.
+198,التكرار (Iteration),أسئلة التكرار,"What is printed as the average?
+count = 0
+sum = 0
+for value in [9, 41, 12, 3, 74, 15]:
+    count = count + 1
+    sum = sum + value
+print(sum / count)",154,6,25.666666666666668,24,c,المعدل يجمع نمطي العد والجمع ثم يقسم بعد انتهاء الحلقة: 154 ÷ 6. لاحظ أن القسمة تتم خارج الحلقة وليس داخلها.
+199,التكرار (Iteration),أسئلة التكرار,"What is the output?
+largest_so_far = -1
+for the_num in [9, 41, 12, 3, 74, 15]:
+    if the_num > largest_so_far:
+        largest_so_far = the_num
+print('After', largest_so_far)",After -1,After 9,After 74,After 15,c,المتغير يحتفظ بأكبر قيمة رآها حتى الآن ويُحدَّث كلما وجد أكبر منها، فينتهي بالقيمة 74 وهي الأكبر في القائمة.
+200,التكرار (Iteration),أسئلة التكرار,"What is the output?
+smallest_so_far = -1
+for the_num in [9, 41, 12, 3, 74, 15]:
+    if the_num < smallest_so_far:
+        smallest_so_far = the_num
+print('After', smallest_so_far)",After 3,After -1,After 9,After 74,b,القيمة الابتدائية -1 أصغر من كل عناصر القائمة فلم يتحقق الشرط ولا مرة وبقيت النتيجة خاطئة. هذا الخطأ هو سبب استخدام None بدل -1.
+201,التكرار (Iteration),أسئلة التكرار,"What is the output?
+smallest = None
+for value in [9, 41, 12, 3, 74, 15]:
+    if smallest is None:
+        smallest = value
+    elif value < smallest:
+        smallest = value
+print('After', smallest)",After None,After 9,After 3,After -1,c,في الدورة الأولى تُؤخذ أول قيمة كبداية لأن smallest تساوي None، ثم يُقارن الباقي فينتهي بـ 3 وهي الأصغر فعلاً.
+202,التكرار (Iteration),أسئلة التكرار,"What is the output?
+found = False
+for value in [9, 41, 12, 3, 74, 15]:
+    if value == 3:
+        found = True
+print('After', found)",After False,After True,After 3,Error,b,نمط البحث بمتغير منطقي يبدأ False ويتحول إلى True بمجرد إيجاد المطلوب ويبقى كذلك حتى النهاية.
+203,التكرار (Iteration),أسئلة التكرار,"What is the output?
+print('Before')
+for value in [9, 41, 12, 3, 74, 15]:
+    if value > 20:
+        print('Large number', value)
+print('After')",All six numbers,Large number 41 and Large number 74 only,Nothing between Before and After,Large number 74 only,b,نمط الفلترة يستخدم if داخل الحلقة لالتقاط القيم المطلوبة فقط، والقيمتان الأكبر من 20 هما 41 و 74.
+204,التكرار (Iteration),أسئلة التكرار,"What is the output if the user types: hello then done ?
+while True:
+    line = input('> ')
+    if line == 'done':
+        break
+    print(line)
+print('Done!')",hello then Done!,hello then done then Done!,Done! only,Infinite loop,a,الكلمة hello تُطبع عادياً، وعند إدخال done ينفّذ break فيخرج من الحلقة قبل الوصول لسطر الطباعة، ثم يُطبع Done.
+205,التكرار (Iteration),أسئلة التكرار,"What happens to a line starting with # in this code?
+while True:
+    line = input('> ')
+    if line[0] == '#':
+        continue
+    if line == 'done':
+        break
+    print(line)",It is printed normally,It is skipped and the loop starts a new iteration,The loop ends,SyntaxError,b,الكلمة continue تقفز لأعلى الحلقة فوراً متجاوزة بقية السطور بما فيها الطباعة، فلا يُطبع السطر الذي يبدأ بـ #.
+206,التكرار (Iteration),أسئلة التكرار,"Find the bug:
+n = 5
+while n > 0:
+    print(n)",Missing colon,n is never decremented so the loop is infinite,print needs a return,There is no bug,b,أي حلقة while تحتاج سطراً يغيّر متغير الشرط، وإلا لن تنتهي أبداً. الحل إضافة n = n - 1 داخل الحلقة.
+207,التكرار (Iteration),أسئلة التكرار,"A student wants to find the smallest value but wrote:
+smallest = -1
+What is wrong?",Nothing is wrong,"The initial value must not be smaller than all data, use None instead",It should be a string,It should be 0,b,القيمة الابتدائية -1 تصلح لإيجاد الأكبر مع أرقام موجبة لكنها كارثية لإيجاد الأصغر. الحل الآمن هو البدء بـ None وأخذ أول عنصر.
+208,التكرار (Iteration),أسئلة التكرار,"Find the bug:
+for i in [1, 2, 3]
+    print(i)",Missing colon after the sequence,The list must be a tuple,i must be declared first,There is no bug,a,كل جملة for تحتاج نقطتين في نهايتها قبل الكتلة المُزاحة، وغيابها يعطي SyntaxError.
+209,التكرار (Iteration),أسئلة التكرار,"Find the bug:
+count = 0
+sum = 0
+for value in [4, 6]:
+    count = count + 1
+    sum = sum + value
+    print(sum / count)
+The student wants only the final average.",The division must be outside the loop,sum is a reserved word,count must start at 1,There is no bug,a,وضع القسمة داخل الحلقة يطبع معدلاً جزئياً في كل دورة. الحساب النهائي يجب أن يكون بعد انتهاء الحلقة.
+210,التكرار (Iteration),أسئلة التكرار,The for loop can iterate over which of the following?,A list only,A string only,"A list, tuple, dictionary, set, or string",Numbers only,c,حلقة for في Python تمر على أي تسلسل قابل للتكرار وليس الأرقام فقط، وهذا يميزها عن for في اللغات الأخرى.
+211,التكرار (Iteration),أسئلة التكرار,What is the default starting value of range()?,1,0,-1,It must always be given,b,الدالة range تبدأ من الصفر افتراضياً وتزيد بمقدار 1، وتتوقف قبل الرقم النهائي دون تضمينه.
+212,التكرار (Iteration),أسئلة التكرار,"In range(6), is the number 6 included?",Yes,"No, it stops before 6",Only if the step is 1,Only in Python 2,b,الحد النهائي دائماً مستثنى في range، فـ range(6) تعطي الأرقام من 0 إلى 5 أي ستة أرقام.
+213,التكرار (Iteration),أسئلة التكرار,"What does the third parameter in range(2, 30, 3) represent?",The stopping value,The starting value,The increment (step),The number of items,c,المعامل الثالث هو مقدار الزيادة بين كل قيمة والتالية. الترتيب هو start ثم stop ثم step.
+214,التكرار (Iteration),أسئلة التكرار,What does the else block in a for loop do?,Runs if the loop body fails,Runs when the loop finishes normally,Runs before the loop,It is not allowed in Python,b,الكتلة else في الحلقات تُنفَّذ عند اكتمال الحلقة طبيعياً. لكنها تُتخطى تماماً إذا خرجت الحلقة بـ break.
+215,التكرار (Iteration),أسئلة التكرار,"If a loop is exited using break, what happens to its else block?",It still runs,It is not executed,It runs twice,It causes an error,b,وجود break يعني أن الحلقة لم تكتمل طبيعياً فتُتخطى كتلة else. هذه أهم نقطة في مفهوم else مع الحلقات.
+216,التكرار (Iteration),أسئلة التكرار,"In a menu-driven program, why do we wrap the menu in a while loop?",To make it faster,So the menu repeats until the user chooses to quit,Because menus need loops syntactically,To validate numbers,b,البرنامج ذو القائمة يكرر عرض الخيارات حتى يختار المستخدم الخروج، وعندها نستخدم break للخروج من الحلقة.
+217,التكرار (Iteration),أسئلة التكرار,"In a menu program, what does the else branch typically handle?",The exit choice,An invalid choice outside the menu options,The first choice,Nothing,b,فرع else يلتقط أي إدخال خارج الخيارات المعروضة ويطبع رسالة خطأ ثم تعيد الحلقة عرض القائمة.
+218,التكرار (Iteration),أسئلة التكرار,"What is the output?
+for i in range(3):
+    print(i)",1 2 3,0 1 2,0 1 2 3,Error,b,الدالة range تبدأ من الصفر وتقف قبل الرقم 3، فتعطي 0 و 1 و 2 أي ثلاث دورات.
+219,التكرار (Iteration),أسئلة التكرار,"What is the output?
+for x in range(2, 6):
+    print(x)",2 3 4 5 6,2 3 4 5,0 1 2 3 4 5,3 4 5,b,البداية 2 مُضمَّنة والنهاية 6 مستثناة، فتُطبع الأرقام من 2 إلى 5.
+220,التكرار (Iteration),أسئلة التكرار,"How many times will the following loop run?
+for i in range(2, 10, 2):
+    print(i)",5,4,3,2,b,القيم هي 2 و 4 و 6 و 8 فقط لأن 10 مستثناة، أي أربع دورات.
+221,التكرار (Iteration),أسئلة التكرار,"What is the output?
+for x in range(6, 1, -2):
+    print(x)
+else:
+    print('Finally finished!')",6 4 2 Finally finished!,6 4 2 1 Finally finished!,1 2 4 6,Error,a,الخطوة السالبة تجعل العد تنازلياً من 6 وتتوقف قبل 1، ثم تُنفَّذ كتلة else لأن الحلقة اكتملت دون break.
+222,التكرار (Iteration),أسئلة التكرار,"What is the output?
+for x in range(6):
+    if x == 3: break
+    print(x)
+else:
+    print('Finally finished!')
+print('Done!')",0 1 2 Finally finished! Done!,0 1 2 Done!,0 1 2 3 Done!,Done! only,b,الحلقة تطبع 0 و 1 و 2 ثم تخرج بـ break عند 3، ووجود break يمنع تنفيذ كتلة else تماماً.
+223,التكرار (Iteration),أسئلة التكرار,"Which range() expression generates the numbers 5, 4, 3, 2, 1?","range(1, 6)","range(5, 0, -1)","range(5, 1, -1)","range(1, 5, -1)",b,نبدأ من 5 ونتوقف قبل 0 بخطوة -1. الخيار C يتوقف عند 2 والخيار D يعطي تسلسلاً فارغاً لأن البداية أصغر من النهاية مع خطوة سالبة.
+224,التكرار (Iteration),أسئلة التكرار,"What is printed?
+for i in range(3):
+    for j in range(2):
+        print(i, j)",0 0 / 1 1 / 2 2,0 0 / 0 1 / 1 0 / 1 1 / 2 0 / 2 1,0 0 0 / 1 1 1,Error,b,الحلقة الداخلية تكمل دورتيها لكل قيمة من الحلقة الخارجية فينتج ستة أسطر. عدد الدورات الكلي هو 3 × 2.
+225,التكرار (Iteration),أسئلة التكرار,"What is the output?
+fruits = ['apple', 'banana', 'cherry']
+for x in fruits:
+    print(x)
+print('Done!')",apple banana cherry Done!,Done! only,3 Done!,Error,a,الحلقة تمر على عناصر القائمة بترتيبها وتطبع كل عنصر، ثم يُطبع Done مرة واحدة خارج الحلقة.
+226,التكرار (Iteration),أسئلة التكرار,"How many lines does this print?
+for i in range(1, 10, 3):
+    print(i)",2,3,4,9,b,القيم هي 1 و 4 و 7 لأن القيمة التالية 10 مستثناة، فالعدد ثلاثة.
+227,التكرار (Iteration),أسئلة التكرار,"What is the output?
+def menu():
+    return 4
+while True:
+    choice = menu()
+    if choice == 4:
+        print('Goodbye')
+        break
+    else:
+        print('Invalid')",Infinite Invalid,Goodbye once,Invalid once,Nothing,b,الدالة تُرجع 4 دائماً فيتحقق الشرط الأول ويُطبع Goodbye ثم يخرج break من الحلقة بعد دورة واحدة.
+228,التكرار (Iteration),أسئلة التكرار,"Find the bug:
+for x in range(1, 5)
+    print(x)",range needs three arguments,"Missing colon after range(1, 5)",x must be initialized,There is no bug,b,النقطتان إجبارية في نهاية سطر for وغيابها يعطي SyntaxError. الدالة range تقبل معاملاً واحداً أو اثنين أو ثلاثة.
+229,التكرار (Iteration),أسئلة التكرار,"A student wants to print 1 to 5 but wrote: for i in range(5)
+What is the problem?",It prints 0 to 4 not 1 to 5,It prints 1 to 5 correctly,range cannot take one argument,It prints 5 only,a,"البداية الافتراضية صفر والنهاية مستثناة، فالصحيح لطباعة 1 إلى 5 هو range(1, 6)."
+230,التكرار (Iteration),أسئلة التكرار,"Find the bug in this menu loop:
+while True:
+    choice = int(input('Choice: '))
+    if choice == 1:
+        print('Square')
+    elif choice == 2:
+        print('Exit')",There is no break so the program never exits,int() is wrong,Missing else,There is no bug,a,خيار الخروج يطبع رسالة فقط دون break فتستمر الحلقة بلا نهاية. يجب إضافة break بعد رسالة الخروج.
+231,التكرار (Iteration),أسئلة التكرار,"Find the bug:
+for i in range(3, 1):
+    print(i)",SyntaxError,It prints nothing because the step is positive while start is greater than stop,It prints 3 2,Infinite loop,b,"مع الخطوة الافتراضية الموجبة لا يمكن الوصول من 3 إلى ما قبل 1 فينتج تسلسل فارغ. الحل إضافة خطوة سالبة مثل range(3, 1, -1)."
+232,التكرار (Iteration),أسئلة التكرار,For an and comparison to be True:,Either condition may be true,Both conditions must be true,Neither condition must be true,Only the first condition matters,b,العامل and يتطلب تحقق الشرطين معاً. إذا كان الأول كاذباً فلا يُفحص الثاني إطلاقاً وهو ما يُسمى التقييم القصير.
+233,التكرار (Iteration),أسئلة التكرار,For an or comparison to be True:,Both conditions must be true,At least one condition must be true,Both must be false,It always returns False,b,يكفي تحقق شرط واحد ليكون الناتج True. وإذا تحقق الأول فلا يُفحص الثاني توفيراً للوقت.
+234,التكرار (Iteration),أسئلة التكرار,"In an and expression, if the first condition is False, what does Python do?",It checks the second condition anyway,It skips the second condition and returns False,It raises an error,It returns True,b,هذا هو مبدأ short-circuit evaluation، فلا فائدة من فحص الثاني ما دام الناتج محسوماً بالكذب.
+235,التكرار (Iteration),أسئلة التكرار,Which expression grants access only to ages between 8 and 12 inclusive?,age >= 8 or age <= 12,age >= 8 and age <= 12,age > 8 and age < 12,age == 8 and age == 12,b,الخيار A يتحقق لأي عمر تقريباً لأن or متساهلة جداً، والخيار C يستثني 8 و 12 نفسيهما، والخيار D مستحيل التحقق.
+236,التكرار (Iteration),أسئلة التكرار,Which condition accepts both uppercase Y and lowercase y?,var == 'Y' and var == 'y',var == 'Y' or var == 'y',var == 'Yy',var != 'Y',b,المقارنة حساسة لحالة الأحرف فنحتاج or لقبول الشكلين. الخيار A مستحيل لأن المتغير لا يمكن أن يساوي قيمتين في وقت واحد.
+237,التكرار (Iteration),أسئلة التكرار,"In a while loop with two conditions joined by and, when does the loop terminate?",Only when both become false,As soon as even one of them becomes false,It never terminates,After ten iterations,b,العامل and يتطلب تحقق الطرفين معاً لاستمرار الحلقة، فكذب أحدهما يكفي لإنهائها.
+238,التكرار (Iteration),أسئلة التكرار,"What does print('*', end='') do?",Prints a star and moves to the next line,Prints a star without moving to a new line,Prints nothing,Ends the program,b,المعامل end يستبدل سطر النهاية الافتراضي بنص فارغ فتبقى الطباعة على نفس السطر، وهو أساس رسم الأشكال.
+239,التكرار (Iteration),أسئلة التكرار,What does the expression '*' * 3 produce?,A TypeError,***,3 stars on 3 lines,*3,b,ضرب نص في عدد صحيح يكرّر النص، فينتج ثلاث نجمات متتالية على نفس السطر.
+240,التكرار (Iteration),أسئلة التكرار,"If the user enters 17, what is printed?
+age = int(input('Enter your age: '))
+if ((age >= 8) and (age <= 12)):
+    print('YOU ARE ALLOWED. WELCOME!')
+else:
+    print('SORRY! YOU ARE NOT ALLOWED. BYE!')",YOU ARE ALLOWED. WELCOME!,SORRY! YOU ARE NOT ALLOWED. BYE!,Both lines,Error,b,الشرط الأول 17 >= 8 صحيح لكن الثاني 17 <= 12 كاذب، والعامل and يتطلب الاثنين معاً فنُفِّذ فرع else.
+241,التكرار (Iteration),أسئلة التكرار,"If the user enters 12, what is printed?
+if ((age >= 8) and (age <= 12)):
+    print('ALLOWED')
+else:
+    print('NOT ALLOWED')",ALLOWED,NOT ALLOWED,Nothing,Error,a,استخدام <= و >= يجعل الطرفين 8 و 12 مشمولين في المدى. لو استُخدم < و > لكانت النتيجة NOT ALLOWED.
+242,التكرار (Iteration),أسئلة التكرار,"If the user enters n, what is printed?
+if (var == 'Y' or var == 'y'):
+    print('YOU SAID YES')
+elif (var == 'N' or var == 'n'):
+    print('YOU SAID NO')
+else:
+    print('INVALID INPUT')",YOU SAID YES,YOU SAID NO,INVALID INPUT,Error,b,الشرط الأول كاذب لأن n ليست Y ولا y، والثاني صحيح فطُبعت رسالة الرفض. تنبيه: بعض مخرجات السلايد لهذا المثال غير مطابقة للكود.
+243,التكرار (Iteration),أسئلة التكرار,"If a=1, b=2, c=3, what is printed?
+if ((a>b and a>c) and (a != b and a != c)):
+    print(a, ' is the largest')
+elif ((b>a and b>c) and (b != a and b != c)):
+    print(b, ' is the largest')
+elif ((c>a and c>b) and (c != a and c != b)):
+    print(c, ' is the largest')
+else:
+    print('entered numbers are equal')",1 is the largest,2 is the largest,3 is the largest,entered numbers are equal,c,القيمة 3 أكبر من الاثنتين ومختلفة عنهما فتحقق الشرط الثالث. الشرطان الأولان كاذبان لأن 1 و 2 ليستا الأكبر.
+244,التكرار (Iteration),أسئلة التكرار,"If a=b=c=2, what is printed by the same three-number comparison code?",2 is the largest,entered numbers are equal,Error,Nothing,b,شرط الأكبرية يستخدم > الصارمة فلا يتحقق مع التساوي، ولا يتحقق شرط الاختلاف أيضاً، فيُنفَّذ فرع else.
+245,التكرار (Iteration),أسئلة التكرار,"If the user enters a=3 and b=7, how many times does the loop body run?
+count = 0
+while count < a and count < b:
+    print('count:', count)
+    count += 1",7 times,3 times,10 times,0 times,b,العامل and يجعل الحلقة تتوقف عند أصغر الحدّين، فالقيم هي 0 و 1 و 2 ثم يكذب الشرط count < 3.
+246,التكرار (Iteration),أسئلة التكرار,"If the user enters a=0 and b=3, what happens?
+count = 0
+while count < a and count < b:
+    print('count:', count)
+    count += 1
+else:
+    print('End of count:', count)",It prints count 0 then End,It prints only End of count: 0,Infinite loop,Error,b,الشرط 0 < 0 كاذب من البداية فلم يُنفَّذ جسم الحلقة ولا مرة، لكن كتلة else نُفِّذت لأن الحلقة انتهت دون break.
+247,التكرار (Iteration),أسئلة التكرار,"What is the output?
+for x in range(1, 4):
+    print('*' * x)",* ** ***,*** ** *,***,1 2 3,a,في كل دورة يتكرر النص بعدد قيمة x فتظهر الأسطر متزايدة الطول. هذا الحل بسطر واحد بديل عن الحلقة المتداخلة.
+248,التكرار (Iteration),أسئلة التكرار,"What is the output?
+for x in range(1, 4):
+    for y in range(1, x+1):
+        print('*', end='')
+    print('')",* ** *** on three lines,*** on one line,Nine stars on one line,Error,a,الحلقة الداخلية تطبع عدداً من النجمات يساوي رقم السطر على نفس السطر، ثم print الفارغة تنقل للسطر التالي.
+249,التكرار (Iteration),أسئلة التكرار,"How many stars in total are printed?
+for x in range(1, 5):
+    print('*' * x)",4,5,10,16,c,الأسطر تحتوي 1 ثم 2 ثم 3 ثم 4 نجمة فالمجموع 10. عدد الأسطر أربعة وليس عدد النجمات.
+250,التكرار (Iteration),أسئلة التكرار,"A student wants ages 8 to 12 only but wrote:
+if age >= 8 or age <= 12:",It works correctly,"Using or makes almost every age true, it should be and",The comparison operators are reversed,Missing colon,b,أي عمر يحقق أحد الشرطين على الأقل فيدخل الجميع. المطلوب تحقق الشرطين معاً باستخدام and.
+251,التكرار (Iteration),أسئلة التكرار,"A student wants to accept Y or y but wrote:
+if var == 'Y' and var == 'y':",It works,"The condition can never be true, and should be or",It needs parentheses,It needs elif,b,من المستحيل أن يساوي المتغير قيمتين مختلفتين في الوقت نفسه فالشرط دائماً كاذب. الصحيح استخدام or.
+252,التكرار (Iteration),أسئلة التكرار,"Find the bug:
+for x in range(1, 4):
+    for y in range(1, x+1):
+        print('*')
+    print('')",It prints each star on its own line because end='' is missing,SyntaxError,The inner range is wrong,There is no bug,a,بدون المعامل end تنتقل الطباعة لسطر جديد بعد كل نجمة فينكسر الشكل المطلوب.
+253,التكرار (Iteration),أسئلة التكرار,"Find the bug:
+count = 0
+while count < 3 and count < 5:
+    print(count)",The and should be or,count is never incremented so the loop is infinite,Missing colon,There is no bug,b,الشرط المركب سليم لكن لا شيء يغيّر count فيبقى صفراً للأبد. يجب إضافة count += 1 داخل الحلقة.
