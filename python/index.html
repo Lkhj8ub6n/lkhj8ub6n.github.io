@@ -864,20 +864,20 @@
             <div class="cards-grid">`;
         BAB_GROUPS.forEach((bab, bi) => {
             if (!bab.sectionIndexes.length) return;
-            const subCount = bab.sectionIndexes.reduce((s, idx) => s + SECTIONS[idx].subsections.length, 0);
             const qCount = bab.sectionIndexes.reduce((s, idx) => s + SECTIONS[idx].count, 0);
+            // إن كان للشابتر قسم واحد فقط: افتح اختبار القسم كامل مباشرة (بدون صفحات وسيطة)
+            const target = bab.sectionIndexes.length === 1
+                ? `#/quiz/${bab.sectionIndexes[0]}/-1`
+                : `#/bab/${bi}`;
             html += `
                 <div class="subject-card bab-card" data-activate tabindex="0" role="button"
-                    aria-label="${escapeHtml(bab.title)}" onclick="location.hash='#/bab/${bi}'">
+                    aria-label="${escapeHtml(bab.title)}" onclick="location.hash='${target}'">
                     <div class="card-badge bab-badge"><i class="fas fa-book-bookmark"></i> شابتر</div>
                     <div class="card-title">${escapeHtml(bab.title)}</div>
                     ${bab.subtitle ? `<p class="card-subtitle">${escapeHtml(bab.subtitle)}</p>` : ''}
                     <div class="card-meta">
-                        <i class="fas fa-layer-group"></i>
-                        <span>${subCount} أنواع أسئلة</span>
-                        <span style="margin-inline-start:auto">
-                            <i class="fas fa-circle-question"></i> ${qCount} سؤال
-                        </span>
+                        <i class="fas fa-circle-question"></i>
+                        <span>${qCount} سؤال</span>
                     </div>
                 </div>`;
         });
@@ -1222,10 +1222,14 @@
         const saved = loadProgress()[currentQuizKey];
         const hasSaved = saved && saved.answers && Object.keys(saved.answers).length;
 
+        // اختبار القسم كامل (subIndex = -1) يرجع للشباتر مباشرة؛ اختبار موضوع يرجع لصفحة المواضيع
+        const backTarget = subIndex === -1 ? '#/' : `#/sec/${secIndex}`;
+        const backLabel  = subIndex === -1 ? 'رجوع للشباتر' : 'رجوع للمواضيع';
         let html = `
-            <a class="back-btn" data-activate tabindex="0" role="button" onclick="location.hash='#/sec/${secIndex}'">
-                <i class="fas fa-arrow-right"></i> رجوع للمواضيع
-            </a>
+            <a class="back-btn" data-activate tabindex="0" role="button" onclick="location.hash='${backTarget}'">
+                <i class="fas fa-arrow-right"></i> ${backLabel}
+            </a>`;
+        html += `
             <div class="quiz-progress">
                 <i class="fas fa-pen-to-square"></i> ${escapeHtml(currentQuizTitle)}
                 &mdash; ${currentQuestions.length} سؤال
