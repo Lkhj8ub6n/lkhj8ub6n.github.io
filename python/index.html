@@ -468,6 +468,7 @@
     const USE_SUPABASE   = true;                 // اجعلها false لاستخدام ملف CSV فقط
     const QUESTIONS_TABLE = 'python_questions';   // جدول Supabase الخاص بأسئلة بايثون
     const QUESTIONS_CSV   = 'questions.csv';      // ملف CSV المحلي (احتياطي/افتراضي)
+    const SHOW_SUMMARIES = false;                 // إظهار بطاقات الشرح (الملخصات)؟ false = أسئلة فقط
     const SUPABASE_URL = 'https://nytuekgasognqvzxemsh.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_DssZGrSuDi2u9sqTBvtI9A_r1INTSwW';
     const CONFIG_TABLE = 'app_config';   // مفتاح الإغلاق/الفتح
@@ -772,7 +773,7 @@
             }
             ALL_QUESTIONS = questions;
             groupData();
-            await loadSummaries();
+            if (SHOW_SUMMARIES) await loadSummaries();   // عند الإخفاء تبقى SUMMARIES فارغة فلا تظهر أي بطاقة شرح
             dataReady = true;
             route();   // اعرض حسب عنوان الصفحة الحالي (يدعم زر الرجوع في المتصفح)
         } catch (err) {
