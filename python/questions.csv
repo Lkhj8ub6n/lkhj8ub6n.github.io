@@ -1,153 +1,153 @@
 id,section,subsection,question,option_a,option_b,option_c,option_d,correct_option,correct_text
-1,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),Which of the following is NOT a valid numeric constant in Python?,123,98.6,'Hello',3.14,c,'Hello' موضوعة بين علامتي اقتباس فهي string وليست numeric constant. أما 123 فهي int، و 98.6 و 3.14 فهما float.
-2,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),Which of the following is NOT a reserved word in Python?,for,class,variable,return,c,كلمة variable ليست محجوزة ويمكن استخدامها كاسم متغير. أما for و class و return فهي reserved words لها معنى خاص باللغة ولا يمكن استخدامها كأسماء.
-3,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),Which of the following is a reserved word that CANNOT be used as a variable name?,value,lambda,number,total,b,lambda كلمة محجوزة ضمن قائمة الـ reserved words. أما value و number و total فأسماء عادية مسموحة تماماً.
-4,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),String constants in Python can be written using:,Single quotes only,Double quotes only,Either single or double quotes,Backticks,c,"Python تقبل ' و "" بنفس الدرجة لتعريف النصوص. الـ backtick ` غير مستخدم في Python 3 نهائياً."
-5,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),Which of the following is a valid Python variable name?,23spam,var.12,_speed,#sign,c,_speed صحيحة لأن الـ underscore مسموحة في البداية. 23spam خاطئة لأن الاسم لا يبدأ برقم، var.12 خاطئة لأن النقطة عامل وصول للخصائص، و #sign خاطئة لأن # تبدأ تعليقاً.
-6,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),Which statement about Python variable names is TRUE?,Names are case insensitive,Names may start with a digit,Names are case sensitive,Names may contain a dot,c,Python حساسة لحالة الأحرف فـ spam و Spam و SPAM ثلاثة متغيرات مختلفة. لا يجوز البدء برقم ولا استخدام النقطة داخل الاسم.
-7,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),"After running: spam = 1 then Spam = 2 then SPAM = 3, how many variables exist?",1,2,3,SyntaxError,c,بسبب الـ case sensitivity كل اسم يُعتبر متغيراً منفصلاً، فالنتيجة ثلاثة متغيرات مستقلة بقيم 1 و 2 و 3.
-8,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),Why is the name var.12 invalid in Python?,It is too short,The dot is the attribute access operator,It contains digits,Variable names must be uppercase,b,النقطة في Python لها معنى خاص وهو الوصول لأعضاء الكائنات، لذلك لا يمكن أن تكون جزءاً من اسم متغير. الأرقام مسموحة داخل الاسم وليست هي السبب.
-9,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),What is the purpose of using mnemonic variable names?,They run faster,They use less memory,They help the programmer remember what is stored,They are required by Python,c,المصطلح mnemonic يعني معين للذاكرة، والفائدة إنسانية بحتة لقراءة الكود. الـ interpreter لا يفرّق إطلاقاً بين hours و x1q3z9ocd من ناحية الأداء أو الذاكرة.
-10,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),Which operator is used for exponentiation in Python?,^,**,exp(),//,b,العامل ** هو الأس في Python. أما ^ فهو عامل XOR الثنائي وليس أساً، و // هي القسمة الصحيحة.
-11,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),What does the % operator do in Python?,Calculates percentage,Returns the remainder,Performs division,Rounds the number,b,العامل % يُرجع باقي القسمة، فمثلاً 23 % 5 تساوي 3. لا علاقة له بالنسبة المئوية إطلاقاً في السياق الحسابي.
-12,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),Which operator performs integer (floor) division?,/,//,%,**,b,// تُرجع الجزء الصحيح من القسمة متجاهلة الكسر. أما / فتُرجع نتيجة عشرية دائماً، و % تُرجع الباقي، و ** الأس.
-13,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),"In Python 3, what is the result type of the / operator?",Always int,Always float,int if both operands are int,str,b,في Python 3 عامل / يُرجع float دائماً حتى لو كانت القسمة كاملة، فـ 10 / 2 تساوي 5.0 وليس 5. الخيار C يصف سلوك // وليس /.
-14,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),Which of the following expressions evaluates to an int?,10 / 5,10.0 // 5,10 // 5,10 / 2.0,c,// بين عددين صحيحين تُرجع int فالنتيجة 2. الخيار A يُرجع 2.0 لأن / دائماً float، والخيار B يُرجع 2.0 لأن أحد الطرفين float، والخيار D يُرجع 5.0.
-15,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),What is the output of: print(4 ** 3),7,64,12,43,b,العامل ** يعني الأس، فـ 4 أُس 3 يساوي 64. الخيار A ناتج جمع، والخيار C ناتج ضرب، والخيار D مجرد لصق الرقمين.
-16,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),What is the output of: print(9 / 2),4,4.5,5,5.0,b,عامل / يُجري قسمة عادية ويُرجع float، و 9 مقسومة على 2 تساوي 4.5. الخيار A هو ناتج // وليس /.
-17,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),What is the output of: print(10 / 2),5,5.0,2.0,0.2,b,رغم أن القسمة كاملة إلا أن / تُرجع float دائماً في Python 3، فالناتج 5.0 وليس 5. هذه من أكثر النقاط التي يخطئ فيها الطلاب.
-18,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),What is the output of: print(9 // 2),4.5,4,5,4.0,b,// تُرجع الجزء الصحيح فقط، و 9 على 2 تساوي 4.5 فيؤخذ 4. والنوع int لأن الطرفين int، لذلك ليس 4.0.
-19,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),What is the output of: print(9.0 // 2),4,4.0,4.5,5.0,b,// تقصّ الكسر فتعطي 4، لكن وجود float بين المعاملات يجعل النوع float فالناتج 4.0. القاعدة: // تُرجع int فقط إذا كان الطرفان int.
-20,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),What is the output of: print(23 % 5),4,3,4.6,5,b,23 على 5 تساوي 4 والباقي 3، والعامل % يُرجع الباقي وليس ناتج القسمة. الخيار A هو ناتج 23 // 5.
-21,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),What is the output of: print(3 % 10),0,3,0.3,10,b,3 على 10 يساوي صفر والباقي هو 3 نفسه. القاعدة: إذا كان المقسوم أصغر من المقسوم عليه فالباقي هو المقسوم نفسه.
-22,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),What is the output of: print(1 + 2 ** 3 / 4 * 5),11,11.0,3.75,45.0,b,الأس أولاً فيصبح 1 + 8 / 4 * 5، ثم القسمة والضرب من اليسار لليمين: 8/4=2.0 ثم 2.0*5=10.0، ثم 1+10.0=11.0. النتيجة float بسبب وجود /.
-23,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),What is the output of: print(8 / 4 * 5),0.4,10.0,40,1.6,b,القسمة والضرب لهما نفس الأولوية فيُنفَّذان من اليسار لليمين: 8/4=2.0 ثم 2.0*5=10.0. الخيار A هو خطأ من ينفّذ الضرب أولاً.
-24,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),What is the output of: print(2 ** 3 ** 2),64,512,12,36,b,عامل الأس وحده يُقيَّم من اليمين لليسار، فيُحسب 3**2=9 أولاً ثم 2**9=512. الخيار A هو خطأ من يحسب من اليسار.
-25,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),What is the output of: print((1 + 2) * 3),7,9,6,123,b,الأقواس لها الأولوية القصوى فيُحسب 1+2=3 أولاً ثم 3*3=9. بدون الأقواس كان الناتج 7 بسبب أسبقية الضرب.
-26,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),"What is the output of:
+1,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,Which of the following is NOT a valid numeric constant in Python?,123,98.6,'Hello',3.14,c,'Hello' موضوعة بين علامتي اقتباس فهي string وليست numeric constant. أما 123 فهي int، و 98.6 و 3.14 فهما float.
+2,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,Which of the following is NOT a reserved word in Python?,for,class,variable,return,c,كلمة variable ليست محجوزة ويمكن استخدامها كاسم متغير. أما for و class و return فهي reserved words لها معنى خاص باللغة ولا يمكن استخدامها كأسماء.
+3,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,Which of the following is a reserved word that CANNOT be used as a variable name?,value,lambda,number,total,b,lambda كلمة محجوزة ضمن قائمة الـ reserved words. أما value و number و total فأسماء عادية مسموحة تماماً.
+4,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,String constants in Python can be written using:,Single quotes only,Double quotes only,Either single or double quotes,Backticks,c,"Python تقبل ' و "" بنفس الدرجة لتعريف النصوص. الـ backtick ` غير مستخدم في Python 3 نهائياً."
+5,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,Which of the following is a valid Python variable name?,23spam,var.12,_speed,#sign,c,_speed صحيحة لأن الـ underscore مسموحة في البداية. 23spam خاطئة لأن الاسم لا يبدأ برقم، var.12 خاطئة لأن النقطة عامل وصول للخصائص، و #sign خاطئة لأن # تبدأ تعليقاً.
+6,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,Which statement about Python variable names is TRUE?,Names are case insensitive,Names may start with a digit,Names are case sensitive,Names may contain a dot,c,Python حساسة لحالة الأحرف فـ spam و Spam و SPAM ثلاثة متغيرات مختلفة. لا يجوز البدء برقم ولا استخدام النقطة داخل الاسم.
+7,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,"After running: spam = 1 then Spam = 2 then SPAM = 3, how many variables exist?",1,2,3,SyntaxError,c,بسبب الـ case sensitivity كل اسم يُعتبر متغيراً منفصلاً، فالنتيجة ثلاثة متغيرات مستقلة بقيم 1 و 2 و 3.
+8,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,Why is the name var.12 invalid in Python?,It is too short,The dot is the attribute access operator,It contains digits,Variable names must be uppercase,b,النقطة في Python لها معنى خاص وهو الوصول لأعضاء الكائنات، لذلك لا يمكن أن تكون جزءاً من اسم متغير. الأرقام مسموحة داخل الاسم وليست هي السبب.
+9,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the purpose of using mnemonic variable names?,They run faster,They use less memory,They help the programmer remember what is stored,They are required by Python,c,المصطلح mnemonic يعني معين للذاكرة، والفائدة إنسانية بحتة لقراءة الكود. الـ interpreter لا يفرّق إطلاقاً بين hours و x1q3z9ocd من ناحية الأداء أو الذاكرة.
+10,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,Which operator is used for exponentiation in Python?,^,**,exp(),//,b,العامل ** هو الأس في Python. أما ^ فهو عامل XOR الثنائي وليس أساً، و // هي القسمة الصحيحة.
+11,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What does the % operator do in Python?,Calculates percentage,Returns the remainder,Performs division,Rounds the number,b,العامل % يُرجع باقي القسمة، فمثلاً 23 % 5 تساوي 3. لا علاقة له بالنسبة المئوية إطلاقاً في السياق الحسابي.
+12,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,Which operator performs integer (floor) division?,/,//,%,**,b,// تُرجع الجزء الصحيح من القسمة متجاهلة الكسر. أما / فتُرجع نتيجة عشرية دائماً، و % تُرجع الباقي، و ** الأس.
+13,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,"In Python 3, what is the result type of the / operator?",Always int,Always float,int if both operands are int,str,b,في Python 3 عامل / يُرجع float دائماً حتى لو كانت القسمة كاملة، فـ 10 / 2 تساوي 5.0 وليس 5. الخيار C يصف سلوك // وليس /.
+14,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,Which of the following expressions evaluates to an int?,10 / 5,10.0 // 5,10 // 5,10 / 2.0,c,// بين عددين صحيحين تُرجع int فالنتيجة 2. الخيار A يُرجع 2.0 لأن / دائماً float، والخيار B يُرجع 2.0 لأن أحد الطرفين float، والخيار D يُرجع 5.0.
+15,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the output of: print(4 ** 3),7,64,12,43,b,العامل ** يعني الأس، فـ 4 أُس 3 يساوي 64. الخيار A ناتج جمع، والخيار C ناتج ضرب، والخيار D مجرد لصق الرقمين.
+16,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the output of: print(9 / 2),4,4.5,5,5.0,b,عامل / يُجري قسمة عادية ويُرجع float، و 9 مقسومة على 2 تساوي 4.5. الخيار A هو ناتج // وليس /.
+17,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the output of: print(10 / 2),5,5.0,2.0,0.2,b,رغم أن القسمة كاملة إلا أن / تُرجع float دائماً في Python 3، فالناتج 5.0 وليس 5. هذه من أكثر النقاط التي يخطئ فيها الطلاب.
+18,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the output of: print(9 // 2),4.5,4,5,4.0,b,// تُرجع الجزء الصحيح فقط، و 9 على 2 تساوي 4.5 فيؤخذ 4. والنوع int لأن الطرفين int، لذلك ليس 4.0.
+19,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the output of: print(9.0 // 2),4,4.0,4.5,5.0,b,// تقصّ الكسر فتعطي 4، لكن وجود float بين المعاملات يجعل النوع float فالناتج 4.0. القاعدة: // تُرجع int فقط إذا كان الطرفان int.
+20,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the output of: print(23 % 5),4,3,4.6,5,b,23 على 5 تساوي 4 والباقي 3، والعامل % يُرجع الباقي وليس ناتج القسمة. الخيار A هو ناتج 23 // 5.
+21,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the output of: print(3 % 10),0,3,0.3,10,b,3 على 10 يساوي صفر والباقي هو 3 نفسه. القاعدة: إذا كان المقسوم أصغر من المقسوم عليه فالباقي هو المقسوم نفسه.
+22,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the output of: print(1 + 2 ** 3 / 4 * 5),11,11.0,3.75,45.0,b,الأس أولاً فيصبح 1 + 8 / 4 * 5، ثم القسمة والضرب من اليسار لليمين: 8/4=2.0 ثم 2.0*5=10.0، ثم 1+10.0=11.0. النتيجة float بسبب وجود /.
+23,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the output of: print(8 / 4 * 5),0.4,10.0,40,1.6,b,القسمة والضرب لهما نفس الأولوية فيُنفَّذان من اليسار لليمين: 8/4=2.0 ثم 2.0*5=10.0. الخيار A هو خطأ من ينفّذ الضرب أولاً.
+24,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the output of: print(2 ** 3 ** 2),64,512,12,36,b,عامل الأس وحده يُقيَّم من اليمين لليسار، فيُحسب 3**2=9 أولاً ثم 2**9=512. الخيار A هو خطأ من يحسب من اليسار.
+25,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the output of: print((1 + 2) * 3),7,9,6,123,b,الأقواس لها الأولوية القصوى فيُحسب 1+2=3 أولاً ثم 3*3=9. بدون الأقواس كان الناتج 7 بسبب أسبقية الضرب.
+26,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,"What is the output of:
 xx = 2
 xx = xx + 2
 print(xx)",2,4,22,Error,b,الطرف الأيمن يُحسب أولاً باستخدام القيمة القديمة: 2+2=4، ثم تُخزَّن النتيجة في xx. هذه جملة إسناد وليست معادلة رياضية.
-27,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),"What is the output of:
+27,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,"What is the output of:
 a = 35.0
 b = 12.50
 c = a * b
 print(c)",35.0,12.5,437.5,Error,c,الكود يحسب حاصل ضرب المتغيرين: 35.0 × 12.50 = 437.5. أسماء المتغيرات لا تؤثر على النتيجة إطلاقاً.
-28,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),What function can be used to check the type of a variable in Python?,typeof(),checktype(),type(),getType(),c,الدالة المبنية type() هي الصحيحة في Python. أما typeof فهو من JavaScript والخياران الآخران غير موجودين أصلاً.
-29,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),What is the output of: print(type(1.0)),<class 'int'>,<class 'float'>,<class 'str'>,1.0,b,وجود النقطة العشرية يجعل القيمة float حتى لو كانت تساوي 1 رياضياً. النوع يُحدَّد بالشكل المكتوب وليس بالقيمة.
-30,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),What is the output of: print(type('123')),<class 'int'>,<class 'float'>,<class 'str'>,<class 'number'>,c,وجود علامتي الاقتباس يجعلها string حتى لو كان محتواها أرقاماً. لتحويلها لعدد نحتاج int('123').
-31,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),What will happen if you try to concatenate a string with an integer using + in Python?,The values will be automatically converted,Python will throw a TypeError,Python will ignore the integer,The integer will be treated as a string,b,Python لا تحوّل الأنواع تلقائياً في هذه الحالة وترمي TypeError. التحويل التلقائي موجود في لغات أخرى مثل JavaScript وليس في Python.
-32,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),What is the result of: int(4.7),5,4,4.7,Error,b,الدالة int() تقصّ الجزء العشري ولا تقرّب، فالناتج 4 وليس 5. للتقريب الحقيقي نستخدم round() وليس int().
-33,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),What is the result of: int(-4.7),-5,-4,-4.7,Error,b,int() تقصّ باتجاه الصفر فتحذف الكسر ويبقى -4. لو كانت تقرّب لأعطت -5.
-34,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),What is the output of: print(float(99) + 100),199,199.0,99100,Error,b,float(99) تعطي 99.0 وعند جمعها مع int يُرقّى الـ int إلى float فتكون النتيجة 199.0 وليس 199.
-35,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),"What error does this produce?
+28,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What function can be used to check the type of a variable in Python?,typeof(),checktype(),type(),getType(),c,الدالة المبنية type() هي الصحيحة في Python. أما typeof فهو من JavaScript والخياران الآخران غير موجودين أصلاً.
+29,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the output of: print(type(1.0)),<class 'int'>,<class 'float'>,<class 'str'>,1.0,b,وجود النقطة العشرية يجعل القيمة float حتى لو كانت تساوي 1 رياضياً. النوع يُحدَّد بالشكل المكتوب وليس بالقيمة.
+30,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the output of: print(type('123')),<class 'int'>,<class 'float'>,<class 'str'>,<class 'number'>,c,وجود علامتي الاقتباس يجعلها string حتى لو كان محتواها أرقاماً. لتحويلها لعدد نحتاج int('123').
+31,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What will happen if you try to concatenate a string with an integer using + in Python?,The values will be automatically converted,Python will throw a TypeError,Python will ignore the integer,The integer will be treated as a string,b,Python لا تحوّل الأنواع تلقائياً في هذه الحالة وترمي TypeError. التحويل التلقائي موجود في لغات أخرى مثل JavaScript وليس في Python.
+32,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the result of: int(4.7),5,4,4.7,Error,b,الدالة int() تقصّ الجزء العشري ولا تقرّب، فالناتج 4 وليس 5. للتقريب الحقيقي نستخدم round() وليس int().
+33,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the result of: int(-4.7),-5,-4,-4.7,Error,b,int() تقصّ باتجاه الصفر فتحذف الكسر ويبقى -4. لو كانت تقرّب لأعطت -5.
+34,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the output of: print(float(99) + 100),199,199.0,99100,Error,b,float(99) تعطي 99.0 وعند جمعها مع int يُرقّى الـ int إلى float فتكون النتيجة 199.0 وليس 199.
+35,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,"What error does this produce?
 nsv = 'hello bob'
 niv = int(nsv)",TypeError,ValueError,NameError,SyntaxError,b,النوع المُمرَّر صحيح (نص) لكن القيمة نفسها غير قابلة للتحويل لرقم، وهذا تعريف الـ ValueError. الـ TypeError يحدث عند خلط أنواع في عملية مثل 'hello' + 1.
-36,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),What is the result of int('3.5') ?,3,3.5,4,ValueError,d,الدالة int() لا تقبل نصاً يحتوي نقطة عشرية وترمي ValueError مباشرة. الحل الصحيح هو int(float('3.5')) فتعطي 3.
-37,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),Which function is used to get user input in Python?,scan(),read(),input(),userInput(),c,الدالة input() هي المخصصة لقراءة مدخلات المستخدم في Python 3. باقي الخيارات إما غير موجودة أو من لغات أخرى.
-38,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),What data type does the input() function always return?,int,float,str,It depends on what the user types,c,input() تُرجع string دائماً وبلا استثناء حتى لو أدخل المستخدم أرقاماً. لهذا نحتاج int() أو float() للتحويل قبل الحساب.
-39,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),"What is the output if the user enters 5 ?
+36,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the result of int('3.5') ?,3,3.5,4,ValueError,d,الدالة int() لا تقبل نصاً يحتوي نقطة عشرية وترمي ValueError مباشرة. الحل الصحيح هو int(float('3.5')) فتعطي 3.
+37,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,Which function is used to get user input in Python?,scan(),read(),input(),userInput(),c,الدالة input() هي المخصصة لقراءة مدخلات المستخدم في Python 3. باقي الخيارات إما غير موجودة أو من لغات أخرى.
+38,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What data type does the input() function always return?,int,float,str,It depends on what the user types,c,input() تُرجع string دائماً وبلا استثناء حتى لو أدخل المستخدم أرقاماً. لهذا نحتاج int() أو float() للتحويل قبل الحساب.
+39,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,"What is the output if the user enters 5 ?
 x = input('Enter: ')
 print(x + x)",10,55,25,TypeError,b,بما أن x نص فإن + تعني concatenate فتلتصق '5' مع '5' وتعطي '55'. لو أردنا 10 لوجب كتابة int(input(...)).
-40,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),"What is the output if the user enters 0 ?
+40,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,"What is the output if the user enters 0 ?
 euf = input('Europe floor? ')
 usf = int(euf) + 1
 print('US floor', usf)",US floor 0,US floor 1,US floor 01,TypeError,b,التحويل بـ int() يجعل القيمة رقماً فيصبح 0+1=1. والفاصلة في print تضيف مسافة تلقائياً بين النص والقيمة.
-41,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),What symbol is used for comments in Python?,//,#,/* */,--,b,الرمز # يجعل Python تتجاهل كل ما بعده على نفس السطر. الرمز // تعليق في C وJava، و -- في SQL، وليست تعليقات في Python.
-42,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),What is the output of: print('# not a comment'),Nothing,# not a comment,not a comment,SyntaxError,b,الرمز # داخل نص هو مجرد حرف عادي ولا يُعامَل كتعليق. التعليق يبدأ فقط عندما تكون # خارج علامتي الاقتباس.
-43,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),"What is the output of:
+41,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What symbol is used for comments in Python?,//,#,/* */,--,b,الرمز # يجعل Python تتجاهل كل ما بعده على نفس السطر. الرمز // تعليق في C وJava، و -- في SQL، وليست تعليقات في Python.
+42,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the output of: print('# not a comment'),Nothing,# not a comment,not a comment,SyntaxError,b,الرمز # داخل نص هو مجرد حرف عادي ولا يُعامَل كتعليق. التعليق يبدأ فقط عندما تكون # خارج علامتي الاقتباس.
+43,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,"What is the output of:
 x = 5   # x = 10
 print(x)",5,10,5 10,Error,a,كل ما بعد # يُتجاهَل تماماً، فالإسناد الثاني لم يحدث أبداً وبقيت قيمة x هي 5.
-44,المتغيرات والتعبيرات والجُمل,اكتشاف الأخطاء (Bug),"Find the bug:
+44,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,"Find the bug:
 x = input('Enter a number: ')
 print(x + 10)",input should be spelled Input,x is a string so + 10 raises TypeError,print needs a semicolon,There is no bug,b,input() تُرجع نصاً فتصبح العملية نص + عدد وهي TypeError. التصحيح: x = int(input('Enter a number: ')) قبل الجمع.
-45,المتغيرات والتعبيرات والجُمل,اكتشاف الأخطاء (Bug),"Find the bug:
+45,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,"Find the bug:
 23spam = 5
 print(23spam)",print cannot take a variable,Variable names cannot start with a digit,spam is a reserved word,There is no bug,b,أسماء المتغيرات يجب أن تبدأ بحرف أو underscore، فالبدء برقم يعطي SyntaxError. كلمة spam ليست محجوزة والمشكلة في الرقم فقط.
-46,المتغيرات والتعبيرات والجُمل,اكتشاف الأخطاء (Bug),"Find the bug:
+46,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,"Find the bug:
 hours = 35
 print(Hours * 2)",Nothing is wrong,NameError because Hours is not defined,TypeError,Missing parentheses,b,Python حساسة لحالة الأحرف فـ Hours متغير مختلف تماماً عن hours ولم يُعرَّف، والنتيجة NameError.
-47,المتغيرات والتعبيرات والجُمل,اكتشاف الأخطاء (Bug),"Find the bug:
+47,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,"Find the bug:
 price = '20'
 total = price * 1.5
 print(total)",Strings cannot be multiplied by float so TypeError,It prints 30.0,It prints 202020,SyntaxError,a,ضرب نص في float يعطي TypeError، رغم أن ضرب نص في int صحيح ويكرّر النص. الحل: تحويل price بـ int() أو float() أولاً.
-48,المتغيرات والتعبيرات والجُمل,اكتشاف الأخطاء (Bug),A student wants an integer result for a division. Which line is correct?,y = a / b,y = a // b,y = a % b,y = a ** b,b,// هي القسمة الصحيحة التي تعطي عدداً صحيحاً. أما / فتعطي float دائماً، و % تعطي الباقي، و ** الأس.
-49,المتغيرات والتعبيرات والجُمل,اكتشاف الأخطاء (Bug),"Find the bug:
+48,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,A student wants an integer result for a division. Which line is correct?,y = a / b,y = a // b,y = a % b,y = a ** b,b,// هي القسمة الصحيحة التي تعطي عدداً صحيحاً. أما / فتعطي float دائماً، و % تعطي الباقي، و ** الأس.
+49,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,"Find the bug:
 hours = float(input('Hours: '))
 rate = int(input('Rate: '))
 pay = hours * rate
 If the user enters rate 2.75, what happens?",It works and prints the pay,ValueError because int() rejects '2.75',The rate becomes 2,TypeError,b,الدالة int() لا تقبل نصاً يحوي نقطة عشرية وترمي ValueError. الحل استخدام float() للأجرة لأنها قد تحتوي كسراً.
-50,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),What if you write 4 ^ 3 in Python instead of 4 ** 3 ?,It gives 64,It gives 7,It gives 12,SyntaxError,b,العامل ^ في Python هو XOR الثنائي وليس أساً، و 4 XOR 3 تساوي 7. للأس يجب استخدام ** حصراً.
-51,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),"What is the output of: print(7 % 2, 8 % 2)",1 0,0 1,3 4,1 1,a,الرقم الفردي مقسوماً على 2 يعطي باقياً 1 والزوجي يعطي 0. لهذا تُستخدم x % 2 == 0 لفحص الزوجية.
-52,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),What is the output of: print('hello ' + 'there'),hello there,hellothere,hello + there,TypeError,a,العامل + بين نصين يعني concatenate، والمسافة الظاهرة جاءت من داخل النص الأول نفسه وليست تلقائية.
-53,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),What is the output of: print('5' * 3),15,555,TypeError,5 5 5,b,ضرب نص في عدد صحيح يكرّر النص ثلاث مرات فينتج '555'. هذه حالة خاصة مسموحة بعكس ضرب النص في float.
-54,المتغيرات والتعبيرات والجُمل,أسئلة اختيار (MCQ),"In the expression 3 + 4.0, what happens to the integer 3?",It stays an int and the result is int,It is implicitly converted to float,It raises a TypeError,It is truncated,b,عند خلط int مع float يرقّي Python الـ int تلقائياً إلى float فتكون النتيجة 7.0 من نوع float.
-55,المتغيرات والتعبيرات والجُمل,تتبّع المخرجات (Output),"What is the output of:
+50,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What if you write 4 ^ 3 in Python instead of 4 ** 3 ?,It gives 64,It gives 7,It gives 12,SyntaxError,b,العامل ^ في Python هو XOR الثنائي وليس أساً، و 4 XOR 3 تساوي 7. للأس يجب استخدام ** حصراً.
+51,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,"What is the output of: print(7 % 2, 8 % 2)",1 0,0 1,3 4,1 1,a,الرقم الفردي مقسوماً على 2 يعطي باقياً 1 والزوجي يعطي 0. لهذا تُستخدم x % 2 == 0 لفحص الزوجية.
+52,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the output of: print('hello ' + 'there'),hello there,hellothere,hello + there,TypeError,a,العامل + بين نصين يعني concatenate، والمسافة الظاهرة جاءت من داخل النص الأول نفسه وليست تلقائية.
+53,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,What is the output of: print('5' * 3),15,555,TypeError,5 5 5,b,ضرب نص في عدد صحيح يكرّر النص ثلاث مرات فينتج '555'. هذه حالة خاصة مسموحة بعكس ضرب النص في float.
+54,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,"In the expression 3 + 4.0, what happens to the integer 3?",It stays an int and the result is int,It is implicitly converted to float,It raises a TypeError,It is truncated,b,عند خلط int مع float يرقّي Python الـ int تلقائياً إلى float فتكون النتيجة 7.0 من نوع float.
+55,المتغيرات والتعبيرات والجُمل,أسئلة الشابتر,"What is the output of:
 x = 0.6
 x = 3.9 * x * (1 - x)
 print(round(x, 3))",0.6,0.936,1.0,2.34,b,يُحسب الطرف الأيمن أولاً بالقيمة القديمة: 3.9 × 0.6 × 0.4 = 0.936، ثم تُخزَّن في x فتُمسح القيمة القديمة.
-56,التنفيذ الشرطي,أسئلة اختيار (MCQ),Which of the following is NOT a valid comparison operator in Python 3?,==,!=,<>,>=,c,العامل <> كان مستخدماً في Python 2 لكنه أُلغي نهائياً في Python 3، والبديل هو !=. باقي الخيارات صحيحة.
-57,التنفيذ الشرطي,أسئلة اختيار (MCQ),The operator used to check if two values are equal in Python is:,=,==,===,eq,b,العامل == للمقارنة بينما = للإسناد. العامل === غير موجود في Python وهو من JavaScript.
-58,التنفيذ الشرطي,أسئلة اختيار (MCQ),What is the difference between = and == in Python?,No difference,"= assigns a value, == compares values","= compares, == assigns",Both compare values,b,علامة = تُسند قيمة لمتغير، بينما == تقارن قيمتين وتُرجع True أو False. خلطهما داخل if يعطي SyntaxError.
-59,التنفيذ الشرطي,أسئلة اختيار (MCQ),Which operator means 'not equal' in Python?,!=,=/=,<>,not=,a,العامل != هو الصحيح في Python 3. العامل <> قديم وملغى والخياران الآخران غير موجودين.
-60,التنفيذ الشرطي,أسئلة اختيار (MCQ),A Boolean expression in Python evaluates to:,Yes or No,1 or 0 only,True or False,On or Off,c,التعبير المنطقي يُرجع قيمة من نوع bool وهي True أو False بحرف كبير في البداية. رغم أن True تساوي 1 عددياً إلا أن النوع bool وليس int.
-61,التنفيذ الشرطي,أسئلة اختيار (MCQ),Which of the following is written INCORRECTLY?,x <= 5,x >= 5,x =< 5,x != 5,c,الصيغة الصحيحة هي <= و >= بحيث تأتي علامة المساواة في النهاية. الصيغة =< تعطي SyntaxError.
-62,التنفيذ الشرطي,أسئلة اختيار (MCQ),Do comparison operators change the value of the variables they compare?,Yes always,No they only produce True or False,Only with ==,Only inside if,b,عوامل المقارنة تقرأ القيم فقط وتنتج نتيجة منطقية دون تعديل أي متغير. التعديل يحدث بالإسناد = فقط.
-63,التنفيذ الشرطي,أسئلة اختيار (MCQ),An if statement must end with a ________ before the indented block begins.,; (semicolon),: (colon),. (dot),{ (brace),b,النقطتان : إجبارية في نهاية سطر الـ if وإلا فـ SyntaxError. الأقواس المعقوفة تُستخدم في C وJava وليس Python.
-64,التنفيذ الشرطي,أسئلة اختيار (MCQ),How does Python determine which lines belong to an if block?,By curly braces,By semicolons,By indentation,By the end keyword,c,Python تستخدم الإزاحة نفسها كجزء من قواعد اللغة لتحديد الكتل، بعكس C وJava اللتين تستخدمان { }.
-65,التنفيذ الشرطي,أسئلة اختيار (MCQ),What ends an if block in Python?,A blank line,A comment line,Reducing the indentation,The keyword end,c,الكتلة تنتهي عند رجوع الإزاحة لمستوى أقل. الأسطر الفارغة والتعليقات المستقلة تُتجاهَل ولا تنهي الكتلة.
-66,التنفيذ الشرطي,أسئلة اختيار (MCQ),"In Python, blank lines inside a block:",End the block,Cause an IndentationError,Are ignored and do not affect indentation,Must be indented too,c,الأسطر الفارغة تُتجاهَل تماماً فيما يخص الإزاحة ولا تؤثر على حدود الكتلة إطلاقاً.
-67,التنفيذ الشرطي,أسئلة اختيار (MCQ),The ________ keyword is used to handle errors in a program to prevent crashes.,catch,try,error,handle,b,في Python نستخدم try مع except لالتقاط الأخطاء. كلمة catch مستخدمة في Java وC# وليست في Python.
-68,التنفيذ الشرطي,أسئلة اختيار (MCQ),The ________ statement is used when we want to test multiple conditions in sequence.,switch,elif,case,when,b,elif هي اختصار else if وتُستخدم للقرارات متعددة الاتجاهات. لا يوجد switch أو case في Python الأساسية.
-69,التنفيذ الشرطي,أسئلة اختيار (MCQ),Which statement about else is TRUE?,else can have its own condition,else must come last and takes no condition,else can be used without if,You may write two else in one chain,b,else لا تأخذ شرطاً أبداً ويجب أن تكون الأخيرة في السلسلة وتتبع if. كتابتها وحدها تعطي SyntaxError.
-70,التنفيذ الشرطي,تتبّع المخرجات (Output),"What will be the output?
+56,التنفيذ الشرطي,أسئلة الشابتر,Which of the following is NOT a valid comparison operator in Python 3?,==,!=,<>,>=,c,العامل <> كان مستخدماً في Python 2 لكنه أُلغي نهائياً في Python 3، والبديل هو !=. باقي الخيارات صحيحة.
+57,التنفيذ الشرطي,أسئلة الشابتر,The operator used to check if two values are equal in Python is:,=,==,===,eq,b,العامل == للمقارنة بينما = للإسناد. العامل === غير موجود في Python وهو من JavaScript.
+58,التنفيذ الشرطي,أسئلة الشابتر,What is the difference between = and == in Python?,No difference,"= assigns a value, == compares values","= compares, == assigns",Both compare values,b,علامة = تُسند قيمة لمتغير، بينما == تقارن قيمتين وتُرجع True أو False. خلطهما داخل if يعطي SyntaxError.
+59,التنفيذ الشرطي,أسئلة الشابتر,Which operator means 'not equal' in Python?,!=,=/=,<>,not=,a,العامل != هو الصحيح في Python 3. العامل <> قديم وملغى والخياران الآخران غير موجودين.
+60,التنفيذ الشرطي,أسئلة الشابتر,A Boolean expression in Python evaluates to:,Yes or No,1 or 0 only,True or False,On or Off,c,التعبير المنطقي يُرجع قيمة من نوع bool وهي True أو False بحرف كبير في البداية. رغم أن True تساوي 1 عددياً إلا أن النوع bool وليس int.
+61,التنفيذ الشرطي,أسئلة الشابتر,Which of the following is written INCORRECTLY?,x <= 5,x >= 5,x =< 5,x != 5,c,الصيغة الصحيحة هي <= و >= بحيث تأتي علامة المساواة في النهاية. الصيغة =< تعطي SyntaxError.
+62,التنفيذ الشرطي,أسئلة الشابتر,Do comparison operators change the value of the variables they compare?,Yes always,No they only produce True or False,Only with ==,Only inside if,b,عوامل المقارنة تقرأ القيم فقط وتنتج نتيجة منطقية دون تعديل أي متغير. التعديل يحدث بالإسناد = فقط.
+63,التنفيذ الشرطي,أسئلة الشابتر,An if statement must end with a ________ before the indented block begins.,; (semicolon),: (colon),. (dot),{ (brace),b,النقطتان : إجبارية في نهاية سطر الـ if وإلا فـ SyntaxError. الأقواس المعقوفة تُستخدم في C وJava وليس Python.
+64,التنفيذ الشرطي,أسئلة الشابتر,How does Python determine which lines belong to an if block?,By curly braces,By semicolons,By indentation,By the end keyword,c,Python تستخدم الإزاحة نفسها كجزء من قواعد اللغة لتحديد الكتل، بعكس C وJava اللتين تستخدمان { }.
+65,التنفيذ الشرطي,أسئلة الشابتر,What ends an if block in Python?,A blank line,A comment line,Reducing the indentation,The keyword end,c,الكتلة تنتهي عند رجوع الإزاحة لمستوى أقل. الأسطر الفارغة والتعليقات المستقلة تُتجاهَل ولا تنهي الكتلة.
+66,التنفيذ الشرطي,أسئلة الشابتر,"In Python, blank lines inside a block:",End the block,Cause an IndentationError,Are ignored and do not affect indentation,Must be indented too,c,الأسطر الفارغة تُتجاهَل تماماً فيما يخص الإزاحة ولا تؤثر على حدود الكتلة إطلاقاً.
+67,التنفيذ الشرطي,أسئلة الشابتر,The ________ keyword is used to handle errors in a program to prevent crashes.,catch,try,error,handle,b,في Python نستخدم try مع except لالتقاط الأخطاء. كلمة catch مستخدمة في Java وC# وليست في Python.
+68,التنفيذ الشرطي,أسئلة الشابتر,The ________ statement is used when we want to test multiple conditions in sequence.,switch,elif,case,when,b,elif هي اختصار else if وتُستخدم للقرارات متعددة الاتجاهات. لا يوجد switch أو case في Python الأساسية.
+69,التنفيذ الشرطي,أسئلة الشابتر,Which statement about else is TRUE?,else can have its own condition,else must come last and takes no condition,else can be used without if,You may write two else in one chain,b,else لا تأخذ شرطاً أبداً ويجب أن تكون الأخيرة في السلسلة وتتبع if. كتابتها وحدها تعطي SyntaxError.
+70,التنفيذ الشرطي,أسئلة الشابتر,"What will be the output?
 x = 5
 if x < 10:
     print('Smaller')
 if x > 20:
     print('Bigger')
 print('Finish')",Smaller then Finish,Bigger then Finish,Smaller then Bigger then Finish,Finish only,a,الشرط الأول صحيح فطُبع Smaller، والثاني خاطئ فتُخطي. وسطر Finish خارج كل الكتل فيُنفَّذ دائماً.
-71,التنفيذ الشرطي,تتبّع المخرجات (Output),"What will be the output?
+71,التنفيذ الشرطي,أسئلة الشابتر,"What will be the output?
 x = 5
 print('Before if')
 if x == 5:
     print('Inside if block')
 print('After if')",Before if / After if,Before if / Inside if block / After if,Inside if block only,Nothing,b,الشرط صحيح فطُبعت الأسطر الثلاثة بالترتيب. السطران الأول والأخير خارج الكتلة فيُنفَّذان بغض النظر عن الشرط.
-72,التنفيذ الشرطي,تتبّع المخرجات (Output),"What will be the output?
+72,التنفيذ الشرطي,أسئلة الشابتر,"What will be the output?
 x = 10
 if x > 5:
     print('Bigger than 5')
     print('Still bigger')
 print('Done')",Bigger than 5 / Done,Bigger than 5 / Still bigger / Done,Done only,Bigger than 5 only,b,الكتلة تحتوي سطرين مُزاحين فيُنفَّذان معاً عند تحقق الشرط، ثم يُنفَّذ Done لأنه خارج الكتلة.
-73,التنفيذ الشرطي,تتبّع المخرجات (Output),"What will be the output?
+73,التنفيذ الشرطي,أسئلة الشابتر,"What will be the output?
 x = 5
 print('Before if 6')
 if x == 6:
     print('Is 6')
     print('Still 6')
 print('Afterwards if 6')",Before if 6 / Afterwards if 6,Before if 6 / Is 6 / Afterwards if 6,Nothing,Afterwards if 6 only,a,بما أن الشرط خاطئ فقد تم تخطي الكتلة كاملة بسطريها. السطران غير المُزاحين طُبعا عادياً.
-74,التنفيذ الشرطي,تتبّع المخرجات (Output),"What will be the output?
+74,التنفيذ الشرطي,أسئلة الشابتر,"What will be the output?
 x = 42
 if x > 1:
     print('More than one')
     if x < 100:
         print('Less than 100')
 print('All done')",More than one / All done,More than one / Less than 100 / All done,All done only,Less than 100 / All done,b,الشرط الخارجي صحيح فدخلنا الكتلة، والداخلي صحيح أيضاً فطُبع سطره. الـ if الداخلية تُفحص فقط عند تحقق الخارجية.
-75,التنفيذ الشرطي,تتبّع المخرجات (Output),"What will be the output?
+75,التنفيذ الشرطي,أسئلة الشابتر,"What will be the output?
 x = 0
 if x > 1:
     print('More than one')
     if x < 100:
         print('Less than 100')
 print('All done')",More than one / All done,Less than 100 / All done,All done,Nothing,c,الشرط الخارجي خاطئ فتُخطَّت الكتلة كاملة بما فيها الـ if الداخلية دون فحصها. بقي فقط السطر الأخير غير المُزاح.
-76,التنفيذ الشرطي,تتبّع المخرجات (Output),"What will be the output?
+76,التنفيذ الشرطي,أسئلة الشابتر,"What will be the output?
 x = 4
 if x > 2:
     print('Bigger')
 else:
     print('Smaller')
 print('All done')",Bigger / All done,Smaller / All done,Bigger / Smaller / All done,All done,a,مع else يُنفَّذ فرع واحد بالضبط، وبما أن 4 > 2 صحيح فقد نُفِّذ فرع if وتُخطي else تماماً.
-77,التنفيذ الشرطي,تتبّع المخرجات (Output),"What will be the output?
+77,التنفيذ الشرطي,أسئلة الشابتر,"What will be the output?
 x = 25
 if x < 10:
     print('Small')
@@ -155,7 +155,7 @@ elif x < 20:
     print('Medium')
 else:
     print('Large')",Small,Medium,Large,Nothing,c,الشرطان الأول والثاني خاطئان لأن 25 ليست أقل من 10 ولا من 20، فيُنفَّذ فرع else الافتراضي.
-78,التنفيذ الشرطي,تتبّع المخرجات (Output),"What will be the output?
+78,التنفيذ الشرطي,أسئلة الشابتر,"What will be the output?
 x = 5
 if x < 2:
     print('small')
@@ -164,33 +164,33 @@ elif x < 10:
 else:
     print('LARGE')
 print('All done')",small / All done,Medium / All done,LARGE / All done,Medium / LARGE / All done,b,الشرط الأول خاطئ والثاني صحيح فطُبع Medium وخرجت السلسلة فوراً دون فحص else.
-79,التنفيذ الشرطي,تتبّع المخرجات (Output),"What will be the output?
+79,التنفيذ الشرطي,أسئلة الشابتر,"What will be the output?
 x = 10
 y = 3
 if x // y > 2:
     print('Result is greater than 2')
 else:
     print('Result is 2 or less')",Result is greater than 2,Result is 2 or less,Both lines,TypeError,a,القسمة الصحيحة 10 // 3 تعطي 3، و 3 > 2 صحيح فيُنفَّذ فرع if. لو استُخدمت / لكانت النتيجة 3.33 والشرط أيضاً صحيح.
-80,التنفيذ الشرطي,تتبّع المخرجات (Output),"What will be the output?
+80,التنفيذ الشرطي,أسئلة الشابتر,"What will be the output?
 x = 5
 if x > 1:
     print('A')
 elif x > 2:
     print('B')",A,B,A then B,Nothing,a,في سلسلة elif يوقف أول شرط صحيح البحث تماماً، فبعد طباعة A لم يُفحص الشرط الثاني إطلاقاً رغم أنه صحيح أيضاً.
-81,التنفيذ الشرطي,تتبّع المخرجات (Output),"What will be the output?
+81,التنفيذ الشرطي,أسئلة الشابتر,"What will be the output?
 x = 5
 if x > 1:
     print('A')
 if x > 2:
     print('B')",A,B,A then B,Nothing,c,هنا if منفصلتان وليستا سلسلة، فكل واحدة تُفحص باستقلال وكلا الشرطين صحيح فطُبع السطران.
-82,التنفيذ الشرطي,تتبّع المخرجات (Output),"What will be the output?
+82,التنفيذ الشرطي,أسئلة الشابتر,"What will be the output?
 x = 15
 if x > 10:
     print('More than 10')
     if x < 20:
         print('Less than 20')
 print('All done')",More than 10 / All done,More than 10 / Less than 20 / All done,All done,Less than 20,b,الشرطان المتداخلان صحيحان فطُبع السطران ثم السطر الأخير غير المُزاح.
-83,التنفيذ الشرطي,أسئلة اختيار (MCQ),"Which line will NEVER print?
+83,التنفيذ الشرطي,أسئلة الشابتر,"Which line will NEVER print?
 if x < 2:
     print('Below 2')
 elif x < 20:
@@ -199,30 +199,30 @@ elif x < 10:
     print('Below 10')
 else:
     print('Something else')",Below 2,Below 20,Below 10,Something else,c,أي قيمة أقل من 10 هي حتماً أقل من 20 فتُمسك بالشرط السابق، مما يجعل الفرع الثالث unreachable. القاعدة: رتّب الشروط من الأضيق للأوسع.
-84,التنفيذ الشرطي,أسئلة اختيار (MCQ),"Which line will NEVER print?
+84,التنفيذ الشرطي,أسئلة الشابتر,"Which line will NEVER print?
 if x < 2:
     print('Below 2')
 elif x >= 2:
     print('Two or more')
 else:
     print('Something else')",Below 2,Two or more,Something else,All of them print,c,الشرطان يغطيان كل القيم الممكنة دون استثناء فلا يبقى أي احتمال يصل إلى else.
-85,التنفيذ الشرطي,أسئلة اختيار (MCQ),"In an elif chain, if two conditions are both True, which block runs?",Both blocks,The last True one,The first True one,Neither,c,أول شرط يتحقق من الأعلى للأسفل يُنفَّذ ثم تنتهي السلسلة كاملة، ولا تُفحص الشروط التالية إطلاقاً.
-86,التنفيذ الشرطي,أسئلة اختيار (MCQ),What happens if no condition is True and there is no else?,SyntaxError,The last block runs,No block runs at all,The first block runs,c,بدون else قد لا يُنفَّذ أي فرع نهائياً ويكمل البرنامج بعد السلسلة. وجود else يضمن تنفيذ فرع واحد دائماً.
-87,التنفيذ الشرطي,تتبّع المخرجات (Output),"What will be the output?
+85,التنفيذ الشرطي,أسئلة الشابتر,"In an elif chain, if two conditions are both True, which block runs?",Both blocks,The last True one,The first True one,Neither,c,أول شرط يتحقق من الأعلى للأسفل يُنفَّذ ثم تنتهي السلسلة كاملة، ولا تُفحص الشروط التالية إطلاقاً.
+86,التنفيذ الشرطي,أسئلة الشابتر,What happens if no condition is True and there is no else?,SyntaxError,The last block runs,No block runs at all,The first block runs,c,بدون else قد لا يُنفَّذ أي فرع نهائياً ويكمل البرنامج بعد السلسلة. وجود else يضمن تنفيذ فرع واحد دائماً.
+87,التنفيذ الشرطي,أسئلة الشابتر,"What will be the output?
 astr = 'Hello Bob'
 try:
     istr = int(astr)
 except:
     istr = -1
 print('First', istr)",First Hello Bob,First -1,ValueError,First 0,b,التحويل فشل فقفز التنفيذ إلى except وأُسندت القيمة -1، والبرنامج أكمل دون توقف بفضل شبكة الأمان.
-88,التنفيذ الشرطي,تتبّع المخرجات (Output),"What will be the output?
+88,التنفيذ الشرطي,أسئلة الشابتر,"What will be the output?
 astr = '123'
 try:
     istr = int(astr)
 except:
     istr = -1
 print('Second', istr)",Second -1,Second 123,Second '123',ValueError,b,التحويل نجح فتم تخطي كتلة except كلياً وبقيت القيمة 123 كعدد صحيح.
-89,التنفيذ الشرطي,تتبّع المخرجات (Output),"What will be the output?
+89,التنفيذ الشرطي,أسئلة الشابتر,"What will be the output?
 astr = 'Bob'
 try:
     print('Hello')
@@ -231,7 +231,7 @@ try:
 except:
     istr = -1
 print('Done', istr)",Hello / There / Done -1,Hello / Done -1,Done -1,Hello / There / Done Bob,b,عند حدوث الخطأ تُهمَل باقي أسطر الـ try فوراً ولا تُطبع There. القفز إلى except يكون فورياً من نقطة الخطأ.
-90,التنفيذ الشرطي,تتبّع المخرجات (Output),"If the user enters forty-two, what is printed?
+90,التنفيذ الشرطي,أسئلة الشابتر,"If the user enters forty-two, what is printed?
 rawstr = input('Enter a number:')
 try:
     ival = int(rawstr)
@@ -241,68 +241,68 @@ if ival > 0:
     print('Nice work')
 else:
     print('Not a number')",Nice work,Not a number,ValueError,Nothing,b,فشل التحويل جعل ival تساوي -1، والشرط -1 > 0 خاطئ فنُفِّذ فرع else.
-91,التنفيذ الشرطي,أسئلة اختيار (MCQ),"If the user enters thirty in this code, what is the value of temp?
+91,التنفيذ الشرطي,أسئلة الشابتر,"If the user enters thirty in this code, what is the value of temp?
 try:
     temp = int(input('Enter the temperature: '))
 except:
     temp = -1",30,thirty,-1,0,c,النص thirty غير قابل للتحويل لعدد فتُرمى ValueError وينتقل التنفيذ إلى except حيث تُسند القيمة -1.
-92,التنفيذ الشرطي,أسئلة اختيار (MCQ),When is the except block executed?,Always,Only if the try block raises an error,Before the try block,Only at the end of the program,b,كتلة except لا تُنفَّذ إلا عند حدوث خطأ فعلي داخل try. إذا نجح الكود تُتخطى تماماً.
-93,التنفيذ الشرطي,أسئلة اختيار (MCQ),Which error type does int('Hello Bob') raise?,TypeError,ValueError,NameError,IndentationError,b,النوع المُمرَّر صحيح وهو نص لكن القيمة غير قابلة للتحويل، وهذا تعريف ValueError بالضبط.
-94,التنفيذ الشرطي,اكتشاف الأخطاء (Bug),"Find the bug:
+92,التنفيذ الشرطي,أسئلة الشابتر,When is the except block executed?,Always,Only if the try block raises an error,Before the try block,Only at the end of the program,b,كتلة except لا تُنفَّذ إلا عند حدوث خطأ فعلي داخل try. إذا نجح الكود تُتخطى تماماً.
+93,التنفيذ الشرطي,أسئلة الشابتر,Which error type does int('Hello Bob') raise?,TypeError,ValueError,NameError,IndentationError,b,النوع المُمرَّر صحيح وهو نص لكن القيمة غير قابلة للتحويل، وهذا تعريف ValueError بالضبط.
+94,التنفيذ الشرطي,أسئلة الشابتر,"Find the bug:
 x = 5
 if x > 2
     print('Bigger')",print is misspelled,Missing colon after the if condition,x must be a string,There is no bug,b,كل جملة if تحتاج نقطتين : في نهايتها وإلا SyntaxError. الإزاحة هنا صحيحة والمشكلة في النقطتين فقط.
-95,التنفيذ الشرطي,اكتشاف الأخطاء (Bug),"Find the bug:
+95,التنفيذ الشرطي,أسئلة الشابتر,"Find the bug:
 x = 5
 if x > 2 :
 print('Bigger')",IndentationError because the block is not indented,SyntaxError because of the colon,NameError,There is no bug,a,بعد النقطتين يجب أن يبدأ سطر مُزاح، وغياب الإزاحة يعطي IndentationError: expected an indented block.
-96,التنفيذ الشرطي,اكتشاف الأخطاء (Bug),"Find the bug:
+96,التنفيذ الشرطي,أسئلة الشابتر,"Find the bug:
 x = 5
 if x = 5:
     print('Equals 5')",Use == instead of = for comparison,Missing colon,x is undefined,There is no bug,a,داخل الشرط نستخدم == للمقارنة وليس = المخصصة للإسناد، وإلا SyntaxError.
-97,التنفيذ الشرطي,اكتشاف الأخطاء (Bug),"Find the bug:
+97,التنفيذ الشرطي,أسئلة الشابتر,"Find the bug:
 x = 5
 print('start')
 else:
     print('other')",else must follow an if statement,print cannot come before else,Missing colon,There is no bug,a,لا يمكن كتابة else وحدها دون if سابقة لها بنفس المستوى، والنتيجة SyntaxError.
-98,التنفيذ الشرطي,اكتشاف الأخطاء (Bug),"A student wrote this for: print Pass if mark above 50, ALWAYS print Welcome.
+98,التنفيذ الشرطي,أسئلة الشابتر,"A student wrote this for: print Pass if mark above 50, ALWAYS print Welcome.
 mark = int(input('Mark: '))
 if mark > 50:
     print('Pass')
     print('Welcome')
 What is wrong?",Nothing is wrong,Welcome is indented so it only prints when mark > 50,It should use elif,int() is wrong here,b,كلمة always تعني أن السطر يجب أن يكون خارج الكتلة بدون إزاحة، وإلا لن يُطبع عندما تكون العلامة 50 أو أقل.
-99,التنفيذ الشرطي,اكتشاف الأخطاء (Bug),"Find the bug:
+99,التنفيذ الشرطي,أسئلة الشابتر,"Find the bug:
 mark = input('Enter your mark: ')
 if mark > 50:
     print('Pass')",Missing colon,TypeError comparing str with int,mark is a reserved word,There is no bug,b,input() تُرجع نصاً ومقارنة النص بعدد في Python 3 ترمي TypeError. الحل: int(input(...)) قبل المقارنة.
-100,التنفيذ الشرطي,اكتشاف الأخطاء (Bug),"Find the bug:
+100,التنفيذ الشرطي,أسئلة الشابتر,"Find the bug:
 x = 5
 if x < 2:
     print('Small')
 else x > 2:
     print('Big')","else cannot take a condition, use elif",Missing colon after else,x must be float,There is no bug,a,الكلمة else لا تقبل شرطاً إطلاقاً، وإذا احتجنا شرطاً إضافياً نستخدم elif بدلاً منها.
-101,التنفيذ الشرطي,اكتشاف الأخطاء (Bug),Which code correctly prints Pass for a mark above 50 and Welcome in all cases?,if mark > 50: print('Pass') / print('Welcome')  [Welcome not indented],Both prints indented inside if,Both prints outside the if,Using else for Welcome,a,الحل الصحيح أن تكون Pass داخل الكتلة و Welcome خارجها بدون إزاحة. الخيار B يمنع طباعة الترحيب عند الرسوب والخيار C يطبع Pass دائماً.
-102,التنفيذ الشرطي,أسئلة اختيار (MCQ),"What if the user selects a pizza type that is neither pepperoni nor vegetarian in this code?
+101,التنفيذ الشرطي,أسئلة الشابتر,Which code correctly prints Pass for a mark above 50 and Welcome in all cases?,if mark > 50: print('Pass') / print('Welcome')  [Welcome not indented],Both prints indented inside if,Both prints outside the if,Using else for Welcome,a,الحل الصحيح أن تكون Pass داخل الكتلة و Welcome خارجها بدون إزاحة. الخيار B يمنع طباعة الترحيب عند الرسوب والخيار C يطبع Pass دائماً.
+102,التنفيذ الشرطي,أسئلة الشابتر,"What if the user selects a pizza type that is neither pepperoni nor vegetarian in this code?
 if pizza == 'pepperoni':
     print('2.00 JD')
 elif pizza == 'vegetarian':
     print('3.00 JD')
 print('PIZZA')",An error occurs,Only PIZZA is printed,Nothing is printed,3.00 JD is printed,b,بغياب else لا يُنفَّذ أي فرع من السلسلة، لكن سطر PIZZA خارجها فيُطبع دائماً.
-103,التنفيذ الشرطي,أسئلة اختيار (MCQ),"In Python, comparing strings with == is:",Not allowed,Allowed and compares the text exactly,Only allowed with numbers inside,Always False,b,المقارنة بين النصوص مسموحة وتقارن المحتوى حرفاً بحرف مع مراعاة حالة الأحرف، فـ 'Pizza' لا تساوي 'pizza'.
-104,التنفيذ الشرطي,تتبّع المخرجات (Output),"What is the output?
+103,التنفيذ الشرطي,أسئلة الشابتر,"In Python, comparing strings with == is:",Not allowed,Allowed and compares the text exactly,Only allowed with numbers inside,Always False,b,المقارنة بين النصوص مسموحة وتقارن المحتوى حرفاً بحرف مع مراعاة حالة الأحرف، فـ 'Pizza' لا تساوي 'pizza'.
+104,التنفيذ الشرطي,أسئلة الشابتر,"What is the output?
 x = 'pepperoni'
 if x == 'Pepperoni':
     print('Match')
 else:
     print('No match')",Match,No match,TypeError,Nothing,b,المقارنة حساسة لحالة الأحرف فالحرف الكبير في البداية يجعل النصين مختلفين، لذلك نُفِّذ فرع else.
-105,التنفيذ الشرطي,تتبّع المخرجات (Output),"What is the output?
+105,التنفيذ الشرطي,أسئلة الشابتر,"What is the output?
 x = 5
 if x == 5:
     pass
 print('Done')",SyntaxError,Done,5 then Done,Nothing,b,الكلمة pass جملة فارغة لا تفعل شيئاً وتُستخدم لملء الكتلة نحوياً، ثم يُطبع السطر الأخير عادياً.
-106,التنفيذ الشرطي,أسئلة اختيار (MCQ),How many outputs can a chain of if / elif / elif / else produce for one run?,Zero or one,Exactly one,Two,As many as the conditions that are True,b,وجود else يضمن تنفيذ فرع واحد بالضبط لا أكثر ولا أقل. بدون else كانت الإجابة صفر أو واحد.
-107,التنفيذ الشرطي,أسئلة اختيار (MCQ),Which structure would you use for a value that must be classified into more than two ranges?,Nested if only,A chain of if and elif and else,try / except,A single if,b,سلسلة elif هي البنية المخصصة للقرارات متعددة الاتجاهات وهي أوضح وأسهل قراءة من التداخل العميق.
-108,التنفيذ الشرطي,تتبّع المخرجات (Output),"What is the output?
+106,التنفيذ الشرطي,أسئلة الشابتر,How many outputs can a chain of if / elif / elif / else produce for one run?,Zero or one,Exactly one,Two,As many as the conditions that are True,b,وجود else يضمن تنفيذ فرع واحد بالضبط لا أكثر ولا أقل. بدون else كانت الإجابة صفر أو واحد.
+107,التنفيذ الشرطي,أسئلة الشابتر,Which structure would you use for a value that must be classified into more than two ranges?,Nested if only,A chain of if and elif and else,try / except,A single if,b,سلسلة elif هي البنية المخصصة للقرارات متعددة الاتجاهات وهي أوضح وأسهل قراءة من التداخل العميق.
+108,التنفيذ الشرطي,أسئلة الشابتر,"What is the output?
 try:
     x = int('10')
     y = 10 / 0
