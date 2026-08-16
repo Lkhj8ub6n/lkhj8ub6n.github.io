@@ -841,7 +841,225 @@ for x in range(1, 4):
 (253, 'التكرار (Iteration)', 'أسئلة التكرار', 'Find the bug:
 count = 0
 while count < 3 and count < 5:
-    print(count)', 'The and should be or', 'count is never incremented so the loop is infinite', 'Missing colon', 'There is no bug', 'b', 'الشرط المركب سليم لكن لا شيء يغيّر count فيبقى صفراً للأبد. يجب إضافة count += 1 داخل الحلقة.')
+    print(count)', 'The and should be or', 'count is never incremented so the loop is infinite', 'Missing colon', 'There is no bug', 'b', 'الشرط المركب سليم لكن لا شيء يغيّر count فيبقى صفراً للأبد. يجب إضافة count += 1 داخل الحلقة.'),
+(254, 'النصوص (Strings)', 'أسئلة النصوص', 'What is a string in Python?', 'A single character', 'A sequence of characters', 'A list of numbers', 'A built-in function', 'b', 'النص تسلسل مرتب من الأحرف يمكن الوصول لكل حرف فيه بفهرس. حتى النص المكوّن من حرف واحد يبقى string وليس نوعاً منفصلاً.'),
+(255, 'النصوص (Strings)', 'أسئلة النصوص', 'What does the + operator mean when applied to two strings?', 'Addition', 'Concatenation', 'Comparison', 'It raises a TypeError', 'b', 'العامل + بين نصين يدمجهما في نص واحد. أما بين نص وعدد فيعطي TypeError لأن Python لا تحوّل تلقائياً.'),
+(256, 'النصوص (Strings)', 'أسئلة النصوص', 'When a string contains numbers such as ''123'', what is its type?', 'int', 'float', 'str', 'It depends on the value', 'c', 'وجود علامتي الاقتباس يجعلها string مهما كان محتواها. لإجراء عمليات حسابية عليها يجب تحويلها بـ int() أولاً.'),
+(257, 'النصوص (Strings)', 'أسئلة النصوص', 'At what value does string indexing start in Python?', '1', '0', '-1', 'It depends on the string', 'b', 'الفهرسة تبدأ من الصفر، فأول حرف هو الفهرس 0 وآخر حرف هو len-1. هذه أكثر نقطة تسبب أخطاء off-by-one.'),
+(258, 'النصوص (Strings)', 'أسئلة النصوص', 'What must the index value inside square brackets be?', 'A float', 'A string', 'An integer or an expression that computes to an integer', 'Any type', 'c', 'الفهرس يجب أن يكون عدداً صحيحاً، ويمكن أن يكون تعبيراً محسوباً مثل fruit[x-1]. استخدام float يعطي TypeError.'),
+(259, 'النصوص (Strings)', 'أسئلة النصوص', 'What error occurs when you index beyond the end of a string?', 'ValueError', 'TypeError', 'IndexError: string index out of range', 'NameError', 'c', 'تجاوز حدود النص بالفهرسة يعطي IndexError. لاحظ أن الـ slicing لا يعطي هذا الخطأ بل يتوقف عند النهاية بهدوء.'),
+(260, 'النصوص (Strings)', 'أسئلة النصوص', 'Which built-in function returns the number of characters in a string?', 'size()', 'count()', 'len()', 'length()', 'c', 'الدالة len المبنية تُرجع طول النص كعدد. الدالة count تعدّ تكرار حرف معين وليست الطول الكلي.'),
+(261, 'النصوص (Strings)', 'أسئلة النصوص', 'In slicing s[a:b], the character at index b is:', 'Included', 'Not included, the slice stops before it', 'Included only if b equals len(s)', 'Always the last character', 'b', 'قاعدة up to but not including تعني أن الحد الثاني مستثنى دائماً، تماماً مثل range.'),
+(262, 'النصوص (Strings)', 'أسئلة النصوص', 'What happens if the second number in a slice is beyond the end of the string?', 'IndexError', 'It stops at the end of the string', 'It returns an empty string', 'It wraps around', 'b', 'الـ slicing متسامح ولا يرمي خطأً بل يقف عند نهاية النص. هذا هو الفرق الجوهري بينه وبين الفهرسة المباشرة.'),
+(263, 'النصوص (Strings)', 'أسئلة النصوص', 'What does s[:] return?', 'An empty string', 'The first character', 'The whole string', 'An error', 'c', 'حذف الرقمين يعني من البداية إلى النهاية أي نسخة كاملة من النص. حذف الأول وحده يعني من البداية، وحذف الثاني يعني حتى النهاية.'),
+(264, 'النصوص (Strings)', 'أسئلة النصوص', 'What does the in keyword do with strings?', 'Adds one string to another', 'Returns True or False whether a substring exists inside a string', 'Returns the position of a substring', 'Splits a string', 'b', 'العامل in تعبير منطقي يُرجع True أو False ويصلح للاستخدام داخل if. أما إرجاع الموقع فهي وظيفة find.'),
+(265, 'النصوص (Strings)', 'أسئلة النصوص', 'Do string library functions modify the original string?', 'Yes they change it in place', 'No they return a new altered string', 'Only lower() modifies it', 'Only if you use a variable', 'b', 'النصوص في Python غير قابلة للتعديل immutable، فكل دالة تُرجع نسخة جديدة والأصل يبقى كما هو ما لم تُعِد الإسناد.'),
+(266, 'النصوص (Strings)', 'أسئلة النصوص', 'How do we invoke a string library function?', 'By passing the string as an argument like lower(s)', 'By appending the function to the string variable like s.lower()', 'By using the import statement', 'By using square brackets', 'b', 'دوال المكتبة تُستدعى بصيغة النقطة لأنها methods مرتبطة بالكائن النصي نفسه، بعكس len التي تُستخدم كدالة عادية.'),
+(267, 'النصوص (Strings)', 'أسئلة النصوص', 'What does find() return if the substring is not found?', '0', 'None', '-1', 'It raises an error', 'c', 'الدالة find تُرجع -1 كإشارة على الفشل ولا ترمي استثناءً. لذلك نفحص النتيجة بـ if pos == -1.'),
+(268, 'النصوص (Strings)', 'أسئلة النصوص', 'What does find() return when the substring appears multiple times?', 'All positions in a list', 'The position of the last occurrence', 'The position of the first occurrence', 'The number of occurrences', 'c', 'الدالة find تتوقف عند أول تطابق وتُرجع فهرسه. لإيجاد التالي نمرر معامل بداية ثانياً مثل find('' '', atpos).'),
+(269, 'النصوص (Strings)', 'أسئلة النصوص', 'Why do we often convert a string to lower case before using find()?', 'To make it shorter', 'So the search works regardless of letter case', 'Because find() requires it', 'To remove whitespace', 'b', 'المقارنة والبحث حساسان لحالة الأحرف، فتوحيد الحالة يجعل البحث ناجحاً سواء كتب المستخدم بحروف كبيرة أو صغيرة.'),
+(270, 'النصوص (Strings)', 'أسئلة النصوص', 'What does replace() do when the search string appears more than once?', 'Replaces only the first occurrence', 'Replaces all occurrences', 'Raises an error', 'Replaces the last occurrence', 'b', 'الدالة replace تستبدل كل المواضع افتراضياً. يمكن تحديد العدد بمعامل ثالث اختياري.'),
+(271, 'النصوص (Strings)', 'أسئلة النصوص', 'Which function removes whitespace from BOTH the beginning and the end of a string?', 'lstrip()', 'rstrip()', 'strip()', 'trim()', 'c', 'الدالة strip تزيل من الطرفين معاً، بينما lstrip من اليسار فقط و rstrip من اليمين فقط. الدالة trim غير موجودة في Python.'),
+(272, 'النصوص (Strings)', 'أسئلة النصوص', 'What does startswith() return?', 'The first character', 'The position of the prefix', 'True or False', 'A new string', 'c', 'الدالة startswith تعبير منطقي يفحص بداية النص ويُرجع True أو False، وهي حساسة لحالة الأحرف.'),
+(273, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the default separator for split() when no argument is given?', 'A comma', 'Any whitespace', 'A period', 'An empty string', 'b', 'بدون معامل تقسّم split على أي فراغ متتالٍ وتتجاهل الفراغات الزائدة. تمرير فاصل معين يجعل التقسيم عليه حصراً.'),
+(274, 'النصوص (Strings)', 'أسئلة النصوص', 'What does split() return?', 'A string', 'A list', 'An integer', 'A boolean', 'b', 'الدالة split تُرجع قائمة list من الأجزاء الناتجة، وعدد الأجزاء يساوي عدد الفواصل زائد واحد.'),
+(275, 'النصوص (Strings)', 'أسئلة النصوص', 'What does the maxsplit parameter in split() control?', 'The maximum length of each part', 'How many splits to perform', 'The separator character', 'The starting index', 'b', 'المعامل maxsplit يحدد عدد عمليات التقسيم فقط، والباقي يبقى كقطعة واحدة. قيمته الافتراضية -1 أي كل المواضع.'),
+(276, 'النصوص (Strings)', 'أسئلة النصوص', 'How does Python compare two strings with < and > ?', 'By length', 'Alphabetically based on character codes', 'Randomly', 'It is not allowed', 'b', 'المقارنة تتم حرفاً بحرف حسب ترتيب ASCII، وليست بالطول. لذلك ''Apple'' أصغر من ''apple'' لأن الحروف الكبيرة أدنى.'),
+(277, 'النصوص (Strings)', 'أسئلة النصوص', 'Which function tries to return a list of all attributes and methods of an object?', 'type()', 'dir()', 'len()', 'help()', 'b', 'الدالة dir تعرض أسماء الدوال المتاحة على الكائن، وهي أداة استكشاف مفيدة لمعرفة ما يمكن عمله بالنص.'),
+(278, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+fruit = ''banana''
+letter = fruit[1]
+print(letter)', 'b', 'a', 'n', 'IndexError', 'b', 'الفهرسة تبدأ من الصفر فالفهرس 1 هو الحرف الثاني وهو a. الحرف b فهرسه 0.'),
+(279, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+fruit = ''banana''
+x = 3
+w = fruit[x - 1]
+print(w)', 'a', 'n', 'b', 'Error', 'b', 'يُحسب التعبير أولاً فيصبح fruit[2] وهو الحرف n. الفهرس يمكن أن يكون تعبيراً محسوباً وليس رقماً ثابتاً فقط.'),
+(280, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+zot = ''abc''
+print(zot[5])', 'c', 'An empty string', 'IndexError: string index out of range', 'None', 'c', 'النص طوله 3 وأقصى فهرس صالح هو 2، فمحاولة الوصول للفهرس 5 ترمي IndexError.'),
+(281, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+fruit = ''banana''
+print(len(fruit))', '5', '6', '7', 'Error', 'b', 'الكلمة تحتوي ستة أحرف. لاحظ أن آخر فهرس صالح هو 5 وليس 6 لأن الفهرسة تبدأ من الصفر.'),
+(282, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+fruit = ''banana''
+print(fruit[len(fruit) - 1])', 'n', 'a', 'IndexError', 'b', 'b', 'الطول 6 ناقص 1 يعطي الفهرس 5 وهو آخر حرف a. كتابة fruit[len(fruit)] مباشرة تعطي IndexError.'),
+(283, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+s = ''Monty Python''
+print(s[0:4])', 'Monty', 'Mont', 'onty', 'Mon', 'b', 'الشريحة تبدأ من الفهرس 0 وتقف قبل 4، فتشمل الفهارس 0 و1 و2 و3 أي أربعة أحرف.'),
+(284, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+s = ''Monty Python''
+print(s[6:7])', 'Py', 'P', 'y', 'Empty string', 'b', 'الشريحة تبدأ من 6 وتقف قبل 7 فتشمل حرفاً واحداً فقط وهو P.'),
+(285, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+s = ''Monty Python''
+print(s[6:20])', 'IndexError', 'Python', 'Monty Python', 'Empty string', 'b', 'الـ slicing لا يرمي خطأً عند تجاوز الطول بل يقف عند نهاية النص. هذا يختلف عن الفهرسة المباشرة التي ترمي IndexError.'),
+(286, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+s = ''Monty Python''
+print(s[:2])', 'Mo', 'Mon', 'on', 'Monty', 'a', 'حذف الرقم الأول يعني البدء من بداية النص، والتوقف قبل الفهرس 2 يعطي حرفين.'),
+(287, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+s = ''Monty Python''
+print(s[8:])', 'thon', 'hon', 'ython', 'Python', 'a', 'حذف الرقم الثاني يعني الاستمرار حتى نهاية النص، والفهرس 8 هو الحرف t في كلمة Python.'),
+(288, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+s = ''Monty Python''
+print(s[:])', 'Empty string', 'M', 'Monty Python', 'Error', 'c', 'حذف الرقمين معاً يعطي نسخة كاملة من النص من البداية للنهاية.'),
+(289, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+print(len(''Monty Python''))', '11', '12', '13', '10', 'b', 'الحروف عشرة والمسافة تُحسب كحرف أيضاً، فالمجموع 12. المسافة حرف كامل في النص وليست فراغاً مهملاً.'),
+(290, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+str1 = ''Hello''
+str2 = ''there''
+bob = str1 + str2
+print(bob)', 'Hello there', 'Hellothere', 'Hello + there', 'TypeError', 'b', 'العامل + يلصق النصين بلا أي مسافة تلقائية. لإضافة مسافة نكتب str1 + '' '' + str2.'),
+(291, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+a = ''Hello''
+c = a + '' '' + ''There''
+print(c)', 'HelloThere', 'Hello There', 'Hello + There', 'Error', 'b', 'أُضيف نص المسافة صراحة بين الكلمتين فظهرت المسافة في الناتج.'),
+(292, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+str3 = ''123''
+str3 = str3 + 1
+print(str3)', '124', '1231', 'TypeError', 'ValueError', 'c', 'لا يمكن دمج نص مع عدد صحيح فالنتيجة TypeError. الحل الصحيح هو int(str3) + 1 الذي يعطي 124.'),
+(293, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+fruit = ''banana''
+index = 0
+while index < len(fruit):
+    letter = fruit[index]
+    print(index, letter)
+    index = index + 1', 'Six lines from 0 b to 5 a', 'Six lines from 1 b to 6 a', 'One line', 'IndexError', 'a', 'الحلقة تمر على الفهارس من 0 إلى 5 وتطبع الفهرس والحرف معاً. استخدام <= بدل < كان سيسبب IndexError.'),
+(294, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+fruit = ''banana''
+for letter in fruit:
+    print(letter)', 'banana on one line', 'Each letter on its own line', 'The number 6', 'Error', 'b', 'حلقة for تمر على أحرف النص واحداً واحداً، ومتغير التكرار يحمل الحرف نفسه وليس فهرسه.'),
+(295, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+word = ''banana''
+count = 0
+for letter in word:
+    if letter == ''a'':
+        count = count + 1
+print(count)', '2', '3', '6', '0', 'b', 'حرف a يتكرر ثلاث مرات في الكلمة. هذا نمط العد مع الفلترة داخل الحلقة.'),
+(296, 'النصوص (Strings)', 'أسئلة النصوص', 'How many times does the loop body execute?
+for letter in ''banana'':
+    print(letter)', '5', '6', '3', '1', 'b', 'عدد الدورات يساوي عدد أحرف النص وهو 6، لأن الحلقة تُنفَّذ مرة لكل عنصر في التسلسل.'),
+(297, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+fruit = ''banana''
+print(''n'' in fruit)', 'True', 'False', '2', '-1', 'a', 'العامل in يفحص وجود النص الفرعي ويُرجع قيمة منطقية. لمعرفة الموقع نستخدم find بدلاً منه.'),
+(298, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+fruit = ''banana''
+print(''nan'' in fruit)', 'True', 'False', '2', 'Error', 'a', 'العامل in يعمل مع النصوص الفرعية كاملة وليس الأحرف المفردة فقط، والتسلسل nan موجود فعلاً في banana.'),
+(299, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+fruit = ''banana''
+print(''m'' in fruit)', 'True', 'False', '-1', 'Error', 'b', 'الحرف m غير موجود في الكلمة فالنتيجة False. لاحظ أن in تُرجع False وليس -1 التي هي قيمة إرجاع find.'),
+(300, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+x = ''apple''
+y = ''banana''
+if x > y:
+    print(''x is greater'')
+else:
+    print(''y is greater'')', 'x is greater', 'y is greater', 'Error', 'Nothing', 'b', 'المقارنة أبجدية فحرف a أصغر من b، وبالتالي apple أصغر من banana ونُفِّذ فرع else.'),
+(301, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+x = ''apple''
+y = ''applea''
+print(x > y)', 'True', 'False', 'Error', 'None', 'b', 'النصان متطابقان في البداية لكن الثاني أطول، والنص الأقصر يُعتبر أصغر عند تطابق البداية.'),
+(302, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+print(''Apple'' < ''apple'')', 'True', 'False', 'Error', 'Nothing', 'a', 'الحرف الكبير A قيمته 65 والصغير a قيمته 97 في ASCII، فالنص الذي يبدأ بحرف كبير يُعتبر أصغر.'),
+(303, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+greet = ''Hello Bob''
+zap = greet.lower()
+print(zap)
+print(greet)', 'hello bob then hello bob', 'hello bob then Hello Bob', 'Hello Bob then hello bob', 'Error', 'b', 'الدالة lower تُرجع نسخة جديدة ولا تعدّل الأصل، فالمتغير greet بقي كما هو تماماً.'),
+(304, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+print(''Hi There''.lower())', 'hi there', 'Hi There', 'HI THERE', 'Error', 'a', 'يمكن استدعاء دوال المكتبة على النص المباشر دون تخزينه في متغير أولاً.'),
+(305, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+fruit = ''banana''
+pos = fruit.find(''na'')
+print(pos)', '0', '2', '4', '-1', 'b', 'أول ظهور للتسلسل na يبدأ عند الفهرس 2. رغم وجوده أيضاً عند الفهرس 4 إلا أن find تتوقف عند الأول.'),
+(306, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+fruit = ''banana''
+aa = fruit.find(''z'')
+print(aa)', '0', 'None', '-1', 'IndexError', 'c', 'القيمة -1 هي إشارة الفشل القياسية في find. لاحظ أنها لا ترمي خطأً بل تُرجع قيمة يمكن فحصها.'),
+(307, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+greet = ''Hello Bob''
+nstr = greet.replace(''o'', ''X'')
+print(nstr)', 'HellX Bob', 'HellX BXb', 'HXllX BXb', 'Hello Bob', 'b', 'كل حرف o صغير استُبدل، وهما اثنان في Hello وفي Bob. الحرف O الكبير لو وُجد لما استُبدل لأن الاستبدال حساس للحالة.'),
+(308, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+greet = ''Hello Bob''
+print(greet.replace(''Bob'', ''Jane''))', 'Hello Bob', 'Hello Jane', 'Jane Bob', 'Error', 'b', 'الاستبدال يعمل مع الكلمات الكاملة كما يعمل مع الأحرف المفردة.'),
+(309, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+greet = ''   Hello Bob  ''
+print(greet.strip())', '''   Hello Bob''', '''Hello Bob  ''', '''Hello Bob''', '''HelloBob''', 'c', 'الدالة strip تزيل الفراغات من الطرفين فقط ولا تمس المسافة الداخلية بين Hello و Bob.'),
+(310, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+greet = ''   Hello Bob  ''
+print(greet.lstrip())', '''Hello Bob  ''', '''   Hello Bob''', '''Hello Bob''', '''   Hello Bob  ''', 'a', 'الحرف l يشير لليسار فتُزال الفراغات الأمامية فقط وتبقى الخلفية كما هي.'),
+(311, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+line = ''Please have a nice day''
+print(line.startswith(''p''))', 'True', 'False', '0', 'Error', 'b', 'الدالة حساسة لحالة الأحرف والنص يبدأ بحرف P كبير وليس p صغير. لتجاهل الحالة نحوّل النص بـ lower أولاً.'),
+(312, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+txt = ''hello, my name is Peter, I am 26 years old''
+print(len(txt.split('','')))', '2', '3', '9', '10', 'b', 'التقسيم على الفاصلة ينتج ثلاث قطع لأن الفواصل اثنتان. عدد القطع يساوي عدد الفواصل زائد واحد.'),
+(313, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+txt = ''hello, my name is Peter, I am 26 years old''
+x = txt.split('','', 1)
+print(len(x))', '1', '2', '3', '10', 'b', 'المعامل maxsplit بقيمة 1 يعني تقسيمة واحدة فقط فينتج جزآن، والباقي يبقى ملتصقاً كقطعة واحدة.'),
+(314, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+txt = ''a b c d''
+print(txt.split())', '[''a b c d'']', '[''a'', ''b'', ''c'', ''d'']', '[''abcd'']', '4', 'b', 'بدون معامل يتم التقسيم على الفراغات فينتج أربعة عناصر، والنتيجة قائمة وليست نصاً.'),
+(315, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+data = ''From stephen.marquard@uct.ac.za Sat Jan  5 09:14:16 2008''
+atpos = data.find(''@'')
+print(atpos)', '5', '21', '31', '-1', 'b', 'الدالة تُرجع فهرس أول ظهور لعلامة @ وهو 21 عند العد من الصفر.'),
+(316, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+data = ''From stephen.marquard@uct.ac.za Sat Jan  5 09:14:16 2008''
+atpos = data.find(''@'')
+sppos = data.find('' '', atpos)
+host = data[atpos+1 : sppos]
+print(host)', 'stephen.marquard', 'uct.ac.za', '@uct.ac.za', 'uct.ac.za ', 'b', 'المعامل الثاني في find يحدد نقطة بدء البحث فيجد المسافة التالية للـ @، والشريحة تبدأ بعد @ وتقف قبل المسافة.'),
+(317, 'النصوص (Strings)', 'أسئلة النصوص', 'In data.find('' '', atpos), what does the second argument do?', 'Limits the number of results', 'Specifies the index where the search starts', 'Specifies the character to replace', 'Sets the maximum length', 'b', 'المعامل الثاني هو نقطة البداية للبحث، وهو ما يسمح لنا بإيجاد الظهور التالي بدلاً من الأول دائماً.'),
+(318, 'النصوص (Strings)', 'أسئلة النصوص', 'Why is atpos+1 used in the slice data[atpos+1 : sppos] ?', 'To include the @ character', 'To skip the @ character itself', 'Because indexing starts at 1', 'To avoid an IndexError', 'b', 'الفهرس atpos يشير لعلامة @ نفسها، فنبدأ من الحرف الذي يليها للحصول على اسم المضيف فقط دون الرمز.'),
+(319, 'النصوص (Strings)', 'أسئلة النصوص', 'Find the bug:
+apple = input(''Enter:'')
+x = apple - 10
+print(x)', 'input is misspelled', 'apple is a string so subtraction raises TypeError', '10 must be a string', 'There is no bug', 'b', 'الدالة input تُرجع نصاً دائماً والطرح بين نص وعدد غير مدعوم. الحل هو int(apple) - 10.'),
+(320, 'النصوص (Strings)', 'أسئلة النصوص', 'Find the bug:
+fruit = ''banana''
+index = 0
+while index <= len(fruit):
+    print(fruit[index])
+    index = index + 1', 'The loop is infinite', 'IndexError because <= lets index reach 6 which is out of range', 'Missing colon', 'There is no bug', 'b', 'أقصى فهرس صالح هو 5 وليس 6، فاستخدام <= يتجاوز النهاية بمقدار واحد. الصحيح استخدام < فقط.'),
+(321, 'النصوص (Strings)', 'أسئلة النصوص', 'Find the bug:
+greet = ''Hello Bob''
+greet.lower()
+print(greet)', 'It prints hello bob correctly', 'The result is discarded because strings are immutable, assign it back', 'lower() needs an argument', 'SyntaxError', 'b', 'الدالة تُرجع نسخة جديدة ولا تعدّل الأصل، ولأن الناتج لم يُخزَّن فقد ضاع. الصحيح greet = greet.lower().'),
+(322, 'النصوص (Strings)', 'أسئلة النصوص', 'A student checks if a word was found using:
+if fruit.find(''z''):
+    print(''Found'')
+What is wrong?', 'find() returns -1 when not found and -1 is truthy so it always prints Found', 'find() returns None', 'The syntax is invalid', 'There is no bug', 'a', 'القيمة -1 ليست صفراً فتُعتبر صحيحة منطقياً وتدخل الشرط دائماً. الفحص الصحيح هو if fruit.find(''z'') != -1 أو استخدام in.'),
+(323, 'النصوص (Strings)', 'أسئلة النصوص', 'Find the bug:
+name = input(''Name: '')
+if name.startswith(''a''):
+    print(''Starts with a'')
+The user typed Ahmad but nothing printed.', 'startswith is misspelled', 'startswith is case sensitive, convert with lower() first', 'input returns a number', 'There is no bug', 'b', 'الاسم يبدأ بحرف A كبير فلم يطابق a الصغير. الحل هو name.lower().startswith(''a'').'),
+(324, 'النصوص (Strings)', 'أسئلة النصوص', 'Find the bug:
+s = ''abc''
+print(s[3])', 'It prints c', 'IndexError because valid indexes are 0 to 2', 'It prints an empty string', 'SyntaxError', 'b', 'طول النص 3 فأقصى فهرس هو 2. لاحظ أن s[3:] كشريحة لا تعطي خطأً بل نصاً فارغاً.'),
+(325, 'النصوص (Strings)', 'أسئلة النصوص', 'A student wants to count spaces but wrote:
+count = 0
+for letter in ''a b c'':
+    if letter == '' '':
+        count + 1
+print(count)', 'It prints 2', 'It prints 0 because the result of count + 1 is never assigned', 'SyntaxError', 'It prints 5', 'b', 'التعبير count + 1 يحسب القيمة لكنه لا يخزّنها في أي مكان. الصحيح count = count + 1 أو count += 1.'),
+(326, 'النصوص (Strings)', 'أسئلة النصوص', 'Find the bug:
+txt = ''a,b,c''
+parts = txt.split('','')
+print(parts + ''d'')', 'It prints a,b,c,d', 'TypeError because you cannot concatenate a list and a string', 'It prints abcd', 'SyntaxError', 'b', 'الدالة split تُرجع قائمة وليس نصاً، ودمج قائمة مع نص غير مسموح. لإضافة عنصر نستخدم parts.append(''d'').'),
+(327, 'النصوص (Strings)', 'أسئلة النصوص', 'What if you use a negative index like fruit[-1] ?', 'IndexError', 'It returns the last character', 'It returns an empty string', 'It returns the first character', 'b', 'الفهارس السالبة تعدّ من نهاية النص، فـ -1 آخر حرف و -2 الذي قبله. هذه ميزة مفيدة لا تحتاج len.'),
+(328, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+print(''banana''[-1])', 'b', 'a', 'n', 'IndexError', 'b', 'الفهرس -1 يشير لآخر حرف وهو a في كلمة banana.'),
+(329, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+print(''abc''[3:])', 'IndexError', 'An empty string', 'c', 'abc', 'b', 'الـ slicing خارج الحدود يعطي نصاً فارغاً بهدوء دون خطأ، بعكس الفهرسة المباشرة abc[3] التي ترمي IndexError.'),
+(330, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+print(len(''''))', '0', '1', 'None', 'Error', 'a', 'النص الفارغ طوله صفر وهو نص صالح تماماً في Python.'),
+(331, 'النصوص (Strings)', 'أسئلة النصوص', 'Which is the correct way to check that a substring exists?', 'if s.find(''x''):', 'if ''x'' in s:', 'if s.count(''x'') == -1:', 'if s[''x'']:', 'b', 'العامل in هو الأوضح والأسلم لأنه يُرجع قيمة منطقية مباشرة. الخيار A خاطئ لأن -1 تُعتبر صحيحة منطقياً.'),
+(332, 'النصوص (Strings)', 'أسئلة النصوص', 'What is the output?
+s = ''Hello''
+print(s.upper(), s)', 'HELLO HELLO', 'HELLO Hello', 'Hello HELLO', 'Error', 'b', 'الدالة upper تُرجع نسخة جديدة كبيرة الأحرف بينما يبقى المتغير الأصلي بلا تغيير لأن النصوص immutable.')
 
 on conflict (id) do update set
     section=excluded.section, subsection=excluded.subsection, question=excluded.question,
